@@ -28,8 +28,13 @@ A critical ambiguity in the original HELIOS-3D proposal is the direct assertion 
 #### Macroscale (DISH)
 
 *   **Function:** Provides the bulk structural framework, thermal management pathways, and optical access ports.
-*   **Materials:** Photoresin (e.g., IP-Dip, PEGDA-based formulations).
+*   **Materials:** Photoresin (e.g., IP-Dip, PEGDA-based formulations, and low-viscosity acrylates down to 4.7 cP).
+*   **Performance:** ~19 µm stable printing resolution (11 µm optical) across a 1 cm axial depth in <0.6 seconds. `[DEMONSTRATED]`
+*   **Preprocessing Bottleneck:** Generating complex holographic patterns for mm-scale volumes can currently take ~24 hours on desktop CPUs. HELIOS-3D **proposes** the integration of **GPU-accelerated iterative optimization** or **Neural Network-based hologram generation** to reduce preprocessing to minutes or seconds. `[PROPOSED]`
+*   **In-Situ Capability:** The single-side illumination and rotating periscope design (Wang et al., 2026) enable printing directly onto **fixed substrates** (e.g., pre-fabricated CMOS or spintronic wafers) without sample rotation. This is the primary mechanism for integrating 3D features with the "Planar-First" branch. `[DEMONSTRATED]`
+*   **Scaling Strategy (Modular Assembly):** To overcome the cm-scale volume limits of DISH, we propose a **modular assembly workflow**. Millimeter-scale topological modules are printed rapidly and then tiled or assembled into larger 3D coprocessor arrays. `[PROPOSED]`
 *   **Output:** A 3D polymer scaffold with pre-defined cavities for magnetic active regions.
+*   **Reconfigurability (Y-zipper):** We **propose** integrating the 3D-printed "Y-zipper" mechanism (Li et al., 2026) to enable deployable or reconfigurable scaffolds. This allows for the fabrication of complex spintronic paths that can be transitioned from a flexible assembly state to a rigid operational state via a mechanical zipping interaction. `[PROPOSED]`
 
 #### Mesoscale (TPP)
 
@@ -52,8 +57,9 @@ A critical ambiguity in the original HELIOS-3D proposal is the direct assertion 
 ### 🔍 Proposed Readout Modalities
 HELIOS-3D investigates a "Bifurcated Readout Strategy" to minimize energy overhead at the spintronic-to-electronic interface. `[PROPOSED]`
 
-*   **Primary Modality (Microwave Spectroscopy):** Conceptualized to detect frequency-encoded "breathing modes" of hopfion radii. `[INFERRED]`
+*   **Primary Modality (Microwave Spectroscopy):** Conceptualized to detect frequency-encoded "breathing modes" of hopfion radii. Recent research has identified distinct **sub-GHz breathing modes**—where the outer shell radially oscillates while the topological core remains intact. By utilizing **Ferromagnetic Resonance (FMR)** or **Brillouin Light Scattering (BLS)**, the system can detect these frequencies, providing a fast, spectral fingerprint for reading hopfion states without the data-processing overhead of optical point clouds. `[INFERRED]`
 *   **Auxiliary Modality (hBN Fluorescence):** Explores the use of negatively charged boron vacancies ($V_B^-$) for alignment-free volumetric mapping. `[DEMONSTRATED]` Integration into a 3D spintronic stack is **proposed**. `[PROPOSED]`
+*   **Hopfion Magnonics:** This modality explores the use of magnons (spin waves) as signal carriers that couple to hopfion breathing modes, enabling purely electrical readout architectures. `[SPECULATIVE]`
 
 ### 🧩 The Semantic-to-Topological Compiler
 A critical challenge is bridging the semantic gap between high-level AI representations (like those from an LLM) and the low-level physics of 3D spin textures. The HELIOS-3D "Topological Compiler" handles this translation.

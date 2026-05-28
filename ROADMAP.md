@@ -26,6 +26,8 @@
 
 ### 2.1 Topological Compiler
 - [ ] Gemma 3 4B semantic-to-topological compiler in Python (KPI: Map 512-dim embedding to <10 hopfion coordinates)
+- [ ] Physics-Informed Neural Network (PINN) for magnetization synthesis (KPI: <1% Hopf Index error in simulation)
+- [ ] Inverse Design loop for DISH optical prescription (KPI: <0.21 nJ energy-per-write)
 - [ ] LLG simulation verification loop (KPI: <5% topological error rate)
 
 ### 2.2 Bifurcated Readout Driver
@@ -41,8 +43,8 @@
 - [ ] SOT domain wall transport in 5 $\mu m$ tracks (KPI: Velocity >100 m/s at $J = 10^{12}$ A/m²)
 
 ### 3.2 Integration Path
-- [ ] DISH scaffold fabrication (KPI: 100 $\mu m$ scale features with <5 $\mu m$ precision)
-- [ ] TPP refinement (KPI: Sub-200 nm track definition)
+- [x] DISH scaffold fabrication (KPI: 19 $\mu m$ resolution demonstrated in 0.6s, Nature 2026)
+- [ ] TPP refinement (KPI: Sub-100 nm features inside DISH scaffold)
 - [ ] Laser-assisted magnetic stack transfer (KPI: >80% yield on 1 cm² area)
 
 **Phase 3 Completion Target:** Q4 2027

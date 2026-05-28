@@ -15,6 +15,11 @@ This document tracks the critical uncertainties and technical challenges that mu
 *   **Context:** The hybrid pipeline combines polymers (TPP) with metallic magnetic thin films ($Fe_3GaTe_2$).
 *   **Blocker:** Differential thermal expansion between the polymer scaffold and the magnetic coating may lead to delamination or strain-induced changes in magnetic properties during operation or cycling.
 
+### Q1.3: Y-zipper Alignment Precision for Spintronics
+*   **Context:** The proposed use of the Y-zipper mechanism for reconfigurable scaffolds requires precise alignment between interlocking strips to maintain continuous magnetic paths.
+*   **Blocker:** Can the 3D-printed zipping process achieve the sub-micron alignment precision required for spintronic interconnects? Any lateral or vertical offset during "zipping" could introduce domain wall pinning sites or disrupt spin transport.
+*   **Status:** `[PROPOSED]`
+
 ---
 
 ## 🎲 2. Core Logic & Stochastic Processing
@@ -39,9 +44,9 @@ This document tracks the critical uncertainties and technical challenges that mu
 
 ### Q3.2: Hopfion Nucleation Energy Barriers
 *   **Context:** Unlike 2D skyrmions, which can be nucleated via local field gradients or current-driven techniques, 3D hopfions require the creation of a topological knot in the magnetization field.
-*   **Blocker:** What is the precise energy barrier for zero-field hopfion nucleation in $Fe_3GaTe_2$ or $Ir/Fe/Co/Pt$ stacks? Does the barrier scale with $k_B T$ at room temperature, or are external field assists required?
-*   **Proposed Path:** Investigate electric-current-assisted nucleation protocols as demonstrated in recent literature (e.g., "Current-induced hopfion formation in ferromagnetic nanowires," *Physical Review Letters*).
-*   **Status:** `[SPECULATIVE]`
+*   **Update:** Recent discovery of hopfions in **$Fe_3GaTe_2/RuO_2$** heterostructures has demonstrated room-temperature nucleation and zero-field stability. The energy barrier to annihilation is estimated at $> 50 k_B T$. `[DEMONSTRATED]`
+*   **Blocker:** While nucleation is demonstrated in optimized heterostructures, the precise energy barrier for **sub-100nm confined geometries** in 3D polymer scaffolds remains unverified.
+*   **Status:** `[DEMONSTRATED for bulk/films; SPECULATIVE for confined 3D]`
 
 ### Q3.3: Thermal Stability at Data Center Operating Temperatures
 *   **Context:** HELIOS-3D targets data center environments ($T \approx 70-85^\circ C$). At these temperatures, thermal fluctuations may destabilize topologically protected spin textures.

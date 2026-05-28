@@ -32,7 +32,7 @@ The current defensible path is **planar-first and electrically read**, using est
 Hopfions theoretically bypass the Skyrmion Hall Effect due to zero net topological charge in 2D projection. `[INFERRED]`
 
 **Long-Range Target**
-The project investigates whether waste-heat-assisted operation could enable fJ-scale efficiency approaching the Landauer limit. `[SPECULATIVE]`
+The project investigates whether waste-heat-assisted operation could enable **ultra-low energy computation** (fJ-scale) approaching theoretical efficiency limits. While the Landauer limit ($k_B T \ln 2$) remains the ultimate target, current research acknowledges that random fluctuations and the need for directional ratchets impose additional energetic costs. `[SPECULATIVE]`
 
 ## 🔬 Project Overview
 

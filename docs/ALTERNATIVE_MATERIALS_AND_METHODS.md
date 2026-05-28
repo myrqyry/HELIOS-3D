@@ -253,15 +253,17 @@ Use planar nanopatterning to define tracks, reservoirs, Hall crosses, and sensor
 
 * Best route to a credible first demonstrator.
 
-### 4.3 Direct Laser Writing Only for Passive Structures
+### 4.3 Direct Laser Writing and Volumetric Printing (DISH/TPP) for Passive Structures
 
 **Concept:**
 
-Retain TPP or related writing methods only for passive microfluidic, confinement, packaging, or photonic structures while keeping the magnetic layers planar.
+Retain TPP or related writing methods only for passive microfluidic, confinement, packaging, or photonic structures while keeping the magnetic layers planar. The demonstration of **in-situ DISH printing** (Wang et al., 2026) on fixed surfaces enables these 3D structures to be added directly to the planar spintronic substrate after magnetic thin-film processing.
 
 **Advantages:**
 
 * Preserves part of the current HELIOS fabrication identity without forcing magnetic deposition onto a poorly supported substrate.
+* **In-situ printing** avoids the risks of sample rotation or mechanical disturbance of sensitive magnetic layers.
+* High-speed (0.6s) and high-resolution (19 µm) packaging/scaffolding becomes a standard post-processing step.
 
 **Disadvantages:**
 
@@ -270,6 +272,36 @@ Retain TPP or related writing methods only for passive microfluidic, confinement
 **Assessment:**
 
 * Strong compromise path.
+
+### 4.4 Reconfigurable Scaffolds via Flexible-Rigid Transitions (Y-zipper)
+
+**Supporting study:**
+
+* Li et al., *Y-zipper: 3D Printing Flexible–Rigid Transition Mechanism for Rapid and Reversible Assembly* (CHI '26).
+
+**Concept:**
+
+Utilize 3D-printed interlocking zipper structures that can transition from flexible strips to rigid rods. This allows for the fabrication of complex 3D scaffolds that can be printed flat or in a flexible state, then "zipped" into a final rigid geometry for spintronic operation.
+
+**Advantages:**
+
+* Enables deployable or reconfigurable 3D spintronic architectures.
+* Simplifies the fabrication of complex spatial curves by decomposing them into flexible components.
+* Reversible assembly allows for modular testing and reconfiguration of functional blocks.
+
+**Disadvantages:**
+
+* Alignment precision of the zipping mechanism is likely in the tens-to-hundreds of microns range, far above the sub-micron requirements for spintronic interconnects.
+* Introduces mechanical complexity and potential failure points at the zipper interfaces.
+
+**Compatibility with HELIOS-3D:**
+
+* Best suited for the **macroscale scaffold (DISH/TPP)** where it provides structural support and modular assembly.
+* Could support the assembly of large-scale 3D spintronic networks from smaller, high-resolution TPP-printed blocks.
+
+**Assessment:**
+
+* Useful for structural reconfigurability and assembly at the macro-to-meso scale, but requires significant refinement to meet spintronic alignment tolerances.
 
 ## 5. Candidate Readout and Control Methods
 
@@ -346,19 +378,22 @@ Use high-mobility graphene spin valves and transverse magnetic focusing to route
 
 * Useful secondary branch for planar spintronic interfaces and control, not a replacement for the magnetic multilayer demonstrator path.
 
-### 5.5 Microwave Spectroscopy
+### 5.5 Microwave Spectroscopy and Hopfion Magnonics
 
 **Advantages:**
 
-* Strong physics basis for probing skyrmion resonance modes.
+* Strong physics basis for probing skyrmion and hopfion resonance modes.
+* **Breathing Mode Detection:** Recent identifies distinct **sub-GHz breathing modes** in 3D hopfions. By using Ferromagnetic Resonance (FMR) or Brillouin Light Scattering (BLS), these frequencies can be detected as a fast, frequency-encoded spectral fingerprint.
+* **Electrical Integration:** Offers a path for electrical readout that bypasses the energy-intensive processing of optical point clouds (NV-centers).
 
 **Disadvantages:**
 
-* RF shielding, conversion overhead, and signal-chain complexity may negate the very energy benefits the architecture seeks to claim.
+* RF shielding, conversion overhead, and signal-chain complexity may negate some energy benefits.
+* Distinguishing between individual hopfion states in a dense array remains a spatial-resolution challenge for global RF probes.
 
 **Assessment:**
 
-* Valid as a characterization tool. Weak as a first system architecture assumption.
+* Valid as a parallel, electrical readout modality. Stronger as a hybrid sensing path than the purely optical baseline for high-density 3D nodes.
 
 ## 6. Comparative Decision Matrix
 

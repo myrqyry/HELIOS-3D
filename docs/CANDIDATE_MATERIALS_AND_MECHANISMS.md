@@ -23,10 +23,10 @@ One candidate substrate path for HELIOS-3D is $Fe_3GaTe_2$, a metallic van der W
 
 | Material Property | $CrI_3$ | $Fe_3GeTe_2$ | $Fe_3GaTe_2$ (HELIOS Candidate) | Status |
 | :--- | :--- | :--- | :--- | :--- |
-| **Curie Temp ($T_c$)** | ~61 K | ~220 K | 420 K (High-Temp) | `[DEMONSTRATED]` |
-| **Anisotropy** | Out-of-Plane | Moderate PMA | Massive PMA ($6.7 \times 10^5 J/m^3$) | `[DEMONSTRATED]` |
-| **ALD Compatibility** | Poor | Moderate | Investigational | `[SPECULATIVE]` |
-| **Carrier Stability** | Weak | Néel Skyrmions | Néel/Bloch Skyrmions | `[INFERRED]` |
+| **Curie Temp ($T_c$)** | ~61 K | ~220 K | 350–380 K (Room-Temp) | `[DEMONSTRATED]` |
+| **Anisotropy ($K_u$)** | Out-of-Plane | Moderate PMA | Massive PMA ($\sim 6.6 \times 10^5 J/m^3$) | `[DEMONSTRATED]` |
+| **Interfacial DMI** | Low | Low | High (with $RuO_2$ capping) | `[DEMONSTRATED]` |
+| **Carrier Stability** | Weak | Néel Skyrmions | 3D Hopfions ($\Delta E > 50 k_B T$) | `[DEMONSTRATED]` |
 
 ### 💎 2.1 Dielectric Control Materials (SrTiO3)
 
@@ -66,6 +66,9 @@ A critical bottleneck in topological magnetic computing is the requirement for e
 ### 5.1 Mechanism
 
 When two van der Waals ferromagnetic layers (e.g., $CrI_3$, $Fe_3GaTe_2$) are stacked with a slight rotational twist ($\theta \approx 1.1^\circ$), their moiré pattern generates spatially alternating exchange interactions. This creates a **super-moiré lattice** that can help stabilize giant topological magnetic textures at reduced bias. `[DEMONSTRATED for 2D spin spirals]`
+
+*   **Environmental Constraints (CrI3):** While twisted double bilayer Chromium Triiodide ($CrI_3$) has demonstrated these magnetic textures, it is highly air-sensitive and currently requires cryogenic temperatures (~4 K) for stability.
+*   **Proof-of-Concept Framing:** HELIOS-3D frames the use of $CrI_3$ purely as a **laboratory proof-of-concept**. The project roadmap explicitly targets the transfer of these twist-engineering mechanisms to higher-ordering (Curie) temperature magnets (e.g., $Fe_3GaTe_2$) and the use of specialized **capping layers** (such as Tantalum or Tungsten) to protect sensitive architectures from oxidation and humidity. `[PROPOSED]`
 
 ### 5.2 Integration for HELIOS-3D
 

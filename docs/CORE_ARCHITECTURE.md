@@ -73,18 +73,16 @@ Single skyrmion reservoirs are inherently stochastic and highly sensitive to loc
 
 Traditional optical readout (NV centers, hBN fluorescence) is slow and incompatible with silicon bus architectures. HELIOS-3D proposes **frequency-domain readout** via hopfion breathing modes. `[PROPOSED]`
 
-*   **Breathing Mode Physics:** A magnetic hopfion exhibits a coherent oscillation of its core diameter and shell width—the "breathing mode." This mode has a characteristic sub-GHz frequency that depends on:
-    *   Hopfion radius $R$
-    *   Topological index $Q_H$
-    *   Exchange stiffness $A$
-    *   Damping parameter $\alpha$
+*   **Breathing Mode Physics:** A magnetic hopfion exhibits a coherent oscillation of its core diameter and shell width—the "breathing mode." This mode has a characteristic sub-GHz frequency (typically **0.54–0.56 GHz** for $H=1$ in $Fe_3GaTe_2$).
 *   **Frequency Encoding:** Different topological states (single hopfion, nested hopfions, hopfion lattices) produce distinct resonance frequencies. Reading the frequency domain is far simpler than imaging the 3D structure.
-*   **FMR Compatibility:** Ferromagnetic resonance (FMR) spectroscopy is a mature technology in spintronics. The hopfion breathing mode can be detected using standard microwave vector network analyzers with near-field probes.
-*   **Advantages:**
-    *   No optical access required
-    *   Directly compatible with RF/microwave ASIC infrastructure
-    *   Sub-nanosecond readout potential (limited by FMR linewidth)
-    *   Frequency multiplexing: multiple hopfions can be read simultaneously if they have different resonant frequencies
+*   **FMR Compatibility:** Ferromagnetic resonance (FMR) spectroscopy is a mature technology in spintronics. The hopfion breathing mode can be detected using standard microwave vector network analyzers or **STFMR** (Spin-Torque FMR) with near-field probes.
+
+### 🧩 2.5 The Topological Compiler
+A critical challenge is bridging the semantic gap between high-level AI representations (like those from an LLM) and the low-level physics of 3D spin textures. The HELIOS-3D "Topological Compiler" handles this translation using a **Physics-Informed Neural Network (PINN)** approach. `[PROPOSED]`
+
+*   **Geometric Tensors as an "Optical Modem":** A highly distilled model (e.g. 3B parameters) takes semantic vectors and compiles them into **3D geometric magnetization tensors**.
+*   **Inverse Design Loop:** The compiler utilizes **Automatic Differentiation** to optimize the DISH holographic prescriptions, ensuring the target topological charge ($Q_H$) is physically realizable via the **Inverse Faraday Effect**.
+*   **Verification:** For the development roadmap, see **[`research_specifications/module_5_topological_compiler_tdd.md`](../research_specifications/module_5_topological_compiler_tdd.md)**.
 
 ### ⚡ BRC Efficiency Projection
 

@@ -31,6 +31,12 @@ A spatial multiplexing strategy where thousands of independent reservoirs operat
 ### hBN (Hexagonal Boron Nitride)
 A 2D van der Waals material. In HELIOS-3D, monolayer hBN with negatively charged boron vacancies ($V_B^-$) is proposed as a quantum sensor for magnetic texture readout, replacing diamond NV centers. `[INFERRED]`
 
+### IFE (Inverse Faraday Effect)
+A non-linear magneto-optical effect where circularly polarized light induces a static magnetization. In HELIOS-3D, IFE is the primary mechanism for all-optical "writing" of topological textures. `[DEMONSTRATED]`
+
+### Inverse Design
+A design methodology that starts with a target performance (e.g., a specific hopfion configuration) and works backward to find the optimal parameters (e.g., DISH holographic prescription). `[PROPOSED]`
+
 ### Hopfion
 A 3D topological magnetic soliton—a knot in the magnetization field characterized by the Hopf invariant $Q_H$. Unlike skyrmions, hopfions project to zero net topological charge in 2D, theoretically avoiding the Skyrmion Hall Effect. `[INFERRED]`
 
@@ -49,6 +55,9 @@ A device with two ferromagnetic layers separated by an insulating barrier. Exhib
 
 ### PMA (Perpendicular Magnetic Anisotropy)
 Magnetic anisotropy with the easy axis perpendicular to the film plane. Essential for stabilizing skyrmions and hopfions at room temperature. `$Fe_3GaTe_2$` exhibits strong PMA.
+
+### PINN (Physics-Informed Neural Network)
+A class of deep learning models that encode physical laws (PDEs) into their loss functions. Used in HELIOS-3D for high-speed micromagnetic synthesis and inverse design. `[INFERRED]`
 
 ### SAF (Synthetic Antiferromagnet)
 A multilayer structure where two ferromagnetic layers are coupled antiferromagnetically via a non-magnetic spacer (e.g., Ru). Used to reduce stray fields and enhance stability.
@@ -69,11 +78,17 @@ A spin-current-induced torque that can drive domain wall or skyrmion motion. Mor
 ### THE (Topological Hall Effect)
 An additional Hall contribution from real-space Berry curvature induced by non-collinear spin textures (e.g., skyrmions). Used experimentally to detect skyrmion presence. `[DEMONSTRATED]`
 
+### Topological Compiler
+A software layer that translates high-level semantic embeddings (e.g., from an LLM) into target 3D magnetic textures and DISH optical prescriptions. `[PROPOSED]`
+
 ### TPP (Two-Photon Polymerization)
 A laser-based 3D microfabrication technique enabling sub-100 nm resolution. Proposed in HELIOS-3D for refining scaffold features after DISH.
 
 ### vdW (van der Waals)
 Weak interlayer forces in 2D materials. `$Fe_3GaTe_2$` is a layered ferromagnet with vdW interlayer bonding, enabling mechanical exfoliation and potential heterostack integration.
+
+### Y-zipper
+A 3D-printed flexible-rigid transition mechanism using interlocking three-sided strips. Proposed in HELIOS-3D as a method for deployable or reconfigurable spintronic scaffolds. `[DEMONSTRATED]`
 
 ### $V_B^-$ (Negatively Charged Boron Vacancy)
 A point defect in hBN that acts as a room-temperature quantum sensor with spin-dependent fluorescence. Alternative to diamond NV centers for magnetic sensing. `[DEMONSTRATED]`
