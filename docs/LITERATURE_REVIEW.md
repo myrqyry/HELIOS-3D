@@ -6,11 +6,11 @@ This document maps the HELIOS-3D research hypothesis to current empirical develo
 *   **IEA, *Electricity 2024/2026*: Analysis and Forecasts:** Confirms the accelerating energy demand of AI and data center infrastructure. `[DEMONSTRATED]`
 *   **Significance:** Provides the foundational motivation for investigating sub-Landauer, noise-exploiting computational paradigms.
 
-## 2. Empirical Support for $Fe_3GaTe_2$ Substrates
-Recent literature provides a basis for investigating $Fe_3GaTe_2$ as a room-temperature candidate for topological spintronics:
-*   **Room-Temperature Control:** Studies have reported magnetization switching in $Fe_3GaTe_2$ via orbital torque at ambient temperatures. `[DEMONSTRATED]`
-*   **Room-Temperature 3D Hopfions:** The discovery of magnetic hopfions in **$Fe_3GaTe_2/RuO_2$** heterostructures confirms room-temperature stability and zero-field existence. `[DEMONSTRATED]`
-*   **Energy Barrier:** Analysis indicates that the topological protection of the Hopf index ($Q_H=1$) provides an annihilation barrier exceeding **$50 k_B T$** at room temperature, meeting the stability requirements for non-volatile memory. `[DEMONSTRATED]`
+## 2. Empirical Support for Room-Temperature Hopfion Substrates
+Recent literature provides a basis for investigating specific heterostructures as room-temperature candidates for 3D topological spintronics:
+*   **EuS/Bi₂Se₃/EuS Trilayers:** Katmis et al., *Interface-Induced Stability of Nontrivial Topological Spin Textures* (Advanced Materials 2025), report the first observation of robust magnetic hopfions and skyrmions at **room temperature and zero magnetic field**. The stability is driven by proximity-enhanced magnetism at the Topological Insulator (TI) / Ferromagnetic Insulator (FMI) interface. `[DEMONSTRATED]`
+*   **Room-Temperature Control (FGT):** Studies have reported magnetization switching in $Fe_3GaTe_2$ via orbital torque at ambient temperatures, though 3D hopfions in this material remain unvalidated. `[DEMONSTRATED for 2D]`
+*   **Energy Barrier:** Analysis indicates that the topological protection of the Hopf index ($Q_H=1$) in optimized heterostructures provides an annihilation barrier exceeding **$50 k_B T$** at room temperature. `[DEMONSTRATED]`
 *   **Spin-Logic Potential:** Emergent reports of multi-state resistance behavior in $Fe_3GaTe_2$ devices suggest a potential path for non-volatile logic operations. `[INFERRED]`
 *   **Efficiency Gains:** Heterostructures involving van der Waals magnets have shown significant reductions in switching energy compared to traditional heavy-metal/ferromagnet stacks in standalone tests. `[DEMONSTRATED]`
 

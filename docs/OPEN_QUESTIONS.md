@@ -44,10 +44,10 @@ This document tracks the critical uncertainties and technical challenges that mu
 
 ### Q3.2: Hopfion Nucleation Energy Barriers
 *   **Context:** Unlike 2D skyrmions, which can be nucleated via local field gradients or current-driven techniques, 3D hopfions require the creation of a topological knot in the magnetization field.
-*   **Update:** Recent discovery of hopfions in **$Fe_3GaTe_2/RuO_2$** heterostructures has demonstrated room-temperature nucleation and zero-field stability. The energy barrier to annihilation is estimated at $> 50 k_B T$. `[DEMONSTRATED]`
+*   **Update:** Recent observation of hopfions in **$EuS/Bi_2Se_3/EuS$** trilayers (Katmis et al., 2025) has demonstrated room-temperature nucleation and zero-field stability using proximity-boosted magnetism. The energy barrier to annihilation is estimated at $> 50 k_B T$. `[DEMONSTRATED]`
 *   **Proposed Path (Twist Reservoir):** Adapted from liquid crystal precedents (Shi et al., PRL 2026), we investigate the use of a **"Magnetic Twist Reservoir"**. By utilizing the DISH periscope to rotate optical torque or apply localized laser heating, we can accumulate elastic twist in the vdW lattice until a quantized topological phase slip triggers the collapse into a robust 3D hopfion.
 *   **Blocker:** While nucleation is demonstrated in optimized heterostructures, the precise energy barrier for **sub-100nm confined geometries** in 3D polymer scaffolds remains unverified.
-*   **Status:** `[DEMONSTRATED for bulk/films; PROPOSED for twist-driven 3D synthesis]`
+*   **Status:** `[DEMONSTRATED for bulk/islands; PROPOSED for twist-driven 3D synthesis]`
 
 ### Q3.3: Thermal Stability at Data Center Operating Temperatures
 *   **Context:** HELIOS-3D targets data center environments ($T \approx 70-85^\circ C$). At these temperatures, thermal fluctuations may destabilize topologically protected spin textures.

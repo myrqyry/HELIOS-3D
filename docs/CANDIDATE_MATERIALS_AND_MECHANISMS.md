@@ -21,14 +21,18 @@ One candidate substrate path for HELIOS-3D is $Fe_3GaTe_2$, a metallic van der W
 
 ### 🧪 Material Property Comparison (Flat Substrate Context)
 
-| Material Property | $CrI_3$ | $Fe_3GeTe_2$ | $Fe_3GaTe_2$ (HELIOS Candidate) | Status |
+| Material Property | $CrI_3$ | $Fe_3GaTe_2$ | $EuS/Bi_2Se_3/EuS$ | Status |
 | :--- | :--- | :--- | :--- | :--- |
-| **Curie Temp ($T_c$)** | ~61 K | ~220 K | 350–380 K (Room-Temp) | `[DEMONSTRATED]` |
-| **Anisotropy ($K_u$)** | Out-of-Plane | Moderate PMA | Massive PMA ($\sim 6.6 \times 10^5 J/m^3$) | `[DEMONSTRATED]` |
-| **Interfacial DMI** | Low | Low | High (with $RuO_2$ capping) | `[DEMONSTRATED]` |
-| **Carrier Stability** | Weak | Néel Skyrmions | 3D Hopfions ($\Delta E > 50 k_B T$) | `[DEMONSTRATED]` |
+| **Curie Temp ($T_c$)** | ~61 K | 350–380 K | > 300 K (Proximity-boosted) | `[DEMONSTRATED]` |
+| **Hopfion Stability** | Cryogenic | Unvalidated | **Zero-Field, Room-Temp** | `[DEMONSTRATED]` |
+| **Interfacial DMI** | Low | High (with $RuO_2$) | High (TI/FMI Interface) | `[DEMONSTRATED]` |
+| **Carrier Type** | 2D Spirals | 2D Skyrmions | 3D Hopfion Rings | `[DEMONSTRATED]` |
 
-### 💎 2.1 Dielectric Control Materials (SrTiO3)
+### 💎 1.1 Baseline Choice: EuS/Bi₂Se₃/EuS Trilayers
+Following the findings of **Katmis et al. (2025)**, the HELIOS-3D Phase 1 demonstrator adopts the **$EuS/Bi_2Se_3/EuS$** trilayer as its primary material anchor. This stack offers:
+1.  **Verified 3D Hopfion Nucleation:** Direct LTEM imaging of 3D solitons at room temperature.
+2.  **Topological Insulator (TI) Interface:** The $Bi_2Se_3$ layer provides the strong spin-orbit coupling and DMI necessary for knotted spin textures.
+3.  **Proximity Magnetism:** Allows the use of high-quality magnetic insulators ($EuS$) while maintaining room-temperature ordering.
 
 To enable active tuning of moiré potentials, HELIOS-3D investigates the integration of high-dielectric substrates.
 

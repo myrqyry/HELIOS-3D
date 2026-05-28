@@ -39,7 +39,7 @@
 ## Phase 3 – Physical Fabrication
 
 ### 3.1 Planar-First Demonstrator
-- [ ] Ir/Fe/Co/Pt multilayer deposition on Si substrate (KPI: Room-temperature skyrmions confirmed via MFM)
+- [ ] EuS/Bi2Se3/EuS trilayer deposition on Si substrate (KPI: Room-temperature zero-field hopfions confirmed via LTEM)
 - [ ] SOT domain wall transport in 5 $\mu m$ tracks (KPI: Velocity >100 m/s at $J = 10^{12}$ A/m²)
 
 ### 3.2 Integration Path
