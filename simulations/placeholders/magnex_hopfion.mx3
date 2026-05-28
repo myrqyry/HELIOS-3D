@@ -1,0 +1,58 @@
+// STATUS: NOT RUNNABLE — PLACEHOLDER
+// MuMax3 Simulation: Hopfion Splitting via SOT Pulse (Task 1)
+// Target: Observe H=2 to 2x H=1 splitting in Fe3GaTe2/RuO2
+// Reference: simulations/BENCHMARKS.md Task 1
+
+// 1. Grid Definition
+nx := 128
+ny := 128
+nz := 32
+sizeX := 128e-9
+sizeY := 128e-9
+sizeZ := 32e-9
+SetGridsize(nx, ny, nz)
+SetCellsize(sizeX/nx, sizeY/ny, sizeZ/nz)
+
+// 2. Material Parameters (Fe3GaTe2 active layer)
+Msat  = 800e3      // A/m
+Aex   = 15e-12     // J/m
+Ku1   = 6.7e5      // J/m^3 (Perpendicular Anisotropy)
+AnisAxis = vector(0, 0, 1)
+Dind  = 3.0e-3     // J/m^2 (Interfacial DMI)
+alpha = 0.02       // Gilbert damping
+
+// 3. Initial State: H=2 Hopfion Texture
+// We use a mathematical ansatz for a toroidal hopfion configuration
+// (Simplified for MuMax3 initialization)
+// TODO: h_texture() is defined in hopfion_init.mx3 - add include once available
+// include "hopfion_init.mx3"
+m = h_texture(2, 1, 0) // Ansatz for H=2, R=1, core=up
+
+// 4. Equilibrium Search
+// Relax the system to ensure the hopfion is stable before the pulse
+Minimize()
+SaveAs(m, "hopfion_relaxed")
+
+// 5. SOT Pulse Parameters (Spin-Orbit Torque)
+// Current density J = 1e11 A/m^2 in the x-direction
+// Spin-Hall angle theta_sh = 0.1 (Pt or RuO2 interface)
+J := 1e11
+theta_sh := 0.1
+Pol = theta_sh
+FixedSpin = vector(0, 1, 0) // Spin polarization along y (for J along x)
+
+// 6. Simulation Run with Pulse Schedule
+// Wait 0.1ns, then apply 0.5ns pulse, then observe 1.0ns relaxation
+Run(0.1e-9)
+
+j.set(vector(J, 0, 0))
+Run(0.5e-9)
+
+j.set(vector(0, 0, 0))
+Run(1.0e-9)
+
+// 7. Output Control
+autosave(m, 0.1e-9)
+tableadd(TotalEnergy)
+tableadd(m.z)
+SaveAs(m, "hopfion_final")

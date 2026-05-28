@@ -1,0 +1,7 @@
+# SYNTHETIC PLACEHOLDER DATA FOR PLOTTING AND VALIDATION ONLY.
+# NOT EXPERIMENTAL DATA. NOT SIMULATION-BACKED PERFORMANCE EVIDENCE.
+# Synthetic placeholder data for ERC core temperature tolerance (±0.3 K)
+time,temperature_variance,accuracy
+0.0,-0.3,0.98
+1.0,0.0,0.98
+2.0,0.3,0.97

@@ -1,0 +1,15 @@
+// mumax3_saf_gradient.mx3
+// See BENCHMARKS.md Task 2 for success criteria.
+// Target: SAF stack gradient modeling.
+// KPI: Validate DMI strength D > 1.5 mJ/m²
+
+SetGridsize(128, 128, 2)
+SetCellsize(1e-9, 1e-9, 1e-9)
+
+Msat = 800e3
+Aex = 15e-12
+Dind = 1.6e-3 // D > 1.5 mJ/m²
+
+Minimize()
+Run(1e-9)
+SaveAs(m, "saf_output")

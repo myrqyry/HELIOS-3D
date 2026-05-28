@@ -1,0 +1,55 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+        exclude: \.csv$
+      - id: end-of-file-fixer
+        exclude: \.csv$
+      - id: check-yaml
+      - id: check-added-large-files
+        args: ["--maxkb=1000"]
+      - id: check-merge-conflict
+      - id: check-toml
+
+  - repo: local
+    hooks:
+      - id: check-claims
+        name: Check claim discipline
+        entry: uv run python scripts/check_claims.py
+        language: system
+        pass_filenames: false
+        always_run: true
+        files: \.(md|py)$
+
+      - id: check-links
+        name: Check internal links
+        entry: uv run python scripts/check_links.py
+        language: system
+        pass_filenames: false
+        always_run: true
+        files: \.md$
+
+      - id: check-erc
+        name: Check ERC data schema
+        entry: uv run python analysis/validate_erc_data.py
+        language: system
+        pass_filenames: false
+        always_run: true
+        files: data/.*\.csv$
+
+      - id: check-stubs
+        name: Check simulation placeholders
+        entry: make check-stubs
+        language: system
+        pass_filenames: false
+        always_run: true
+        files: simulations/.*\.(mx3|mif)$
+
+      - id: pytest
+        name: Run pytest
+        entry: uv run pytest
+        language: system
+        pass_filenames: false
+        always_run: true
+        files: \.(py|mx3|mif|csv)$
