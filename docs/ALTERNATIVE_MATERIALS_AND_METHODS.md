@@ -321,7 +321,32 @@ Retain TPP or related writing methods only for passive microfluidic, confinement
 
 * Strong control-layer candidates for both MCA and later BRC experiments.
 
-### 5.4 Microwave Spectroscopy
+### 5.4 Graphene Electron-Optic Spin Interfaces
+
+**Supporting study:**
+
+* Burrow et al., *Ballistic Spin Valve in Graphene Realized via Electron Optics* (2026), DOI: `10.1103/nz6m-kb4l`
+
+**Concept:**
+
+Use high-mobility graphene spin valves and transverse magnetic focusing to route, amplify, or invert spin signals through gate-tunable electron optics.
+
+**Advantages:**
+
+* Demonstrates spin-coherent ballistic transport in a planar device at low temperature, with quasiballistic spin-dependent focusing still observable at room temperature.
+* Provides electrostatic control over spin-signal amplitude and polarity without requiring spin-orbit coupling in the transport channel.
+* Suggests a low-voltage planar interface branch for spin routing or CMOS-adjacent control layers.
+
+**Disadvantages:**
+
+* It is not a magnetic-texture carrier path and does not validate skyrmion, hopfion, or Brownian reservoir operation.
+* The demonstrated device depends on high-mobility graphene, ferromagnetic edge contacts, and transverse magnetic focusing geometry.
+
+**Assessment:**
+
+* Useful secondary branch for planar spintronic interfaces and control, not a replacement for the magnetic multilayer demonstrator path.
+
+### 5.5 Microwave Spectroscopy
 
 **Advantages:**
 

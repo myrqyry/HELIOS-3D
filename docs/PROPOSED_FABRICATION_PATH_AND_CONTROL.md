@@ -104,3 +104,19 @@ The three-pillar pipeline connects elegantly:
 3.  **Read:** Microwave spectroscopy detects breathing mode frequency
 
 This creates a conceptual closed-loop architecture where the same DISH hardware could be used for both scaffold fabrication and magnetic writing, but only after the write-step physics is independently validated.
+
+### 3.5 Historical Analogy: Lippmann Photography
+
+Lippmann color photography offers a useful but limited analogy for the HELIOS-3D
+write-path. In that process, optical standing waves record wavelength
+information as depth-dependent silver structures in a photographic emulsion.
+The result shows that interference can encode rich optical information directly
+into material microstructure.
+
+The analogy does not validate magnetic imprinting, IFE coupling, hopfion
+nucleation, or HELIOS-3D device operation. Its value is cautionary: Lippmann
+plates were physically elegant, but their practical use was constrained by long
+exposure times, narrow viewing geometry, difficult reproduction, and demanding
+readout conditions. HELIOS-3D must avoid the same failure pattern by specifying
+the readout, rewrite, stability, and integration path as tightly as the optical
+write mechanism itself.

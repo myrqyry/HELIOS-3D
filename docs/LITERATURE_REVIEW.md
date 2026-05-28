@@ -29,3 +29,7 @@ Recent literature provides a basis for investigating $Fe_3GaTe_2$ as a room-temp
 *   **Compensated Ferrimagnet Readout:** *Spin Current Generation Controlled by the Néel State in a Compensated Ferrimagnet* (arXiv:2507.05618, 2025/2026) is a strong match for HELIOS-3D because it offers Néel-state-controlled spin pumping as a natural readout mechanism for magnetization-free building blocks. `[INFERRED]`
 *   **Altermagnetic Dynamics:** *Current-driven nonlinear skyrmion dynamics in altermagnets* (arXiv:2601.13499, 2026) is relevant because it shows current-driven helicity motion and THz-scale nonlinear mode mixing, which could support higher-bandwidth transport or sensing layers. `[INFERRED]`
 *   **Significance:** Together, these papers suggest that the strongest late-stage branch is not freeform 3D magnetic coating but a planar or layered compensated-ferrimagnet/altermagnet stack with electrical or spin-pumping readout. `[INFERRED]`
+
+## 7. Planar Spintronic Interface and Control Candidates
+
+*   **Ballistic Graphene Spin Valve:** Burrow et al., *Ballistic Spin Valve in Graphene Realized via Electron Optics* (2026), demonstrates gate-tunable spin-signal modulation and polarity inversion in a high-mobility graphene spin valve using transverse magnetic focusing. The result supports electron-optic spin control as a possible planar interface, routing, or readout-adjacent branch for HELIOS-3D, but it does not validate skyrmion, hopfion, or thermodynamic-computing claims. `[INFERRED]`

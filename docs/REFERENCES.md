@@ -17,6 +17,9 @@ This document consolidates the peer-reviewed literature, preprints, and contextu
 - **Spin Current Generation Controlled by the Neel State in a Compensated Ferrimagnet.** arXiv:2507.05618 (2025/2026). [Demonstrates Neel-state-controlled spin pumping as a readout mechanism.] `[INFERRED]`
 - **Current-driven nonlinear skyrmion dynamics in altermagnets.** arXiv:2601.13499 (2026). [Demonstrates current-driven helicity motion and THz-scale nonlinear mode mixing.] `[INFERRED]`
 
+### Two-Dimensional Spintronic Interfaces
+- **Ballistic Spin Valve in Graphene Realized via Electron Optics.** Burrow et al., *Physical Review X* 16, 021029 (2026). DOI: `10.1103/nz6m-kb4l`. [Demonstrates gate-tunable spin-dependent electron optics in a graphene spin valve; relevant as a planar spintronic interface/control branch.] `[DEMONSTRATED]`
+
 ### Twistronics / Super-Moire
 - **Super-moire spin textures from twisted van der Waals ferromagnetic layers.** [Demonstrates 1.1-degree twist yielding Neel-type skyrmions in CrI3.] `[DEMONSTRATED]`
 

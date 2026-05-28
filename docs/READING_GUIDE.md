@@ -39,6 +39,29 @@ Every claim in this repository is tagged with one of four labels:
 
 See [`CLAIMS_MATRIX.md`](./CLAIMS_MATRIX.md) for promotion/demotion criteria.
 
+## Making Cross-Domain Connections
+
+HELIOS-3D intentionally draws from spintronics, optical fabrication,
+thermodynamic computing, topology, and neuromorphic architecture. When you find
+an adjacent technology or historical analogy, use these prompts to decide
+whether it strengthens the project, weakens it, or only provides useful context:
+
+- **Separate mechanism from system.** Ask whether the example proves a physical
+  effect, or whether it also solves write speed, readout, rewrite, stability,
+  and integration constraints.
+- **Map the information carrier.** Identify what stores information in the
+  analogy: charge, spin, light, phase, geometry, heat, or material structure.
+- **Check the readout path.** A rich write mechanism is not enough if the stored
+  state can only be recovered under narrow viewing, sensing, or alignment
+  conditions.
+- **Look for scale mismatch.** Compare the feature size, operating temperature,
+  exposure time, fabrication tolerance, and material stack against the HELIOS-3D
+  stage you are evaluating.
+- **Tag the connection conservatively.** Treat analogies as context unless they
+  directly validate a HELIOS-3D claim under comparable materials and conditions.
+- **Promote only with tests.** Move a connection from inspiration to evidence
+  only when it suggests a measurable experiment, simulation, or failure mode.
+
 ## What to Read First
 
 The repository is structured so that **near-term paths come before long-range speculation**. If you only read three documents, make them:
