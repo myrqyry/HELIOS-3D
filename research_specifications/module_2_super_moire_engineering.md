@@ -24,7 +24,17 @@ A critical research output of this module is mapping the "elliptical stability" 
 
 The profound second-order insight derived from this module is that the HELIOS-3D architecture inherently achieves Zero-Field Stability. Historically, nearly all functional skyrmion and hopfion lattices required an external biasing magnetic field ($H_{ext}$) to prevent the topological textures from expanding into uniform single-domain states, or unwinding entirely at the sample boundaries.
 
-By engineering the HELIOS-3D substrate utilizing 1.1° twisted double-bilayer $CrI_3$, the intrinsic periodic super-moiré potential strictly restricts the hopfion dimensions through localized DMI variation rather than global field application. The lattice constant $a$ of the hopfion crystal (derived from Module 1) can be explicitly tailored during fabrication to perfectly match the 300 nm periodicity of the super-moiré substrate. This synergistic alignment allows HELIOS-3D to operate completely free of external electromagnets, which in turn vastly reduces continuous power consumption, eliminates magnetic cross-talk between adjacent processing cores, and facilitates ultra-dense microchip integration on a scale previously deemed impossible for 3D spintronics.
+By engineering the HELIOS-3D substrate utilizing 1.1° twisted double-bilayer $CrI_3$, the intrinsic periodic super-moiré potential strictly restricts the hopfion dimensions through localized DMI variation rather than global field application. The lattice constant $a$ of the hopfion crystal (derived from Module 1) can be explicitly tailored during fabrication to perfectly match the 300 nm periodicity of the super-moiré substrate. 
+
+### Active Tuning via Dielectric Screening (SrTiO3 Integration)
+
+While the 1.1° twist sets the geometric template, the **depth** of the trapping potential can be actively modulated through dielectric screening. By integrating a thin (1–3 nm) spacer and a **Strontium Titanate (SrTiO3)** substrate, the HELIOS-3D architecture gains an "external knob" for in-situ control.
+
+As demonstrated in recent moiré superconductivity studies (Gao et al., 2026), the dielectric constant of STO can be tuned via temperature. Increasing the dielectric constant screens the underlying electronic interactions, effectively "softening" the super-moiré potential wells. This enables:
+1.  **Training Phase:** High $\epsilon$ (colder STO) reduces trapping barriers, allowing hopfions to move more freely under thermal noise for stochastic reservoir exploration.
+2.  **Inference/Storage Phase:** Lower $\epsilon$ (warmer STO) restores deep potentials, anchoring the topological states for deterministic readout or non-volatile persistence.
+
+This synergistic alignment allows HELIOS-3D to operate completely free of external electromagnets, which in turn vastly reduces continuous power consumption, eliminates magnetic cross-talk between adjacent processing cores, and facilitates ultra-dense microchip integration on a scale previously deemed impossible for 3D spintronics.
 
 | Twist Angle | Atomic Moiré Cell Size | Magnetic Texture Size | Topological Observation | Substrate Suitability for HELIOS-3D Architecture |
 | :--- | :--- | :--- | :--- | :--- |

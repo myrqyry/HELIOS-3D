@@ -22,6 +22,7 @@ This document consolidates the peer-reviewed literature, preprints, and contextu
 
 ### Twistronics / Super-Moire
 - **Super-moire spin textures from twisted van der Waals ferromagnetic layers.** [Demonstrates 1.1-degree twist yielding Neel-type skyrmions in CrI3.] `[DEMONSTRATED]`
+- **Double-edged role of interactions in superconducting twisted bilayer graphene.** Gao et al., *Nature Physics* (2026). DOI: `10.1038/s41567-026-03243-1`. [Demonstrates in-situ dielectric tuning of moiré states via SrTiO3 screening; fundamental precedent for active moiré potential control.] `[DEMONSTRATED]`
 
 ## Thermodynamic Computing
 

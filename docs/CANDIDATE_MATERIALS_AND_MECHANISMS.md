@@ -28,6 +28,13 @@ One candidate substrate path for HELIOS-3D is $Fe_3GaTe_2$, a metallic van der W
 | **ALD Compatibility** | Poor | Moderate | Investigational | `[SPECULATIVE]` |
 | **Carrier Stability** | Weak | Néel Skyrmions | Néel/Bloch Skyrmions | `[INFERRED]` |
 
+### 💎 2.1 Dielectric Control Materials (SrTiO3)
+
+To enable active tuning of moiré potentials, HELIOS-3D investigates the integration of high-dielectric substrates.
+
+*   **Strontium Titanate (SrTiO3 / STO):** STO exhibits a massive, temperature-dependent dielectric constant ($\epsilon \approx 300$ at room temperature, increasing to $>20,000$ at cryogenic temperatures).
+*   **Mechanism:** Proximity to an STO layer (within 1–3 nm) provides in-situ screening of electronic and magnetic interactions. This allows for the dynamic modulation of the "trapping potential" depth in super-moiré lattices, enabling a switchable interface between high-mobility diffusion (for reservoir training) and pinned stability (for state storage). `[INFERRED from Gao et al., 2026]`
+
 **Note:** While properties are well-documented on flat epitaxial substrates, maintaining these characteristics on complex 3D polymer scaffolds via conformal coating remains a major research hurdle. See **[`OPEN_QUESTIONS.md`](./OPEN_QUESTIONS.md)**.
 
 ---
