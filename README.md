@@ -120,7 +120,7 @@ The repo should be read with a strict staging rule: `ALTERNATIVE_MATERIALS_AND_M
 
 ## ⚠️ The Thermodynamic Crisis and the Spintronic Mandate
 
-The global trajectory of computational energy consumption poses an existential challenge to AI scaling. According to the **International Energy Agency (IEA)**, combined electricity demand from data centers, AI, and crypto is projected to exceed **1,000 TWh by 2026**—equivalent to the annual consumption of Japan. `[DEMONSTRATED]`
+The global trajectory of computational energy consumption poses an existential challenge to AI scaling. According to the **International Energy Agency (IEA)**, combined electricity demand from data centers, AI, and crypto is projected to reach **~600 TWh in 2026**, with high-growth scenarios surpassing **1,000 TWh by 2030**—equivalent to the annual consumption of Japan. `[DEMONSTRATED]`
 
 Beyond electricity, the "thirst" of AI infrastructure is a secondary crisis. Research indicates that global AI demand will account for **4.2 to 6.6 billion cubic meters** of water withdrawal by 2027 (roughly half of the UK's annual withdrawal). `[DEMONSTRATED]`
 

@@ -30,7 +30,7 @@ Recent literature provides a basis for investigating specific heterostructures a
 *   **Atomic Layer Deposition (ALD):** Standard industry results for conformal $Al_2O_3$ and heavy-metal coating suggest the feasibility of the proposed HELIOS-3D magnetic matrix deposition, though van der Waals ferromagnet integration remains speculative. `[INFERRED]`
 
 ## 5. Sustainability & Environmental Impact
-*   **Energy Crisis (IEA 2024/2026):** The *IEA Electricity 2024* and *Key Questions on Energy and AI (2025)* confirm that data center electricity demand will exceed **1,000 TWh by 2026** (incl. crypto) and reach **~945 TWh by 2030** for data centers alone. `[DEMONSTRATED]`
+*   **Energy Crisis (IEA 2024/2026):** The *IEA Electricity 2026* (Feb 2026) and *Key Questions on Energy and AI (April 2026)* confirm that data center electricity demand will reach **~600 TWh in 2026** and is on a trajectory to reach **1,000+ TWh by 2030** (high-growth scenario). `[DEMONSTRATED]`
 *   **Water-Cooling Nexus:** *Making AI Less "Thirsty"* (Ren et al., 2025) projects global AI water withdrawal to reach **4.2–6.6 billion m³ by 2027**. A typical hyperscale data center consumes ~2.5 billion liters annually. `[DEMONSTRATED]`
 *   **Embodied Carbon (2025 LCAs):** Lifecycle assessments by Google and NVIDIA (2025) show that embodied carbon accounts for **~50% of the total footprint** for AI hardware in decarbonized grids. CCI (Compute Carbon Intensity) is established as the key metric for cross-generational comparison. `[DEMONSTRATED]`
 *   **Green Spintronics:** The *Green Spintronics* framework (Nature Electronics, 2020) establishes spintronics as a primary path for energy-proportional computing and zero-leakage logic. `[DEMONSTRATED]`
