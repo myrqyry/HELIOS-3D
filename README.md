@@ -42,6 +42,36 @@ The strongest late-stage candidate family currently appears to be compensated fe
 
 ---
 
+## 💻 Implementation Status (Phase 2)
+
+The project has transitioned from a purely documentation-based hypothesis into **Phase 2: Firmware & Compilers**. 
+
+*   **Topological Compiler:** A Python-based mapping layer (in `compiler/`) that translates semantic embeddings into 3D magnetization tensors.
+*   **Verified Physics:** Initial unit tests validate coordinate mapping fidelity and integer Hopf Index synthesis ($Q_H=1$) using a mock Inverse Faraday Effect transfer function.
+*   **PINN Readiness:** The environment is configured for Physics-Informed Neural Network (PINN) training to automate magnetization synthesis.
+
+---
+
+## 🧪 Getting Started
+
+To run the current topological compiler tests and verify the physics mapping:
+
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/myrqyry/HELIOS-3D.git
+    cd HELIOS-3D
+    ```
+2.  **Install dependencies:**
+    ```bash
+    uv sync
+    ```
+3.  **Run tests:**
+    ```bash
+    uv run pytest tests/test_topological_compiler.py
+    ```
+
+---
+
 ## 📋 Claims & Evidence Protocol
 
 To maintain scientific discipline and distinguish between established physics and architectural aspirations, HELIOS-3D uses the following tagging system:

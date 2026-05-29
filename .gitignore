@@ -168,3 +168,12 @@ analysis/__pycache__/
 scripts/__pycache__/
 tests/__pycache__/
 docs/superpowers/
+
+# Proactive Agent Framework
+SOUL.md
+USER.md
+SESSION-STATE.md
+HEARTBEAT.md
+TOOLS.md
+ONBOARDING.md
+memory/
