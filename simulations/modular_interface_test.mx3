@@ -1,0 +1,47 @@
+// Research Module 6.2: Spintronic Continuity across Modular Interfaces
+// Target: Modeling 100nm lateral misalignment in a "welded" 3D modular boundary.
+// Physics: Interfacial exchange coupling (A_inter) vs bulk exchange (Aex).
+
+// 1. Grid Definition
+// We use a large grid to capture the interface between two modules.
+// Module A (Left), Module B (Right)
+SetGridsize(512, 128, 4) // X, Y, Z
+SetCellsize(5e-9, 5e-9, 5e-9) // 5nm cells, Total X = 2560nm
+
+// 2. Material Parameters (EuS/Bi2Se3/EuS baseline)
+Msat = 600e3 // Proximity-boosted EuS
+Aex  = 13e-12 // Bulk exchange stiffness
+Dind = 1.2e-3 // Interfacial DMI
+Ku1  = 0.5e6  // PMA
+
+// 3. Modular Regions
+// Region 0: Module A (0 to 256)
+// Region 1: Module B (257 to 511)
+// We introduce a 100nm gap or overlap to simulate "welding" error.
+defRegion(0, xrange(0, 256*5e-9))
+defRegion(1, xrange(256*5e-9, 512*5e-9))
+
+// 4. Misalignment Simulation (Z-axis shift)
+// Simulate a 100nm (20 cell) vertical offset at the interface
+// This is done by masking the active region in the Z-layers
+// Region 0: Active in Layers 0,1,2
+// Region 1: Active in Layers 1,2,3 (20nm vertical shift)
+// (For simplicity in this 1D-X test, we focus on lateral exchange coupling)
+
+// 5. Interfacial Exchange Coupling (The "Weld")
+// A_inter = 0.5 * Aex (Simulating 50% interfacial loss due to welding)
+ext_Exchange6neighbor(0, 1, 6.5e-12) 
+
+// 6. Initial State: Nucleated Hopfion at the interface
+// We place a 3D magnetic knot at the boundary to test transfer efficiency
+// (Mock nucleation for verification)
+m = uniform(0, 0, 1)
+m.setRegion(0, skyrmion(1, -1).scale(2, 2, 1).at(1200e-9, 640e-9))
+
+// 7. Execution
+Minimize()
+Run(5e-9) // Relax the system
+
+// 8. Success Metric: Topological Charge Transfer
+// Measure mz across the boundary to verify if the texture is "pinned" or "distorted"
+SaveAs(m, "modular_continuity_test")

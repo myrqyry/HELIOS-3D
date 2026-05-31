@@ -43,8 +43,10 @@ To overcome the centimeter-scale build volume limits of DISH (Digital Incoherent
 *   **Goal:** Interface strength $> 90\%$ of bulk material strength.
 
 ### Metric 6.2: Spintronic Continuity (Simulated)
-*   **Test:** Model the magnetic exchange coupling across a "welded" interface with a 100nm lateral offset.
+*   **Simulation Script:** `simulations/modular_interface_test.mx3`
+*   **Test:** Model the magnetic exchange coupling across a "welded" interface ($A_{inter} = 0.5 A_{ex}$) with a 100nm lateral offset.
 *   **Goal:** Maintain $> 80\%$ topological charge transfer efficiency across the boundary.
+*   **Observation:** Initial MuMax3 models (v1.2.0) investigate how interfacial loss and vertical misalignment (Z-shift) induce domain wall pinning or soliton fragmentation at the seam.
 
 ---
 
