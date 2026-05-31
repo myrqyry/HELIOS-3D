@@ -26,8 +26,8 @@
 
 ### 2.1 Topological Compiler
 - [ ] Gemma 3 4B semantic-to-topological compiler in Python (KPI: Map 512-dim embedding to <10 hopfion coordinates)
-- [ ] Physics-Informed Neural Network (PINN) for magnetization synthesis (KPI: <1% Hopf Index error in simulation)
-- [ ] Inverse Design loop for DISH optical prescription (KPI: <0.21 nJ energy-per-write)
+- [ ] PDEBench-based Fourier Neural Operator (FNO) for 3D magnetization synthesis (KPI: <1% Relative $L_2$ error)
+- [ ] Gradient-based Inverse Design loop for DISH optical prescription (KPI: <0.21 nJ energy-per-write)
 - [ ] LLG simulation verification loop (KPI: <5% topological error rate)
 
 ### 2.2 Bifurcated Readout Driver

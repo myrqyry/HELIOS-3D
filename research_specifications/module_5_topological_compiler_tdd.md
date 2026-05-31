@@ -12,9 +12,10 @@ To develop a high-fidelity **Topological Compiler** that translates semantic vec
 *   **Representation:** High-dimensional latent space representing semantic weight matrices.
 
 ### 2. Compilation Layer: Geometric Mapping
-*   **Mechanism:** A **Physics-Informed Neural Network (PINN)** trained on micromagnetic simulations (MuMax3).
-*   **Task:** Map the latent vector to a set of 3D coordinates, radii, and topological charges $(x_i, y_i, z_i, r_i, Q_{H,i})$ for an ensemble of hopfions.
-*   **Optimization:** Gradient-based inverse design using **Automatic Differentiation** to minimize the difference between target and simulated magnetization.
+*   **Mechanism:** A **Fourier Neural Operator (FNO)** surrogate model, trained using the **PDEBench** (2025/2026) framework.
+*   **Task:** Map high-dimensional latent vectors to normalized 3D magnetization vector fields ($\mathbf{M}$) by approximating the demagnetizing field ($H_{demag}$) and topological charge density.
+*   **Inverse Design:** Utilizes the **Gradient-Based Inverse Method** (from PDEBench's `train_models_inverse.py`) to backpropagate through the frozen FNO surrogate, finding the initial holographic prescriptions that minimize the topological error.
+*   **Optimization:** Leverages **Automatic Differentiation** and standardized SciML metrics (Relative $L_2$ Error, Max Error) to ensure physical validity.
 
 ### 3. Output Layer: Optical Prescription
 *   **Format:** A holographic phase mask $\Phi(u, v)$ for the DISH periscope.

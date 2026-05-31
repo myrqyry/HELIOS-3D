@@ -78,10 +78,11 @@ Traditional optical readout (NV centers, hBN fluorescence) is slow and incompati
 *   **FMR Compatibility:** Ferromagnetic resonance (FMR) spectroscopy is a mature technology in spintronics. The hopfion breathing mode can be detected using standard microwave vector network analyzers or **STFMR** (Spin-Torque FMR) with near-field probes.
 
 ### 🧩 2.5 The Topological Compiler
-A critical challenge is bridging the semantic gap between high-level AI representations (like those from an LLM) and the low-level physics of 3D spin textures. The HELIOS-3D "Topological Compiler" handles this translation using a **Physics-Informed Neural Network (PINN)** approach. `[PROPOSED]`
+A critical challenge is bridging the semantic gap between high-level AI representations (like those from an LLM) and the low-level physics of 3D spin textures. The HELIOS-3D "Topological Compiler" handles this translation using a **Fourier Neural Operator (FNO)** approach based on the **PDEBench** framework. `[PROPOSED]`
 
 *   **Geometric Tensors as an "Optical Modem":** A highly distilled model (e.g. 3B parameters) takes semantic vectors and compiles them into **3D geometric magnetization tensors**.
-*   **Inverse Design Loop:** The compiler utilizes **Automatic Differentiation** to optimize the DISH holographic prescriptions, ensuring the target topological charge ($Q_H$) is physically realizable via the **Inverse Faraday Effect**.
+*   **SciML Foundation (PDEBench):** We utilize the standardized datasets and differentiable surrogate workflows of **PDEBench** (2025/2026) to train our forward solvers. 
+*   **Inverse Design Loop:** The compiler utilizes the **Gradient-Based Inverse Method** to optimize the DISH holographic prescriptions, ensuring the target topological charge ($Q_H$) is physically realizable via the **Inverse Faraday Effect**.
 *   **Verification:** For the development roadmap, see **[`research_specifications/module_5_topological_compiler_tdd.md`](../research_specifications/module_5_topological_compiler_tdd.md)**.
 
 ### ⚡ BRC Efficiency Projection
