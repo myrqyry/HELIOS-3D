@@ -12,10 +12,12 @@ To develop a high-fidelity **Topological Compiler** that translates semantic vec
 *   **Representation:** High-dimensional latent space representing semantic weight matrices.
 
 ### 2. Compilation Layer: Geometric Mapping
-*   **Mechanism:** A **Fourier Neural Operator (FNO)** surrogate model, trained using the **PDEBench** (2025/2026) framework.
-*   **Task:** Map high-dimensional latent vectors to normalized 3D magnetization vector fields ($\mathbf{M}$) by approximating the demagnetizing field ($H_{demag}$) and topological charge density.
-*   **Inverse Design:** Utilizes the **Gradient-Based Inverse Method** (from PDEBench's `train_models_inverse.py`) to backpropagate through the frozen FNO surrogate, finding the initial holographic prescriptions that minimize the topological error.
-*   **Optimization:** Leverages **Automatic Differentiation** and standardized SciML metrics (Relative $L_2$ Error, Max Error) to ensure physical validity.
+HELIOS-3D utilizes a **Hybrid SciML Pipeline** to bridge high-level embeddings with 3D micromagnetic physics.
+
+*   **Discovery Stage (NeuroDiffEq):** We utilize **`neurodiffeq`** and its `BundleSolver` to solve the 3D **Landau-Lifshitz-Gilbert (LLG)** equation. This stage uses a **mesh-free** approach to enforce Neumann boundary conditions ($\partial \mathbf{M} / \partial \mathbf{n} = 0$) directly on complex, 3D-printed scaffold topologies (STL/Point Cloud) without "staircasing" artifacts. `[PROPOSED]`
+*   **Optimization Stage (PINNs-Torch):** Once a scaffold class is discovered, we transition to **`pinns-torch`**. This high-performance implementation leverages **CUDA Graphs** and **Automatic Differentiation** to optimize the precise DISH holographic prescriptions, ensuring the target topological charge ($Q_H$) is physically stable. `[PROPOSED]`
+*   **Deployment Stage (FNO Surrogate):** For real-time inference and preview, we utilize a **Fourier Neural Operator (FNO)** surrogate (trained using the **PDEBench** framework). This surrogate is trained on the results of the PINN stages to provide resolution-invariant, sub-millisecond mapping. `[INFERRED]`
+*   **Optimization Logic:** Uses gradient-based inverse design to minimize the **Topological Loss** (error in integer Hopf Index) and **Physical Residual** (LLG equation error).
 
 ### 3. Output Layer: Optical Prescription
 *   **Format:** A holographic phase mask $\Phi(u, v)$ for the DISH periscope.
