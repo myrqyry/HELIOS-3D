@@ -33,6 +33,7 @@
 ### 2.2 Bifurcated Readout Driver
 - [ ] FPGA-based Hall sensor readout (KPI: <100 ns latency)
 - [ ] hBN ODMR control firmware (KPI: Single-shot readout fidelity >90%)
+- [ ] Topological Orbital Hall Effect (TOHE) detector spec (KPI: SNR > 10 in 4-terminal bridge simulation)
 
 **Phase 2 Completion Target:** Q1 2027
 

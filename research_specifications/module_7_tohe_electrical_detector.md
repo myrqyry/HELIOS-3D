@@ -1,0 +1,47 @@
+# Research Module 7: TOHE-Based Electrical Detector Spec
+
+## 🎯 Objective
+To develop a high-sensitivity **Topological Orbital Hall Effect (TOHE)** detector for the unambiguous all-electrical readout of 3D magnetic hopfions. This module leverages the 3D orbital Hall hallmark (Göbel & Lounis, 2025/2026) to bypass the data-processing overhead of optical imaging and the signal chain complexity of microwave spectroscopy.
+
+---
+
+## 🏗️ Physics: The Orbital Hallmark
+
+### 1. Emergent 3D Electromagnetic Field
+*   **Mechanism:** When an electric current passes through a hopfion-hosting substrate, the hopfion's complex 3D spin texture acts as an **emergent electromagnetic field** in both real and momentum space.
+*   **Deflection:** Unlike 2D skyrmions, which primarily exhibit in-plane deflection (Topological Hall Effect), hopfions generate a **3D orbital angular momentum (OAM) current**.
+
+### 2. Topological Sensitivity
+*   **The Signal:** The TOHE tensor response is uniquely tied to the **Hopf Index ($Q_H$)**.
+*   **Discrimination:** This hallmark allows the detector to distinguish between single hopfions, nested textures ($Q_H > 1$), and topologically trivial solitons (skyrmioniums).
+
+---
+
+## 🏗️ Hardware Architecture: The TOHE Bridge
+
+### 1. The Detector Geometry
+*   **Structure:** A **4-terminal Hall Bridge** patterned directly into the Phase 1 $EuS/Bi_2Se_3/EuS$ trilayer.
+*   **Contacts:** Low-resistance Heavy Metal (Pt or Ta) electrodes to maximize orbital-to-charge conversion via the Inverse Spin Hall Effect (ISHE) or Inverse Orbital Hall Effect (IOHE).
+
+### 2. Multi-Axis Measurement
+*   **Transverse Voltage ($V_{yx}$):** Detects the in-plane topological signature.
+*   **Vertical Gradient ($\partial V / \partial z$):** In the 3D stack, we measure the potential difference between capping and seed layers to isolate the 3D orbital component.
+
+---
+
+## 🧪 Validation & Success Metrics
+
+### Metric 7.1: Signal-to-Noise Ratio (SNR)
+*   **Test:** Measure the Hall voltage step during a single hopfion nucleation event (triggered by the DISH "Twist Reservoir").
+*   **Goal:** SNR $> 10$ at room temperature (300 K).
+
+### Metric 7.2: Topological Discrimination Fidelity
+*   **Test:** Sweep the DISH write fluence to create different Hopf numbers ($Q_H=1$ vs $Q_H=2$).
+*   **Goal:** Unambiguous separation of voltage peaks associated with each integer state.
+
+---
+
+## 📅 Roadmap to Readout
+1.  **Q1 2027:** Execute MuMax3-based transport simulations to map the TOHE tensor for the $EuS/Bi_2Se_3/EuS$ trilayer.
+2.  **Q2 2027:** Design the lithography mask for the first **4-terminal TOHE Hall Bridge**.
+3.  **Q4 2027:** Demonstrate single-hopfion electrical detection in a Planar-First demonstrator.
