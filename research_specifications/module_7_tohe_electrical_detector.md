@@ -32,7 +32,9 @@ To develop a high-sensitivity **Topological Orbital Hall Effect (TOHE)** detecto
 ## 🧪 Validation & Success Metrics
 
 ### Metric 7.1: Signal-to-Noise Ratio (SNR)
-*   **Test:** Measure the Hall voltage step during a single hopfion nucleation event (triggered by the DISH "Twist Reservoir").
+*   **Simulation Script:** `simulations/tohe_trilayer_readout.mx3`
+*   **Test:** Measure the Hall voltage step during a single hopfion nucleation event in the $EuS/Bi_2Se_3/EuS$ stack.
+*   **Parameters:** Induce $M_{sat} \approx 37.6 \text{ kA/m}$ and $\theta_{SH} \approx 0.43$ (Katmis et al., 2026 baseline).
 *   **Goal:** SNR $> 10$ at room temperature (300 K).
 
 ### Metric 7.2: Topological Discrimination Fidelity

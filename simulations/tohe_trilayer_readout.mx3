@@ -1,0 +1,63 @@
+// Research Module 7: Topological Orbital Hall Effect (TOHE) Readout
+// Target: Mapping 3D orbital conductivities in the EuS/Bi2Se3/EuS baseline.
+// Material Parameters: Katmis et al. (2025/2026) room-temperature proximity magnetism.
+
+// 1. Grid Definition (High Z-resolution for 3D knotting)
+Nx := 128
+Ny := 128
+Nz := 15 // 15 layers total (5 EuS, 5 Bi2Se3, 5 EuS)
+SetGridsize(Nx, Ny, Nz)
+SetCellsize(2e-9, 2e-9, 1e-9) // 2nm lateral, 1nm vertical resolution
+
+// 2. Material Regions
+// Region 0: Lower EuS (Bottom FMI)
+// Region 1: Bi2Se3 (Central TI)
+// Region 2: Upper EuS (Top FMI)
+defregion(0, layer(0, 4))
+defregion(1, layer(5, 9))
+defregion(2, layer(10, 14))
+
+// 3. Proximity-Enhanced Parameters (300 K)
+// EuS Layers (Magnetic)
+Msat.setregion(0, 37.6e3)  // Induce room-temp Msat
+Msat.setregion(2, 37.6e3)
+Aex.setregion(0, 1.94e-14) // Interfacial exchange stiffness (low for knots)
+Aex.setregion(2, 1.94e-14)
+Ku1.setregion(0, 5.0e4)    // Induce PMA
+Ku1.setregion(2, 5.0e4)
+AnisU.setregion(0, vector(0, 0, 1))
+AnisU.setregion(2, vector(0, 0, 1))
+Dind.setregion(0, 4.56e-6)  // Interfacial DMI for chirality
+Dind.setregion(2, 4.56e-6)
+
+// Bi2Se3 Layer (Non-Magnetic / Transport)
+Msat.setregion(1, 0)
+
+// 4. Spin/Orbital Torque Configuration
+// AlphaSH (Combined Spin/Orbital Hall Angle)
+// Bi2Se3 surface SH angle ~0.43
+AlphaSH = 0.43 
+J = vector(1e11, 0, 0) // Drive current for orbital Hall detection
+
+// 5. Initial State: 3D Hopfion Nucleation
+// Characterized by a skyrmion ring that wraps into a 3D knot.
+// We seed a specific helicity to favor hopfion formation.
+m = uniform(0, 0, 1)
+// Seed a skyrmion loop in the central region of the trilayer stack
+m.setRegion(0, skyrmion(1, -1).scale(1, 1, 1).at(0, 0))
+m.setRegion(2, skyrmion(1, 1).scale(1, 1, 1).at(0, 0)) // Anti-parallel skyrmion for knotting
+
+// 6. Optimization & Relaxation
+Minimize()
+Run(5e-9) // Relax for 5ns
+
+// 7. Data Output for TOHE Mapping
+// We save the full magnetization and spatial top-charge density
+SaveAs(m, "tohe_trilayer_baseline")
+SaveAs(topocharge, "tohe_topocharge_density")
+
+// 8. Success Metric (Metric 7.1)
+// Output average mz and topocharge to verify SNR > 10 targets in post-processing.
+tableAdd(topocharge)
+tableAdd(m.avg())
+tableSave()
