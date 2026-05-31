@@ -35,7 +35,11 @@ Recent literature provides a basis for investigating specific heterostructures a
 *   **Embodied Carbon (2025 LCAs):** Lifecycle assessments by Google and NVIDIA (2025) show that embodied carbon accounts for **~50% of the total footprint** for AI hardware in decarbonized grids. CCI (Compute Carbon Intensity) is established as the key metric for cross-generational comparison. `[DEMONSTRATED]`
 *   **Green Spintronics:** The *Green Spintronics* framework (Nature Electronics, 2020) establishes spintronics as a primary path for energy-proportional computing and zero-leakage logic. `[DEMONSTRATED]`
 
-## 6. Magnetization-Free Transport and Readout Candidates
+## 6. Emerging Applications & Interfacial Physics
+*   **Chiral-Induced Spin Selectivity (CISS):** Vardi et al., *Spin-dependent isotopic fractionation of L-methionine* (Chem 2026), demonstrate that magnetic surfaces can influence molecular behavior at the isotope level ($^{13}C$ vs $^{12}C$) due to electron spin interactions in chiral molecules. `[DEMONSTRATED]`
+*   **Significance:** Since magnetic hopfions are inherently chiral 3D knots, this study provides a foundation for HELIOS-3D as a **programmable CISS interface**. This opens a potential branch for ultra-high-resolution **bio-chemical sensing** and **isotope-pure chemical synthesis** using spintronic scaffolds. `[PROPOSED]`
+
+## 7. Magnetization-Free Transport and Readout Candidates
 *   **Compensated Ferrimagnet Readout:** *Spin Current Generation Controlled by the Néel State in a Compensated Ferrimagnet* (arXiv:2507.05618, 2025/2026) is a strong match for HELIOS-3D because it offers Néel-state-controlled spin pumping as a natural readout mechanism for magnetization-free building blocks. `[INFERRED]`
 *   **Altermagnetic Dynamics:** *Current-driven nonlinear skyrmion dynamics in altermagnets* (arXiv:2601.13499, 2026) is relevant because it shows current-driven helicity motion and THz-scale nonlinear mode mixing, which could support higher-bandwidth transport or sensing layers. `[INFERRED]`
 *   **Significance:** Together, these papers suggest that the strongest late-stage branch is not freeform 3D magnetic coating but a planar or layered compensated-ferrimagnet/altermagnet stack with electrical or spin-pumping readout. `[INFERRED]`

@@ -15,6 +15,9 @@ A geometric property of a material's electronic band structure that acts as an e
 ### BRC (Brownian Reservoir Computing)
 HELIOS-3D's proposed probabilistic computing core that utilizes ambient thermal noise (Brownian motion) to drive skyrmion dynamics in confined geometries, performing non-linear transformations on input signals. `[PROPOSED]`
 
+### CISS (Chiral-Induced Spin Selectivity)
+A quantum mechanical effect where the transmission of electrons through chiral molecules is spin-dependent. Demonstrated in 2026 to enable spin-dependent isotopic fractionation (Vardi et al., 2026). Proposed in HELIOS-3D as a mechanism for high-precision bio-chemical sensing and molecular filtering. `[DEMONSTRATED]`
+
 ### DMI (Dzyaloshinskii-Moriya Interaction)
 An antisymmetric exchange interaction in non-centrosymmetric crystals that favors chiral spin twists. The foundational energy term enabling skyrmion and hopfion formation. For computer scientists: this is the fundamental physical mechanism that makes the stable creation of topological bits (skyrmions/hopfions) possible. `[DEMONSTRATED]`
 
