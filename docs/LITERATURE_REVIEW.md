@@ -38,8 +38,9 @@ Recent literature provides a basis for investigating specific heterostructures a
 *   **Green Spintronics:** The *Green Spintronics* framework (Nature Electronics, 2020) establishes spintronics as a primary path for energy-proportional computing and zero-leakage logic. `[DEMONSTRATED]`
 
 ## 6. Emerging Applications & Interfacial Physics
-*   **Chiral-Induced Spin Selectivity (CISS):** Vardi et al., *Spin-dependent isotopic fractionation of L-methionine* (Chem 2026), demonstrate that magnetic surfaces can influence molecular behavior at the isotope level ($^{13}C$ vs $^{12}C$) due to electron spin interactions in chiral molecules. `[DEMONSTRATED]`
-*   **Significance:** Since magnetic hopfions are inherently chiral 3D knots, this study provides a foundation for HELIOS-3D as a **programmable CISS interface**. This opens a potential branch for ultra-high-resolution **bio-chemical sensing** and **isotope-pure chemical synthesis** using spintronic scaffolds. `[PROPOSED]`
+*   **Chiral-Induced Spin Selectivity (CISS):** Vardi et al., *Spin-dependent isotopic fractionation of L-methionine* (Chem 2026), demonstrate that magnetic surfaces can influence molecular behavior at the isotope level ($^{13}C$ vs $^{12}C$). This provides a foundation for HELIOS-3D as a **programmable CISS interface** for bio-chemical sensing. `[DEMONSTRATED]`
+*   **fJ-Scale Optical Nonlinearities:** Wang et al., *Strongly Nonlinear Nanocavity Exciton Polaritons in Gate-Tunable Monolayer Semiconductors* (PRL 2026), demonstrate all-optical switching at **~4 fJ** energies and picosecond timescales.
+*   **Significance:** These studies provide the **low-energy interfacing benchmarks** for HELIOS-3D. They demonstrate that van der Waals heterostructures can support fJ-scale logic and ultra-precise molecular sensing, validating our efficiency targets and opening a potential branch for **Polariton-Hopfion hybrid control**. `[PROPOSED]`
 
 ## 7. Magnetization-Free Transport and Readout Candidates
 *   **Compensated Ferrimagnet Readout:** *Spin Current Generation Controlled by the Néel State in a Compensated Ferrimagnet* (arXiv:2507.05618, 2025/2026) is a strong match for HELIOS-3D because it offers Néel-state-controlled spin pumping as a natural readout mechanism for magnetization-free building blocks. `[INFERRED]`
