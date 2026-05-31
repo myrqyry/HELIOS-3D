@@ -38,10 +38,12 @@ Recent literature provides a basis for investigating specific heterostructures a
 *   **Green Spintronics:** The *Green Spintronics* framework (Nature Electronics, 2020) establishes spintronics as a primary path for energy-proportional computing and zero-leakage logic. `[DEMONSTRATED]`
 
 ## 6. Emerging Applications & Interfacial Physics
-*   **Chiral-Induced Spin Selectivity (CISS):** Vardi et al., *Spin-dependent isotopic fractionation of L-methionine* (Chem 2026), demonstrate that magnetic surfaces can influence molecular behavior at the isotope level ($^{13}C$ vs $^{12}C$). This provides a foundation for HELIOS-3D as a **programmable CISS interface** for bio-chemical sensing. `[DEMONSTRATED]`
-*   **fJ-Scale Optical Nonlinearities:** Wang et al. (2026) demonstrate all-optical switching at **~4 fJ** energies and picosecond timescales. `[DEMONSTRATED]`
-*   **Free-Space Topological Light (TLP):** Niu et al., *Electric-magnetic-switchable free-space skyrmions in toroidal light pulses via a nonlinear metasurface* (Optica 2026), demonstrate the first on-demand switchable generation of E-skyrmions and H-skyrmions in propagating terahertz pulses. These Toroidal Light Pulses (TLPs), or "flying doughnuts," preserve their topological identity across macroscopic distances. `[DEMONSTRATED]`
-*   **Significance:** These studies provide the **high-speed communication and interfacing benchmarks** for HELIOS-3D. TLPs offer a robust "Topological Bus" for transferring information between modular 3D-printed blocks, while fJ-scale polaritonics provide the low-energy logic layer to process that information. `[PROPOSED]`
+*   **Chiral-Induced Spin Selectivity (CISS):** Vardi et al. (2026) demonstrate that magnetic surfaces can filter isotopes ($^{13}C$ vs $^{12}C$) in chiral molecules. HELIOS-3D proposes using inherently chiral hopfions as **programmable CISS filters** for ultra-high-resolution bio-chemical sensing. `[PROPOSED]`
+*   **fJ-Scale Polaritonics:** Wang et al. (2026) demonstrate all-optical switching at **~4 fJ** with picosecond dynamics. `[DEMONSTRATED]`
+*   **Picosecond Antiferromagnetic Switching:** Tsai et al. (Science 2026) demonstrate deterministic octupole switching in **$Mn_3Sn$** using 40-ps pulses at **$1.7 pJ/\mu m^2$**. `[DEMONSTRATED]`
+*   **Free-Space Topological Light (TLP):** Niu et al. (Optica 2026) demonstrate "flying doughnuts" (TLPs) that carry switchable skyrmionic textures across macroscopic distances. `[DEMONSTRATED]`
+*   **Significance:** Consolidating these 2026 results, we establish the **HELIOS-3D Performance Floor**. fJ-scale polaritonics and $pJ/\mu m^2$-scale antiferromagnetics provide the logic and transport foundation, while TLPs and CISS-mediated interfaces provide the high-speed data bus and bio-molecular sensors, respectively. `[INFERRED]`
+
 
 ## 7. Magnetization-Free Transport and Readout Candidates
 *   **Compensated Ferrimagnet Readout:** *Spin Current Generation Controlled by the Néel State in a Compensated Ferrimagnet* (arXiv:2507.05618, 2025/2026) is a strong match for HELIOS-3D because it offers Néel-state-controlled spin pumping as a natural readout mechanism for magnetization-free building blocks. `[INFERRED]`
