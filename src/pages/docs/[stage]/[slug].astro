@@ -11,15 +11,6 @@ import TwistReservoirNucleation from '../../../components/r3f/TwistReservoirNucl
 import TopologicalOrbitalHall from '../../../components/r3f/TopologicalOrbitalHall';
 import { getEntry } from 'astro:content';
 
-const componentMap: Record<string, any> = {
-  HopfionScene,
-  SkyrmionScene,
-  MaterialStack,
-  DmiChirality,
-  TwistReservoirNucleation,
-  TopologicalOrbitalHall,
-};
-
 export async function getStaticPaths() {
   const docs = await getCollection('docs');
   return docs.map((doc) => ({
@@ -34,7 +25,7 @@ const { Content, headings } = await doc.render();
 
 const heroFigureSlug = doc.data.figures[0];
 const heroFigure = heroFigureSlug ? await getEntry('figures', heroFigureSlug) : null;
-const HeroComponent = heroFigure ? componentMap[heroFigure.data.component] : null;
+const heroComponent = heroFigure?.data.component;
 ---
 <BaseLayout title={doc.data.title} description={doc.data.summary}>
   <header class="mb-6 pb-4 border-b border-obsidian-3">
@@ -44,9 +35,39 @@ const HeroComponent = heroFigure ? componentMap[heroFigure.data.component] : nul
       {doc.data.tags.map((t) => <Tag stage={t} />)}
     </div>
   </header>
-  {HeroComponent && (
+  {heroComponent === 'HopfionScene' && (
     <div class="my-6">
-      <HeroComponent client:visible height="h-96" />
+      <HopfionScene client:visible height="h-96" />
+      <p class="mt-2 text-center text-xs text-parchment-2 font-mono">{heroFigure?.data.title} — stylized illustration, not simulation-accurate.</p>
+    </div>
+  )}
+  {heroComponent === 'SkyrmionScene' && (
+    <div class="my-6">
+      <SkyrmionScene client:visible height="h-96" />
+      <p class="mt-2 text-center text-xs text-parchment-2 font-mono">{heroFigure?.data.title} — stylized illustration, not simulation-accurate.</p>
+    </div>
+  )}
+  {heroComponent === 'MaterialStack' && (
+    <div class="my-6">
+      <MaterialStack client:visible height="h-96" />
+      <p class="mt-2 text-center text-xs text-parchment-2 font-mono">{heroFigure?.data.title} — stylized illustration, not simulation-accurate.</p>
+    </div>
+  )}
+  {heroComponent === 'DmiChirality' && (
+    <div class="my-6">
+      <DmiChirality client:visible height="h-96" />
+      <p class="mt-2 text-center text-xs text-parchment-2 font-mono">{heroFigure?.data.title} — stylized illustration, not simulation-accurate.</p>
+    </div>
+  )}
+  {heroComponent === 'TwistReservoirNucleation' && (
+    <div class="my-6">
+      <TwistReservoirNucleation client:visible height="h-96" />
+      <p class="mt-2 text-center text-xs text-parchment-2 font-mono">{heroFigure?.data.title} — stylized illustration, not simulation-accurate.</p>
+    </div>
+  )}
+  {heroComponent === 'TopologicalOrbitalHall' && (
+    <div class="my-6">
+      <TopologicalOrbitalHall client:visible height="h-96" />
       <p class="mt-2 text-center text-xs text-parchment-2 font-mono">{heroFigure?.data.title} — stylized illustration, not simulation-accurate.</p>
     </div>
   )}

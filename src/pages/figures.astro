@@ -9,15 +9,6 @@ import TwistReservoirNucleation from '../components/r3f/TwistReservoirNucleation
 import TopologicalOrbitalHall from '../components/r3f/TopologicalOrbitalHall';
 
 const figures = await getCollection('figures');
-
-const componentMap: Record<string, any> = {
-  HopfionScene,
-  SkyrmionScene,
-  MaterialStack,
-  DmiChirality,
-  TwistReservoirNucleation,
-  TopologicalOrbitalHall,
-};
 ---
 <BaseLayout title="Figures" description="All visualizations in the HELIOS-3D site.">
   <header class="mb-8 pb-4 border-b border-obsidian-3">
@@ -25,22 +16,23 @@ const componentMap: Record<string, any> = {
     <p class="mt-2 text-parchment-2">Every visualization used in the site, grouped by topic. Click into a doc from the figure caption.</p>
   </header>
   <div class="grid md:grid-cols-2 gap-6">
-    {figures.map((f) => {
-      const C = componentMap[f.data.component];
-      return (
-        <article class="rounded-lg border border-obsidian-3 bg-obsidian-2 p-4">
-          {C ? (
-            <C client:visible height="h-48" />
-          ) : (
-            <div class="h-48 flex items-center justify-center text-parchment-2 font-mono text-xs">[chart / svg — see doc]</div>
-          )}
-          <h3 class="mt-3 font-bold text-amber">{f.data.title}</h3>
-          <p class="text-sm text-parchment-2 mt-1">{f.data.description}</p>
-          <p class="text-xs font-mono text-parchment-2 mt-2">
-            <span class={f.data.source === 'data-driven' ? 'text-gold' : 'text-cyan-2'}>{f.data.source}</span> · {f.data.kind}
-          </p>
-        </article>
-      );
-    })}
+    {figures.map((f) => (
+      <article class="rounded-lg border border-obsidian-3 bg-obsidian-2 p-4">
+        {f.data.component === 'HopfionScene' && <HopfionScene client:visible height="h-48" />}
+        {f.data.component === 'SkyrmionScene' && <SkyrmionScene client:visible height="h-48" />}
+        {f.data.component === 'MaterialStack' && <MaterialStack client:visible height="h-48" />}
+        {f.data.component === 'DmiChirality' && <DmiChirality client:visible height="h-48" />}
+        {f.data.component === 'TwistReservoirNucleation' && <TwistReservoirNucleation client:visible height="h-48" />}
+        {f.data.component === 'TopologicalOrbitalHall' && <TopologicalOrbitalHall client:visible height="h-48" />}
+        {!['HopfionScene','SkyrmionScene','MaterialStack','DmiChirality','TwistReservoirNucleation','TopologicalOrbitalHall'].includes(f.data.component) && (
+          <div class="h-48 flex items-center justify-center text-parchment-2 font-mono text-xs">[chart / svg — see doc]</div>
+        )}
+        <h3 class="mt-3 font-bold text-amber">{f.data.title}</h3>
+        <p class="text-sm text-parchment-2 mt-1">{f.data.description}</p>
+        <p class="text-xs font-mono text-parchment-2 mt-2">
+          <span class={f.data.source === 'data-driven' ? 'text-gold' : 'text-cyan-2'}>{f.data.source}</span> · {f.data.kind}
+        </p>
+      </article>
+    ))}
   </div>
 </BaseLayout>

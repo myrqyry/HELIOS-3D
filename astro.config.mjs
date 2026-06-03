@@ -3,6 +3,8 @@ import react from '@astrojs/react';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
 
 const redirectMap = {
   'docs/abstract/': 'docs/established/abstract/',
@@ -26,7 +28,11 @@ export default defineConfig({
   base: '/HELIOS-3D',
   output: 'static',
   trailingSlash: 'ignore',
-  integrations: [react(), mdx(), sitemap()],
+  integrations: [
+    react(),
+    mdx({ remarkPlugins: [remarkMath], rehypePlugins: [rehypeKatex] }),
+    sitemap(),
+  ],
   redirects: redirectMap,
   vite: {
     plugins: [tailwindcss()],
