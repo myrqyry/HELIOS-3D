@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const path = [
+  { step: 1, title: 'Abstract', desc: 'Project pitch and dual-core architecture.', href: '/docs/established/abstract/' },
+  { step: 2, title: 'Candidate Materials', desc: 'Spin textures and the EuS/Bi₂Se₃/EuS substrate.', href: '/docs/established/candidate-materials-and-mechanisms/' },
+  { step: 3, title: 'Literature Review', desc: 'The 2026 evidence base.', href: '/docs/established/literature-review/' },
+  { step: 4, title: 'Claims Matrix', desc: 'What is and is not demonstrated.', href: '/docs/current/claims-matrix/' },
+  { step: 5, title: 'Pitch Deck Outline', desc: 'The full project narrative.', href: '/docs/speculative/pitch-deck-outline/' },
+];
+---
+<BaseLayout title="Start Here" description="A 5-doc reading path for newcomers to HELIOS-3D.">
+  <header class="mb-8 pb-4 border-b border-obsidian-3">
+    <h1 class="text-4xl font-bold text-amber">Start Here</h1>
+    <p class="mt-2 text-parchment-2">A 5-doc reading path if you are new to HELIOS-3D. Read in order; each step builds on the previous.</p>
+  </header>
+  <ol class="space-y-4">
+    {path.map((p) => (
+      <li class="rounded-lg border border-obsidian-3 bg-obsidian-2 p-5 hover:border-ember">
+        <div class="flex items-baseline gap-3">
+          <span class="font-mono text-amber text-xl">{p.step}</span>
+          <a href={p.href} class="text-xl font-bold text-amber hover:underline">{p.title}</a>
+        </div>
+        <p class="mt-1 text-parchment-2 text-sm">{p.desc}</p>
+      </li>
+    ))}
+  </ol>
+</BaseLayout>
