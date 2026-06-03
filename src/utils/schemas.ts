@@ -23,3 +23,8 @@ export const figuresSchema = z.object({
   component: z.string(),
   description: z.string(),
 });
+
+export const performanceFloorSchema = z.object({
+  writeSpeedPs: z.array(z.object({ system: z.string(), value: z.number(), label: z.string() })),
+  energyDensityPjPerUm2: z.array(z.object({ system: z.string(), value: z.number() })),
+});
