@@ -1,14 +1,7 @@
 ---
-import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>HELIOS-3D</title>
-  </head>
-  <body>
-    <h1 class="text-3xl font-bold text-amber">HELIOS-3D</h1>
-    <p class="text-parchment-2">Bootstrapping new site...</p>
-  </body>
-</html>
+<BaseLayout title="HELIOS-3D" showSidebar={false}>
+  <h1 class="text-5xl font-bold text-amber">HELIOS-3D</h1>
+  <p class="text-lg text-parchment-2 mt-4">Spintronic coprocessor research hypothesis.</p>
+</BaseLayout>

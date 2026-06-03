@@ -1,0 +1,68 @@
+---
+const sections = [
+  {
+    title: 'Established Basis',
+    items: [
+      { href: '/docs/established/abstract/', label: 'Abstract' },
+      { href: '/docs/established/candidate-materials-and-mechanisms/', label: 'Candidate Materials' },
+      { href: '/docs/established/literature-review/', label: 'Literature Review' },
+      { href: '/docs/established/mathematics/', label: 'Mathematics' },
+      { href: '/docs/established/glossary/', label: 'Glossary' },
+    ],
+  },
+  {
+    title: 'Current Demonstrator Path',
+    items: [
+      { href: '/docs/current/alternative-materials-and-methods/', label: 'Alternative Materials' },
+      { href: '/docs/current/open-questions/', label: 'Open Questions' },
+      { href: '/docs/current/targets-comparators-and-projections/', label: 'Targets & Comparators' },
+      { href: '/docs/current/claims-matrix/', label: 'Claims Matrix' },
+    ],
+  },
+  {
+    title: 'Speculative Long-Range Branch',
+    items: [
+      { href: '/docs/speculative/core-architecture/', label: 'Core Architecture' },
+      { href: '/docs/speculative/proposed-fabrication-path-and-control/', label: 'Proposed Fabrication' },
+      { href: '/docs/speculative/defensive-framework/', label: 'Defensive Framework' },
+      { href: '/docs/speculative/pitch-deck-outline/', label: 'Pitch Deck' },
+    ],
+  },
+  {
+    title: 'Project Ops',
+    items: [
+      { href: '/docs/project-ops/deployment/', label: 'Deployment' },
+    ],
+  },
+];
+
+const currentPath = Astro.url.pathname;
+---
+<aside class="hidden md:block w-64 shrink-0 border-r border-obsidian-3 bg-obsidian">
+  <nav class="sticky top-0 p-6 space-y-6 text-sm">
+    {sections.map((section) => (
+      <div>
+        <h3 class="font-mono text-xs uppercase tracking-wider text-amber mb-2">{section.title}</h3>
+        <ul class="space-y-1">
+          {section.items.map((item) => {
+            const isActive = currentPath === item.href;
+            return (
+              <li>
+                <a
+                  href={item.href}
+                  class={`block rounded px-2 py-1 transition-colors ${
+                    isActive
+                      ? 'bg-obsidian-3 text-ember'
+                      : 'text-parchment-2 hover:bg-obsidian-2 hover:text-parchment'
+                  }`}
+                >
+                  {item.label}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    ))}
+  </nav>
+</aside>
