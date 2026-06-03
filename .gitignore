@@ -176,4 +176,15 @@ SESSION-STATE.md
 HEARTBEAT.md
 TOOLS.md
 ONBOARDING.md
+MEMORY.md
 memory/
+notes/
+
+# Astro
+dist/
+.astro/
+.output/
+
+# Node
+node_modules/
+*.log
