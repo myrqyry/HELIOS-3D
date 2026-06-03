@@ -188,3 +188,6 @@ dist/
 # Node
 node_modules/
 *.log
+
+# Migration snapshot (build-time only)
+docs/.snapshot-originals/
