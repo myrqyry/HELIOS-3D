@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 export const claimStage = z.enum(['DEMONSTRATED', 'INFERRED', 'PROPOSED', 'SPECULATIVE']);
 
-export const docStage = z.enum(['established', 'current', 'speculative']);
+export const docStage = z.enum(['established', 'current', 'speculative', 'project-ops']);
 
 export const docsSchema = z.object({
   title: z.string(),
