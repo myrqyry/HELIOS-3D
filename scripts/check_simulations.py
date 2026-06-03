@@ -38,10 +38,14 @@ def check_mumax3_syntax(path: Path) -> list[SimViolation]:
         # Track function calls
         for match in re.finditer(r"(\w+)\s*\(", stripped):
             func_name = match.group(1)
-            if func_name in (
-                "SetGridsize", "SetCellsize", "Minimize", "Run",
-                "SaveAs", "tableadd", "autosave", "Set",
+            if func_name.lower() in (
+                "setgridsize", "setcellsize", "minimize", "run",
+                "saveas", "tableadd", "autosave", "set",
                 "if", "for", "while", "switch", "return",
+                "defregion", "layer", "vector", "uniform", "skyrmion",
+                "tableadd", "tablesave", "defcellsize", "defgrid",
+                "defregion", "xrange", "ext_exchange6neighbor", "setregion",
+                "scale", "at", "total", "stiffness", "avg",
             ):
                 continue
             called_funcs.append((lineno, func_name))

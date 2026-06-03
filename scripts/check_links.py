@@ -21,12 +21,14 @@ class LinkViolation:
 def iter_markdown_files(repo_root: Path) -> list[Path]:
     files = [repo_root / name for name in ("README.md", "CONTRIBUTING.md", "ROADMAP.md")
              if (repo_root / name).exists()]
-    if (repo_root / "docs").exists():
-        for path in sorted((repo_root / "docs").rglob("*.md")):
-            rel = path.relative_to(repo_root).as_posix()
-            if any(rel.startswith(ex) for ex in EXCLUDED_DIRS):
-                continue
-            files.append(path)
+    # Scan docs/, research_specifications/, simulations/, notebooks/
+    for subdir in ("docs", "research_specifications", "simulations", "notebooks"):
+        if (repo_root / subdir).exists():
+            for path in sorted((repo_root / subdir).rglob("*.md")):
+                rel = path.relative_to(repo_root).as_posix()
+                if any(rel.startswith(ex) for ex in EXCLUDED_DIRS):
+                    continue
+                files.append(path)
     return files
 
 

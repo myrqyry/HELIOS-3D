@@ -25,20 +25,19 @@ def test_coordinate_mapping_fidelity():
     
     assert overlap / dist < 0.05
 
-def test_topological_charge_synthesis():
+def test_mock_hopf_index_placeholder():
     """
-    Test 1.2: Verify synthesized magnetization field yields integer Hopf Index.
-    Success Metric: QH error < 0.01
+    PLACEHOLDER TEST (mock physics adapter):
+    The current calculate_hopf_index returns a hardcoded 1.0.
+    This test documents the mock behavior until a real discretized
+    Hopf index implementation is added.
     """
     compiler = TopologicalCompiler()
-    # Mock magnetization tensor [3, Nx, Ny, Nz]
     m_tensor = np.zeros((3, 64, 64, 64))
     
     qh = compiler.calculate_hopf_index(m_tensor)
     
-    # We assert that the compiler can at least return an integer-like index
-    assert float(qh).is_integer()
-    assert qh == 1.0
+    assert qh == 1.0  # Mock return value — replace when real implementation exists
 
 def test_ife_transfer_function():
     """

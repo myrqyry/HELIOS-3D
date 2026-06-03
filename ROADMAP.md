@@ -1,10 +1,11 @@
 # HELIOS-3D Roadmap
 
-## Phase 0 – Documentation (Current ✅)
+## Phase 0.5 – Documentation + Validation Scaffolding (Current ✅)
 - [x] Core architecture specification
 - [x] Physics & materials literature review
 - [x] Fabrication pipeline design
 - [x] Benchmark projections
+- [x] Mock topological compiler scaffold (structural tests only; mock physics adapters)
 
 ## Phase 1 – Simulation (Next 🔜)
 
