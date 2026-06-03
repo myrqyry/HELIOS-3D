@@ -1,0 +1,13 @@
+---
+export interface Props {
+  caption?: string;
+  height?: string;
+}
+const { caption, height = 'h-64' } = Astro.props;
+---
+<figure class="my-6">
+  <div class={`w-full ${height} rounded-lg border border-obsidian-3 bg-obsidian-2 p-4`}>
+    <slot />
+  </div>
+  {caption && <figcaption class="mt-2 text-sm text-parchment-2 text-center">{caption}</figcaption>}
+</figure>

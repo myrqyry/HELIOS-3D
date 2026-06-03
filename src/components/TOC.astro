@@ -1,0 +1,19 @@
+---
+export interface Props {
+  headings: Array<{ depth: number; slug: string; text: string }>;
+}
+const { headings } = Astro.props;
+const toc = headings.filter((h) => h.depth === 2 || h.depth === 3);
+---
+{toc.length > 0 && (
+  <nav class="mb-8 rounded-lg border border-obsidian-3 bg-obsidian-2 p-4 text-sm">
+    <h4 class="font-mono text-xs uppercase tracking-wider text-amber mb-2">On this page</h4>
+    <ul class="space-y-1">
+      {toc.map((h) => (
+        <li class={h.depth === 3 ? 'ml-4' : ''}>
+          <a href={`#${h.slug}`} class="text-parchment-2 hover:text-ember">{h.text}</a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+)}

@@ -1,0 +1,16 @@
+---
+export interface Props {
+  stage: 'DEMONSTRATED' | 'INFERRED' | 'PROPOSED' | 'SPECULATIVE';
+}
+const { stage } = Astro.props;
+
+const styles: Record<Props['stage'], string> = {
+  DEMONSTRATED: 'border-gold text-gold',
+  INFERRED: 'border-cyan-2 text-cyan-2',
+  PROPOSED: 'border-amber text-amber',
+  SPECULATIVE: 'border-rose text-rose',
+};
+---
+<span class={`inline-block rounded border px-2 py-0.5 font-mono text-xs ${styles[stage]}`}>
+  {stage}
+</span>
