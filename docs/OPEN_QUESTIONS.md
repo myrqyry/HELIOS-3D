@@ -70,3 +70,31 @@ To validate the HELIOS-3D hypothesis, a series of incremental demonstrators are 
 2.  **Phase II (MCA Logic):** Single-track domain wall displacement driven by SOT with microwave readout.
 3.  **Phase III (BRC Stochasticity):** Observation of skyrmion Brownian motion in a confined polymer micro-harbor.
 4.  **Phase IV (Integration):** 3D routing between a single MCA gate and a single BRC reservoir.
+
+---
+
+## 🧬 5. Programmable Chiral Organic Interface Layer (Speculative Side Branch)
+
+These questions gate whether the 2D peptide-crystal branch (Wang et al., *Nature Chemistry* 2026) can be promoted from `[PROPOSED]` to a HELIOS sensing candidate. None of them block the main spintronic core.
+
+### Q5.1: Substrate Transfer Without Loss of Function
+*   **Context:** Free-standing 2D peptide crystals are exfoliated from solution. Direct placement onto a vdW magnetic or metallic substrate may disorder the β-sheet lattice or quench side-chain recognition chemistry.
+*   **Blocker:** Is there a demonstrated transfer protocol (wet, dry, or stamp-assisted) that preserves single-crystalline order and enantioselective binding on a non-native substrate?
+*   **Status:** `[PROPOSED]`
+
+### Q5.2: Coupling Binding Events to a Spintronic or Magneto-Optical Readout
+*   **Context:** Even if the layer is intact on a magnetic substrate, binding a glucocorticoid or chiral pharmaceutical is a chemical event. The signal of interest for HELIOS is a change in AHE, THE, TOHE, Kerr, MOKE, FMR, or BLS response.
+*   **Blocker:** Is there a measurable spin-selective or proximity-coupling pathway from a bound chiral molecule to the magnetic host, at a signal-to-noise ratio usable for sensing?
+*   **Status:** `[SPECULATIVE]`
+
+### Q5.3: Survival of the Organic Layer Under Device Conditions
+*   **Context:** HELIOS device operation may involve femtosecond laser pulses, sub-100 ps electrical switching, sub-GHz microwave readout, or moderate thermal cycling.
+*   **Blocker:** Does the 2D peptide crystal retain its crystallinity and chiral recognition function under any plausible HELIOS device environment, or does it require an isolated, low-energy interface only?
+*   **Status:** `[SPECULATIVE]`
+
+### Q5.4: Stacking Order with $Fe_3GaTe_2$ or Other Spin-Active Hosts
+*   **Context:** The speculative stack is `target molecule → peptide crystal → spin-selective interface → vdW magnetic layer`. The actual interface chemistry between the peptide side-chains and a vdW surface is unknown.
+*   **Blocker:** Will the peptide layer remain functional in direct contact with $Fe_3GaTe_2$, or does it require an inert spacer (hBN, $Al_2O_3$) that breaks the spin-coupling path?
+*   **Status:** `[SPECULATIVE]`
+
+**Boundary Reminder:** Until Q5.1–Q5.4 are answered, the peptide-crystal branch is **not** part of the main HELIOS-3D compute path. It is a tracked speculative side branch only.

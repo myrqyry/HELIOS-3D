@@ -119,3 +119,39 @@ Recent preprints (arXiv:2507.05618v2, arXiv:2601.13499) demonstrate altermagneti
 | **HELIOS-3D Status** | Current baseline | `[INFERRED]` | `[PROPOSED]` |
 
 HELIOS-3D may later migrate from standard ferromagnets (Phase 1) to compensated ferrimagnets (Phase 2) as a hosting material for ultra-dense hopfion arrays, if the intermediate demonstrators justify that step.
+
+---
+
+## 🧬 7. Programmable Chiral Organic Interface Layer (Speculative Side Branch)
+
+This is **not** part of the main spintronic compute path. It is a candidate **molecular recognition layer** for a future chiral spintronic sensing stack, tracked here as a long-range branch only.
+
+*   **Material Class:** Free-standing ultrathin 2D peptide crystals produced by metal-directed β-sheet-like assembly (Wang et al., *Nature Chemistry* 2026). The crystals have programmable sequence, chirality, and side-chain chemistry, and are exfoliated into single-crystalline nanosheets. `[DEMONSTRATED]`
+*   **Recognition Capability:** The nanosheets stereoselectively bind glucocorticoids and chiral pharmaceutical molecules, with reported enantioselectivity up to **20.9**. `[DEMONSTRATED]`
+*   **Why HELIOS Cares:** A programmable chiral organic layer could serve as the **molecular recognition front-end** for a future HELIOS-style chiral spintronic sensor. The interest is in coupling chemical selectivity to a spintronic or magneto-optical readout—not in replacing any spin-active material in the compute core. `[PROPOSED]`
+*   **Why HELIOS Should NOT Overstate This:** Organic peptide sheets and high-energy optical/magnetic device stacks may be chemically and thermally incompatible. Any claim that this layer (a) is a spintronic material, (b) generates skyrmions, (c) solves magnetic readout, (d) accelerates 3D HELIOS fabrication, (e) proves CISS coupling to the magnetic stack, (f) survives laser switching or device heat, or (g) tolerates direct $Fe_3GaTe_2$ processing conditions, is rejected as overstated.
+*   **Historical/Class Context:** A 2024 *Nature Chemistry* paper on purely organic free-standing 2D woven polymer networks (monolayer thickness ~1.3 nm) and a 2010 *Nature Materials* paper on free-floating 2D peptoid sheets (~2.7 nm thick) establish that sequence-programmed free-standing organic nanosheets are a real materials class. `[DEMONSTRATED]`
+
+### 7.1 Speculative Branch Stack (for framing only)
+
+```
+target molecule
+  ↓
+programmable chiral 2D peptide crystal (molecular recognition layer)
+  ↓
+spin-selective or proximity-coupled interface
+  ↓
+vdW magnetic layer (skyrmion / hopfion host)
+  ↓
+electrical, optical, or magneto-optical signal
+```
+
+### 7.2 Promotion Gates (PROPOSED → Sensing Candidate)
+
+A claim involving this branch may only be promoted to a sensing candidate when all of the following hold:
+
+1. A free-standing 2D peptide crystal is transferred onto a relevant substrate (magnetic, vdW, or metal) without loss of crystallinity or chiral binding function.
+2. A binding event produces a measurable change in an electrical (AHE/THE/TOHE), magnetic (Kerr/MOKE/FMR/BLS), or magneto-optical signal.
+3. The organic layer survives the relevant device environment (thermal cycling, vacuum, optical excitation at the write-interface wavelength).
+
+Until all three gates pass, this branch remains `[PROPOSED]` and is excluded from main-architecture claims.

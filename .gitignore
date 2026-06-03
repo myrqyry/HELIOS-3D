@@ -191,3 +191,7 @@ node_modules/
 
 # Migration snapshot (build-time only)
 docs/.snapshot-originals/
+
+# Playwright test artifacts
+test-results/
+playwright-report/

@@ -6,7 +6,7 @@ tags: ["DEMONSTRATED", "INFERRED", "PROPOSED", "SPECULATIVE"]
 figures: ['material-stack']
 updated: 2026-06-03
 ---
-import MaterialStack from '../../components/r3f/MaterialStack.tsx';
+import MaterialStack from '../../../components/r3f/MaterialStack.tsx';
 
 <MaterialStack client:visible height="h-72" />
 
@@ -41,7 +41,7 @@ A critical ambiguity in the original HELIOS-3D proposal is the direct assertion 
 
 *   **Function:** Provides the bulk structural framework, thermal management pathways, and optical access ports.
 *   **Materials:** Photoresin (e.g., IP-Dip, PEGDA-based formulations, and low-viscosity acrylates down to 4.7 cP).
-*   **Performance:** ~19 µm stable printing resolution (11 µm optical) across a 1 cm axial depth in <0.6 seconds. `[DEMONSTRATED]`
+*   **Performance:** ~19 µm stable printing resolution (11 µm optical) across a 1 cm axial depth in &lt;0.6 seconds. `[DEMONSTRATED]`
 *   **Preprocessing Bottleneck:** Generating complex holographic patterns for mm-scale volumes can currently take ~24 hours on desktop CPUs. HELIOS-3D **proposes** the integration of **GPU-accelerated iterative optimization** or **Neural Network-based hologram generation** to reduce preprocessing to minutes or seconds. `[PROPOSED]`
 *   **In-Situ Capability:** The single-side illumination and rotating periscope design (Wang et al., 2026) enable printing directly onto **fixed substrates** (e.g., pre-fabricated CMOS or spintronic wafers) without sample rotation. This is the primary mechanism for integrating 3D features with the "Planar-First" branch. `[DEMONSTRATED]`
 *   **Scaling Strategy (Modular Assembly):** To overcome the cm-scale volume limits of DISH, we propose a **modular assembly workflow**. Millimeter-scale topological modules are printed rapidly and then tiled or assembled into larger 3D coprocessor arrays. For the detailed geometric and optical protocol, see **[`research_specifications/module_6_modular_tiling_scaling.md`](../research_specifications/module_6_modular_tiling_scaling.md)**. `[PROPOSED]`

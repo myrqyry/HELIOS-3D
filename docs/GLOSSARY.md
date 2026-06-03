@@ -101,3 +101,12 @@ A 3D-printed flexible-rigid transition mechanism using interlocking three-sided 
 
 ### $V_B^-$ (Negatively Charged Boron Vacancy)
 A point defect in hBN that acts as a room-temperature quantum sensor with spin-dependent fluorescence. Alternative to diamond NV centers for magnetic sensing. `[DEMONSTRATED]`
+
+### 2D Peptide Crystal
+A free-standing ultrathin two-dimensional crystal assembled from sequence-specific peptide building blocks via a metal-directed β-sheet-like strategy (Wang et al., *Nature Chemistry* 2026). These crystals expose programmable chirality and side-chain chemistry on an atomically thin, exfoliable surface, and stereoselectively bind small molecules such as glucocorticoids and chiral pharmaceuticals (enantioselectivity up to 20.9). In HELIOS-3D they are tracked as a **speculative molecular recognition layer** for a future chiral spintronic sensing stack, **not** as a spin-active material. `[DEMONSTRATED for synthesis and binding; PROPOSED for HELIOS interface use]`
+
+### Peptide-Crystal Recognition Layer
+The proposed role of a 2D peptide crystal within a future HELIOS-style chiral spintronic sensing stack: a programmable, chiral, chemically selective capture layer positioned upstream of a vdW magnetic host and its electrical, optical, or magneto-optical readout. The layer is not part of the main HELIOS-3D compute path and is gated on substrate transfer, signal coupling, and device-environment survival (see `OPEN_QUESTIONS.md`, section 5). `[PROPOSED]`
+
+### Enantioselectivity
+The preference of a chiral recognition system for one enantiomer of a substrate over its mirror image, often reported as the ratio of binding affinities ($K_S / K_R$ or similar). The 2D peptide crystals in the Wang et al. 2026 study report enantioselectivity up to **20.9** against glucocorticoids and chiral pharmaceuticals. `[DEMONSTRATED]`
