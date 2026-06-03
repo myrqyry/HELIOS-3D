@@ -25,8 +25,8 @@ declare -A MAP=(
 fail=0
 for orig in "${!MAP[@]}"; do
   new="${MAP[$orig]}"
-  # Strip frontmatter from new file (everything between leading --- fences)
-  body=$(awk 'BEGIN{f=0} /^---$/{f++; next} f==2{print}' "$MIG/$new")
+  # Skip first two --- fences (frontmatter open + close); then print everything (including body ---)
+  body=$(awk 'BEGIN{a=0; b=0} /^---$/{ if(a==0){a=1; next} else if(b==0){b=1; next} } b==1{print}' "$MIG/$new")
   if diff -q <(cat "$ORIG/$orig") <(printf '%s\n' "$body") > /dev/null; then
     echo "OK   $orig -> $new"
   else

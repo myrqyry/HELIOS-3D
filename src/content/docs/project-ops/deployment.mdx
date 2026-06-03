@@ -1,0 +1,31 @@
+---
+title: "Deployment"
+summary: "HELIOS-3D is designed to publish without GitHub Actions."
+stage: project-ops
+tags: []
+figures: []
+updated: 2026-06-03
+---
+# Deploying HELIOS-3D to GitHub Pages
+
+HELIOS-3D is designed to publish without GitHub Actions.
+
+## Local Publish Flow
+
+1. Run `uv sync` or `make sync` from the repo root.
+2. Run `uv run mkdocs gh-deploy --clean` or `make deploy` from the repo root.
+3. MkDocs builds the site and pushes the generated output to the `gh-pages` branch.
+
+## GitHub Settings
+
+1. Open the repository on GitHub.
+2. Go to `Settings` -> `Pages`.
+3. Set `Source` to `Deploy from a branch`.
+4. Set the branch to `gh-pages`.
+5. Set the folder to `/ (root)`.
+
+## Notes
+
+* `site/` is a build artifact and stays untracked.
+* The `gh-pages` branch is the published site, so it should not be edited by hand.
+* If you change docs, rerun `uv run mkdocs gh-deploy --clean` or `make deploy` to update the live site.

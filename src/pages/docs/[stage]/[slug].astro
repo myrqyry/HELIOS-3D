@@ -1,0 +1,32 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Tag from '../../../components/Tag.astro';
+import TOC from '../../../components/TOC.astro';
+
+export async function getStaticPaths() {
+  const docs = await getCollection('docs');
+  return docs.map((doc) => ({
+    params: { stage: doc.data.stage, slug: doc.id.split('/').pop()?.replace(/\.mdx?$/, '') ?? doc.id },
+    props: { doc },
+  }));
+}
+
+interface Props { doc: CollectionEntry<'docs'> }
+const { doc } = Astro.props;
+const { Content, headings } = await doc.render();
+---
+<BaseLayout title={doc.data.title} description={doc.data.summary}>
+  <header class="mb-6 pb-4 border-b border-obsidian-3">
+    <h1 class="text-4xl font-bold text-amber">{doc.data.title}</h1>
+    <p class="mt-2 text-parchment-2">{doc.data.summary}</p>
+    <div class="mt-3 flex flex-wrap gap-1.5">
+      {doc.data.tags.map((t) => <Tag stage={t} />)}
+    </div>
+  </header>
+  <TOC headings={headings} />
+  <Content />
+  <footer class="mt-12 pt-4 border-t border-obsidian-3 text-xs text-parchment-2 font-mono">
+    Last updated: {doc.data.updated.toISOString().slice(0, 10)}
+  </footer>
+</BaseLayout>
