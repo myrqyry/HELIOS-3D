@@ -1,1 +1,11 @@
 @import "tailwindcss";
+@import "./tokens.css";
+
+@layer base {
+  html { color-scheme: dark; }
+  body {
+    background: var(--color-obsidian);
+    color: var(--color-parchment);
+    font-family: var(--font-sans);
+  }
+}
