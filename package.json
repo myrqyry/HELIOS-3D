@@ -1,0 +1,21 @@
+{
+  "name": "helios-3d-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "test": "vitest",
+    "test:e2e": "playwright test",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "deploy": "astro build && echo 'Deploy dist/ via the GitHub Actions workflow on main.'"
+  },
+  "packageManager": "pnpm@10.7.0",
+  "dependencies": {
+    "astro": "^5"
+  }
+}
