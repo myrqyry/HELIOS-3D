@@ -1,7 +1,33 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import HopfionScene from '../components/r3f/HopfionScene';
 ---
 <BaseLayout title="HELIOS-3D" showSidebar={false}>
-  <h1 class="text-5xl font-bold text-amber">HELIOS-3D</h1>
-  <p class="text-lg text-parchment-2 mt-4">Spintronic coprocessor research hypothesis.</p>
+  <Hero
+    title="HELIOS-3D"
+    subtitle="A staged research hypothesis for a spintronic coprocessor using topologically protected 3D hopfions — research documentation rendered as a graphic presentation."
+  />
+  <div class="my-8">
+    <HopfionScene client:visible height="h-[28rem]" />
+    <p class="mt-2 text-center text-xs text-parchment-2 font-mono">Stylized illustration — not simulation-accurate.</p>
+  </div>
+  <section class="grid md:grid-cols-2 gap-4 my-8">
+    <a href="/docs/established/abstract/" class="block rounded-lg border border-obsidian-3 bg-obsidian-2 p-5 hover:border-ember">
+      <h3 class="text-amber font-bold">Architecture</h3>
+      <p class="mt-1 text-sm text-parchment-2">MCA + BRC dual-core, hopfion-based.</p>
+    </a>
+    <a href="/docs/established/candidate-materials-and-mechanisms/" class="block rounded-lg border border-obsidian-3 bg-obsidian-2 p-5 hover:border-ember">
+      <h3 class="text-amber font-bold">Material</h3>
+      <p class="mt-1 text-sm text-parchment-2">EuS / Bi₂Se₃ / EuS, FGT, Mn₃Sn.</p>
+    </a>
+    <a href="/docs/current/targets-comparators-and-projections/" class="block rounded-lg border border-obsidian-3 bg-obsidian-2 p-5 hover:border-ember">
+      <h3 class="text-amber font-bold">Performance</h3>
+      <p class="mt-1 text-sm text-parchment-2">40–60 ps write, pJ/µm² energy floor.</p>
+    </a>
+    <a href="/docs/speculative/core-architecture/" class="block rounded-lg border border-obsidian-3 bg-obsidian-2 p-5 hover:border-ember">
+      <h3 class="text-amber font-bold">Sensing</h3>
+      <p class="mt-1 text-sm text-parchment-2">CISS, TOHE, peptide-crystal interface.</p>
+    </a>
+  </section>
 </BaseLayout>
