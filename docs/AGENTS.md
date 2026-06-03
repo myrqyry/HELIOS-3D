@@ -16,8 +16,8 @@ Documentation for HELIOS-3D project, including research findings, simulation set
 
 ## Deviations from Root
 
-- Documentation uses MkDocs + Material theme
-- Math equations use MathJax notation
+- Documentation uses Astro 5 + MDX (replaced the previous MkDocs + Material setup; see `docs/superpowers/specs/2026-06-03-helios-3d-site-rebuild-design.md`)
+- Math equations use MathJax + KaTeX (via remark-math + rehype-katex)
 
 ## Dependencies & Side Effects
 
