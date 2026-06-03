@@ -3,6 +3,22 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Tag from '../../../components/Tag.astro';
 import TOC from '../../../components/TOC.astro';
+import HopfionScene from '../../../components/r3f/HopfionScene';
+import SkyrmionScene from '../../../components/r3f/SkyrmionScene';
+import MaterialStack from '../../../components/r3f/MaterialStack';
+import DmiChirality from '../../../components/r3f/DmiChirality';
+import TwistReservoirNucleation from '../../../components/r3f/TwistReservoirNucleation';
+import TopologicalOrbitalHall from '../../../components/r3f/TopologicalOrbitalHall';
+import { getEntry } from 'astro:content';
+
+const componentMap: Record<string, any> = {
+  HopfionScene,
+  SkyrmionScene,
+  MaterialStack,
+  DmiChirality,
+  TwistReservoirNucleation,
+  TopologicalOrbitalHall,
+};
 
 export async function getStaticPaths() {
   const docs = await getCollection('docs');
@@ -15,6 +31,10 @@ export async function getStaticPaths() {
 interface Props { doc: CollectionEntry<'docs'> }
 const { doc } = Astro.props;
 const { Content, headings } = await doc.render();
+
+const heroFigureSlug = doc.data.figures[0];
+const heroFigure = heroFigureSlug ? await getEntry('figures', heroFigureSlug) : null;
+const HeroComponent = heroFigure ? componentMap[heroFigure.data.component] : null;
 ---
 <BaseLayout title={doc.data.title} description={doc.data.summary}>
   <header class="mb-6 pb-4 border-b border-obsidian-3">
@@ -24,6 +44,12 @@ const { Content, headings } = await doc.render();
       {doc.data.tags.map((t) => <Tag stage={t} />)}
     </div>
   </header>
+  {HeroComponent && (
+    <div class="my-6">
+      <HeroComponent client:visible height="h-96" />
+      <p class="mt-2 text-center text-xs text-parchment-2 font-mono">{heroFigure?.data.title} — stylized illustration, not simulation-accurate.</p>
+    </div>
+  )}
   <TOC headings={headings} />
   <Content />
   <footer class="mt-12 pt-4 border-t border-obsidian-3 text-xs text-parchment-2 font-mono">
