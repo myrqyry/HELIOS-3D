@@ -1,0 +1,1 @@
+{ "title": "Breathing-mode spectrum", "kind": "chart", "source": "data-driven", "component": "BreathingModeSpectrum", "description": "Sub-GHz breathing-mode frequencies for hopfion readout." }
