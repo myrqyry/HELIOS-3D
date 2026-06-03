@@ -42,12 +42,12 @@ The strongest late-stage candidate family currently appears to be compensated fe
 
 ---
 
-## 💻 Implementation Status (Phase 2)
+## 💻 Implementation Status (Phase 0.5)
 
-The project has transitioned from a purely documentation-based hypothesis into **Phase 2: Firmware & Compilers**. 
+The project is currently in **Phase 0.5: Documentation + validation scaffolding**. A mock topological compiler scaffold exists in `compiler/` for structural testing; full firmware and physics-validated compiler work remains Phase 2. 
 
 *   **Topological Compiler:** A Python-based mapping layer (in `compiler/`) that translates semantic embeddings into 3D magnetization tensors.
-*   **Verified Physics:** Initial unit tests validate coordinate mapping fidelity and integer Hopf Index synthesis ($Q_H=1$) using a mock Inverse Faraday Effect transfer function.
+*   **Prototype compiler scaffolding:** Initial unit tests validate coordinate mapping fidelity and integer Hopf Index synthesis ($Q_H=1$) using a mock Inverse Faraday Effect transfer function.
 *   **PINN Readiness:** The environment is configured for Physics-Informed Neural Network (PINN) training to automate magnetization synthesis.
 
 ---
@@ -128,13 +128,19 @@ Furthermore, as grids decarbonize, **embodied carbon** from semiconductor fabric
 
 HELIOS-3D bridges this gap by testing whether transitioning computational principles to topological magnetism can allow thermal noise to assist, rather than degrade, computation, while utilizing high-density 3D scaling to reduce the physical and embodied footprint of compute infrastructure.
 
-## 🌐 Publish to GitHub Pages Without Actions
+## 🌐 Publish to GitHub Pages
 
-This repo is set up for local MkDocs deployment to a `gh-pages` branch.
+This site is deployed automatically by the GitHub Actions workflow at `.github/workflows/deploy.yml`. On every push to `main`, the workflow runs `pnpm check && pnpm test && pnpm build` and publishes `dist/` to GitHub Pages.
 
-1. Install dependencies with `uv sync` or `make sync`.
-2. Build locally with `uv run mkdocs build` or `make build`.
-3. Publish with `uv run mkdocs gh-deploy --clean` or `make deploy`.
-4. In GitHub repo settings, open `Pages`.
-5. Set `Source` to `Deploy from a branch`.
-6. Select branch `gh-pages` and folder `/ (root)`.
+To enable:
+
+1. In GitHub repo settings, open **Pages**.
+2. Set **Source** to **GitHub Actions**.
+3. Push to `main`; the workflow will deploy the first build.
+
+For a one-off local preview:
+
+```bash
+pnpm build
+pnpm preview
+```
