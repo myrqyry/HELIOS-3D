@@ -25,7 +25,6 @@ const redirectMap = {
 
 export default defineConfig({
   site: 'https://myrqyry.github.io',
-  base: '/HELIOS-3D',
   output: 'static',
   trailingSlash: 'ignore',
   integrations: [
