@@ -59,6 +59,9 @@ A device with two ferromagnetic layers separated by an insulating barrier. Exhib
 ### PMA (Perpendicular Magnetic Anisotropy)
 Magnetic anisotropy with the easy axis perpendicular to the film plane. Essential for stabilizing skyrmions and hopfions at room temperature. `$Fe_3GaTe_2$` exhibits strong PMA.
 
+### PnC (Phononic Crystal)
+A periodic nanostructured material designed to control the propagation of acoustic waves (phonons). In HELIOS-3D, PnC resonators on lithium niobate (LiNbO3) are proposed as an "Acoustic Control Layer" for signal routing and readout enhancement. `[DEMONSTRATED]`
+
 ### PINN (Physics-Informed Neural Network)
 A class of deep learning models that encode physical laws (PDEs) into their loss functions. Used in HELIOS-3D for high-speed micromagnetic synthesis and inverse design. `[INFERRED]`
 
