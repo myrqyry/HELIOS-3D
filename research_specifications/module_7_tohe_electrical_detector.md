@@ -11,9 +11,12 @@ To develop a high-sensitivity **Topological Orbital Hall Effect (TOHE)** detecto
 *   **Mechanism:** When an electric current passes through a hopfion-hosting substrate, the hopfion's complex 3D spin texture acts as an **emergent electromagnetic field** in both real and momentum space.
 *   **Deflection:** Unlike 2D skyrmions, which primarily exhibit in-plane deflection (Topological Hall Effect), hopfions generate a **3D orbital angular momentum (OAM) current**.
 
-### 2. Topological Sensitivity
+### 2. Topological Sensitivity (3D Tensor Mapping)
 *   **The Signal:** The TOHE tensor response is uniquely tied to the **Hopf Index ($Q_H$)**.
-*   **Discrimination:** This hallmark allows the detector to distinguish between single hopfions, nested textures ($Q_H > 1$), and topologically trivial solitons (skyrmioniums).
+*   **Discrimination:** Unlike 2D THE, the 3D hopfion generates vertical orbital current components:
+    *   **$\sigma_{xz}^{L_y}$:** $x$-field $\rightarrow$ $z$-current of $L_y$ (Vertical Hallmark).
+    *   **$\sigma_{yz}^{L_x}$:** $y$-field $\rightarrow$ $z$-current of $L_x$ (Vertical Hallmark).
+*   **Significance:** These vertical hallmarks are the definitive **3D electronic signature** of a knotted magnetic soliton.
 
 ---
 
