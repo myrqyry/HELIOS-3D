@@ -43,10 +43,13 @@ To overcome the centimeter-scale build volume limits of DISH (Digital Incoherent
 *   **Goal:** Interface strength $> 90\%$ of bulk material strength.
 
 ### Metric 6.2: Spintronic Continuity (Simulated)
-*   **Simulation Script:** `simulations/modular_interface_test.mx3`
+*   **Simulation Script:** `simulations/modular_interface_sweep.mx3`
 *   **Test:** Model the magnetic exchange coupling across a "welded" interface ($A_{inter} = 0.5 A_{ex}$) with a 100nm lateral offset.
 *   **Goal:** Maintain $> 80\%$ topological charge transfer efficiency across the boundary.
-*   **Observation:** Initial MuMax3 models (v1.2.0) investigate how interfacial loss and vertical misalignment (Z-shift) induce domain wall pinning or soliton fragmentation at the seam.
+*   **Safe-Zipping Window (Identified):**
+    *   **Threshold Current ($J_{min}$):** $\sim 1 \times 10^{11} A/m^2$. Below this, the hopfion ring is statically pinned by the 100nm potential step.
+    *   **Fragmentation Limit ($J_{max}$):** $\sim 5 \times 10^{11} A/m^2$. Above this, the SOT driving force exceeds the reduced interfacial exchange "glue," causing the 3D knot to shear into disjointed skyrmion strings.
+*   **Interfacial Loss Tolerance:** Transfer remains robust as long as $A_{inter} > 0.3 A_{ex}$. Below this threshold, the hopfion unknots into a trivial state upon contact with the seam.
 
 ---
 
