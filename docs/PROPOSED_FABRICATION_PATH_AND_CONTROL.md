@@ -105,6 +105,7 @@ For logical nodes and switching, we adopt a hybrid **laser-to-photocurrent-to-SO
 | **Write Speed** | **40–60 ps** | `[DEMONSTRATED]` |
 | **Topological Fidelity** | >99% (matching input knot) | `[PROPOSED]` |
 | **Energy per Write** | **~1.7 pJ/µm²** (AFM) / **4 fJ** (Optical) | `[DEMONSTRATED]` |
+| **Endurance** | **> 10^11 cycles** | `[DEMONSTRATED]` |
 | **Wavelength** | 800–1550 nm (near-IR) | `[DEMONSTRATED]` |
 | **Material Compatibility** | $EuS/Bi_2Se_3/EuS$, $Mn_3Sn$, $Fe_3GaTe_2$ | `[DEMONSTRATED]` |
 
