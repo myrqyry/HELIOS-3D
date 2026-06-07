@@ -55,8 +55,9 @@ Recent literature provides a basis for investigating specific heterostructures a
 
 ## 7. Planar Spintronic Interface and Control Candidates
 
-*   **Ballistic Graphene Spin Valve:** Burrow et al., *Ballistic Spin Valve in Graphene Realized via Electron Optics* (2026), demonstrates gate-tunable spin-signal modulation and polarity inversion in a high-mobility graphene spin valve using transverse magnetic focusing. The result supports electron-optic spin control as a possible planar interface, routing, or readout-adjacent branch for HELIOS-3D, but it does not validate skyrmion, hopfion, or thermodynamic-computing claims. `[INFERRED]`
-*   **Dielectric Screening in Moiré Systems:** Gao et al. (2026) demonstrate that high-dielectric substrates can tune correlated states. `[INFERRED]`
+*   **Ballistic Graphene Spin Valve:** Burrow et al. (2026) demonstrates gate-tunable spin-signal modulation in a high-mobility graphene spin valve using transverse magnetic focusing. `[INFERRED]`
+*   **Dielectric Screening in Moiré Systems:** Gao et al., *Double-edged role of interactions in superconducting twisted bilayer graphene* (Nature Physics 2026), demonstrate that the proximity of a high-dielectric **SrTiO3** substrate can suppress or tune correlated moiré states by screening electronic interactions. 
+*   **Significance:** This provides a critical experimental precedent for the **in-situ tuning of moiré potential landscapes**—a mechanism HELIOS-3D proposes to adapt for magnetic hopfion control. By utilizing high-dielectric scaffolds or substrates, we can dynamically modulate the "trapping potential" depth in our super-moiré lattices. `[DEMONSTRATED for SC; INFERRED for Magnetism]`
 *   **Twistless Moiré Engineering:** Cornell Researchers (June 2026) demonstrate a method to create **moiré superlattices without manual twisting or stacking** by using lithographically patterned metal stressor films to induce differential strain in 2D layers (e.g., $MoS_2$).
 *   **Significance:** This provides the **industrial scaling path** for HELIOS-3D Phase 3. It replaces manual flake rotation with standard semiconductor manufacturing processes (lithography/deposition), enabling the **deterministic printing of moiré trapping potentials** for hopfion crystals with sub-micron reproducibility. `[DEMONSTRATED for 2D; PROPOSED for 3D]`
 
