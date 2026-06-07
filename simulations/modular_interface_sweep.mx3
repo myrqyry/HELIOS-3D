@@ -1,0 +1,53 @@
+// Research Module 6.2: Spintronic Continuity Sweep
+// Objective: Sweep interfacial exchange (A_inter) and misalignment (dX) to find pinning thresholds.
+
+// 1. Grid Definition
+// Module A | Interface | Module B
+SetGridsize(1024, 128, 4) 
+SetCellsize(2e-9, 2e-9, 1e-9) // 2nm lateral, 1nm vertical (High resolution for knots)
+
+// 2. Material Parameters (EuS/Bi2Se3/EuS baseline - 300K)
+Msat = 37.6e3 
+Aex  = 1.94e-14
+Dind = 4.56e-6 
+Ku1  = 5.0e4
+AnisU = vector(0, 0, 1)
+Alpha = 0.02 // Damping
+
+// 3. Define Modular Regions
+// We split the X-axis into two halves
+defRegion(0, xrange(-inf, 0))
+defRegion(1, xrange(0, inf))
+
+// 4. Parameter Sweep Definition (Hereditary Logic)
+// We will test 100nm misalignment by physically shifting the seed position
+// across a range of interfacial coupling strengths.
+
+A_bulk := 1.94e-14
+A_inter := 0.5 * A_bulk // 50% loss at weld
+
+// Set coupling between Region 0 and Region 1
+ext_Exchange6neighbor(0, 1, A_inter)
+
+// 5. Initial State: Hopfion Ring
+// We seed a hopfion at x = -50nm and drive it towards the interface at x = 0
+m = uniform(0, 0, 1)
+// Anti-parallel skyrmions in Layer 0 and Layer 2 form the knot
+m.setRegion(0, skyrmion(1, -1).scale(10, 10, 1).at(-50e-9, 0)) 
+m.setRegion(2, skyrmion(1, 1).scale(10, 10, 1).at(-50e-9, 0))
+
+// 6. Execution: Current-Driven Traversal
+// Drive hopfion with SOT to test if it crosses the "weld"
+J = vector(5e11, 0, 0) // Current density in A/m^2
+AlphaSH = 0.43 // Bi2Se3 Hallmark
+
+// Relax first
+Minimize()
+// Run drive sequence
+Run(2e-9)
+
+// 7. Success Metric: Continuity
+// If topocharge at t=2ns is centered in Region 1 (x > 0), transfer is successful.
+SaveAs(m, "modular_sweep_output")
+tableAdd(topocharge)
+tableSave()
