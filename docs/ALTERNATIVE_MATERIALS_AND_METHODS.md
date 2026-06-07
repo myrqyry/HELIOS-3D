@@ -253,6 +253,31 @@ Use planar nanopatterning to define tracks, reservoirs, Hall crosses, and sensor
 
 * Best route to a credible first demonstrator.
 
+### 4.2 Strain-Induced "Twistless" Moiré Engineering
+
+**Supporting study:**
+
+* Cornell University News, *Researchers make moiré 2D materials without stacking, twisting* (June 2026).
+
+**Concept:**
+
+Utilize lithographically patterned metal "stressor films" to induce differential atomic strain in a target 2D layer (e.g., $MoS_2$, $Fe_3GaTe_2$). The resulting lattice mismatch between strained and unstrained regions generates a moiré superlattice without the need for manual rotation or physical stacking of separate flakes.
+
+**Advantages:**
+
+* **Industrial Scalability:** Leverages standard semiconductor fabrication (photolithography and thin-film deposition).
+* **Reproducibility:** Eliminates "twist-angle disorder" inherent in manual stacking.
+* **Room-Temperature Robustness:** Demonstration of localized polarization (ferroelectricity) at 300 K suggest robust potential landscapes for trapping topological carriers.
+
+**Disadvantages:**
+
+* Limited demonstrated material palette (currently centered on TMDs like $MoS_2$).
+* Complexity in designing the stressor geometries required for non-hexagonal (e.g., skyrmion/hopfion) lattice symmetries.
+
+**Assessment:**
+
+* **Primary Candidate for Phase 3.** This method provides the only credible path to high-throughput manufacturing of moiré-enhanced spintronic coprocessors.
+
 ### 4.3 Direct Laser Writing and Volumetric Printing (DISH/TPP) for Passive Structures
 
 **Concept:**
