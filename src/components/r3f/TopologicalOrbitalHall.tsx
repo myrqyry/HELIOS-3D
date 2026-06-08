@@ -1,6 +1,6 @@
 import { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Float, Stars, Text } from '@react-three/drei';
+import { OrbitControls, Float, Stars, Text, Billboard } from '@react-three/drei';
 import * as THREE from 'three';
 
 function HallmarkArrows() {
@@ -19,7 +19,11 @@ function HallmarkArrows() {
             <coneGeometry args={[0.08, 0.2, 16]} />
             <meshStandardMaterial color={a.color} emissive={a.color} emissiveIntensity={2} />
           </mesh>
-          <Text position={[0, 0.3, 0]} fontSize={0.12} color="#f4e8d8">{a.label}</Text>
+          <Billboard position={[0, 0.3, 0]}>
+            <Text fontSize={0.12} color="#f4e8d8" anchorX="center" anchorY="middle">
+              {a.label}
+            </Text>
+          </Billboard>
         </group>
       ))}
     </group>

@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Text } from '@react-three/drei';
+import { OrbitControls, Text, Billboard } from '@react-three/drei';
 import * as THREE from 'three';
 
 function Stack() {
@@ -21,7 +21,11 @@ function Stack() {
             <boxGeometry args={[2.4, 0.5, 2.4]} />
             <meshStandardMaterial color={l.color} emissive={l.color} emissiveIntensity={0.2} />
           </mesh>
-          <Text position={[1.6, 0, 0]} fontSize={0.18} color="#f4e8d8" anchorX="left">{l.label}</Text>
+          <Billboard position={[1.6, 0, 0]}>
+            <Text fontSize={0.18} color="#f4e8d8" anchorX="left" anchorY="middle">
+              {l.label}
+            </Text>
+          </Billboard>
         </group>
       ))}
       <mesh>
