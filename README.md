@@ -117,18 +117,6 @@ The technical documentation is live at **[myrqyry.github.io/HELIOS-3D/](https://
 
 The site is built with **Astro (Starlight)** and automatically deployed via GitHub Actions on every push to `main`.
 
-### Local Development
-
-1.  **Frontend:**
-    ```bash
-    pnpm install
-    pnpm dev
-    ```
-2.  **Research Environment:**
-    ```bash
-    uv sync
-    ```
-
 ---
 
 ## ⚠️ The Thermodynamic Crisis and the Spintronic Mandate
