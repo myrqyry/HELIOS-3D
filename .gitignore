@@ -61,6 +61,8 @@ tool-outputs/
 docs/superpowers/
 docs/.snapshot-originals/
 site/
+e2e/
+skills/universal-metacognitive-cycle/
 
 # Simulation Temporaries
 *.out
