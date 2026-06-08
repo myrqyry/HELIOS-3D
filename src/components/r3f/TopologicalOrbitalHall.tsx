@@ -1,44 +1,98 @@
-import { useRef } from 'react';
+import { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
+import { OrbitControls, Float, Stars, Text } from '@react-three/drei';
 import * as THREE from 'three';
 
-function Hall() {
-  const group = useRef<THREE.Group>(null);
-  useFrame((_, d) => { if (group.current) group.current.rotation.x += d * 0.3; });
-  const lines: THREE.Vector3[][] = [];
-  for (let i = 0; i < 24; i++) {
-    const t = (i / 24) * Math.PI * 4;
-    const line: THREE.Vector3[] = [];
-    for (let j = 0; j < 30; j++) {
-      const u = j / 30;
-      const r = 0.4 + 0.8 * u;
-      const x = r * Math.cos(t + u * 6);
-      const y = r * Math.sin(t + u * 6);
-      const z = (u - 0.5) * 2;
-      line.push(new THREE.Vector3(x, y, z));
-    }
-    lines.push(line);
-  }
+function HallmarkArrows() {
+  const arrows = useMemo(() => [
+    { pos: [1.2, 0.2, 0], dir: [0, 1, 0], color: '#7dd3fc', label: 'σ_xz^Ly' },
+    { pos: [-1.2, -0.2, 0], dir: [0, -1, 0], color: '#7dd3fc', label: 'σ_xz^Ly' },
+    { pos: [0, 1.2, 0.2], dir: [0, 0, 1], color: '#ff6b1a', label: 'σ_yz^Lx' },
+    { pos: [0, -1.2, -0.2], dir: [0, 0, -1], color: '#ff6b1a', label: 'σ_yz^Lx' },
+  ], []);
+
   return (
-    <group ref={group}>
-      {lines.map((line, i) => {
-        const geom = new THREE.BufferGeometry().setFromPoints(line);
-        return (
-          <line key={i} geometry={geom}>
-            <lineBasicMaterial color="#7dd3fc" transparent opacity={0.7} />
-          </line>
-        );
-      })}
+    <group>
+      {arrows.map((a, i) => (
+        <group key={i} position={a.pos as [number, number, number]}>
+          <mesh rotation={new THREE.Euler().setFromVector3(new THREE.Vector3(...a.dir))}>
+            <coneGeometry args={[0.08, 0.2, 16]} />
+            <meshStandardMaterial color={a.color} emissive={a.color} emissiveIntensity={2} />
+          </mesh>
+          <Text position={[0, 0.3, 0]} fontSize={0.12} color="#f4e8d8">{a.label}</Text>
+        </group>
+      ))}
     </group>
   );
 }
 
-export default function TopologicalOrbitalHallScene({ height = 'h-72' }: { height?: string }) {
+function Hall() {
+  const group = useRef<THREE.Group>(null);
+  
+  const currentLines = useMemo(() => {
+    const lines: THREE.Vector3[][] = [];
+    for (let i = 0; i < 16; i++) {
+      const line: THREE.Vector3[] = [];
+      const offset = (i / 16) * Math.PI * 2;
+      for (let j = 0; j < 50; j++) {
+        const t = (j / 50) * 4 - 2;
+        const x = t;
+        const y = 0.2 * Math.sin(t * 3 + offset);
+        const z = 0.2 * Math.cos(t * 3 + offset);
+        line.push(new THREE.Vector3(x, y, z));
+      }
+      lines.push(line);
+    }
+    return lines;
+  }, []);
+
+  useFrame((state) => {
+    if (group.current) {
+      group.current.rotation.y = state.clock.elapsedTime * 0.2;
+    }
+  });
+
   return (
-    <div className={`w-full ${height} rounded-lg border border-obsidian-3 bg-obsidian-2 overflow-hidden`}>
-      <Canvas camera={{ position: [0, 0, 4.5], fov: 50 }}>
-        <ambientLight intensity={0.5} />
-        <Hall />
+    <group ref={group}>
+      {/* Central Hopfion Ring */}
+      <mesh>
+        <torusKnotGeometry args={[0.8, 0.2, 128, 16, 2, 3]} />
+        <meshStandardMaterial 
+          color="#ffb627" 
+          emissive="#ffb627" 
+          emissiveIntensity={0.5} 
+          wireframe 
+        />
+      </mesh>
+      
+      {/* 3D Orbital Currents */}
+      {currentLines.map((line, i) => {
+        const geom = new THREE.BufferGeometry().setFromPoints(line);
+        return (
+          <line key={i} geometry={geom}>
+            <lineBasicMaterial color="#38bdf8" transparent opacity={0.3} />
+          </line>
+        );
+      })}
+
+      <HallmarkArrows />
+    </group>
+  );
+}
+
+export default function TopologicalOrbitalHallScene({ height = 'h-96' }: { height?: string }) {
+  return (
+    <div className={`w-full ${height} rounded-lg border border-obsidian-3 bg-obsidian-1 overflow-hidden`}>
+      <Canvas camera={{ position: [0, 2, 5], fov: 45 }}>
+        <color attach="background" args={['#0a0a0a']} />
+        <ambientLight intensity={0.2} />
+        <pointLight position={[10, 10, 10]} intensity={1.5} color="#7dd3fc" />
+        <pointLight position={[-10, -10, -10]} intensity={1} color="#ff6b1a" />
+        <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
+        <Float speed={1.5} rotationIntensity={0.5} floatIntensity={0.5}>
+          <Hall />
+        </Float>
+        <OrbitControls enablePan={false} autoRotate autoRotateSpeed={0.5} />
       </Canvas>
     </div>
   );
