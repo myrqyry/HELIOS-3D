@@ -99,22 +99,35 @@ The repo should be read with a strict staging rule: `ALTERNATIVE_MATERIALS_AND_M
 
 ---
 
-## 🗺️ Repository Structure (Documentation)
+## 🗺️ Repository Structure
 
-| Document | Research Focus |
+| Path | Focus |
 |---|---|
-| **[`ABSTRACT.md`](./docs/ABSTRACT.md)** | Full system hypothesis and thermodynamic crisis framing |
-| **[`CANDIDATE_MATERIALS_AND_MECHANISMS.md`](./docs/CANDIDATE_MATERIALS_AND_MECHANISMS.md)** | Spin textures and metallic van der Waals ferromagnets |
-| **[`ALTERNATIVE_MATERIALS_AND_METHODS.md`](./docs/ALTERNATIVE_MATERIALS_AND_METHODS.md)** | Current baseline: planar-first, electrical readout |
-| **[`OPEN_QUESTIONS.md`](./docs/OPEN_QUESTIONS.md)** | Critical uncertainties, technical blockers, and roadmap |
-| **[`TARGETS_COMPARATORS_AND_PROJECTIONS.md`](./docs/TARGETS_COMPARATORS_AND_PROJECTIONS.md)** | Evidence-backed targets and benchmark context |
-| **[`CLAIMS_MATRIX.md`](./docs/CLAIMS_MATRIX.md)** | Claim-to-source traceability and promotion criteria |
-| **[`LITERATURE_REVIEW.md`](./docs/LITERATURE_REVIEW.md)** | Analysis of supporting foundational papers |
-| **[`MATHEMATICS.md`](./docs/MATHEMATICS.md)** | Hopf invariant, decay, and topological protection |
-| **[`CORE_ARCHITECTURE.md`](./docs/CORE_ARCHITECTURE.md)** | Long-range MCA + BRC architecture branch |
-| **[`PROPOSED_FABRICATION_PATH_AND_CONTROL.md`](./docs/PROPOSED_FABRICATION_PATH_AND_CONTROL.md)** | Long-range write/process/read branch |
-| **[`DEFENSIVE_FRAMEWORK.md`](./docs/DEFENSIVE_FRAMEWORK.md)** | Addressing technical critiques and stability concerns |
-| **[`PITCH_DECK_OUTLINE.md`](./docs/PITCH_DECK_OUTLINE.md)** | Research investigation pitch for stakeholders |
+| **[`src/content/docs/`](./src/content/docs/)** | Starlight-based documentation source (Primary) |
+| **[`research_specifications/`](./research_specifications/)** | Formal physics and architecture modules |
+| **[`simulations/`](./simulations/)** | MuMax3 and OOMMF configuration files |
+| **[`compiler/`](./compiler/)** | Topological Compiler implementation |
+| **[`analysis/`](./analysis/)** | Data validation and spintronic analysis scripts |
+
+---
+
+## 🌐 Deployed Site
+
+The technical documentation is live at **[myrqyry.github.io/HELIOS-3D/](https://myrqyry.github.io/HELIOS-3D/)**.
+
+The site is built with **Astro (Starlight)** and automatically deployed via GitHub Actions on every push to `main`.
+
+### Local Development
+
+1.  **Frontend:**
+    ```bash
+    pnpm install
+    pnpm dev
+    ```
+2.  **Research Environment:**
+    ```bash
+    uv sync
+    ```
 
 ---
 

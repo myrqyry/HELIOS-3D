@@ -4,38 +4,43 @@
 
 HELIOS-3D is a computational physics project studying 3D magnetic hopfions (topological solitons) in heterostructures like **EuS/Bi₂Se₃/EuS**, targeting room-temperature, zero-field stability.
 
-**Tech stack:** Python 3.11+, `uv` for dependency management, MkDocs + Material theme for docs, MuMax3/OOMMF for micromagnetic simulation configs, PINNs for magnetization synthesis, pytest for testing
+**Tech stack:** Astro (Starlight) for documentation, React for interactive components, Three.js (R3F) for 3D visualizations, Python 3.11+ for research/analysis, `uv` for Python management, `pnpm` for Node.js management, MuMax3/OOMMF for micromagnetic simulations.
 
 ## Setup Commands
 
 ```bash
-uv install
-uv run docs:build
+# Frontend
+pnpm install
+pnpm dev
+
+# Python / Research
+uv sync
 ```
 
 ## Development
 
 ```bash
-uv run docs:serve
-uv run lint
-uv run typecheck
-uv run build
+pnpm build      # Build the site
+pnpm preview    # Preview build
+pnpm check      # Astro check
+pnpm test       # Run vitest
 ```
 
 ## Testing
 
 ```bash
-uv run test
-uv run test:watch
+uv run pytest   # Run Python research tests
+pnpm test       # Run unit tests
+pnpm test:e2e   # Run playwright tests
 ```
 
 ## Conventions
 
-- Python 3.11+ required
-- Use `uv` for dependency management
-- MkDocs + Material theme for documentation
-- MuMax3/OOMMF for micromagnetic simulations
-- pytest for testing
+- Documentation lives in `src/content/docs/`
+- Interactive 3D scenes live in `src/components/r3f/`
+- Physics research modules live in `research_specifications/`
+- Simulation configs live in `simulations/`
+- All technical claims must be tagged (e.g., `[DEMONSTRATED]`)
 
 ## Routing
 
