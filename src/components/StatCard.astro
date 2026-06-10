@@ -1,0 +1,24 @@
+---
+import Tag from './Tag.astro';
+
+export interface Props {
+  stat: string;
+  unit?: string;
+  label: string;
+  source: string;
+  tag: 'DEMONSTRATED' | 'INFERRED' | 'PROPOSED' | 'SPECULATIVE';
+}
+
+const { stat, unit, label, source, tag } = Astro.props;
+---
+<article class="rounded-lg border border-obsidian-3 bg-obsidian-2 p-6 flex flex-col gap-3">
+  <div class="flex items-baseline gap-2">
+    <span class="text-5xl font-bold text-amber">{stat}</span>
+    {unit && <span class="text-xl text-parchment-2 font-mono">{unit}</span>}
+  </div>
+  <p class="text-parchment text-base">{label}</p>
+  <div class="flex items-center justify-between mt-auto pt-2 border-t border-obsidian-3">
+    <Tag stage={tag} />
+    <span class="font-mono text-xs text-parchment-2">{source}</span>
+  </div>
+</article>

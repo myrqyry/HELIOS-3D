@@ -12,3 +12,21 @@
     font-family: var(--font-sans);
   }
 }
+
+@layer utilities {
+  .snap-y-mandatory {
+    scroll-snap-type: y mandatory;
+  }
+  .snap-start {
+    scroll-snap-align: start;
+  }
+  .snap-stop {
+    scroll-snap-stop: always;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .snap-y-mandatory {
+    scroll-snap-type: y proximity;
+  }
+}

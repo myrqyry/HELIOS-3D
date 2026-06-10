@@ -1,0 +1,15 @@
+---
+export interface Props {
+  number: string;
+  title: string;
+  color?: 'ember' | 'cyan-2' | 'violet' | 'parchment-2';
+}
+
+const { number, title, color = 'ember' } = Astro.props;
+const colorClass = `text-${color}`;
+---
+<div class="flex items-baseline gap-4 mb-6">
+  <span class={`font-mono text-sm ${colorClass}`}>{number}</span>
+  <span class="h-px flex-1 bg-current opacity-30"></span>
+  <h2 class={`font-mono text-sm uppercase tracking-wider ${colorClass}`}>{title}</h2>
+</div>
