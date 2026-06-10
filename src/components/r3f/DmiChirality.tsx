@@ -55,7 +55,7 @@ function SpinField() {
   );
 }
 
-export default function DmiChiralityScene({ height = 'h-96' }: { height?: string }) {
+export default function DmiChiralityScene({ height = 'h-96', interactive = false }: { height?: string; interactive?: boolean }) {
   return (
     <div className={`w-full ${height} rounded-lg border border-obsidian-3 bg-obsidian-1 overflow-hidden`}>
       <Canvas>
@@ -68,7 +68,7 @@ export default function DmiChiralityScene({ height = 'h-96' }: { height?: string
         <Float speed={1} rotationIntensity={0.2} floatIntensity={0.2}>
           <SpinField />
         </Float>
-        <OrbitControls enablePan={false} />
+        {interactive && <OrbitControls enablePan={false} />}
       </Canvas>
     </div>
   );

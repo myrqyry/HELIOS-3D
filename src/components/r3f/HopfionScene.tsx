@@ -42,9 +42,10 @@ function Hopfion() {
 
 export interface HopfionSceneProps {
   height?: string;
+  interactive?: boolean;
 }
 
-export default function HopfionScene({ height = 'h-96' }: HopfionSceneProps) {
+export default function HopfionScene({ height = 'h-96', interactive = false }: HopfionSceneProps) {
   return (
     <div className={`w-full ${height} rounded-lg border border-obsidian-3 bg-obsidian-2 overflow-hidden`}>
       <Canvas camera={{ position: [0, 0, 4], fov: 50 }}>
@@ -52,7 +53,7 @@ export default function HopfionScene({ height = 'h-96' }: HopfionSceneProps) {
         <pointLight position={[5, 5, 5]} intensity={1.2} color="#ffb627" />
         <pointLight position={[-5, -3, -2]} intensity={0.6} color="#7dd3fc" />
         <Hopfion />
-        <OrbitControls enablePan={false} />
+        {interactive && <OrbitControls enablePan={false} />}
       </Canvas>
     </div>
   );

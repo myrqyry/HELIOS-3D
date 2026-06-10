@@ -96,7 +96,7 @@ function Hall() {
   );
 }
 
-export default function TopologicalOrbitalHallScene({ height = 'h-96' }: { height?: string }) {
+export default function TopologicalOrbitalHallScene({ height = 'h-96', interactive = false }: { height?: string; interactive?: boolean }) {
   return (
     <div className={`w-full ${height} rounded-lg border border-obsidian-3 bg-obsidian-1 overflow-hidden`}>
       <Canvas camera={{ position: [0, 2, 5], fov: 45 }}>
@@ -108,7 +108,7 @@ export default function TopologicalOrbitalHallScene({ height = 'h-96' }: { heigh
         <Float speed={1.5} rotationIntensity={0.5} floatIntensity={0.5}>
           <Hall />
         </Float>
-        <OrbitControls enablePan={false} autoRotate autoRotateSpeed={0.5} />
+        {interactive ? <OrbitControls enablePan={false} /> : <OrbitControls enablePan={false} autoRotate autoRotateSpeed={0.5} />}
       </Canvas>
     </div>
   );

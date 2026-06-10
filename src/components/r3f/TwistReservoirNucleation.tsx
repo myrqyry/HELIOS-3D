@@ -51,7 +51,7 @@ function NucleationEvent() {
   );
 }
 
-export default function TwistReservoirNucleationScene({ height = 'h-96' }: { height?: string }) {
+export default function TwistReservoirNucleationScene({ height = 'h-96', interactive = false }: { height?: string; interactive?: boolean }) {
   return (
     <div className={`w-full ${height} rounded-lg border border-obsidian-3 bg-obsidian-1 overflow-hidden`}>
       <Canvas>
@@ -64,7 +64,7 @@ export default function TwistReservoirNucleationScene({ height = 'h-96' }: { hei
         <Float speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
           <NucleationEvent />
         </Float>
-        <OrbitControls enablePan={false} />
+        {interactive && <OrbitControls enablePan={false} />}
       </Canvas>
     </div>
   );
