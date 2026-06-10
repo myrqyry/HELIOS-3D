@@ -1,33 +1,128 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import StatCard from '../components/StatCard.astro';
 import HopfionScene from '../components/r3f/HopfionScene';
+import ClaimsTable from '../components/ClaimsTable.astro';
+import LiteratureTimeline from '../components/charts/LiteratureTimeline';
+import StageBadge, { type DocStage } from '../components/StageBadge.astro';
+
+const highlights: Array<{ doc: string; stage: DocStage; claim: string; href: string }> = [
+  { doc: 'Core Architecture', stage: 'speculative', claim: 'MCA + BRC dual-core, hopfion-based', href: '/docs/speculative/core-architecture/' },
+  { doc: 'Candidate Materials', stage: 'established', claim: 'EuS / Bi₂Se₃ / EuS, FGT, Mn₃Sn', href: '/docs/established/candidate-materials-and-mechanisms/' },
+  { doc: 'Performance Floor', stage: 'current', claim: '40–60 ps write, pJ/µm² energy floor', href: '/docs/current/targets-comparators-and-projections/' },
+  { doc: 'Chiral Sensing', stage: 'speculative', claim: 'CISS, TOHE, peptide-crystal interface', href: '/docs/speculative/defensive-framework/' },
+];
+
+const readingPath: Array<{ step: number; title: string; desc: string; stage: DocStage; href: string }> = [
+  { step: 1, title: 'Abstract', desc: 'Project pitch and dual-core architecture.', stage: 'established', href: '/docs/established/abstract/' },
+  { step: 2, title: 'Candidate Materials', desc: 'Spin textures and the EuS/Bi₂Se₃/EuS substrate.', stage: 'established', href: '/docs/established/candidate-materials-and-mechanisms/' },
+  { step: 3, title: 'Literature Review', desc: 'The 2026 evidence base.', stage: 'established', href: '/docs/established/literature-review/' },
+  { step: 4, title: 'Claims Matrix', desc: 'What is and is not demonstrated.', stage: 'current', href: '/docs/current/claims-matrix/' },
+  { step: 5, title: 'Pitch Deck Outline', desc: 'The full project narrative.', stage: 'speculative', href: '/docs/speculative/pitch-deck-outline/' },
+];
 ---
-<BaseLayout title="HELIOS-3D" showSidebar={false}>
-  <Hero
-    title="HELIOS-3D"
-    subtitle="A staged research hypothesis for a spintronic coprocessor using topologically protected 3D hopfions — research documentation rendered as a graphic presentation."
-  />
-  <div class="my-8">
-    <HopfionScene client:visible height="h-[28rem]" />
-    <p class="mt-2 text-center text-xs text-parchment-2 font-mono">Stylized illustration — not simulation-accurate.</p>
-  </div>
-  <section class="grid md:grid-cols-2 gap-4 my-8">
-    <a href="/docs/established/abstract/" class="block rounded-lg border border-obsidian-3 bg-obsidian-2 p-5 hover:border-ember">
-      <h3 class="text-amber font-bold">Architecture</h3>
-      <p class="mt-1 text-sm text-parchment-2">MCA + BRC dual-core, hopfion-based.</p>
-    </a>
-    <a href="/docs/established/candidate-materials-and-mechanisms/" class="block rounded-lg border border-obsidian-3 bg-obsidian-2 p-5 hover:border-ember">
-      <h3 class="text-amber font-bold">Material</h3>
-      <p class="mt-1 text-sm text-parchment-2">EuS / Bi₂Se₃ / EuS, FGT, Mn₃Sn.</p>
-    </a>
-    <a href="/docs/current/targets-comparators-and-projections/" class="block rounded-lg border border-obsidian-3 bg-obsidian-2 p-5 hover:border-ember">
-      <h3 class="text-amber font-bold">Performance</h3>
-      <p class="mt-1 text-sm text-parchment-2">40–60 ps write, pJ/µm² energy floor.</p>
-    </a>
-    <a href="/docs/speculative/core-architecture/" class="block rounded-lg border border-obsidian-3 bg-obsidian-2 p-5 hover:border-ember">
-      <h3 class="text-amber font-bold">Sensing</h3>
-      <p class="mt-1 text-sm text-parchment-2">CISS, TOHE, peptide-crystal interface.</p>
-    </a>
+<BaseLayout title="HELIOS-3D" showSidebar={false} snap={true}>
+  {/* Section 1 — Hero */}
+  <section class="min-h-screen flex flex-col justify-center">
+    <SectionHeading number="01" title="Hero" />
+    <div class="grid md:grid-cols-5 gap-8 items-center">
+      <div class="md:col-span-3">
+        <h1 class="text-6xl font-bold text-amber leading-tight mb-6">
+          A spintronic coprocessor<br />architecture using 3D hopfions.
+        </h1>
+        <p class="text-xl text-parchment-2 max-w-2xl mb-8">
+          HELIOS-3D is a staged research hypothesis for a low-energy inference coprocessor, with 2026 evidence for the underlying spin textures and a clear demonstrator path.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href="/start-here/" class="px-5 py-3 rounded bg-ember text-obsidian font-bold hover:bg-ember-2">Start here →</a>
+          <a href="/docs/current/claims-matrix/" class="px-5 py-3 rounded border border-amber text-amber hover:bg-obsidian-2">Read the claims →</a>
+          <a href="/figures/" class="px-5 py-3 rounded border border-obsidian-3 text-parchment-2 hover:text-parchment hover:border-parchment-2">See the 3D →</a>
+        </div>
+      </div>
+      <div class="md:col-span-2">
+        <HopfionScene client:visible height="h-[28rem]" />
+      </div>
+    </div>
+  </section>
+
+  {/* Section 2 — Why now */}
+  <section class="min-h-screen flex flex-col justify-center">
+    <SectionHeading number="02" title="The thermodynamic crisis is the motivation" color="cyan-2" />
+    <p class="text-2xl text-parchment max-w-3xl mb-12">
+      IEA projects AI infrastructure will consume ~600 TWh in 2026, with &gt;4 billion m³ of water withdrawal by 2027. Embodied carbon is now 50% of AI hardware lifecycle footprint.
+    </p>
+    <div class="grid md:grid-cols-2 gap-6">
+      <StatCard stat="600" unit="TWh" label="AI infrastructure electricity demand in 2026" source="IEA 2024/2026 Projections" tag="DEMONSTRATED" />
+      <StatCard stat="4" unit="billion m³" label="Annual AI water withdrawal by 2027" source="Ren et al. (2025)" tag="DEMONSTRATED" />
+    </div>
+    <div class="mt-12">
+      <a href="/docs/established/literature-review/" class="px-5 py-3 rounded border border-cyan-2 text-cyan-2 hover:bg-obsidian-2">Read the evidence →</a>
+    </div>
+  </section>
+
+  {/* Section 3 — Evidence dashboard */}
+  <section class="min-h-screen flex flex-col justify-center">
+    <SectionHeading number="03" title="Evidence structure" color="ember" />
+    <p class="text-xl text-parchment-2 max-w-3xl mb-8">
+      Highlights across the four research stages. Filter the full claims table below.
+    </p>
+    <div class="grid md:grid-cols-2 gap-4 mb-12">
+      {highlights.map((h) => (
+        <a href={h.href} class="block rounded-lg border border-obsidian-3 bg-obsidian-2 p-5 hover:border-ember">
+          <div class="flex items-center justify-between mb-2">
+            <StageBadge stage={h.stage} size="sm" />
+          </div>
+          <h3 class="text-amber font-bold mb-1">{h.doc}</h3>
+          <p class="text-sm text-parchment-2">{h.claim}</p>
+        </a>
+      ))}
+    </div>
+    <ClaimsTable rows={[
+      { claim: 'Hopfion annihilation > 50kBT in EuS/Bi₂Se₃/EuS', tag: 'INFERRED', source: 'Literature Review' },
+      { claim: 'Planar-first, electrical read is the minimum credible path', tag: 'INFERRED', source: 'Alternative Materials' },
+      { claim: 'DISH enables sub-second 3D scaffolding with 19µm resolution', tag: 'PROPOSED', source: 'Literature Review' },
+      { claim: 'Sub-Landauer computation is achievable', tag: 'SPECULATIVE', source: 'Abstract' },
+      { claim: '40-ps write at 1.7 pJ/µm² in Mn₃Sn', tag: 'DEMONSTRATED', source: 'Literature Review' },
+      { claim: 'TOHE is unambiguous 3D-hopfion electrical hallmark', tag: 'INFERRED', source: 'Literature Review' },
+    ]} />
+    <div class="mt-8">
+      <a href="/docs/current/claims-matrix/" class="px-5 py-3 rounded bg-ember text-obsidian font-bold hover:bg-ember-2">See the full claims matrix →</a>
+    </div>
+  </section>
+
+  {/* Section 4 — 2026 evidence */}
+  <section class="min-h-screen flex flex-col justify-center">
+    <SectionHeading number="04" title="2026 evidence base" color="violet" />
+    <p class="text-xl text-parchment-2 max-w-3xl mb-8">
+      The literature that motivates and constrains the architecture.
+    </p>
+    <div class="overflow-x-auto">
+      <LiteratureTimeline client:visible />
+    </div>
+    <div class="mt-12">
+      <a href="/docs/established/literature-review/" class="px-5 py-3 rounded border border-violet text-violet hover:bg-obsidian-2">Read the full literature review →</a>
+    </div>
+  </section>
+
+  {/* Section 5 — Reading path */}
+  <section class="min-h-screen flex flex-col justify-center">
+    <SectionHeading number="05" title="Where to start" color="parchment-2" />
+    <p class="text-xl text-parchment-2 max-w-3xl mb-12">
+      A 5-document reading path. Read in order; each step builds on the previous.
+    </p>
+    <ol class="space-y-6 mb-12">
+      {readingPath.map((p) => (
+        <li class="grid grid-cols-[auto_1fr_auto] items-baseline gap-6">
+          <span class="font-mono text-3xl text-amber w-12">{String(p.step).padStart(2, '0')}</span>
+          <div>
+            <a href={p.href} class="text-2xl font-bold text-amber hover:underline">{p.title}</a>
+            <p class="mt-1 text-parchment-2">{p.desc}</p>
+          </div>
+          <StageBadge stage={p.stage} size="sm" />
+        </li>
+      ))}
+    </ol>
+    <a href="/start-here/" class="self-start px-5 py-3 rounded bg-ember text-obsidian font-bold hover:bg-ember-2">Start here →</a>
   </section>
 </BaseLayout>
