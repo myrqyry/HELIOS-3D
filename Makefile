@@ -1,16 +1,7 @@
-.PHONY: sync build serve deploy check-stubs test check-claims validate-erc check-links
+.PHONY: sync test check-claims validate-erc check-links check-sims check-stubs build
 
 sync:
 	uv sync
-
-build:
-	uv run mkdocs build
-
-serve:
-	uv run mkdocs serve
-
-deploy:
-	uv run mkdocs gh-deploy --clean
 
 test:
 	uv run pytest
@@ -29,3 +20,6 @@ check-sims:
 
 check-stubs:
 	@grep -rl "NOT RUNNABLE" simulations/ && echo "WARNING: Placeholder sims present" || echo "No placeholder simulations found"
+
+build:
+	pnpm install --frozen-lockfile && pnpm build

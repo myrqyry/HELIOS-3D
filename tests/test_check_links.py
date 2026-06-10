@@ -45,8 +45,8 @@ def test_check_links_detects_broken_file(tmp_path: Path, monkeypatch) -> None:
 
 def test_check_links_detects_broken_anchor(tmp_path: Path, monkeypatch) -> None:
     write = lambda p, t: (p.parent.mkdir(parents=True, exist_ok=True), p.write_text(t, encoding="utf-8"))[1]
-    write(tmp_path / "README.md", "[Bad anchor](./docs/OTHER.md#missing)\n")
-    write(tmp_path / "docs" / "OTHER.md", "# Title\n")
+    write(tmp_path / "README.md", "[Bad anchor](./src/content/docs/OTHER.md#missing)\n")
+    write(tmp_path / "src" / "content" / "docs" / "OTHER.md", "# Title\n")
     monkeypatch.setattr(links, "REPO_ROOT", tmp_path)
     violations = links.run_link_checks(tmp_path)
     assert len(violations) == 1
@@ -55,8 +55,8 @@ def test_check_links_detects_broken_anchor(tmp_path: Path, monkeypatch) -> None:
 
 def test_check_links_allows_valid_anchor(tmp_path: Path, monkeypatch) -> None:
     write = lambda p, t: (p.parent.mkdir(parents=True, exist_ok=True), p.write_text(t, encoding="utf-8"))[1]
-    write(tmp_path / "README.md", "[Good anchor](./docs/OTHER.md#existing-section)\n")
-    write(tmp_path / "docs" / "OTHER.md", "# Existing Section\n")
+    write(tmp_path / "README.md", "[Good anchor](./src/content/docs/OTHER.md#existing-section)\n")
+    write(tmp_path / "src" / "content" / "docs" / "OTHER.md", "# Existing Section\n")
     monkeypatch.setattr(links, "REPO_ROOT", tmp_path)
     violations = links.run_link_checks(tmp_path)
     assert len(violations) == 0

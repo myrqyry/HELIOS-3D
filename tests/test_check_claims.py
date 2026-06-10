@@ -29,13 +29,13 @@ def test_extract_registered_paths_normalizes_docs_prefix() -> None:
     """
     paths = claims.extract_registered_paths(matrix)
     assert "OPEN_QUESTIONS.md" in paths
-    assert "docs/OPEN_QUESTIONS.md" in paths
+    assert "src/content/docs/OPEN_QUESTIONS.md" in paths
 
 
 def test_root_markdown_is_scanned(tmp_path: Path, monkeypatch) -> None:
     write(tmp_path / "README.md", "Tagged claim [SPECULATIVE] [Smith 2024]\n")
     write(
-        tmp_path / "docs" / "CLAIMS_MATRIX.md",
+        tmp_path / "src" / "content" / "docs" / "current" / "claims-matrix.mdx",
         """
         | Claim | Tag | Source anchor | Source conditions | Failure mode | Promotion or demotion test |
         | --- | --- | --- | --- | --- | --- |
@@ -43,40 +43,40 @@ def test_root_markdown_is_scanned(tmp_path: Path, monkeypatch) -> None:
         """,
     )
     monkeypatch.setattr(claims, "REPO_ROOT", tmp_path)
-    monkeypatch.setattr(claims, "docs_path", tmp_path / "docs")
-    monkeypatch.setattr(claims, "matrix_file", tmp_path / "docs" / "CLAIMS_MATRIX.md")
+    monkeypatch.setattr(claims, "docs_path", tmp_path / "src" / "content" / "docs")
+    monkeypatch.setattr(claims, "matrix_file", tmp_path / "src" / "content" / "docs" / "current" / "claims-matrix.mdx")
     claims.check_claims()  # should not raise
 
 
 def test_missing_inline_source_fails(tmp_path: Path, monkeypatch) -> None:
-    write(tmp_path / "docs" / "OPEN_QUESTIONS.md", "Tagged claim [SPECULATIVE]\n")
+    write(tmp_path / "src" / "content" / "docs" / "OPEN_QUESTIONS.md", "Tagged claim [SPECULATIVE]\n")
     write(
-        tmp_path / "docs" / "CLAIMS_MATRIX.md",
+        tmp_path / "src" / "content" / "docs" / "current" / "claims-matrix.mdx",
         """
         | Claim | Tag | Source anchor | Source conditions | Failure mode | Promotion or demotion test |
         | --- | --- | --- | --- | --- | --- |
-        | Example claim | `docs/OPEN_QUESTIONS.md` | x | y | z | w |
+        | Example claim | `src/content/docs/OPEN_QUESTIONS.md` | x | y | z | w |
         """,
     )
     monkeypatch.setattr(claims, "REPO_ROOT", tmp_path)
-    monkeypatch.setattr(claims, "docs_path", tmp_path / "docs")
-    monkeypatch.setattr(claims, "matrix_file", tmp_path / "docs" / "CLAIMS_MATRIX.md")
+    monkeypatch.setattr(claims, "docs_path", tmp_path / "src" / "content" / "docs")
+    monkeypatch.setattr(claims, "matrix_file", tmp_path / "src" / "content" / "docs" / "current" / "claims-matrix.mdx")
     with pytest.raises(SystemExit):
         claims.check_claims()
 
 
 def test_unregistered_tagged_file_fails(tmp_path: Path, monkeypatch) -> None:
-    write(tmp_path / "docs" / "UNREGISTERED.md", "Tagged claim [SPECULATIVE] [Smith 2024]\n")
+    write(tmp_path / "src" / "content" / "docs" / "UNREGISTERED.md", "Tagged claim [SPECULATIVE] [Smith 2024]\n")
     write(
-        tmp_path / "docs" / "CLAIMS_MATRIX.md",
+        tmp_path / "src" / "content" / "docs" / "current" / "claims-matrix.mdx",
         """
         | Claim | Tag | Source anchor | Source conditions | Failure mode | Promotion or demotion test |
         | --- | --- | --- | --- | --- | --- |
         """,
     )
     monkeypatch.setattr(claims, "REPO_ROOT", tmp_path)
-    monkeypatch.setattr(claims, "docs_path", tmp_path / "docs")
-    monkeypatch.setattr(claims, "matrix_file", tmp_path / "docs" / "CLAIMS_MATRIX.md")
+    monkeypatch.setattr(claims, "docs_path", tmp_path / "src" / "content" / "docs")
+    monkeypatch.setattr(claims, "matrix_file", tmp_path / "src" / "content" / "docs" / "current" / "claims-matrix.mdx")
     with pytest.raises(SystemExit):
         claims.check_claims()
 

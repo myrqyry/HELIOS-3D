@@ -10,10 +10,11 @@ INLINE_SOURCE_PATTERN = re.compile(
 )
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-docs_path = REPO_ROOT / "docs"
-matrix_file = docs_path / "CLAIMS_MATRIX.md"
+docs_path = REPO_ROOT / "src" / "content" / "docs"
+matrix_file = docs_path / "current" / "claims-matrix.mdx"
 ROOT_MARKDOWN = ("README.md", "CONTRIBUTING.md", "ROADMAP.md")
-EXCLUDED_DIRS = {"docs/superpowers"}
+EXCLUDED_DIRS: set[str] = set()
+CONTENT_GLOBS = ("*.md", "*.mdx")
 
 
 @dataclass
@@ -24,7 +25,7 @@ class Violation:
 
 
 def extract_registered_paths(matrix_text: str) -> set[str]:
-    """Parse CLAIMS_MATRIX.md and extract repo-relative paths from the Tag column."""
+    """Parse claims-matrix.mdx and extract repo-relative paths from the Tag column."""
     registered: set[str] = set()
     for line in matrix_text.splitlines():
         if "|" not in line or line.strip().startswith("| ---"):
@@ -33,27 +34,28 @@ def extract_registered_paths(matrix_text: str) -> set[str]:
         if len(cells) < 2 or cells[0] == "Claim":
             continue
         tag_cell = cells[1]
-        for match in re.finditer(r"`([^`]+\.md)`", tag_cell):
+        for match in re.finditer(r"`([^`]+\.(?:md|mdx))`", tag_cell):
             raw = match.group(1)
             registered.add(raw)
-            # Also register normalized docs/ prefix variant for robust matching
-            if not raw.startswith("docs/") and raw not in ROOT_MARKDOWN:
-                registered.add(f"docs/{raw}")
-            # And basename-only fallback (emits warning later)
+            normalized = raw
+            if not normalized.startswith("docs/") and not normalized.startswith("src/content/docs/") and normalized not in ROOT_MARKDOWN:
+                normalized = f"src/content/docs/{normalized}"
+            registered.add(normalized)
             registered.add(Path(raw).name)
     return registered
 
 
 def iter_candidate_markdown_files(repo_root: Path) -> list[Path]:
-    """Yield root Markdown files and all docs/*.md files except CLAIMS_MATRIX.md and excluded dirs."""
+    """Yield root Markdown files and all Astro content docs/*.{md,mdx} files except CLAIMS_MATRIX.md and excluded dirs."""
     files = [repo_root / name for name in ROOT_MARKDOWN if (repo_root / name).exists()]
-    if (repo_root / "docs").exists():
-        for path in sorted((repo_root / "docs").rglob("*.md")):
-            rel = path.relative_to(repo_root).as_posix()
-            if any(rel.startswith(ex) for ex in EXCLUDED_DIRS):
-                continue
-            files.append(path)
-    return [p for p in files if p.name != "CLAIMS_MATRIX.md"]
+    if docs_path.exists():
+        for ext in CONTENT_GLOBS:
+            for path in sorted(docs_path.rglob(ext)):
+                rel = path.relative_to(repo_root).as_posix()
+                if any(rel.startswith(ex) for ex in EXCLUDED_DIRS):
+                    continue
+                files.append(path)
+    return [p for p in files if p.name not in {"CLAIMS_MATRIX.md", "claims-matrix.mdx"}]
 
 
 def _is_false_positive(line: str) -> bool:
@@ -108,7 +110,7 @@ def run_claim_checks(repo_root: Path) -> list[Violation]:
 
     if not matrix_file.exists():
         violations.append(
-            Violation(path=str(matrix_file), lineno=0, message="CLAIMS_MATRIX.md not found")
+            Violation(path=str(matrix_file), lineno=0, message="claims-matrix.mdx not found")
         )
         return violations
 

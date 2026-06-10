@@ -6,7 +6,9 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 LINK_PATTERN = re.compile(r"\[([^\]]+)\]\(([^)]+)\)")
 ANCHOR_PATTERN = re.compile(r"^#+")
-EXCLUDED_DIRS = {"docs/superpowers"}
+EXCLUDED_DIRS: set[str] = set()
+CONTENT_DIRS = ("src/content/docs", "research_specifications", "simulations", "notebooks")
+CONTENT_GLOBS = ("*.md", "*.mdx")
 
 
 @dataclass
@@ -21,14 +23,15 @@ class LinkViolation:
 def iter_markdown_files(repo_root: Path) -> list[Path]:
     files = [repo_root / name for name in ("README.md", "CONTRIBUTING.md", "ROADMAP.md")
              if (repo_root / name).exists()]
-    # Scan docs/, research_specifications/, simulations/, notebooks/
-    for subdir in ("docs", "research_specifications", "simulations", "notebooks"):
+    # Scan Astro content docs/, research_specifications/, simulations/, notebooks/
+    for subdir in CONTENT_DIRS:
         if (repo_root / subdir).exists():
-            for path in sorted((repo_root / subdir).rglob("*.md")):
-                rel = path.relative_to(repo_root).as_posix()
-                if any(rel.startswith(ex) for ex in EXCLUDED_DIRS):
-                    continue
-                files.append(path)
+            for ext in CONTENT_GLOBS:
+                for path in sorted((repo_root / subdir).rglob(ext)):
+                    rel = path.relative_to(repo_root).as_posix()
+                    if any(rel.startswith(ex) for ex in EXCLUDED_DIRS):
+                        continue
+                    files.append(path)
     return files
 
 
