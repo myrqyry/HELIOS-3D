@@ -1,0 +1,90 @@
+---
+import MaterialStack from '../r3f/MaterialStack';
+---
+<section class="my-12 space-y-10">
+  <div class="rounded-lg border border-violet bg-obsidian-2 p-4">
+    <p class="text-sm text-parchment-2"><span class="font-mono text-violet">⚠ Long-Range Branch.</span> The current minimum credible path is <a href="/docs/current/alternative-materials-and-methods/" class="text-amber hover:underline">planar-first, electrically read, transfer/stack friendly</a>. This page is the speculative hybrid pipeline.</p>
+  </div>
+
+  {/* 3-phase flow */}
+  <div class="rounded-lg border border-obsidian-3 bg-obsidian-2 p-6">
+    <p class="font-mono text-xs uppercase tracking-wider text-amber mb-4">Three-phase hybrid pipeline</p>
+    <div class="grid md:grid-cols-3 gap-4">
+      <article class="rounded border border-cyan-2/40 bg-obsidian p-4">
+        <p class="font-mono text-xs uppercase tracking-wider text-cyan-2 mb-1">Phase 1 · DISH</p>
+        <p class="text-amber font-bold text-base mb-2">Macro-scaffold</p>
+        <p class="text-sm text-parchment-2">19 µm resolution across 1 cm depth in &lt;0.6 s. Single-side illumination enables in-situ printing on fixed substrates (Wang et al., Nature 2026).</p>
+        <p class="font-mono text-xs text-gold mt-3">DEMONSTRATED</p>
+      </article>
+      <article class="rounded border border-amber/40 bg-obsidian p-4">
+        <p class="font-mono text-xs uppercase tracking-wider text-amber mb-1">Phase 2 · TPP</p>
+        <p class="text-amber font-bold text-base mb-2">Track refinement</p>
+        <p class="text-sm text-parchment-2">Sub-100 nm precision refinement of routing tracks. Refractive-index matching enables writing through cured DISH structures.</p>
+        <p class="font-mono text-xs text-cyan-2 mt-3">INFERRED</p>
+      </article>
+      <article class="rounded border border-rose/40 bg-obsidian p-4">
+        <p class="font-mono text-xs uppercase tracking-wider text-rose mb-1">Phase 3 · ALD</p>
+        <p class="text-amber font-bold text-base mb-2">Conformal magnetic coating</p>
+        <p class="text-sm text-parchment-2">Conformal coating of the magnetic matrix. Direct ALD of high-quality Fe₃GaTe₂ on 3D polymer scaffolds is unverified.</p>
+        <p class="font-mono text-xs text-rose mt-3">SPECULATIVE</p>
+      </article>
+    </div>
+  </div>
+
+  {/* Scale boundaries */}
+  <div class="rounded-lg border border-obsidian-3 bg-obsidian-2 p-6">
+    <p class="font-mono text-xs uppercase tracking-wider text-amber mb-4">Scale boundary demarcation</p>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm border-collapse">
+        <thead>
+          <tr class="border-b border-obsidian-3 text-left text-amber font-mono text-xs uppercase">
+            <th class="py-2 pr-3">Scale</th>
+            <th class="py-2 pr-3">Tech</th>
+            <th class="py-2 pr-3">Role</th>
+            <th class="py-2">Connection</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b border-obsidian-3 align-top">
+            <td class="py-3 pr-3 text-amber font-bold">Macro (&gt; 10 µm)</td>
+            <td class="py-3 pr-3 font-mono">DISH</td>
+            <td class="py-3 pr-3 text-parchment-2">Waveguides, heat sinks, structural scaffolds, fluidic channels</td>
+            <td class="py-3 text-parchment-2">Direct write onto substrate</td>
+          </tr>
+          <tr class="border-b border-obsidian-3 align-top">
+            <td class="py-3 pr-3 text-amber font-bold">Meso (100 nm – 10 µm)</td>
+            <td class="py-3 pr-3 font-mono">TPP</td>
+            <td class="py-3 pr-3 text-parchment-2">Micro-reservoir chambers, track refinement, electrode templates</td>
+            <td class="py-3 text-parchment-2">In-situ alignment to DISH features</td>
+          </tr>
+          <tr class="align-top">
+            <td class="py-3 pr-3 text-amber font-bold">Nano (&lt; 100 nm)</td>
+            <td class="py-3 pr-3 font-mono">ALD / Sputter</td>
+            <td class="py-3 pr-3 text-parchment-2">Magnetic multilayers, Fe₃GaTe₂ flakes, hBN quantum sensors</td>
+            <td class="py-3 text-parchment-2">Laser-Assisted Bonding (LAB) or vdW transfer</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="my-8">
+    <MaterialStack client:visible height="h-56" />
+    <p class="mt-2 text-center text-xs text-parchment-2 font-mono">Stylized magnetic stack. Stylized illustration — not simulation-accurate.</p>
+  </div>
+
+  {/* Bifurcated readout */}
+  <div class="rounded-lg border border-obsidian-3 bg-obsidian-2 p-6">
+    <p class="font-mono text-xs uppercase tracking-wider text-amber mb-3">Bifurcated readout strategy</p>
+    <div class="grid md:grid-cols-2 gap-4 text-sm">
+      <div>
+        <p class="text-amber font-bold mb-1">Primary · Microwave spectroscopy</p>
+        <p class="text-parchment-2">Detects frequency-encoded "breathing modes" of hopfion radii. Sub-GHz FMR or BLS — fast, spectral fingerprint without optical point-cloud overhead.</p>
+      </div>
+      <div>
+        <p class="text-amber font-bold mb-1">Electrical · TOHE detector</p>
+        <p class="text-parchment-2">Leverages the Topological Orbital Hall Effect (Göbel & Lounis, 2025/2026) for all-electrical 3D hopfion readout. 3D transverse orbital current is the electronic signature.</p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,86 @@
+---
+import HopfionScene from '../r3f/HopfionScene';
+---
+<section class="my-12 space-y-10">
+  <div class="rounded-lg border border-violet bg-obsidian-2 p-4">
+    <p class="text-sm text-parchment-2"><span class="font-mono text-violet">⚠ Long-Range Branch.</span> The current minimum credible path is documented in <a href="/docs/current/alternative-materials-and-methods/" class="text-amber hover:underline">Alternative Materials and Methods</a>. This page is the speculative three-pillar pipeline.</p>
+  </div>
+
+  {/* Dual-core block diagram */}
+  <div class="rounded-lg border border-obsidian-3 bg-obsidian-2 p-6">
+    <p class="font-mono text-xs uppercase tracking-wider text-amber mb-4">Dual-core architecture</p>
+    <svg viewBox="0 0 800 360" class="w-full h-auto" role="img" aria-label="Block diagram of the HELIOS-3D dual-core architecture">
+      {/* Write block */}
+      <rect x="20" y="20" width="180" height="100" rx="8" fill="#1a1410" stroke="#7dd3fc" stroke-width="2" />
+      <text x="110" y="50" text-anchor="middle" fill="#7dd3fc" font-family="monospace" font-size="14">WRITE</text>
+      <text x="110" y="80" text-anchor="middle" fill="#f4e8d8" font-size="13">Photonic Hopfion</text>
+      <text x="110" y="98" text-anchor="middle" fill="#f4e8d8" font-size="13">Imprinting</text>
+
+      {/* Process block */}
+      <rect x="310" y="20" width="180" height="100" rx="8" fill="#1a1410" stroke="#ff6b1a" stroke-width="2" />
+      <text x="400" y="50" text-anchor="middle" fill="#ff6b1a" font-family="monospace" font-size="14">PROCESS</text>
+      <text x="400" y="80" text-anchor="middle" fill="#f4e8d8" font-size="13">Brownian Reservoir</text>
+      <text x="400" y="98" text-anchor="middle" fill="#f4e8d8" font-size="13">Computing (BRC)</text>
+
+      {/* Read block */}
+      <rect x="600" y="20" width="180" height="100" rx="8" fill="#1a1410" stroke="#a78bfa" stroke-width="2" />
+      <text x="690" y="50" text-anchor="middle" fill="#a78bfa" font-family="monospace" font-size="14">READ</text>
+      <text x="690" y="80" text-anchor="middle" fill="#f4e8d8" font-size="13">Microwave</text>
+      <text x="690" y="98" text-anchor="middle" fill="#f4e8d8" font-size="13">Spectroscopy</text>
+
+      {/* BRC split */}
+      <rect x="240" y="170" width="320" height="80" rx="8" fill="#0b0908" stroke="#2a201a" stroke-width="1" stroke-dasharray="4 4" />
+      <text x="400" y="195" text-anchor="middle" fill="#a89880" font-family="monospace" font-size="11">PROCESS split (2 sub-cores)</text>
+
+      {/* MCA */}
+      <rect x="250" y="210" width="140" height="60" rx="6" fill="#1a1410" stroke="#ffb627" stroke-width="1.5" />
+      <text x="320" y="232" text-anchor="middle" fill="#ffb627" font-family="monospace" font-size="11">MCA</text>
+      <text x="320" y="250" text-anchor="middle" fill="#a89880" font-size="10">deterministic · SOT</text>
+
+      {/* BRC sub */}
+      <rect x="410" y="210" width="140" height="60" rx="6" fill="#1a1410" stroke="#7dd3fc" stroke-width="1.5" />
+      <text x="480" y="232" text-anchor="middle" fill="#7dd3fc" font-family="monospace" font-size="11">BRC</text>
+      <text x="480" y="250" text-anchor="middle" fill="#a89880" font-size="10">stochastic · ambient heat</text>
+
+      {/* Arrows Write→Process */}
+      <line x1="200" y1="70" x2="310" y2="70" stroke="#a89880" stroke-width="2" marker-end="url(#arrow)" />
+      {/* Arrows Process→Read */}
+      <line x1="490" y1="70" x2="600" y2="70" stroke="#a89880" stroke-width="2" marker-end="url(#arrow)" />
+
+      {/* Arrowhead */}
+      <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M0,0 L10,5 L0,10 z" fill="#a89880" />
+        </marker>
+      </defs>
+
+      {/* Legend */}
+      <text x="20" y="320" fill="#a89880" font-family="monospace" font-size="11">MCA = Magnetic Convolutional Accelerator (Compute-in-Memory, SOT-driven domain wall shifting)</text>
+      <text x="20" y="338" fill="#a89880" font-family="monospace" font-size="11">BRC = Brownian Reservoir Computing (noise-driven, thermally assisted, ERC-averaged)</text>
+    </svg>
+  </div>
+
+  {/* Projected envelope */}
+  <div class="grid md:grid-cols-3 gap-4">
+    <article class="rounded-lg border border-obsidian-3 bg-obsidian-2 p-5">
+      <p class="font-mono text-xs uppercase tracking-wider text-amber mb-2">MCA target</p>
+      <p class="text-3xl font-bold text-amber">~9.16<span class="text-base text-parchment-2 font-mono ml-1">fJ</span></p>
+      <p class="text-sm text-parchment-2 mt-2">per operation (aspirational; vs 10-100 pJ on 28nm CMOS)</p>
+    </article>
+    <article class="rounded-lg border border-obsidian-3 bg-obsidian-2 p-5">
+      <p class="font-mono text-xs uppercase tracking-wider text-amber mb-2">BRC target</p>
+      <p class="text-3xl font-bold text-amber">~0.15<span class="text-base text-parchment-2 font-mono ml-1">fJ</span></p>
+      <p class="text-sm text-parchment-2 mt-2">per inference (excluding write energy)</p>
+    </article>
+    <article class="rounded-lg border border-obsidian-3 bg-obsidian-2 p-5">
+      <p class="font-mono text-xs uppercase tracking-wider text-amber mb-2">ERC target</p>
+      <p class="text-3xl font-bold text-amber">~98<span class="text-base text-parchment-2 font-mono ml-1">%</span></p>
+      <p class="text-sm text-parchment-2 mt-2">accuracy via spatial multiplexing (MNIST-class benchmarks)</p>
+    </article>
+  </div>
+
+  <div class="my-8">
+    <HopfionScene client:visible height="h-64" />
+    <p class="mt-2 text-center text-xs text-parchment-2 font-mono">A stylized 3D hopfion — the carrier that the WRITE→PROCESS→READ pipeline manipulates.</p>
+  </div>
+</section>

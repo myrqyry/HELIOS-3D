@@ -1,0 +1,59 @@
+---
+const pairs = [
+  {
+    name: 'The "Room-Temperature Trap"',
+    critique: 'Skyrmions and topological magnetic textures are often fragile and stable only in cryogenic conditions. Ambient thermal noise at room temperature can lead to carrier annihilation.',
+    response: 'The project investigates epitaxial Fe₃GaTe₂ (T_c = 420 K), which provides a thermal safety margin over data-center operating environments. The BRC core is specifically designed to exploit thermal noise as a locomotive force rather than treating it as disruptive.',
+    status: 'INFERRED',
+  },
+  {
+    name: 'The "Chemistry / Fabrication Nightmare"',
+    critique: 'Loading 3D-printing resins with magnetic nanoparticles often leads to clumping and optical scattering, preventing high-fidelity microscopic geometries.',
+    response: 'HELIOS-3D decouples the physical scaffold from the magnetic matrix. DISH (macro) + TPP (meso) form the polymer scaffold first; the active magnetic material is then applied via conformal ALD coating afterward — bypassing loaded-resin scattering entirely.',
+    status: 'SPECULATIVE',
+  },
+  {
+    name: 'The "Twistronic Environmental Blocker"',
+    critique: 'Many twistronic moiré magnets (e.g., CrI₃) are highly air-sensitive and stable only at cryogenic temperatures (~4 K), making them unsuitable for data-center deployment.',
+    response: 'CrI₃ is framed as a laboratory proof-of-concept only. The roadmap targets transfer of twist-engineering mechanisms to higher-T_c magnets like Fe₃GaTe₂, with Ta/W capping layers for environmental protection.',
+    status: 'PROPOSED',
+  },
+  {
+    name: 'The "Thermodynamic Overstatement"',
+    critique: 'Practical Brownian circuits cannot reach the absolute k_B T ln 2 limit due to random fluctuations and the need for directional ratchets.',
+    response: 'The target is refined from "absolute limits" to "ultra-low energy computation" (fJ-scale). The BRC core investigates specific geometric confinement to maintain stability against thermal noise while still minimizing total dissipation.',
+    status: 'SPECULATIVE',
+  },
+];
+const statusColor: Record<string, string> = {
+  INFERRED: 'text-cyan-2 border-cyan-2',
+  SPECULATIVE: 'text-rose border-rose',
+  PROPOSED: 'text-amber border-amber',
+  DEMONSTRATED: 'text-gold border-gold',
+};
+---
+<section class="my-12 space-y-6">
+  <p class="text-parchment-2 text-lg max-w-3xl">
+    Common technical critiques of spintronic and thermodynamic computing, paired with HELIOS-3D's hypothesized responses.
+  </p>
+  {pairs.map((p) => (
+    <article class="rounded-lg border border-obsidian-3 bg-obsidian-2 p-6">
+      <div class="flex items-start justify-between gap-3 mb-4">
+        <h3 class="text-amber font-bold text-lg leading-tight">{p.name}</h3>
+        <span class={`shrink-0 font-mono text-[10px] px-2 py-0.5 rounded border uppercase tracking-wider ${statusColor[p.status]}`}>
+          {p.status}
+        </span>
+      </div>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="rounded border border-rose/30 bg-obsidian p-4">
+          <p class="font-mono text-xs uppercase tracking-wider text-rose mb-2">Critique</p>
+          <p class="text-sm text-parchment">{p.critique}</p>
+        </div>
+        <div class="rounded border border-cyan-2/30 bg-obsidian p-4">
+          <p class="font-mono text-xs uppercase tracking-wider text-cyan-2 mb-2">Response</p>
+          <p class="text-sm text-parchment">{p.response}</p>
+        </div>
+      </div>
+    </article>
+  ))}
+</section>

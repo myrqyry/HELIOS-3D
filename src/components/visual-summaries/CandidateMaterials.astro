@@ -1,0 +1,66 @@
+---
+import MaterialStack from '../r3f/MaterialStack';
+---
+<section class="my-12 space-y-10">
+  <div class="grid md:grid-cols-3 gap-4">
+    {/* EuS/Bi2Se3/EuS */}
+    <article class="rounded-lg border border-cyan-2 bg-obsidian-2 p-6">
+      <p class="font-mono text-xs uppercase tracking-wider text-cyan-2 mb-2">Phase 1 baseline</p>
+      <h3 class="text-2xl text-amber font-bold mb-1">EuS / Bi₂Se₃ / EuS</h3>
+      <p class="font-mono text-xs text-parchment-2 mb-3">Topological Insulator trilayer</p>
+      <p class="text-sm text-parchment-2 mb-4">First observed room-temperature, zero-field hopfions (Katmis et al., 2025). The strong spin-orbit coupling at the TI/FMI interface is what makes knotted spin textures stable.</p>
+      <dl class="space-y-1.5 text-sm border-t border-obsidian-3 pt-3">
+        <div class="flex justify-between"><dt class="text-parchment-2">T<sub>c</sub></dt><dd class="text-amber font-mono">&gt; 300 K (proximity)</dd></div>
+        <div class="flex justify-between"><dt class="text-parchment-2">Hopfion stability</dt><dd class="text-amber font-mono">Zero-field, 300 K</dd></div>
+        <div class="flex justify-between"><dt class="text-parchment-2">Status</dt><dd class="text-gold font-mono">DEMONSTRATED</dd></div>
+      </dl>
+    </article>
+
+    {/* Fe3GaTe2 */}
+    <article class="rounded-lg border border-ember bg-obsidian-2 p-6">
+      <p class="font-mono text-xs uppercase tracking-wider text-ember mb-2">Long-range candidate</p>
+      <h3 class="text-2xl text-amber font-bold mb-1">Fe₃GaTe₂</h3>
+      <p class="font-mono text-xs text-parchment-2 mb-3">Metallic vdW ferromagnet</p>
+      <p class="text-sm text-parchment-2 mb-4">High Curie temperature (420 K), strong Berry curvature near Γ-point. Preserves the layered-metal spirit of the project. Major blocker: conformal deposition on 3D polymer scaffolds remains unverified.</p>
+      <dl class="space-y-1.5 text-sm border-t border-obsidian-3 pt-3">
+        <div class="flex justify-between"><dt class="text-parchment-2">T<sub>c</sub></dt><dd class="text-amber font-mono">350-380 K (measured 420 K)</dd></div>
+        <div class="flex justify-between"><dt class="text-parchment-2">Switching</dt><dd class="text-amber font-mono">Unvalidated on 3D scaffold</dd></div>
+        <div class="flex justify-between"><dt class="text-parchment-2">Status</dt><dd class="text-amber font-mono">CANDIDATE</dd></div>
+      </dl>
+    </article>
+
+    {/* Mn3Sn */}
+    <article class="rounded-lg border border-violet bg-obsidian-2 p-6">
+      <p class="font-mono text-xs uppercase tracking-wider text-violet mb-2">High-speed node</p>
+      <h3 class="text-2xl text-amber font-bold mb-1">Mn₃Sn</h3>
+      <p class="font-mono text-xs text-parchment-2 mb-3">Weyl antiferromagnet</p>
+      <p class="text-sm text-parchment-2 mb-4">Deterministic 40-ps octupole switching at 1.7 pJ/µm², with 10¹¹ cycle endurance (Tsai et al., Science 2026). Primary high-speed node candidate for the Write phase.</p>
+      <dl class="space-y-1.5 text-sm border-t border-obsidian-3 pt-3">
+        <div class="flex justify-between"><dt class="text-parchment-2">T<sub>N</sub></dt><dd class="text-amber font-mono">~420 K</dd></div>
+        <div class="flex justify-between"><dt class="text-parchment-2">Switching</dt><dd class="text-amber font-mono">40 ps · 1.7 pJ/µm²</dd></div>
+        <div class="flex justify-between"><dt class="text-parchment-2">Status</dt><dd class="text-gold font-mono">DEMONSTRATED</dd></div>
+      </dl>
+    </article>
+  </div>
+
+  {/* Material stack figure */}
+  <div class="my-8">
+    <MaterialStack client:visible height="h-64" />
+    <p class="mt-2 text-center text-xs text-parchment-2 font-mono">Stylized EuS / Bi₂Se₃ / EuS trilayer stack. Stylized illustration — not simulation-accurate.</p>
+  </div>
+
+  {/* Later-stage options */}
+  <div class="rounded-lg border border-obsidian-3 bg-obsidian-2 p-6">
+    <p class="font-mono text-xs uppercase tracking-wider text-amber mb-3">Later-stage options (sub-10 nm pitch)</p>
+    <div class="grid md:grid-cols-2 gap-4 text-sm">
+      <div>
+        <p class="text-amber font-bold mb-1">Compensated Ferrimagnets (GdFeCo)</p>
+        <p class="text-parchment-2">Near-zero net magnetization → negligible stray field → enables sub-10 nm hopfion arrays without cross-talk. Strongest late-stage candidate for ultra-dense packing.</p>
+      </div>
+      <div>
+        <p class="text-amber font-bold mb-1">Altermagnets (Mn₅Si₃-type)</p>
+        <p class="text-parchment-2">Zero net magnetization, strong spin splitting, no stray fields. Current-driven nonlinear skyrmion dynamics shown in preprints (2025/2026). The strongest long-range transport/readout family.</p>
+      </div>
+    </div>
+  </div>
+</section>

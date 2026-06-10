@@ -5,6 +5,21 @@ import TOC from '../../../components/TOC.astro';
 import DocHero from '../../../components/DocHero.astro';
 import { figureMap } from '../../../utils/figureMap';
 
+import AbstractSummary from '../../../components/visual-summaries/Abstract.astro';
+import CoreArchitectureSummary from '../../../components/visual-summaries/CoreArchitecture.astro';
+import CandidateMaterialsSummary from '../../../components/visual-summaries/CandidateMaterials.astro';
+import LiteratureReviewSummary from '../../../components/visual-summaries/LiteratureReview.astro';
+import MathematicsSummary from '../../../components/visual-summaries/Mathematics.astro';
+import ClaimsMatrixSummary from '../../../components/visual-summaries/ClaimsMatrix.astro';
+import TargetsComparatorsSummary from '../../../components/visual-summaries/TargetsComparators.astro';
+import OpenQuestionsSummary from '../../../components/visual-summaries/OpenQuestions.astro';
+import GlossarySummary from '../../../components/visual-summaries/Glossary.astro';
+import AlternativeMaterialsSummary from '../../../components/visual-summaries/AlternativeMaterials.astro';
+import DefensiveFrameworkSummary from '../../../components/visual-summaries/DefensiveFramework.astro';
+import PitchDeckOutlineSummary from '../../../components/visual-summaries/PitchDeckOutline.astro';
+import ProposedFabricationSummary from '../../../components/visual-summaries/ProposedFabrication.astro';
+import DeploymentSummary from '../../../components/visual-summaries/Deployment.astro';
+
 export async function getStaticPaths() {
   const docs = await getCollection('docs');
   return docs.map((doc) => ({
@@ -17,6 +32,24 @@ interface Props { doc: CollectionEntry<'docs'> }
 const { doc } = Astro.props;
 const { Content, headings } = await doc.render();
 
+const slug = doc.id.split('/').pop()?.replace(/\.mdx?$/, '') ?? doc.id;
+const Summary: any = {
+  'abstract': AbstractSummary,
+  'core-architecture': CoreArchitectureSummary,
+  'candidate-materials-and-mechanisms': CandidateMaterialsSummary,
+  'literature-review': LiteratureReviewSummary,
+  'mathematics': MathematicsSummary,
+  'claims-matrix': ClaimsMatrixSummary,
+  'targets-comparators-and-projections': TargetsComparatorsSummary,
+  'open-questions': OpenQuestionsSummary,
+  'glossary': GlossarySummary,
+  'alternative-materials-and-methods': AlternativeMaterialsSummary,
+  'defensive-framework': DefensiveFrameworkSummary,
+  'pitch-deck-outline': PitchDeckOutlineSummary,
+  'proposed-fabrication-path-and-control': ProposedFabricationSummary,
+  'deployment': DeploymentSummary,
+}[slug];
+
 const heroFigureSlug = doc.data.figures[0];
 const HeroScene = heroFigureSlug ? figureMap[heroFigureSlug] : null;
 ---
@@ -28,6 +61,7 @@ const HeroScene = heroFigureSlug ? figureMap[heroFigureSlug] : null;
     tags={doc.data.tags}
     updated={doc.data.updated}
   />
+  {Summary && <Summary />}
   {HeroScene && (
     <div class="my-8">
       <HeroScene client:visible height="h-96" />

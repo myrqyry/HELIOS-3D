@@ -1,0 +1,52 @@
+---
+const axes = [
+  { name: 'Carrier Validity', current: 'Low (Fe₃GaTe₂ on 3D scaffold unverified)', alternative: 'High (Ir/Fe/Co/Pt room-T skyrmions on flat substrate)' },
+  { name: 'Manufacturability', current: 'Low (DISH→TPP→ALD pipeline unverified for magnetic layers)', alternative: 'High (planar lithography + sputter/etch + transfer)' },
+  { name: 'Transport Quality', current: 'Unknown (SkHE suppression unverified on 3D)', alternative: 'High (GdFeCo ferrimagnetic SkHE suppression demonstrated)' },
+  { name: 'Readout Compatibility', current: 'Low (microwave-first chain is overhead-heavy)', alternative: 'High (Hall / TMR / AHE / THE, multiplexed, silicon-bus friendly)' },
+  { name: 'Architectural Continuity', current: 'High (preserves MCA + BRC + Write/Process/Read)', alternative: 'High (preserves MCA + BRC + Write/Process/Read)' },
+];
+---
+<section class="my-12 space-y-10">
+  <div class="rounded-lg border border-ember bg-obsidian-2 p-6">
+    <p class="font-mono text-xs uppercase tracking-wider text-ember mb-3">Bottom-line recommendation</p>
+    <p class="text-xl text-parchment leading-relaxed">
+      For the first demonstrator, pivot to a <span class="text-amber font-bold">planar-first, electrically read, multilayer spintronic stack</span> — <code class="text-amber font-mono">Ir/Fe/Co/Pt</code> or <code class="text-amber font-mono">Ir/Co/Pt</code> for initial MCA experiments, with <code class="text-amber font-mono">GdFeCo</code> as a transport-optimized branch if SkHE suppression becomes dominant. Keep Fe₃GaTe₂ as a long-range candidate, not the immediate fabrication anchor.
+    </p>
+  </div>
+
+  <div class="rounded-lg border border-obsidian-3 bg-obsidian-2 p-6">
+    <p class="font-mono text-xs uppercase tracking-wider text-amber mb-4">Current plan vs. recommended pivot</p>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm border-collapse">
+        <thead>
+          <tr class="border-b border-obsidian-3 text-left text-amber font-mono text-xs uppercase">
+            <th class="py-2 pr-3">Axis</th>
+            <th class="py-2 pr-3">Current plan</th>
+            <th class="py-2">Recommended pivot</th>
+          </tr>
+        </thead>
+        <tbody>
+          {axes.map((a) => (
+            <tr class="border-b border-obsidian-3 align-top">
+              <td class="py-3 pr-3 text-amber font-bold">{a.name}</td>
+              <td class="py-3 pr-3 text-parchment-2">{a.current}</td>
+              <td class="py-3 text-cyan-2">{a.alternative}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  {/* Revised MVD phases */}
+  <div class="rounded-lg border border-obsidian-3 bg-obsidian-2 p-6">
+    <p class="font-mono text-xs uppercase tracking-wider text-amber mb-4">Revised MVD sequence</p>
+    <ol class="space-y-3">
+      <li class="flex gap-3"><span class="font-mono text-amber shrink-0">I.</span><div><p class="text-amber font-bold">Planar tracks</p><p class="text-sm text-parchment-2">Fabricate planar skyrmion or ferrimagnetic tracks on a conventional substrate. Validate carrier stability and electrical readout.</p></div></li>
+      <li class="flex gap-3"><span class="font-mono text-amber shrink-0">II.</span><div><p class="text-amber font-bold">MCA transport</p><p class="text-sm text-parchment-2">Demonstrate deterministic MCA-style transport and state switching under current control. Use Hall or MTJ readout, not microwave-first.</p></div></li>
+      <li class="flex gap-3"><span class="font-mono text-amber shrink-0">III.</span><div><p class="text-amber font-bold">BRC ensemble</p><p class="text-sm text-parchment-2">Implement confined stochastic dynamics in a planar or membrane-based reservoir. Establish whether the ensemble performs useful nonlinear transformations.</p></div></li>
+      <li class="flex gap-3"><span class="font-mono text-amber shrink-0">IV.</span><div><p class="text-amber font-bold">Vertical integration</p><p class="text-sm text-parchment-2">Add vertical integration via transfer, membrane stacking, or wafer-bonded assembly. Delay any freeform 3D magnetic coating claim until flat-stack physics is secure.</p></div></li>
+    </ol>
+  </div>
+</section>

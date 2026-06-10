@@ -1,0 +1,24 @@
+---
+import ClaimsTable from '../ClaimsTable.astro';
+const rows = [
+  { claim: 'Mn₃Sn supports deterministic 40-ps switching at 1.7 pJ/µm² energy density', tag: 'DEMONSTRATED' as const, source: 'Tsai et al., Science 2026' },
+  { claim: 'Hopfion annihilation barrier exceeds 50 k_B T in EuS/Bi₂Se₃/EuS at 300 K, zero field', tag: 'DEMONSTRATED' as const, source: 'Katmis et al., Adv. Mater. 2025' },
+  { claim: 'DISH enables sub-second (0.6 s) 3D scaffolding with 19 µm resolution on fixed surfaces', tag: 'DEMONSTRATED' as const, source: 'Wang et al., Nature 2026' },
+  { claim: 'Planar-first, electrically read, multilayer spintronic stack is the minimum credible path', tag: 'INFERRED' as const, source: 'Alternative Materials' },
+  { claim: 'TOHE provides an unambiguous all-electrical hallmark for 3D hopfions', tag: 'INFERRED' as const, source: 'Göbel & Lounis 2025/2026' },
+  { claim: 'Direct conformal deposition of Fe₃GaTe₂ on a 3D polymer scaffold is unverified', tag: 'PROPOSED' as const, source: 'Fabrication notes' },
+  { claim: 'MCA: deterministic Compute-in-Memory via SOT-driven domain wall shifting', tag: 'PROPOSED' as const, source: 'Core Architecture' },
+  { claim: 'BRC: noise-driven nonlinear reservoir using ambient heat as the locomotive force', tag: 'PROPOSED' as const, source: 'Core Architecture' },
+  { claim: 'Zero-field or low-bias hopfion operation is a demonstrated capability in EuS/Bi₂Se₃/EuS', tag: 'INFERRED' as const, source: 'Katmis et al., Adv. Mater. 2025' },
+  { claim: 'HELIOS-3D targets ultra-low energy computation near efficiency limits', tag: 'SPECULATIVE' as const, source: 'Project framing' },
+  { claim: 'Y-zipper mechanism supports reconfigurable or deployable 3D scaffolds', tag: 'PROPOSED' as const, source: 'Li et al., CHI 2026' },
+  { claim: 'TLPs ("Flying Doughnuts") enable robust inter-module topological data transfer', tag: 'PROPOSED' as const, source: 'Niu et al., 2026' },
+  { claim: 'Sub-Landauer computation is achievable in BRC via geometric confinement', tag: 'SPECULATIVE' as const, source: 'BRC theory' },
+];
+---
+<section class="my-12 space-y-6">
+  <p class="text-parchment-2 text-lg max-w-3xl">
+    The full claims matrix. Filter by claim stage using the chips below. Every claim is registered in <code class="text-amber font-mono">src/content/docs/current/claims-matrix.mdx</code> with a citation and a promotion/demotion criterion.
+  </p>
+  <ClaimsTable rows={rows} />
+</section>

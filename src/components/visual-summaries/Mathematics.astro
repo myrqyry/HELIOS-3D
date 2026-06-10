@@ -1,0 +1,38 @@
+---
+import HopfionScene from '../r3f/HopfionScene';
+---
+<section class="my-12 space-y-10">
+  <div class="grid md:grid-cols-2 gap-6 items-start">
+    {/* Hopf index */}
+    <article class="rounded-lg border border-cyan-2 bg-obsidian-2 p-6">
+      <p class="font-mono text-xs uppercase tracking-wider text-cyan-2 mb-3">Hopf invariant · H</p>
+      <p class="text-sm text-parchment-2 mb-4">The 3D topological charge of a magnetic hopfion. Integer-valued, defined by linking of pre-images in target-space.</p>
+      <div class="bg-obsidian rounded p-4 font-mono text-center my-4 overflow-x-auto">
+        <span class="text-amber">H = (1 / (4π)²) ∫ A · B d³r</span>
+      </div>
+      <p class="text-xs text-parchment-2">A standard hopfion has H = 1, meaning every pair of pre-image curves links exactly once. The "tubes" of constant magnetization are linked or knotted.</p>
+    </article>
+
+    {/* Arrhenius decay */}
+    <article class="rounded-lg border border-ember bg-obsidian-2 p-6">
+      <p class="font-mono text-xs uppercase tracking-wider text-ember mb-3">Decay rate · Γ</p>
+      <p class="text-sm text-parchment-2 mb-4">Thermal decay follows an Arrhenius-like law. The energy barrier separates the hopfion state from the trivial ferromagnetic state.</p>
+      <div class="bg-obsidian rounded p-4 font-mono text-center my-4 overflow-x-auto">
+        <span class="text-amber">Γ = f₀ · exp(-ΔE / k<sub>B</sub>T)</span>
+      </div>
+      <p class="text-xs text-parchment-2">Simulations indicate ΔE in the range of <span class="text-amber font-bold">10-50 k<sub>B</sub>T</span> at room temperature for the EuS/Bi₂Se₃/EuS trilayer — exceeding the 50 k<sub>B</sub>T non-volatility threshold.</p>
+    </article>
+  </div>
+
+  {/* Hopfion figure */}
+  <div class="my-8">
+    <HopfionScene client:visible height="h-72" />
+    <p class="mt-2 text-center text-xs text-parchment-2 font-mono">A stylized 3D hopfion: every pair of constant-magnetization tubes links exactly once (H = 1). Stylized illustration — not simulation-accurate.</p>
+  </div>
+
+  {/* Why it matters */}
+  <div class="rounded-lg border border-obsidian-3 bg-obsidian-2 p-6">
+    <p class="font-mono text-xs uppercase tracking-wider text-amber mb-3">Why the integer matters</p>
+    <p class="text-parchment-2">A hopfion cannot be continuously deformed into a trivial ferromagnetic state without the magnetization locally dropping to zero — a Bloch-point singularity. This "unzipping" requires significant energy. The integer-valued topological charge is what makes the hopfion a stable, non-volatile bit of information purely by virtue of its knotted geometry.</p>
+  </div>
+</section>

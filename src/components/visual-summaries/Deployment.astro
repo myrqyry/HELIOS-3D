@@ -1,0 +1,42 @@
+---
+const targets = [
+  { label: 'Vercel (primary)', url: 'https://helios-3d.vercel.app/', status: 'Live', desc: 'Auto-deploy on every push to main. Vercel reads the Astro build output and serves the static site.' },
+  { label: 'GitHub Pages (mirror)', url: 'https://myrqyry.github.io/HELIOS-3D/', status: 'Live', desc: 'Mirrored deployment via the GitHub Actions workflow at .github/workflows/deploy.yml.' },
+  { label: 'Source', url: 'https://github.com/myrqyry/HELIOS-3D', status: 'Public', desc: 'All Astro + MDX source, visual summaries, r3f scenes, and Python analysis tooling. Issues and PRs welcome.' },
+];
+---
+<section class="my-12 space-y-8">
+  <p class="text-parchment-2 text-lg max-w-3xl">
+    The site is built with <span class="text-amber font-bold">Astro + MDX</span> and automatically deployed on every push to <code class="text-amber font-mono">main</code>. Build and deployment are governed by GitHub Actions; no manual deploy step is required.
+  </p>
+
+  <div class="grid md:grid-cols-3 gap-4">
+    {targets.map((t) => (
+      <a href={t.url} class="block rounded-lg border border-obsidian-3 bg-obsidian-2 p-5 hover:border-ember">
+        <div class="flex items-center justify-between mb-2">
+          <p class="text-amber font-bold">{t.label}</p>
+          <span class="font-mono text-[10px] px-2 py-0.5 rounded border text-gold border-gold uppercase tracking-wider">{t.status}</span>
+        </div>
+        <p class="text-sm text-parchment-2 mb-3">{t.desc}</p>
+        <p class="font-mono text-xs text-cyan-2 break-all">{t.url}</p>
+      </a>
+    ))}
+  </div>
+
+  <div class="rounded-lg border border-obsidian-3 bg-obsidian-2 p-6">
+    <p class="font-mono text-xs uppercase tracking-wider text-amber mb-3">CI/CD workflow</p>
+    <ol class="space-y-2 text-sm">
+      <li class="flex gap-3"><span class="font-mono text-amber shrink-0">1.</span><span class="text-parchment-2"><span class="text-amber font-bold">Validation:</span> <code class="font-mono">pnpm check &amp;&amp; pnpm test</code> ensures code and documentation integrity.</span></li>
+      <li class="flex gap-3"><span class="font-mono text-amber shrink-0">2.</span><span class="text-parchment-2"><span class="text-amber font-bold">Build:</span> <code class="font-mono">pnpm build</code> produces the static <code class="font-mono">dist/</code> directory.</span></li>
+      <li class="flex gap-3"><span class="font-mono text-amber shrink-0">3.</span><span class="text-parchment-2"><span class="text-amber font-bold">Deploy:</span> Vercel auto-detects the push and serves the build. GitHub Pages mirrors via <code class="font-mono">actions/deploy-pages</code>.</span></li>
+    </ol>
+  </div>
+
+  <div class="rounded-lg border border-obsidian-3 bg-obsidian-2 p-6">
+    <p class="font-mono text-xs uppercase tracking-wider text-amber mb-3">Local preview</p>
+    <pre class="bg-obsidian rounded p-4 font-mono text-sm text-parchment overflow-x-auto"><code>pnpm install
+pnpm dev          # http://localhost:4321
+pnpm build
+pnpm preview      # serve the production build</code></pre>
+  </div>
+</section>

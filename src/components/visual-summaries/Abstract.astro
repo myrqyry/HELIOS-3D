@@ -1,0 +1,65 @@
+---
+import HopfionScene from '../r3f/HopfionScene';
+---
+<section class="my-12 space-y-10">
+  {/* Pitch card */}
+  <div class="rounded-lg border border-ember bg-obsidian-2 p-8">
+    <p class="font-mono text-xs uppercase tracking-wider text-ember mb-3">The pitch</p>
+    <p class="text-2xl text-parchment leading-relaxed max-w-3xl">
+      HELIOS-3D investigates whether some of silicon's energy and data-movement limits can be eased by shifting information carriers from electrical charge to <span class="text-amber font-bold">topologically protected 3D spin textures</span> — first skyrmions, then hopfions — fabricated on a hybrid DISH + TPP + ALD pipeline and read electrically.
+    </p>
+  </div>
+
+  {/* 3+1 architecture */}
+  <div class="grid md:grid-cols-3 gap-4">
+    <article class="rounded-lg border border-cyan-2 bg-obsidian-2 p-5">
+      <p class="font-mono text-xs uppercase tracking-wider text-cyan-2 mb-2">Write</p>
+      <h3 class="text-amber font-bold mb-2">Photonic Imprinting</h3>
+      <p class="text-sm text-parchment-2">DISH + bichromatic knotted light + Inverse Faraday Effect nucleates a magnetic hopfion in &lt;1 ns.</p>
+      <p class="font-mono text-xs text-parchment-2 mt-3">40-60 ps · 1.7 pJ/µm²</p>
+    </article>
+    <article class="rounded-lg border border-ember bg-obsidian-2 p-5">
+      <p class="font-mono text-xs uppercase tracking-wider text-ember mb-2">Process</p>
+      <h3 class="text-amber font-bold mb-2">Brownian Reservoir (BRC)</h3>
+      <p class="text-sm text-parchment-2">Super-moiré zero-bias lattices + ambient heat drive noise-powered nonlinear transforms.</p>
+      <p class="font-mono text-xs text-parchment-2 mt-3">~0.15 fJ target · 98% via ERC</p>
+    </article>
+    <article class="rounded-lg border border-violet bg-obsidian-2 p-5">
+      <p class="font-mono text-xs uppercase tracking-wider text-violet mb-2">Read</p>
+      <h3 class="text-amber font-bold mb-2">Microwave Spectroscopy</h3>
+      <p class="text-sm text-parchment-2">Sub-GHz breathing modes of hopfion radii give a frequency-encoded fingerprint.</p>
+      <p class="font-mono text-xs text-parchment-2 mt-3">0.54-0.56 GHz · FMR / STFMR</p>
+    </article>
+  </div>
+
+  {/* 4 stat cards */}
+  <div class="grid md:grid-cols-4 gap-4">
+    <article class="rounded-lg border border-obsidian-3 bg-obsidian-2 p-5">
+      <p class="text-3xl font-bold text-amber">40-60<span class="text-base text-parchment-2 font-mono ml-1">ps</span></p>
+      <p class="text-xs text-parchment-2 mt-2">Write pulse (Mn₃Sn octupole switching)</p>
+    </article>
+    <article class="rounded-lg border border-obsidian-3 bg-obsidian-2 p-5">
+      <p class="text-3xl font-bold text-amber">1.7<span class="text-base text-parchment-2 font-mono ml-1">pJ/µm²</span></p>
+      <p class="text-xs text-parchment-2 mt-2">Write energy density, 10¹¹ cycle endurance</p>
+    </article>
+    <article class="rounded-lg border border-obsidian-3 bg-obsidian-2 p-5">
+      <p class="text-3xl font-bold text-amber">&gt;50<span class="text-base text-parchment-2 font-mono ml-1">k<sub>B</sub>T</span></p>
+      <p class="text-xs text-parchment-2 mt-2">Hopfion annihilation barrier (EuS/Bi₂Se₃/EuS)</p>
+    </article>
+    <article class="rounded-lg border border-obsidian-3 bg-obsidian-2 p-5">
+      <p class="text-3xl font-bold text-amber">~9<span class="text-base text-parchment-2 font-mono ml-1">fJ</span></p>
+      <p class="text-xs text-parchment-2 mt-2">MCA target per operation (aspirational)</p>
+    </article>
+  </div>
+
+  <p class="font-mono text-xs text-parchment-2 text-center">
+    <span class="text-amber">DEMONSTRATED</span> targets exist for individual components ·
+    <span class="text-cyan-2">PROPOSED</span> targets require integrated fabrication validation ·
+    <span class="text-rose">SPECULATIVE</span> targets are aspirational research envelopes
+  </p>
+
+  <div class="my-8">
+    <HopfionScene client:visible height="h-72" />
+    <p class="mt-2 text-center text-xs text-parchment-2 font-mono">A stylized 3D hopfion — the projected long-range information carrier.</p>
+  </div>
+</section>
