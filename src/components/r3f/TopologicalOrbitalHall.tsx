@@ -4,18 +4,32 @@ import { OrbitControls, Float, Stars, Text, Billboard } from '@react-three/drei'
 import * as THREE from 'three';
 
 function HallmarkArrows() {
-  const arrows = useMemo(() => [
-    { pos: [1.2, 0.2, 0], dir: [0, 1, 0], color: '#7dd3fc', label: 'σ_xz^Ly' },
-    { pos: [-1.2, -0.2, 0], dir: [0, -1, 0], color: '#7dd3fc', label: 'σ_xz^Ly' },
-    { pos: [0, 1.2, 0.2], dir: [0, 0, 1], color: '#ff6b1a', label: 'σ_yz^Lx' },
-    { pos: [0, -1.2, -0.2], dir: [0, 0, -1], color: '#ff6b1a', label: 'σ_yz^Lx' },
-  ], []);
+  const arrows = useMemo(() => {
+    const euler = new THREE.Euler();
+    const vec = new THREE.Vector3();
+    const base = [
+      { pos: [1.2, 0.2, 0], dir: [0, 1, 0], color: '#7dd3fc', label: 'σ_xz^Ly' },
+      { pos: [-1.2, -0.2, 0], dir: [0, -1, 0], color: '#7dd3fc', label: 'σ_xz^Ly' },
+      { pos: [0, 1.2, 0.2], dir: [0, 0, 1], color: '#ff6b1a', label: 'σ_yz^Lx' },
+      { pos: [0, -1.2, -0.2], dir: [0, 0, -1], color: '#ff6b1a', label: 'σ_yz^Lx' },
+    ];
+    return base.map((a) => {
+      euler.setFromVector3(vec.set(a.dir[0], a.dir[1], a.dir[2]));
+      return {
+        pos: a.pos,
+        dir: a.dir,
+        color: a.color,
+        label: a.label,
+        rotation: [euler.x, euler.y, euler.z] as [number, number, number],
+      };
+    });
+  }, []);
 
   return (
     <group>
       {arrows.map((a, i) => (
         <group key={i} position={a.pos as [number, number, number]}>
-          <mesh rotation={new THREE.Euler().setFromVector3(new THREE.Vector3(...a.dir))}>
+          <mesh rotation={a.rotation}>
             <coneGeometry args={[0.08, 0.2, 16]} />
             <meshStandardMaterial color={a.color} emissive={a.color} emissiveIntensity={2} />
           </mesh>
