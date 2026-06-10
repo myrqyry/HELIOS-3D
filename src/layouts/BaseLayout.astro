@@ -9,9 +9,10 @@ export interface Props {
   title: string;
   description?: string;
   showSidebar?: boolean;
+  snap?: boolean;
 }
 
-const { title, description, showSidebar = true } = Astro.props;
+const { title, description, showSidebar = true, snap = false } = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
@@ -26,10 +27,10 @@ const { title, description, showSidebar = true } = Astro.props;
   </head>
   <body class="min-h-screen flex flex-col">
     <Header />
-    <div class={`flex-1 ${showSidebar ? 'flex' : ''}`}>
+    <div class={`flex-1 ${showSidebar ? 'flex' : ''} ${snap ? 'snap-y-mandatory overflow-y-scroll h-screen' : ''}`}>
       {showSidebar && <Sidebar />}
       <main class="flex-1 min-w-0">
-        <article class="mx-auto max-w-3xl px-6 py-12 prose-custom">
+        <article class={`mx-auto max-w-3xl px-6 py-12 prose-custom ${snap ? 'snap-start' : ''}`}>
           <slot />
         </article>
       </main>

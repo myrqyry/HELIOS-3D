@@ -10,10 +10,40 @@ const nav = [
 <header class="border-b border-obsidian-3 bg-obsidian">
   <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
     <a href="/" class="font-mono text-amber text-lg font-bold tracking-tight">HELIOS-3D</a>
-    <nav class="flex gap-6 text-sm text-parchment-2">
-      {nav.map((item) => (
-        <a href={item.href} class="hover:text-ember transition-colors">{item.label}</a>
-      ))}
-    </nav>
+    <div class="flex items-center gap-6">
+      <nav class="flex gap-6 text-sm text-parchment-2">
+        {nav.map((item) => (
+          <a href={item.href} class="hover:text-ember transition-colors">{item.label}</a>
+        ))}
+      </nav>
+      <select
+        data-stage-filter
+        class="font-mono text-xs bg-obsidian-2 border border-obsidian-3 text-parchment rounded px-2 py-1"
+        aria-label="Filter docs by stage"
+      >
+        <option value="all">All stages</option>
+        <option value="established">Established</option>
+        <option value="current">Current</option>
+        <option value="speculative">Speculative</option>
+        <option value="project-ops">Project Ops</option>
+      </select>
+    </div>
   </div>
 </header>
+<script is:inline>
+  (() => {
+    const sel = document.querySelector('[data-stage-filter]');
+    if (!sel) return;
+    const STORAGE_KEY = 'helios-3d-stage-filter';
+    const saved = localStorage.getItem(STORAGE_KEY) || 'all';
+    sel.value = saved;
+    sel.addEventListener('change', (e) => {
+      const value = e.target.value;
+      localStorage.setItem(STORAGE_KEY, value);
+      const root = document.documentElement;
+      if (value === 'all') root.removeAttribute('data-stage');
+      else root.setAttribute('data-stage', value);
+    });
+    if (saved !== 'all') document.documentElement.setAttribute('data-stage', saved);
+  })();
+</script>
