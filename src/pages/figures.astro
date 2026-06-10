@@ -7,6 +7,10 @@ import MaterialStack from '../components/r3f/MaterialStack';
 import DmiChirality from '../components/r3f/DmiChirality';
 import TwistReservoirNucleation from '../components/r3f/TwistReservoirNucleation';
 import TopologicalOrbitalHall from '../components/r3f/TopologicalOrbitalHall';
+import BreathingModeSpectrum from '../components/charts/BreathingModeSpectrum';
+import EnergyBarrier from '../components/charts/EnergyBarrier';
+import LiteratureTimeline from '../components/charts/LiteratureTimeline';
+import PerformanceFloor from '../components/charts/PerformanceFloor';
 
 const figures = await getCollection('figures');
 
@@ -48,9 +52,10 @@ const allKinds = Array.from(new Set(figures.map((f) => f.data.kind)));
           {f.data.component === 'DmiChirality' && <DmiChirality client:visible height="h-48" />}
           {f.data.component === 'TwistReservoirNucleation' && <TwistReservoirNucleation client:visible height="h-48" />}
           {f.data.component === 'TopologicalOrbitalHall' && <TopologicalOrbitalHall client:visible height="h-48" />}
-          {!['HopfionScene','SkyrmionScene','MaterialStack','DmiChirality','TwistReservoirNucleation','TopologicalOrbitalHall'].includes(f.data.component) && (
-            <div class="h-48 flex items-center justify-center text-parchment-2 font-mono text-xs">[chart / svg — see doc]</div>
-          )}
+          {f.data.component === 'BreathingModeSpectrum' && <BreathingModeSpectrum client:visible height="h-48" />}
+          {f.data.component === 'EnergyBarrier' && <EnergyBarrier client:visible height="h-48" />}
+          {f.data.component === 'LiteratureTimeline' && <LiteratureTimeline client:visible height="h-48" />}
+          {f.data.component === 'PerformanceFloor' && <PerformanceFloor client:visible height="h-48" />}
         </div>
         <h3 class="mt-3 font-bold text-amber">{f.data.title}</h3>
         <p class="text-sm text-parchment-2 mt-1">{f.data.description}</p>
