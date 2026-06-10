@@ -81,7 +81,7 @@ To maintain scientific discipline and distinguish between established physics an
 *   **`[PROPOSED]`**: A specific architectural integration or implementation path suggested by the HELIOS-3D model.
 *   **`[SPECULATIVE]`**: A theoretical target, high-risk hypothesis, or unverified performance projection.
 
-See [`docs/CLAIMS_MATRIX.md`](./docs/CLAIMS_MATRIX.md) for claim-by-claim traceability.
+See the [Claims Matrix](./src/content/docs/current/claims-matrix.mdx) for claim-by-claim traceability.
 
 ---
 
@@ -103,7 +103,7 @@ The repo should be read with a strict staging rule: `ALTERNATIVE_MATERIALS_AND_M
 
 | Path | Focus |
 |---|---|
-| **[`src/content/docs/`](./src/content/docs/)** | Starlight-based documentation source (Primary) |
+| **[`src/content/docs/`](./src/content/docs/)** | Astro + MDX documentation source (Primary) |
 | **[`research_specifications/`](./research_specifications/)** | Formal physics and architecture modules |
 | **[`simulations/`](./simulations/)** | MuMax3 and OOMMF configuration files |
 | **[`compiler/`](./compiler/)** | Topological Compiler implementation |
@@ -113,9 +113,9 @@ The repo should be read with a strict staging rule: `ALTERNATIVE_MATERIALS_AND_M
 
 ## 🌐 Deployed Site
 
-The technical documentation is live at **[myrqyry.github.io/HELIOS-3D/](https://myrqyry.github.io/HELIOS-3D/)**.
+The technical documentation is live at **[helios-3d.vercel.app](https://helios-3d.vercel.app/)** (Vercel) and mirrored to **[myrqyry.github.io/HELIOS-3D/](https://myrqyry.github.io/HELIOS-3D/)** (GitHub Pages).
 
-The site is built with **Astro (Starlight)** and automatically deployed via GitHub Actions on every push to `main`.
+The site is built with **Astro + MDX** and automatically deployed on every push to `main` via the workflows in `.github/workflows/`.
 
 ---
 

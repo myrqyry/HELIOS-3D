@@ -1,7 +1,7 @@
-import { TermTooltip } from './ui/TermTooltip';
-import { ExpandableChunk } from './ui/ExpandableChunk';
-import { MetricPopover } from './ui/MetricPopover';
-import { VisualCueCard } from './ui/VisualCueCard';
+import { TermTooltip } from './TermTooltip';
+import { ExpandableChunk } from './ExpandableChunk';
+import { MetricPopover } from './MetricPopover';
+import { VisualCueCard } from './VisualCueCard';
 
 export {
   TermTooltip,

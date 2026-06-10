@@ -18,4 +18,4 @@ The claims, projections, and architectural proposals in this repository are **no
 - Product roadmaps
 - Academic citations without independent verification
 
-All speculative content is tagged using the project's claims discipline (`[DEMONSTRATED]`, `[INFERRED]`, `[PROPOSED]`, `[SPECULATIVE]`). See [`docs/CLAIMS_MATRIX.md`](./docs/CLAIMS_MATRIX.md) for details.
+All speculative content is tagged using the project's claims discipline (`[DEMONSTRATED]`, `[INFERRED]`, `[PROPOSED]`, `[SPECULATIVE]`). See the [Claims Matrix](./src/content/docs/current/claims-matrix.mdx) for details.

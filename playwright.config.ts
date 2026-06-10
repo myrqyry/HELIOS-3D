@@ -5,7 +5,7 @@ export default defineConfig({
   fullyParallel: true,
   webServer: {
     command: 'pnpm preview --port 4321 --host 127.0.0.1',
-    url: 'http://127.0.0.1:4321/HELIOS-3D/',
+    url: 'http://127.0.0.1:4321/',
     reuseExistingServer: !process.env.CI,
   },
   use: {

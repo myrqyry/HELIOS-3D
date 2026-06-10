@@ -73,9 +73,7 @@ function Hall() {
       {currentLines.map((line, i) => {
         const geom = new THREE.BufferGeometry().setFromPoints(line);
         return (
-          <line key={i} geometry={geom}>
-            <lineBasicMaterial color="#38bdf8" transparent opacity={0.3} />
-          </line>
+          <primitive key={i} object={new THREE.Line(geom, new THREE.LineBasicMaterial({ color: '#38bdf8', transparent: true, opacity: 0.3 }))} />
         );
       })}
 
