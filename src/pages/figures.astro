@@ -9,24 +9,49 @@ import TwistReservoirNucleation from '../components/r3f/TwistReservoirNucleation
 import TopologicalOrbitalHall from '../components/r3f/TopologicalOrbitalHall';
 
 const figures = await getCollection('figures');
+
+const allSources = Array.from(new Set(figures.map((f) => f.data.source)));
+const allKinds = Array.from(new Set(figures.map((f) => f.data.kind)));
 ---
 <BaseLayout title="Figures" description="All visualizations in the HELIOS-3D site.">
-  <header class="mb-8 pb-4 border-b border-obsidian-3">
-    <h1 class="text-4xl font-bold text-amber">Figures</h1>
-    <p class="mt-2 text-parchment-2">Every visualization used in the site, grouped by topic. Click into a doc from the figure caption.</p>
+  <header class="mb-8 pb-6 border-b border-obsidian-3">
+    <h1 class="text-5xl font-bold text-amber mb-3">Figures</h1>
+    <p class="text-lg text-parchment-2 max-w-2xl">Every visualization used in the site, grouped by source and kind.</p>
   </header>
-  <div class="grid md:grid-cols-2 gap-6">
+  <div class="mb-8 flex flex-wrap gap-2" data-figures-filters>
+    <div class="flex items-center gap-2 mr-4">
+      <span class="font-mono text-xs uppercase text-parchment-2">Source</span>
+      <button data-filter-source="all" class="font-mono text-xs px-3 py-1 rounded border border-obsidian-3 bg-obsidian-2 text-amber">All</button>
+      {allSources.map((s) => (
+        <button data-filter-source={s} class="font-mono text-xs px-3 py-1 rounded border border-obsidian-3 text-parchment-2 hover:text-amber">{s}</button>
+      ))}
+    </div>
+    <div class="flex items-center gap-2">
+      <span class="font-mono text-xs uppercase text-parchment-2">Kind</span>
+      <button data-filter-kind="all" class="font-mono text-xs px-3 py-1 rounded border border-obsidian-3 bg-obsidian-2 text-amber">All</button>
+      {allKinds.map((k) => (
+        <button data-filter-kind={k} class="font-mono text-xs px-3 py-1 rounded border border-obsidian-3 text-parchment-2 hover:text-amber">{k}</button>
+      ))}
+    </div>
+  </div>
+  <div class="grid md:grid-cols-2 gap-6" data-figures-grid>
     {figures.map((f) => (
-      <article class="rounded-lg border border-obsidian-3 bg-obsidian-2 p-4">
-        {f.data.component === 'HopfionScene' && <HopfionScene client:visible height="h-48" />}
-        {f.data.component === 'SkyrmionScene' && <SkyrmionScene client:visible height="h-48" />}
-        {f.data.component === 'MaterialStack' && <MaterialStack client:visible height="h-48" />}
-        {f.data.component === 'DmiChirality' && <DmiChirality client:visible height="h-48" />}
-        {f.data.component === 'TwistReservoirNucleation' && <TwistReservoirNucleation client:visible height="h-48" />}
-        {f.data.component === 'TopologicalOrbitalHall' && <TopologicalOrbitalHall client:visible height="h-48" />}
-        {!['HopfionScene','SkyrmionScene','MaterialStack','DmiChirality','TwistReservoirNucleation','TopologicalOrbitalHall'].includes(f.data.component) && (
-          <div class="h-48 flex items-center justify-center text-parchment-2 font-mono text-xs">[chart / svg — see doc]</div>
-        )}
+      <article
+        class="rounded-lg border border-obsidian-3 bg-obsidian-2 p-4"
+        data-source={f.data.source}
+        data-kind={f.data.kind}
+      >
+        <div class="relative">
+          {f.data.component === 'HopfionScene' && <HopfionScene client:visible height="h-48" />}
+          {f.data.component === 'SkyrmionScene' && <SkyrmionScene client:visible height="h-48" />}
+          {f.data.component === 'MaterialStack' && <MaterialStack client:visible height="h-48" />}
+          {f.data.component === 'DmiChirality' && <DmiChirality client:visible height="h-48" />}
+          {f.data.component === 'TwistReservoirNucleation' && <TwistReservoirNucleation client:visible height="h-48" />}
+          {f.data.component === 'TopologicalOrbitalHall' && <TopologicalOrbitalHall client:visible height="h-48" />}
+          {!['HopfionScene','SkyrmionScene','MaterialStack','DmiChirality','TwistReservoirNucleation','TopologicalOrbitalHall'].includes(f.data.component) && (
+            <div class="h-48 flex items-center justify-center text-parchment-2 font-mono text-xs">[chart / svg — see doc]</div>
+          )}
+        </div>
         <h3 class="mt-3 font-bold text-amber">{f.data.title}</h3>
         <p class="text-sm text-parchment-2 mt-1">{f.data.description}</p>
         <p class="text-xs font-mono text-parchment-2 mt-2">
@@ -36,3 +61,36 @@ const figures = await getCollection('figures');
     ))}
   </div>
 </BaseLayout>
+<script>
+  const grid = document.querySelector('[data-figures-grid]');
+  const filterButtons = document.querySelectorAll('[data-figures-filters] button');
+  if (grid) {
+    let sourceFilter: string = 'all';
+    let kindFilter: string = 'all';
+    const applyFilters = () => {
+      const cards = grid.querySelectorAll('article');
+      cards.forEach((card) => {
+        const s = card.getAttribute('data-source');
+        const k = card.getAttribute('data-kind');
+        const show = (sourceFilter === 'all' || s === sourceFilter) && (kindFilter === 'all' || k === kindFilter);
+        (card as HTMLElement).style.display = show ? '' : 'none';
+      });
+    };
+    filterButtons.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        const t = e.currentTarget as HTMLButtonElement;
+        if (t.hasAttribute('data-filter-source')) {
+          sourceFilter = t.getAttribute('data-filter-source') || 'all';
+          document.querySelectorAll('[data-filter-source]').forEach((b) => b.classList.remove('bg-obsidian-2', 'text-amber'));
+          t.classList.add('bg-obsidian-2', 'text-amber');
+        }
+        if (t.hasAttribute('data-filter-kind')) {
+          kindFilter = t.getAttribute('data-filter-kind') || 'all';
+          document.querySelectorAll('[data-filter-kind]').forEach((b) => b.classList.remove('bg-obsidian-2', 'text-amber'));
+          t.classList.add('bg-obsidian-2', 'text-amber');
+        }
+        applyFilters();
+      });
+    });
+  }
+</script>

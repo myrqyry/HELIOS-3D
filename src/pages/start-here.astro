@@ -1,28 +1,47 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import StageBadge, { type DocStage } from '../components/StageBadge.astro';
 
-const path = [
-  { step: 1, title: 'Abstract', desc: 'Project pitch and dual-core architecture.', href: '/docs/established/abstract/' },
-  { step: 2, title: 'Candidate Materials', desc: 'Spin textures and the EuS/Bi₂Se₃/EuS substrate.', href: '/docs/established/candidate-materials-and-mechanisms/' },
-  { step: 3, title: 'Literature Review', desc: 'The 2026 evidence base.', href: '/docs/established/literature-review/' },
-  { step: 4, title: 'Claims Matrix', desc: 'What is and is not demonstrated.', href: '/docs/current/claims-matrix/' },
-  { step: 5, title: 'Pitch Deck Outline', desc: 'The full project narrative.', href: '/docs/speculative/pitch-deck-outline/' },
+const path: Array<{ step: number; title: string; desc: string; stage: DocStage; href: string }> = [
+  { step: 1, title: 'Abstract', desc: 'Project pitch and dual-core architecture.', stage: 'established', href: '/docs/established/abstract/' },
+  { step: 2, title: 'Candidate Materials', desc: 'Spin textures and the EuS/Bi₂Se₃/EuS substrate.', stage: 'established', href: '/docs/established/candidate-materials-and-mechanisms/' },
+  { step: 3, title: 'Literature Review', desc: 'The 2026 evidence base.', stage: 'established', href: '/docs/established/literature-review/' },
+  { step: 4, title: 'Claims Matrix', desc: 'What is and is not demonstrated.', stage: 'current', href: '/docs/current/claims-matrix/' },
+  { step: 5, title: 'Pitch Deck Outline', desc: 'The full project narrative.', stage: 'speculative', href: '/docs/speculative/pitch-deck-outline/' },
 ];
 ---
 <BaseLayout title="Start Here" description="A 5-doc reading path for newcomers to HELIOS-3D.">
-  <header class="mb-8 pb-4 border-b border-obsidian-3">
-    <h1 class="text-4xl font-bold text-amber">Start Here</h1>
-    <p class="mt-2 text-parchment-2">A 5-doc reading path if you are new to HELIOS-3D. Read in order; each step builds on the previous.</p>
+  <header class="mb-12 pb-6 border-b border-obsidian-3">
+    <h1 class="text-5xl font-bold text-amber mb-3">Start Here</h1>
+    <p class="text-lg text-parchment-2 max-w-2xl">A 5-doc reading path if you are new to HELIOS-3D. Read in order; each step builds on the previous.</p>
   </header>
-  <ol class="space-y-4">
+  <ol class="relative space-y-8 mb-16">
+    <div class="absolute left-6 top-0 bottom-0 w-px bg-obsidian-3" aria-hidden="true"></div>
     {path.map((p) => (
-      <li class="rounded-lg border border-obsidian-3 bg-obsidian-2 p-5 hover:border-ember">
-        <div class="flex items-baseline gap-3">
-          <span class="font-mono text-amber text-xl">{p.step}</span>
-          <a href={p.href} class="text-xl font-bold text-amber hover:underline">{p.title}</a>
+      <li class="relative grid grid-cols-[auto_1fr_auto] items-start gap-6 pl-2">
+        <div class="z-10 flex items-center justify-center w-12 h-12 rounded-full bg-obsidian border-2 border-ember">
+          <span class="font-mono text-amber text-lg">{String(p.step).padStart(2, '0')}</span>
         </div>
-        <p class="mt-1 text-parchment-2 text-sm">{p.desc}</p>
+        <div>
+          <a href={p.href} class="text-2xl font-bold text-amber hover:underline">{p.title}</a>
+          <p class="mt-1 text-parchment-2">{p.desc}</p>
+        </div>
+        <div class="pt-3">
+          <StageBadge stage={p.stage} size="sm" />
+        </div>
       </li>
     ))}
   </ol>
+  <div class="grid md:grid-cols-2 gap-6">
+    <article class="rounded-lg border border-obsidian-3 bg-obsidian-2 p-6">
+      <h3 class="text-amber font-bold mb-2">If you only have 2 minutes</h3>
+      <p class="text-parchment-2 mb-3">Read the abstract — what HELIOS-3D is, what the 2026 evidence is for, and what isn't demonstrated yet.</p>
+      <a href="/docs/established/abstract/" class="text-amber hover:underline">Read abstract →</a>
+    </article>
+    <article class="rounded-lg border border-obsidian-3 bg-obsidian-2 p-6">
+      <h3 class="text-amber font-bold mb-2">If you have 30 minutes</h3>
+      <p class="text-parchment-2 mb-3">Abstract + claims matrix + literature review. The full evidence picture in one sitting.</p>
+      <a href="/docs/current/claims-matrix/" class="text-amber hover:underline">Read claims matrix →</a>
+    </article>
+  </div>
 </BaseLayout>
