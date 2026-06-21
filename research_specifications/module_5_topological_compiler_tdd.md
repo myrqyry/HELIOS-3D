@@ -18,6 +18,10 @@ HELIOS-3D utilizes a **Hybrid SciML Pipeline** to bridge high-level embeddings w
 *   **Optimization Stage (PINNs-Torch):** Once a scaffold class is discovered, we transition to **`pinns-torch`**. This high-performance implementation leverages **CUDA Graphs** and **Automatic Differentiation** to optimize the precise DISH holographic prescriptions, ensuring the target topological charge ($Q_H$) is physically stable. `[PROPOSED]`
 *   **Deployment Stage (FNO Surrogate):** For real-time inference and preview, we utilize a **Fourier Neural Operator (FNO)** surrogate (trained using the **PDEBench** framework). This surrogate is trained on the results of the PINN stages to provide resolution-invariant, sub-millisecond mapping. `[INFERRED]`
 *   **Optimization Logic:** Uses gradient-based inverse design to minimize the **Topological Loss** (error in integer Hopf Index) and **Physical Residual** (LLG equation error).
+*   **Layer-wise and Parallel Calibration (Mathur et al., 2026):** To scale on-hardware calibration of spintronic arrays, we map the excitation-conserving track/junction network (governed by SOT logic gates) to a logarithmic-depth Butterfly QNN architecture composed of spintronic Reconfigurable Beam Splitter (RBS) equivalents. We calibrate the control pulse parameters using:
+    1.  *Layer-wise Staging:* We train/freeze sub-networks progressively to reduce active optimization dimensions.
+    2.  *Parallel Parameter Shifts:* Because gates within each Butterfly layer act on disjoint tracks (with mutually commuting spin-generator dynamics), we shift all parameters in a layer simultaneously. This reduces the number of on-hardware evaluations per step from $O(N^2)$ to $O(\log N)$ for $N$ tracks. `[PROPOSED]`
+
 
 ### 3. Output Layer: Optical Prescription
 *   **Format:** A holographic phase mask $\Phi(u, v)$ for the DISH periscope.

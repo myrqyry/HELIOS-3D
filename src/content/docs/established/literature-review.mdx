@@ -79,6 +79,15 @@ Li et al. (2026) demonstrate a 3D-printed "Y-zipper" structure that enables rapi
 Shi et al. (PRL 2026) demonstrate the deterministic nucleation of 3D fractional solitons using a "twist reservoir" mechanism. Chen et al. (Nature Physics 2026) report **isolated magnetic hopfions** in FeGe triggered by femtosecond laser pulses. `[DEMONSTRATED]`
 </ExpandableChunk>
 
+<ExpandableChunk 
+  title="Monolithic 3D Stacking via Roll Lamination (Lam et al., Nature 2026)" 
+  summary="Wafer-scale low-temperature transfer of 10 nm silicon membranes with 98-100% yield."
+>
+  Lam et al., *Monolithic three-dimensional integration of silicon transistors* (Nature 2026, DOI: `10.1038/s41586-026-10496-6`), demonstrate monolithic 3D integration of silicon circuits by transferring 10 nm thick single-crystalline silicon membranes onto a receiving wafer using a roll laminator at only 200 °C. The process achieves 98-100% yield with high uniformity.
+
+  **HELIOS-3D Application:** Provides a low-temperature, high-yield wafer-scale mechanical transfer method for stacking our ultra-thin planar spintronic/vdW membranes onto BEOL circuits without exceeding thermal budget. `[PROPOSED]`
+</ExpandableChunk>
+
 ## 5. Readout Infrastructure Benchmarks
 
 <ExpandableChunk 
@@ -132,7 +141,26 @@ Gao et al. (2026) demonstrate that high-dielectric **SrTiO3** substrates can tun
   title="Twistless Moiré Engineering (Cornell 2026)" 
   summary="Deterministic printing of moiré potentials."
 >
-Cornell researchers demonstrate creating moiré superlattices without manual twisting by using lithographically patterned **metal stressor films**.
+  Cornell researchers demonstrate creating moiré superlattices without manual twisting by using lithographically patterned **metal stressor films**.
 
-**Significance:** Replaces manual stacking with standard semiconductor manufacturing, enabling deterministic printing of moiré trapping potentials. `[PROPOSED for 3D]`
+  **Significance:** Replaces manual stacking with standard semiconductor manufacturing, enabling deterministic printing of moiré trapping potentials. `[PROPOSED for 3D]`
 </ExpandableChunk>
+
+<ExpandableChunk 
+  title="Quantum Vibronic and Photoinduced Moiré Switching (Gabor et al., 2026)" 
+  summary="Ultrafast wave function control and metal-to-insulator transitions in 2D moiré devices."
+>
+  Ouyang et al. (*Physical Review Letters* 2026, DOI: `10.1103/mjhj-83wc`) and Li et al. (*Physical Review B / Letters* 2026, DOIs: `10.1103/jf1h-4qcm`, `10.1103/mt2s-jkbl`) demonstrate that applied electric fields can control interlayer excitons in bilayer $WSe_2$, and that optical excitation can trigger picosecond metal-to-insulator transitions in 2D moiré devices. Furthermore, they propose using crystal vibrations (phonons) as a "control knob" for quantum vibronic switches.
+
+  **HELIOS-3D Application:** Offers a blueprint for (a) using femtosecond optical pulses to dynamically tune moiré trapping potential depth on picosecond timescales rather than slow thermal tuning, and (b) utilizing coherent phonons to gate the interlayer transport of topological solitons. `[PROPOSED]`
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="Scalable QNN Training via Butterfly Layouts (Mathur et al., arXiv 2026)" 
+  summary="Reducing gradient evaluation complexity from O(n^2) to O(log n) using parallel parameter shifts."
+>
+  Mathur et al., *Scalable On-Hardware Training of Quantum Neural Networks* (arXiv 2026, DOI: `10.48550/arXiv.2606.03517`), introduce a training framework for QNNs that reduces gradient estimation complexity to $O(\log n)$ using a subspace-preserving Butterfly architecture (with RBS gates), layer-wise training, and a parallelized parameter-shift rule.
+
+  **HELIOS-3D Application:** Because our spintronic/soliton networks conserve excitation number (Hopf index) during propagation and SOT logic operations, they can be mapped to Hamming-weight-preserving RBS networks. The parallel parameter-shift protocol allows us to calibrate our array of SOT gates in parallel, reducing the on-hardware calibration sweeps from $O(N^2)$ to $O(\log N)$. `[PROPOSED]`
+</ExpandableChunk>
+

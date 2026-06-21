@@ -93,6 +93,13 @@ When two van der Waals ferromagnetic layers (e.g., $CrI_3$, $Fe_3GaTe_2$) are st
 
 The stochastic dynamics of twist-stabilized textures are influenced by the moiré potential landscape. Ambient thermal fluctuations can cause skyrmions to diffuse between moiré cells, which makes the system a plausible **Brownian computation substrate** for later investigation.
 
+### 5.4 Large-Scale AI/Quantum Co-Design of Twistronic Systems
+
+To solve the high computational cost of simulating large-scale moiré landscapes and verifying room-temperature twist configurations, HELIOS-3D proposes integrating the dual-pronged modeling methodology from Fan et al. (PNAS, 2026) and Shen et al. (Nature Communications, 2026):
+
+*   **AI-Surrogate Multilayer Modeling:** Instead of relying solely on expensive density functional theory (DFT) or atomic-scale Monte Carlo runs, we propose employing an AI surrogate model trained on small-scale cluster datasets to extrapolate the physical band reordering and layerwise stratification behavior of twisted, dozens-layer stacks of Transition Metal Dichalcogenides (TMDs) like $MoTe_2$ and vdW magnets like $Fe_3GaTe_2$. `[PROPOSED]`
+*   **Quantum-Hardware Design Loop:** We propose utilizing quantum processors to simulate strongly correlated topological states (such as Laughlin and related fractional quantum Hall states) directly. This creates a self-improving loop: the quantum processor produces high-fidelity topological phase boundary data to train the AI compiler, which then optimizes the physical twist-angle configurations. `[PROPOSED]`
+
 ---
 
 ## 🧲 6. Altermagnets and Compensated Ferrimagnets for Ultra-Dense Packing

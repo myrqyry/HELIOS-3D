@@ -26,15 +26,16 @@ The profound second-order insight derived from this module is that the HELIOS-3D
 
 By engineering the HELIOS-3D substrate utilizing 1.1° twisted double-bilayer $CrI_3$, the intrinsic periodic super-moiré potential strictly restricts the hopfion dimensions through localized DMI variation rather than global field application. The lattice constant $a$ of the hopfion crystal (derived from Module 1) can be explicitly tailored during fabrication to perfectly match the 300 nm periodicity of the super-moiré substrate. 
 
-### Active Tuning via Dielectric Screening (SrTiO3 Integration)
+### Active Tuning via Dielectric Screening and Photoinduced Moiré Control
 
-While the 1.1° twist sets the geometric template, the **depth** of the trapping potential can be actively modulated through dielectric screening. By integrating a thin (1–3 nm) spacer and a **Strontium Titanate (SrTiO3)** substrate, the HELIOS-3D architecture gains an "external knob" for in-situ control.
+While the 1.1° twist sets the geometric template, the **depth** of the trapping potential can be actively modulated through dielectric screening or photoinduced electronic transitions:
 
-As demonstrated in recent moiré superconductivity studies (Gao et al., 2026), the dielectric constant of STO can be tuned via temperature. Increasing the dielectric constant screens the underlying electronic interactions, effectively "softening" the super-moiré potential wells. This enables:
-1.  **Training Phase:** High $\epsilon$ (colder STO) reduces trapping barriers, allowing hopfions to move more freely under thermal noise for stochastic reservoir exploration.
-2.  **Inference/Storage Phase:** Lower $\epsilon$ (warmer STO) restores deep potentials, anchoring the topological states for deterministic readout or non-volatile persistence.
+1.  **Thermal Dielectric Tuning (SrTiO3):** By integrating a thin (1–3 nm) spacer and a **Strontium Titanate (SrTiO3)** substrate, the dielectric constant can be tuned via temperature to screen electronic interactions, enabling a switchable interface between high-mobility diffusion (for reservoir training) and pinned stability (for state storage). `[INFERRED]`
+2.  **Ultrafast Photoinduced Tuning:** To achieve high-speed control bypassing slow thermal response times, the architecture proposes integrating the photoinduced phase transition mechanism from Li et al. (PRL, 2026). Short optical pulses trigger a transient metal-to-insulator phase change in the adjacent 2D moiré structure. This dynamically modifies the localized charge screening and alters the trapping potential depth on picosecond timescales. `[PROPOSED]`
+3.  **Vibronic/Phononic Gating:** In-situ gating of hopfion transport can be achieved using a "quantum vibronic switch" (Gabor et al., 2026). Coherent acoustic phonon pulses (crystal vibrations) are launched to modulate the interlayer exchange coupling or DMI at the vdW interface, turning the hopping of topological textures across the layer interface on or off. `[PROPOSED]`
 
 This synergistic alignment allows HELIOS-3D to operate completely free of external electromagnets, which in turn vastly reduces continuous power consumption, eliminates magnetic cross-talk between adjacent processing cores, and facilitates ultra-dense microchip integration on a scale previously deemed impossible for 3D spintronics.
+
 
 | Twist Angle | Atomic Moiré Cell Size | Magnetic Texture Size | Topological Observation | Substrate Suitability for HELIOS-3D Architecture |
 | :--- | :--- | :--- | :--- | :--- |
