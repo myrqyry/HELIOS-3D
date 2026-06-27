@@ -48,6 +48,12 @@ To enable active tuning of moiré potentials, HELIOS-3D investigates the integra
 *   **Strontium Titanate (SrTiO3 / STO):** STO exhibits a massive, temperature-dependent dielectric constant ($\epsilon \approx 300$ at room temperature, increasing to $>20,000$ at cryogenic temperatures).
 *   **Mechanism:** Proximity to an STO layer (within 1–3 nm) provides in-situ screening of electronic and magnetic interactions. This allows for the dynamic modulation of the "trapping potential" depth in super-moiré lattices, enabling a switchable interface between high-mobility diffusion (for reservoir training) and pinned stability (for state storage). `[INFERRED from Gao et al., 2026]`
 
+### ❄️ 1.2 Quantum-Limit Choice: Ultra-Pure Yttrium Iron Garnet (YIG)
+To overcome the magnonic coherence bottleneck for deep-time processing, the architecture proposes an alternate, cryogenic branch utilizing **ultra-pure single-crystal Yttrium Iron Garnet (YIG)**. `[PROPOSED]`
+1.  **Frozen Scattering Channels:** Operating at millikelvin temperatures (~30-100 mK) freezes out intrinsic magnon-phonon and multi-magnon scattering channels.
+2.  **Extended Coherence:** Under these conditions, short-wavelength dipole-exchange magnons (DEMs) exhibit lifetimes exceeding **18 microseconds**. `[DEMONSTRATED]`
+3.  **Quantum Bus Potential:** This extended lifetime aligns magnonic reservoir stability with superconducting transmon qubits, positioning YIG as the foundational substrate for a coherent quantum memory or bus, rather than a room-temperature AI data center processor. `[INFERRED]`
+
 **Note:** While properties are well-documented on flat epitaxial substrates, maintaining these characteristics on complex 3D polymer scaffolds via conformal coating remains a major research hurdle. See **[`OPEN_QUESTIONS.md`](./OPEN_QUESTIONS.md)**.
 
 ---
@@ -170,3 +176,13 @@ A claim involving this branch may only be promoted to a sensing candidate when a
 3. The organic layer survives the relevant device environment (thermal cycling, vacuum, optical excitation at the write-interface wavelength).
 
 Until all three gates pass, this branch remains `[PROPOSED]` and is excluded from main-architecture claims.
+
+---
+
+## 🧲 8. Magnetic-Field-Assisted Deposition (MFAD)
+
+Drawing from recent breakthroughs in thin-film synthesis (e.g., $CoFe_2O_4$ electrocatalysts), HELIOS-3D proposes integrating an external magnetic field (~1 Tesla) during the Atomic Layer Deposition (ALD) or Chemical Vapor Deposition (CVD) of its magnetic thin films ($Fe_3GaTe_2$ or YIG). `[PROPOSED]`
+
+*   **Atomic-Level Surface Engineering:** Applying a magnetic field during film growth alters cation distribution and surface states at the atomic level, effectively "baking in" optimal magnetic domain structures. `[DEMONSTRATED]`
+*   **Field-Free Enhancement:** The structural and magnetic improvements gained during MFAD continue to provide a lasting positive effect even during field-free (zero-bias) operation. `[DEMONSTRATED]`
+*   **Application to HELIOS-3D:** For the Topological Compiler and BRC cores, MFAD could intrinsically enhance the Dzyaloshinskii-Moriya Interaction (DMI) or stabilize specific topological phases (like hopfions) without requiring bulky external biasing magnets during inference. `[SPECULATIVE]`

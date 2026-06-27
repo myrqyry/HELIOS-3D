@@ -24,6 +24,15 @@ The underlying insight extends beyond mere structural stability. A crystalline l
 
 When an input signal—such as a microwave pulse or a spin current—traverses the hopfion crystal, it perturbs the linked magnetic rings, creating a highly complex, yet deterministic and repeatable, high-dimensional projection of the input data. The interconnected nature of the crystal ensures that the perturbation is processed simultaneously across the entire 3D volume. Proving that HELIOS-3D can operate stably in an FCC or BCC crystalline mode essentially upgrades the spintronic substrate from an array of independent memory registers into a fully interconnected neural medium.
 
+### Overcoming the Magnonic Coherence Bottleneck for Deep-Time Processing
+
+Historically, a massive bottleneck for magnonic reservoir computing has been the ultra-short lifetime of magnons (typically a few hundred nanoseconds). If the collective magnonic vibrations decay instantly, the reservoir's "memory" fades before it can process deep, complex temporal signals. 
+
+To resolve this constraint, the HELIOS-3D reservoir architecture integrates findings from recent breakthroughs in quantum magnonics (*Science Advances, 2026*). By coupling the primary topological substrate with an **ultra-pure single-crystal Yttrium Iron Garnet (YIG)** layer and operating the core in the millikelvin quantum limit (~30-100 mK), intrinsic scattering channels (magnon-phonon and multi-magnon) are completely frozen out. Under these conditions, short-wavelength dipole-exchange magnons (DEMs) exhibit lifetimes exceeding **18 microseconds**—a roughly 100-fold increase over traditional limits. 
+
+This monumental extension of magnon coherence transforms the hopfion crystal into a "deep-time" reservoir. Perturbations can reverberate and interact across the 3D volume for orders of magnitude longer, exponentially increasing the sequence-processing depth of the neural medium. Furthermore, reaching this 18 μs coherence threshold theoretically aligns the magnonic reservoir's stability with that of superconducting transmon qubits, opening a direct pathway for HELIOS-3D to act as a programmable quantum bus in hybrid quantum-classical architectures.
+
+
 | Lattice Topology | Packing Fraction | Coordination Number | Magnonic Bandgap Potential | Stability Profile and Relaxation Dynamics |
 | :--- | :--- | :--- | :--- | :--- |
 | Simple Cubic (SC) | 0.52 | 6 | Low | Moderate stability; highly sensitive to lattice constant tuning; tends to distort under thermal strain. |
