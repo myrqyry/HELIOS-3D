@@ -68,3 +68,6 @@ skills/universal-metacognitive-cycle/
 *.out
 *.log
 *.tmp
+
+# Generated ASCII Art
+ascii/
