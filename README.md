@@ -1,147 +1,150 @@
-# ☀️ HELIOS-3D: Hybrid-manufactured Energy-Landscape Inference and Operation System
+<div align="center">
 
-## Status
+```
+██╗  ██╗███████╗██╗     ██╗ ██████╗ ███████╗     ██████╗ ██████╗ 
+██║  ██║██╔════╝██║     ██║██╔═══██╗██╔════╝     ╚════██╗██╔══██╗
+███████║█████╗  ██║     ██║██║   ██║███████╗█████╗█████╔╝██║  ██║
+██╔══██║██╔══╝  ██║     ██║██║   ██║╚════██║╚════╝╚═══██╗██║  ██║
+██║  ██║███████╗███████╗██║╚██████╔╝███████║     ██████╔╝██████╔╝
+╚═╝  ╚═╝╚══════╝╚══════╝╚═╝ ╚═════╝ ╚══════╝     ╚═════╝ ╚═════╝ 
+```
 
-HELIOS-3D is a speculative research documentation project.
+# Hybrid-manufactured Energy-Landscape Inference and Operation System
 
-It is **not**:
-- a fabricated chip
-- a validated hardware design
-- a claim of demonstrated sub-Landauer computation
-- a claim that hopfions have been integrated into a working inference coprocessor
+**Speculative spintronic research exploring topological magnetism for ultra-low energy computation**
 
-It **is**:
-- a staged research hypothesis
-- a map of plausible and implausible material/fabrication paths
-- a public notebook for tracking claims, blockers, and evidence
-- an attempt to separate near-term demonstrator paths from long-range speculation
+[![Docs](https://img.shields.io/badge/docs-helios--3d.vercel.app-blue?style=flat-square)](https://helios-3d.vercel.app/)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-live-green?style=flat-square)](https://myrqyry.github.io/HELIOS-3D/)
+[![Python](https://img.shields.io/badge/Python-3.12+-yellow?style=flat-square&logo=python)](https://www.python.org/)
+[![Astro](https://img.shields.io/badge/Astro-MDX-orange?style=flat-square&logo=astro)](https://astro.build/)
+[![License](https://img.shields.io/badge/License-MIT-gray?style=flat-square)](./LICENSE)
 
-Sub-Landauer behavior is treated as a long-range research question, not a demonstrated capability.
+</div>
 
----
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+HELIOS-3D is a staged research hypothesis investigating whether spintronic, topological, and thermodynamic-computing mechanisms could support future low-energy inference architectures near fundamental energy-efficiency limits.
+
+**It is not** a fabricated chip, validated hardware design, or claim of demonstrated sub-Landauer computation.
+**It is** a public research notebook for tracking claims, blockers, and evidence across plausible and speculative material/fabrication paths.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 ## Executive Summary
 
-**What is HELIOS-3D?**
-HELIOS-3D is a speculative research documentation project exploring whether spintronic, topological, and thermodynamic-computing mechanisms could support future low-energy inference architectures near fundamental energy-efficiency limits.
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│  Current Baseline     Planar-first, electrically read using established     │
+│                       multilayer spintronic stacks                          │
+│                                                                             │
+│  Hopfion Advantage    Theoretically bypass Skyrmion Hall Effect via         │
+│                       zero net topological charge [INFERRED]                │
+│                                                                             │
+│  Long-Range Target    fJ-scale computation approaching Landauer limit       │
+│                       (kBT ln 2) [SPECULATIVE]                              │
+│                                                                             │
+│  Strongest Candidate  Compensated ferrimagnet/altermagnet transport with    │
+│                       spin-pumping readout                                  │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
 
-**Current Baseline Path**
-The current defensible path is **planar-first and electrically read**, using established multilayer spintronic stacks. Freeform 3D hopfion fabrication is treated as a later-stage research branch, not the first demonstrator.
+Sub-Landauer behavior is treated as a long-range research question, not a demonstrated capability.
 
-**Why Hopfions over Skyrmions?**
-Hopfions theoretically bypass the Skyrmion Hall Effect due to zero net topological charge in 2D projection. `[INFERRED]`
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-**Long-Range Target**
-The project investigates whether waste-heat-assisted operation could enable **ultra-low energy computation** (fJ-scale) approaching theoretical efficiency limits. While the Landauer limit ($k_B T \ln 2$) remains the ultimate target, current research acknowledges that random fluctuations and the need for directional ratchets impose additional energetic costs. `[SPECULATIVE]`
+## Dual-Core Architecture
 
-## 🔬 Project Overview
+Modern silicon scaling faces severe constraints from inelastic scattering and energy-intensive data shuttling. HELIOS-3D explores migrating information carriers away from electrical charge toward topologically protected spin textures.
 
-The Hybrid-manufactured Energy-Landscape Inference and Operation System (HELIOS-3D) is a staged spintronic research hypothesis. The current minimum credible path is planar-first and electrically read; the freeform 3D hopfion and IFE branch is explicitly a later-stage research target, not a dependency of the first demonstrator.
+```
+  Fabrication Pipeline:  DISH → TPP → ALD
+  ─────────────────────────────────────────────────────────────────────────────
+  DISH  Digital Incoherent Synthesis of Holographic light fields
+  TPP   Two-Photon Polymerization
+  ALD   Atomic Layer Deposition
+```
 
-The strongest late-stage candidate family currently appears to be compensated ferrimagnet/altermagnet transport and readout, because it offers magnetization-free dynamics with a plausible spin-pumping or current-driven readout path.
+| Core | Role | Status |
+|---|---|---|
+| **Magnetic Convolutional Accelerator (MCA)** | Deterministic sensory preprocessor via Compute-in-Memory spintronics | `[PROPOSED]` |
+| **Brownian Reservoir Computing (BRC) Core** | Probabilistic decision-maker using noise-driven thermodynamic processing | `[PROPOSED]` |
 
----
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-## 💻 Implementation Status (Phase 0.5)
+## Implementation Status
 
-The project is currently in **Phase 0.5: Documentation + validation scaffolding**. A mock topological compiler scaffold exists in `compiler/` for structural testing; full firmware and physics-validated compiler work remains Phase 2. 
+**Phase 0.5: Documentation + Validation Scaffolding** (Current)
 
-*   **Topological Compiler:** A Python-based mapping layer (in `compiler/`) that translates semantic embeddings into 3D magnetization tensors.
-*   **Prototype compiler scaffolding:** Initial unit tests validate coordinate mapping fidelity and integer Hopf Index synthesis ($Q_H=1$) using a mock Inverse Faraday Effect transfer function.
-*   **PINN Readiness:** The environment is configured for Physics-Informed Neural Network (PINN) training to automate magnetization synthesis.
+| Component | Description | Status |
+|---|---|---|
+| **Topological Compiler** | Python mapping layer translating semantic embeddings → 3D magnetization tensors | Scaffold |
+| **Compiler Tests** | Coordinate mapping fidelity + Hopf Index synthesis ($Q_H=1$) via mock IFE transfer function | Passing |
+| **PINN Environment** | Physics-Informed Neural Network training infrastructure | Configured |
+| **Micromagnetic Sim** | MuMax3/OOMMF configuration files | Templates |
 
----
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-## 🧪 Getting Started
+## Getting Started
 
-To run the current topological compiler tests and verify the physics mapping:
+```bash
+# Clone the repository
+git clone https://github.com/myrqyry/HELIOS-3D.git
+cd HELIOS-3D
 
-1.  **Clone the repository:**
-    ```bash
-    git clone https://github.com/myrqyry/HELIOS-3D.git
-    cd HELIOS-3D
-    ```
-2.  **Install dependencies:**
-    ```bash
-    uv sync
-    ```
-3.  **Run tests:**
-    ```bash
-    uv run pytest tests/test_topological_compiler.py
-    ```
+# Install dependencies
+uv sync
 
----
+# Run topological compiler tests
+uv run pytest tests/test_topological_compiler.py
+```
 
-## 📋 Claims & Evidence Protocol
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-To maintain scientific discipline and distinguish between established physics and architectural aspirations, HELIOS-3D uses the following tagging system:
+## Repository Structure
 
-*   **`[DEMONSTRATED]`**: Verifiable in peer-reviewed literature for specific materials and conditions.
-*   **`[INFERRED]`**: A plausible extrapolation from established physical principles or adjacent material systems.
-*   **`[PROPOSED]`**: A specific architectural integration or implementation path suggested by the HELIOS-3D model.
-*   **`[SPECULATIVE]`**: A theoretical target, high-risk hypothesis, or unverified performance projection.
+| Path | Description |
+|---|---|
+| [`src/content/docs/`](./src/content/docs/) | Astro + MDX documentation source |
+| [`research_specifications/`](./research_specifications/) | Formal physics and architecture modules |
+| [`simulations/`](./simulations/) | MuMax3 and OOMMF configuration files |
+| [`compiler/`](./compiler/) | Topological Compiler implementation |
+| [`analysis/`](./analysis/) | Data validation and spintronic analysis scripts |
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## Claims Protocol
+
+Every claim in HELIOS-3D is tagged to distinguish established physics from architectural aspirations:
+
+```
+  ┌──────────────┬────────────────────────────────────────────────────────────┐
+  │ [DEMONSTRATED] │ Verifiable in peer-reviewed literature                    │
+  │ [INFERRED]     │ Plausible extrapolation from established physics          │
+  │ [PROPOSED]     │ Architectural integration suggested by HELIOS-3D          │
+  │ [SPECULATIVE]  │ Theoretical target or unverified projection               │
+  └──────────────┴────────────────────────────────────────────────────────────┘
+```
 
 See the [Claims Matrix](./src/content/docs/current/claims-matrix.mdx) for claim-by-claim traceability.
 
----
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-## 📖 System Abstract
+## The AI Energy Crisis
 
-Modern silicon scaling faces severe constraints driven by inelastic scattering and energy-intensive data shuttling. HELIOS-3D **proposes** to resolve these structural crises by migrating primary information carriers away from electrical charge. Instead, it explores the use of topologically protected spin textures—specifically skyrmions and 3D hopfions.
+The AI energy crisis is real and accelerating:
 
-The system is conceptualized as a dual-core architecture:
-*   **Magnetic Convolutional Accelerator (MCA):** A deterministic sensory preprocessor hypothesized to utilize Compute-in-Memory spintronics. `[PROPOSED]`
-*   **Brownian Reservoir Computing (BRC) Core:** A probabilistic decision-maker designed to investigate noise-driven, non-equilibrium thermodynamic processing. `[PROPOSED]`
+- **Electricity:** Data center + AI + crypto demand projected at **~600 TWh in 2026**, potentially surpassing **1,000 TWh by 2030** — equivalent to Japan's annual consumption `[DEMONSTRATED]`
+- **Water:** Global AI demand will account for **4.2–6.6 billion m³** of water withdrawal by 2027 `[DEMONSTRATED]`
+- **Embodied Carbon:** Semiconductor fabrication accounts for up to **50% of total lifecycle footprint** for AI hardware `[DEMONSTRATED]`
 
-Physical realization is **theorized** via a hybrid fabrication pipeline: Digital Incoherent Synthesis of Holographic light fields (DISH) for macro-scaffold creation, Two-Photon Polymerization (TPP) for refinement, and Atomic Layer Deposition (ALD) for magnetic coating. Performance targets aspire to fJ-scale energy efficiency, though these remain experimentally unverified projections. `[SPECULATIVE]`
+HELIOS-3D investigates whether topological magnetism can let thermal noise *assist* computation while 3D scaling reduces physical and embodied footprint.
 
-The repo should be read with a strict staging rule: `ALTERNATIVE_MATERIALS_AND_METHODS.md` is the current baseline path, while `CORE_ARCHITECTURE.md` and `PROPOSED_FABRICATION_PATH_AND_CONTROL.md` are long-range branch documents.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
----
+<div align="center">
 
-## 🗺️ Repository Structure
+**[Documentation](https://helios-3d.vercel.app/)** · **[Roadmap](./ROADMAP.md)** · **[Contributing](./CONTRIBUTING.md)** · **[Claims Matrix](./src/content/docs/current/claims-matrix.mdx)**
 
-| Path | Focus |
-|---|---|
-| **[`src/content/docs/`](./src/content/docs/)** | Astro + MDX documentation source (Primary) |
-| **[`research_specifications/`](./research_specifications/)** | Formal physics and architecture modules |
-| **[`simulations/`](./simulations/)** | MuMax3 and OOMMF configuration files |
-| **[`compiler/`](./compiler/)** | Topological Compiler implementation |
-| **[`analysis/`](./analysis/)** | Data validation and spintronic analysis scripts |
-
----
-
-## 🌐 Deployed Site
-
-The technical documentation is live at **[helios-3d.vercel.app](https://helios-3d.vercel.app/)** (Vercel) and mirrored to **[myrqyry.github.io/HELIOS-3D/](https://myrqyry.github.io/HELIOS-3D/)** (GitHub Pages).
-
-The site is built with **Astro + MDX** and automatically deployed on every push to `main` via the workflows in `.github/workflows/`.
-
----
-
-## ⚠️ The Thermodynamic Crisis and the Spintronic Mandate
-
-The global trajectory of computational energy consumption poses an existential challenge to AI scaling. According to the **International Energy Agency (IEA)**, combined electricity demand from data centers, AI, and crypto is projected to reach **~600 TWh in 2026**, with high-growth scenarios surpassing **1,000 TWh by 2030**—equivalent to the annual consumption of Japan. `[DEMONSTRATED]`
-
-Beyond electricity, the "thirst" of AI infrastructure is a secondary crisis. Research indicates that global AI demand will account for **4.2 to 6.6 billion cubic meters** of water withdrawal by 2027 (roughly half of the UK's annual withdrawal). `[DEMONSTRATED]`
-
-Furthermore, as grids decarbonize, **embodied carbon** from semiconductor fabrication is becoming the dominant environmental challenge, accounting for up to **50% of the total lifecycle footprint** for state-of-the-art AI hardware. `[DEMONSTRATED]`
-
-HELIOS-3D bridges this gap by testing whether transitioning computational principles to topological magnetism can allow thermal noise to assist, rather than degrade, computation, while utilizing high-density 3D scaling to reduce the physical and embodied footprint of compute infrastructure.
-
-## 🌐 Publish to GitHub Pages
-
-This site is deployed automatically by the GitHub Actions workflow at `.github/workflows/deploy.yml`. On every push to `main`, the workflow runs `pnpm check && pnpm test && pnpm build` and publishes `dist/` to GitHub Pages.
-
-To enable:
-
-1. In GitHub repo settings, open **Pages**.
-2. Set **Source** to **GitHub Actions**.
-3. Push to `main`; the workflow will deploy the first build.
-
-For a one-off local preview:
-
-```bash
-pnpm build
-pnpm preview
-```
+</div>
