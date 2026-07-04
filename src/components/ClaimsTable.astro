@@ -13,33 +13,37 @@ const tags = ['DEMONSTRATED', 'INFERRED', 'PROPOSED', 'SPECULATIVE'] as const;
   data-rows={JSON.stringify(rows)}
   data-tags={JSON.stringify(tags)}
 >
-  <div class="flex flex-wrap gap-2 mb-3">
+  <div class="flex flex-wrap items-center gap-3 mb-4">
+    <span class="font-mono text-xs text-parchment-2 uppercase tracking-wider mr-2">Filter Matrix:</span>
     {tags.map((tag) => (
-      <label class="inline-flex items-center gap-1.5 text-xs font-mono cursor-pointer">
-        <input type="checkbox" data-tag={tag} class="accent-ember" />
+      <label class="inline-flex items-center gap-2 text-xs font-mono cursor-pointer bg-obsidian-2/50 hover:bg-obsidian-2 border border-obsidian-3/40 rounded px-2.5 py-1 text-parchment-2 hover:text-parchment transition-all select-none">
+        <input type="checkbox" data-tag={tag} class="accent-ember rounded border-obsidian-3 bg-obsidian-2" />
         <span>{tag}</span>
       </label>
     ))}
-    <button data-reset class="text-xs text-parchment-2 hover:text-ember ml-2">Reset</button>
+    <button data-reset class="text-xs text-parchment-2 hover:text-ember ml-auto font-mono underline underline-offset-4 cursor-pointer">Reset Filters</button>
   </div>
-  <table class="w-full text-sm border-collapse">
-    <thead>
-      <tr class="border-b border-obsidian-3 text-left text-amber font-mono text-xs uppercase">
-        <th class="py-2 pr-3">Claim</th>
-        <th class="py-2 pr-3">Tag</th>
-        <th class="py-2">Source</th>
-      </tr>
-    </thead>
-    <tbody data-body>
-      {rows.map((row) => (
-        <tr class="border-b border-obsidian-3" data-tag={row.tag}>
-          <td class="py-2 pr-3 text-parchment">{row.claim}</td>
-          <td class="py-2 pr-3 font-mono text-xs text-amber">{row.tag}</td>
-          <td class="py-2 text-parchment-2">{row.source}</td>
+  
+  <div class="overflow-x-auto rounded-xl border border-obsidian-3/30 bg-obsidian-2/30 backdrop-blur-sm shadow-xl">
+    <table class="w-full text-sm border-collapse min-w-[600px]">
+      <thead>
+        <tr class="border-b border-obsidian-3/40 bg-obsidian-2/50 text-left text-amber font-mono text-xs uppercase tracking-wider">
+          <th class="py-3.5 px-5 font-bold">Claim</th>
+          <th class="py-3.5 px-5 font-bold">Tag</th>
+          <th class="py-3.5 px-5 font-bold">Source</th>
         </tr>
-      ))}
-    </tbody>
-  </table>
+      </thead>
+      <tbody data-body>
+        {rows.map((row) => (
+          <tr class="border-b border-obsidian-3/30 hover:bg-obsidian-3/20 transition-all duration-150" data-tag={row.tag}>
+            <td class="py-3.5 px-5 text-parchment/95">{row.claim}</td>
+            <td class="py-3.5 px-5 font-mono text-xs text-amber font-semibold">{row.tag}</td>
+            <td class="py-3.5 px-5 text-parchment-2/90">{row.source}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <script is:inline>

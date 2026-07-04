@@ -11,14 +11,15 @@ export interface Props {
 
 const { stat, unit, label, source, tag } = Astro.props;
 ---
-<article class="rounded-lg border border-obsidian-3 bg-obsidian-2 p-6 flex flex-col gap-3">
+<article class="glass-card rounded-xl p-8 flex flex-col gap-4 relative overflow-hidden group">
+  <div class="absolute -right-10 -top-10 w-32 h-32 bg-amber/5 rounded-full blur-2xl group-hover:bg-amber/10 transition-colors duration-500"></div>
   <div class="flex items-baseline gap-2">
-    <span class="text-5xl font-bold text-amber">{stat}</span>
-    {unit && <span class="text-xl text-parchment-2 font-mono">{unit}</span>}
+    <span class="text-6xl font-extrabold tracking-tight text-amber drop-shadow-[0_0_15px_rgba(255,182,39,0.3)]">{stat}</span>
+    {unit && <span class="text-lg text-parchment-2 font-mono font-medium">{unit}</span>}
   </div>
-  <p class="text-parchment text-base">{label}</p>
-  <div class="flex items-center justify-between mt-auto pt-2 border-t border-obsidian-3">
+  <p class="text-parchment/90 text-base leading-relaxed">{label}</p>
+  <div class="flex items-center justify-between mt-auto pt-4 border-t border-obsidian-3/30">
     <Tag stage={tag} />
-    <span class="font-mono text-xs text-parchment-2">{source}</span>
+    <span class="font-mono text-xs text-parchment-2/80">{source}</span>
   </div>
 </article>

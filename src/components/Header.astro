@@ -7,18 +7,23 @@ const nav = [
   { href: '/docs/project-ops/deployment/', label: 'Deploy' },
 ];
 ---
-<header class="border-b border-obsidian-3 bg-obsidian">
-  <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-    <a href="/" class="font-mono text-amber text-lg font-bold tracking-tight">HELIOS-3D</a>
+<header class="sticky top-0 z-50 border-b border-obsidian-3/30 bg-obsidian/70 backdrop-blur-md transition-all duration-300">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
+    <a href="/" class="font-mono text-amber text-lg font-bold tracking-wider hover:text-ember transition-colors flex items-center gap-2">
+      <span class="text-xl animate-pulse">☀️</span>HELIOS-3D
+    </a>
     <div class="flex items-center gap-6">
-      <nav class="flex gap-6 text-sm text-parchment-2">
+      <nav class="flex gap-6 text-sm font-medium">
         {nav.map((item) => (
-          <a href={item.href} class="hover:text-ember transition-colors">{item.label}</a>
+          <a href={item.href} class="text-parchment-2 hover:text-ember transition-all duration-200 relative py-1 group">
+            {item.label}
+            <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-amber to-ember transition-all duration-300 group-hover:w-full"></span>
+          </a>
         ))}
       </nav>
       <select
         data-stage-filter
-        class="font-mono text-xs bg-obsidian-2 border border-obsidian-3 text-parchment rounded px-2 py-1"
+        class="font-mono text-xs bg-obsidian-2/60 border border-obsidian-3/60 text-parchment rounded px-2.5 py-1 focus:outline-none focus:border-ember transition-colors"
         aria-label="Filter docs by stage"
       >
         <option value="all">All stages</option>

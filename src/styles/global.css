@@ -5,11 +5,31 @@
 @import "@fontsource-variable/geist-mono/index.css";
 
 @layer base {
-  html { color-scheme: dark; }
+  html { 
+    color-scheme: dark; 
+    scroll-behavior: smooth;
+  }
   body {
-    background: var(--color-obsidian);
+    background: radial-gradient(ellipse at top, #1e1613 0%, #0b0908 70%);
+    background-attachment: fixed;
     color: var(--color-parchment);
     font-family: var(--font-sans);
+  }
+
+  /* Custom styled scrollbars */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0b0908;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2a201a;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ff6b1a;
   }
 }
 
@@ -23,10 +43,60 @@
   .snap-stop {
     scroll-snap-stop: always;
   }
+
+  /* Premium visual effects */
+  .glass-card {
+    background: rgba(26, 20, 16, 0.4);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(42, 32, 26, 0.4);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .glass-card:hover {
+    transform: translateY(-4px) scale(1.01);
+    border-color: rgba(255, 107, 26, 0.35);
+    box-shadow: 0 12px 40px rgba(255, 107, 26, 0.15), 0 0 20px rgba(255, 107, 26, 0.05);
+  }
+
+  .gradient-text-amber {
+    background: linear-gradient(135deg, #ffb627 0%, #ff6b1a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .gradient-text-cyan {
+    background: linear-gradient(135deg, #7dd3fc 0%, #38bdf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .gradient-text-violet {
+    background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Keyframe Animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .animate-fade-in-up {
+    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .snap-y-mandatory {
     scroll-snap-type: y proximity;
   }
+  .animate-fade-in-up {
+    animation: none;
+  }
 }
+
