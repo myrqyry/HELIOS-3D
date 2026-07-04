@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import StatCard from '../components/StatCard.astro';
 import HopfionScene from '../components/r3f/HopfionScene';
+import SkyrmionScene from '../components/r3f/SkyrmionScene';
 import ClaimsTable from '../components/ClaimsTable.astro';
 import LiteratureTimeline from '../components/charts/LiteratureTimeline';
 import StageBadge, { type DocStage } from '../components/StageBadge.astro';
@@ -22,20 +23,24 @@ const readingPath: Array<{ step: number; title: string; desc: string; stage: Doc
   { step: 5, title: 'Pitch Deck Outline', desc: 'The full project narrative.', stage: 'speculative', href: '/docs/speculative/pitch-deck-outline/' },
 ];
 ---
-<BaseLayout title="HELIOS-3D" showSidebar={false} snap={true}>
+<BaseLayout title="HELIOS-3D" showSidebar={false} snap={false} fullWidth={true}>
   {/* Section 1 — Hero */}
-  <section class="min-h-screen flex flex-col justify-center py-16 animate-fade-in-up">
-    <SectionHeading number="01" title="Hero" />
-    <div class="grid md:grid-cols-5 gap-12 items-center">
+  <section class="relative min-h-[90vh] flex items-center border-b border-obsidian-3/20 overflow-hidden">
+    <div class="absolute right-0 top-1/4 w-[500px] h-[500px] bg-ember/5 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+    <div class="max-w-6xl mx-auto px-6 w-full grid md:grid-cols-5 gap-12 items-center py-16">
       <div class="md:col-span-3 flex flex-col justify-center">
-        <h1 class="text-6xl font-extrabold leading-[1.1] mb-6 tracking-tight">
+        <div class="hero-anim reveal-initial inline-flex items-center gap-2 px-3 py-1 rounded-full border border-amber/25 bg-amber/5 text-amber text-xs font-mono mb-6 w-fit">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber animate-pulse"></span>
+          Thermodynamic Inference Coprocessor
+        </div>
+        <h1 class="hero-anim reveal-initial text-5xl md:text-7xl font-extrabold leading-[1.1] mb-6 tracking-tight">
           A spintronic coprocessor<br />
           <span class="gradient-text-amber drop-shadow-[0_0_20px_rgba(255,182,39,0.15)]">architecture using 3D hopfions.</span>
         </h1>
-        <p class="text-lg text-parchment-2/90 max-w-2xl mb-10 leading-relaxed">
+        <p class="hero-anim reveal-initial text-lg md:text-xl text-parchment-2/90 max-w-2xl mb-10 leading-relaxed">
           HELIOS-3D is a staged research hypothesis for an ultra-low-energy thermodynamic inference coprocessor, utilizing 3D spin configurations for nanoscale high-frequency computation.
         </p>
-        <div class="flex flex-wrap gap-4">
+        <div class="hero-anim reveal-initial flex flex-wrap gap-4">
           <a href="/start-here/" class="px-6 py-3.5 rounded-lg bg-gradient-to-r from-amber to-ember text-obsidian font-extrabold shadow-[0_4px_20px_rgba(255,107,26,0.25)] hover:shadow-[0_4px_30px_rgba(255,107,26,0.45)] hover:scale-[1.03] transition-all duration-300">
             Start here →
           </a>
@@ -47,105 +52,357 @@ const readingPath: Array<{ step: number; title: string; desc: string; stage: Doc
           </a>
         </div>
       </div>
-      <div class="md:col-span-2">
-        <div class="glass-card p-3 rounded-2xl relative overflow-hidden shadow-2xl">
+      <div class="md:col-span-2 hero-visual">
+        <div class="glass-card p-3 rounded-2xl relative overflow-hidden shadow-2xl border border-obsidian-3/50">
           <div class="absolute inset-0 bg-gradient-to-tr from-ember/5 to-transparent pointer-events-none"></div>
-          <HopfionScene client:visible height="h-[28rem]" />
+          <HopfionScene client:visible height="h-[28rem]" interactive={true} />
+          <div class="absolute bottom-4 left-4 bg-obsidian/60 backdrop-blur px-3 py-1 rounded border border-obsidian-3/40 text-xs font-mono text-parchment-2 pointer-events-none">
+            Interactive 3D Hopfion Knot (Drag to rotate)
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  {/* Section 2 — Why now */}
-  <section class="min-h-screen flex flex-col justify-center py-16">
-    <SectionHeading number="02" title="The thermodynamic crisis is the motivation" color="cyan-2" />
-    <h2 class="text-3xl font-extrabold max-w-4xl mb-12 leading-relaxed">
-      IEA projects AI infrastructure will consume <span class="gradient-text-cyan">~600 TWh in 2026</span>, with &gt;4 billion m³ of water withdrawal by 2027. Embodied carbon is now 50% of AI hardware lifecycle footprint.
-    </h2>
-    <div class="grid md:grid-cols-2 gap-8">
-      <StatCard stat="600" unit="TWh" label="AI infrastructure electricity demand in 2026" source="IEA 2024/2026 Projections" tag="DEMONSTRATED" />
-      <StatCard stat="4" unit="billion m³" label="Annual AI water withdrawal by 2027" source="Ren et al. (2025)" tag="DEMONSTRATED" />
-    </div>
-    <div class="mt-12">
-      <a href="/docs/established/literature-review/" class="inline-block px-6 py-3 rounded-lg border border-cyan-2/70 text-cyan-2 font-semibold hover:bg-cyan-2/5 hover:border-cyan-2 hover:scale-[1.02] transition-all duration-300">
-        Read the evidence →
-      </a>
-    </div>
-  </section>
-
-  {/* Section 3 — Evidence dashboard */}
-  <section class="min-h-screen flex flex-col justify-center py-16">
-    <SectionHeading number="03" title="Evidence structure" color="ember" />
-    <p class="text-lg text-parchment-2/90 max-w-3xl mb-8 leading-relaxed">
-      Key highlights across the four development stages. Filter the interactive claims matrix below.
-    </p>
-    <div class="grid md:grid-cols-2 gap-6 mb-10">
-      {highlights.map((h) => (
-        <a href={h.href} class="glass-card block rounded-xl p-6 relative group overflow-hidden">
-          <div class="absolute -right-6 -top-6 w-20 h-20 bg-ember/5 rounded-full blur-xl group-hover:bg-ember/10 transition-colors duration-300"></div>
-          <div class="flex items-center justify-between mb-4">
-            <StageBadge stage={h.stage} size="sm" />
+  {/* Section 2 — Why now / Motivation */}
+  <section class="relative border-b border-obsidian-3/20 bg-obsidian-2/10 overflow-hidden py-24">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-5 gap-12 items-center">
+      <div class="md:col-span-3 flex flex-col justify-center">
+        <div class="reveal-on-scroll reveal-initial">
+          <SectionHeading number="02" title="The thermodynamic crisis is the motivation" color="cyan-2" />
+        </div>
+        <h2 class="reveal-on-scroll reveal-initial text-3xl md:text-4xl font-extrabold mb-8 leading-snug">
+          Traditional silicon computing faces an <span class="gradient-text-cyan">existential resource crisis</span>.
+        </h2>
+        <p class="reveal-on-scroll reveal-initial text-parchment-2/95 text-base md:text-lg mb-10 leading-relaxed max-w-2xl">
+          The scaling limits of charge-based silicon architectures are colliding with massive resource requirements. As AI workloads skyrocket, semiconductor fabrication and operating footprints are growing exponentially.
+        </p>
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div class="reveal-on-scroll reveal-initial">
+            <StatCard stat="600" unit="TWh" label="AI infrastructure electricity demand in 2026" source="IEA 2024/2026 Projections" tag="DEMONSTRATED" />
           </div>
-          <h3 class="text-amber font-bold text-lg mb-2 group-hover:text-ember transition-colors">{h.doc}</h3>
-          <p class="text-sm text-parchment-2/90 leading-relaxed">{h.claim}</p>
-        </a>
-      ))}
-    </div>
-    <ClaimsTable rows={[
-      { claim: 'Hopfion annihilation > 50kBT in EuS/Bi₂Se₃/EuS', tag: 'INFERRED', source: 'Literature Review' },
-      { claim: 'Planar-first, electrical read is the minimum credible path', tag: 'INFERRED', source: 'Alternative Materials' },
-      { claim: 'DISH enables sub-second 3D scaffolding with 19µm resolution', tag: 'PROPOSED', source: 'Literature Review' },
-      { claim: 'Sub-Landauer computation is achievable', tag: 'SPECULATIVE', source: 'Abstract' },
-      { claim: '40-ps write at 1.7 pJ/µm² in Mn₃Sn', tag: 'DEMONSTRATED', source: 'Literature Review' },
-      { claim: 'TOHE is unambiguous 3D-hopfion electrical hallmark', tag: 'INFERRED', source: 'Literature Review' },
-    ]} />
-    <div class="mt-8">
-      <a href="/docs/current/claims-matrix/" class="inline-block px-6 py-3.5 rounded-lg bg-gradient-to-r from-amber to-ember text-obsidian font-bold shadow-[0_4px_25px_rgba(255,107,26,0.2)] hover:shadow-[0_4px_30px_rgba(255,107,26,0.4)] hover:scale-[1.02] transition-all duration-300">
-        See the full claims matrix →
-      </a>
-    </div>
-  </section>
-
-  {/* Section 4 — 2026 evidence */}
-  <section class="min-h-screen flex flex-col justify-center py-16">
-    <SectionHeading number="04" title="2026 evidence base" color="violet" />
-    <p class="text-lg text-parchment-2/90 max-w-3xl mb-8 leading-relaxed">
-      Recent literature and experimental constraints driving the coprocessor architecture.
-    </p>
-    <div class="glass-card p-6 rounded-2xl overflow-hidden shadow-2xl">
-      <div class="overflow-x-auto">
-        <LiteratureTimeline client:visible />
+          <div class="reveal-on-scroll reveal-initial">
+            <StatCard stat="4" unit="billion m³" label="Annual AI water withdrawal by 2027" source="Ren et al. (2025)" tag="DEMONSTRATED" />
+          </div>
+        </div>
+        <div class="reveal-on-scroll reveal-initial mt-8">
+          <a href="/docs/established/literature-review/" class="inline-block px-6 py-3 rounded-lg border border-cyan-2/70 text-cyan-2 font-semibold hover:bg-cyan-2/5 hover:border-cyan-2 hover:scale-[1.02] transition-all duration-300">
+            Read the evidence →
+          </a>
+        </div>
+      </div>
+      <div class="md:col-span-2 reveal-on-scroll reveal-initial">
+        <div class="glass-card p-8 rounded-2xl border border-obsidian-3/40 bg-obsidian-2/30 flex flex-col gap-6 relative">
+          <div class="absolute top-4 right-4 text-xs font-mono text-cyan-2 tracking-wider uppercase opacity-60">Physical Bounds</div>
+          <h3 class="text-xl font-bold text-parchment">The Physical Bottlenecks</h3>
+          <ul class="space-y-4 font-mono text-sm text-parchment-2">
+            <li class="flex gap-3">
+              <span class="text-cyan-2 font-bold">1.</span>
+              <div>
+                <span class="text-parchment font-semibold">Landauer Limit:</span>
+                <p class="mt-1 text-xs text-parchment-2/80">Bit operations require dissipative energy proportional to \(k_B T \ln 2\). Silicon architectures lose orders of magnitude more to heat.</p>
+              </div>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-cyan-2 font-bold">2.</span>
+              <div>
+                <span class="text-parchment font-semibold">Resistance Heating:</span>
+                <p class="mt-1 text-xs text-parchment-2/80">Moving charge through copper interconnects causes severe ohmic losses, consuming &gt;90% of active processor energy.</p>
+              </div>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-cyan-2 font-bold">3.</span>
+              <div>
+                <span class="text-parchment font-semibold">Topological Protection:</span>
+                <p class="mt-1 text-xs text-parchment-2/80">By utilizing magnetic spin textures (solitons) rather than electric current, information is stored and moved near thermodynamic limits.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-    <div class="mt-12">
-      <a href="/docs/established/literature-review/" class="inline-block px-6 py-3 rounded-lg border border-violet/70 text-violet font-semibold hover:bg-violet/5 hover:border-violet hover:scale-[1.02] transition-all duration-300">
-        Read the full literature review →
-      </a>
+  </section>
+
+  {/* Section 3 — 2D vs 3D Solitons explanation */}
+  <section class="relative border-b border-obsidian-3/20 py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="reveal-on-scroll reveal-initial">
+        <SectionHeading number="03" title="Topological Magnetism: 2D vs 3D" color="amber" />
+      </div>
+      <div class="reveal-on-scroll reveal-initial max-w-3xl mb-12">
+        <h2 class="text-3xl md:text-4xl font-extrabold mb-6">
+          Why 3D Hopfions are a <span class="gradient-text-amber">game changer</span>.
+        </h2>
+        <p class="text-parchment-2/95 text-base md:text-lg leading-relaxed">
+          Spintronics replaces charge with spin. Early devices explored 2D spin textures like Skyrmions, but they suffer from dynamic bottlenecks. HELIOS-3D proposes a transition to three-dimensional Hopfions.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 items-stretch">
+        <div class="reveal-on-scroll reveal-initial flex flex-col justify-between glass-card p-6 rounded-2xl border border-obsidian-3/40 bg-obsidian-2/10">
+          <div>
+            <div class="relative rounded-lg overflow-hidden border border-obsidian-3 bg-obsidian-1 shadow-inner mb-6">
+              <SkyrmionScene client:visible height="h-64" interactive={true} />
+              <div class="absolute bottom-3 left-3 bg-obsidian/75 px-2 py-0.5 rounded text-[10px] font-mono text-parchment-2 pointer-events-none">
+                Interactive Skyrmion
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-amber mb-3">2D Planar Skyrmions</h3>
+            <p class="text-sm text-parchment-2 leading-relaxed mb-6">
+              Planar spin textures confined to thin films. Applied currents induce a diagonal drift (the **Skyrmion Hall Effect**) causing them to collide with nanowire edges and self-annihilate. This sets strict speed and reliability limits.
+            </p>
+          </div>
+          <div class="flex items-center gap-2 border-t border-obsidian-3/30 pt-4 mt-auto">
+            <span class="text-xs font-mono text-red-400 bg-red-400/5 border border-red-400/10 px-2 py-1 rounded">
+              LIMITATION: Skyrmion Hall Effect (SHE)
+            </span>
+          </div>
+        </div>
+
+        <div class="reveal-on-scroll reveal-initial flex flex-col justify-between glass-card p-6 rounded-2xl border border-amber/20 bg-amber/5">
+          <div>
+            <div class="relative rounded-lg overflow-hidden border border-amber/20 bg-obsidian-1 shadow-inner mb-6">
+              <HopfionScene client:visible height="h-64" interactive={true} />
+              <div class="absolute bottom-3 left-3 bg-obsidian/75 px-2 py-0.5 rounded text-[10px] font-mono text-parchment-2 pointer-events-none">
+                Interactive Hopfion
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-amber mb-3">3D Solitonic Hopfions</h3>
+            <p class="text-sm text-parchment-2 leading-relaxed mb-6">
+              Three-dimensional magnetic solitons forming closed, knotted loops. By extending into the third dimension, their net topological charge cancels out. This **eliminates the Skyrmion Hall Effect**, enabling straight, high-speed movement down nanowires.
+            </p>
+          </div>
+          <div class="flex items-center gap-2 border-t border-obsidian-3/30 pt-4 mt-auto">
+            <span class="text-xs font-mono text-green-400 bg-green-400/5 border border-green-400/10 px-2 py-1 rounded">
+              ADVANTAGE: Zero Net Topological Hall Drift
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  {/* Section 5 — Reading path */}
-  <section class="min-h-screen flex flex-col justify-center py-16">
-    <SectionHeading number="05" title="Where to start" color="parchment-2" />
-    <p class="text-lg text-parchment-2/90 max-w-3xl mb-12 leading-relaxed">
-      A structured reading path designed to step from foundational physics to speculation.
-    </p>
-    <ol class="space-y-4 mb-12">
-      {readingPath.map((p) => (
-        <li class="glass-card rounded-xl p-5 hover:border-amber/35 flex items-center justify-between gap-6 group">
-          <div class="flex items-center gap-6">
-            <span class="font-mono text-3xl font-bold text-amber/30 group-hover:text-amber transition-colors duration-300 w-12">{String(p.step).padStart(2, '0')}</span>
-            <div>
-              <a href={p.href} class="text-xl font-bold text-amber hover:text-ember transition-colors">{p.title}</a>
-              <p class="mt-1 text-sm text-parchment-2/90 leading-relaxed">{p.desc}</p>
-            </div>
+  {/* Section 4 — Dual Core Architecture */}
+  <section class="relative border-b border-obsidian-3/20 bg-obsidian-2/15 py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="reveal-on-scroll reveal-initial">
+        <SectionHeading number="04" title="The HELIOS-3D Dual-Core System" color="ember" />
+      </div>
+      <div class="reveal-on-scroll reveal-initial max-w-3xl mb-12">
+        <h2 class="text-3xl md:text-4xl font-extrabold mb-6">
+          Architectural Integration: <span class="gradient-text-amber">Deterministic + Probabilistic Cores</span>
+        </h2>
+        <p class="text-parchment-2/95 text-base md:text-lg leading-relaxed">
+          HELIOS-3D moves beyond general-purpose computing to optimize cognitive processing. The dual-core framework segments tasks based on deterministic and thermodynamic processing needs.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="reveal-on-scroll reveal-initial glass-card p-8 rounded-2xl border border-obsidian-3/45 bg-obsidian-2/30 relative overflow-hidden group">
+          <div class="absolute -right-8 -top-8 w-24 h-24 bg-ember/5 rounded-full blur-xl group-hover:bg-ember/10 transition-colors"></div>
+          <div class="flex justify-between items-start mb-6">
+            <span class="font-mono text-xs text-ember tracking-widest uppercase bg-ember/5 border border-ember/20 px-2.5 py-1 rounded-full">Core A</span>
+            <span class="text-xs font-mono text-parchment-2 uppercase">Proposed</span>
           </div>
-          <StageBadge stage={p.stage} size="sm" />
-        </li>
-      ))}
-    </ol>
-    <a href="/start-here/" class="inline-block px-8 py-4 rounded-lg bg-gradient-to-r from-amber to-ember text-obsidian font-extrabold shadow-[0_4px_25px_rgba(255,107,26,0.25)] hover:shadow-[0_4px_35px_rgba(255,107,26,0.45)] hover:scale-[1.03] transition-all duration-300">
-      Start here →
-    </a>
+          <h3 class="text-2xl font-bold text-amber mb-4">Magnetic Convolutional Accelerator (MCA)</h3>
+          <p class="text-sm text-parchment-2 leading-relaxed mb-6">
+            A deterministic sensory preprocessor using spin textures. It maps data directly into spin states and performs matrix multiplications in memory. Ideal for fast, low-latency convolutions and feature extraction.
+          </p>
+          <ul class="space-y-2.5 text-xs font-mono text-parchment-2/90 border-t border-obsidian-3/30 pt-6">
+            <li class="flex items-center gap-2">
+              <span class="text-amber">⚡</span> Write latency: <span class="text-parchment font-bold">40–60 ps</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-amber">⚡</span> Sub-nanosecond matrix multiplication
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-amber">⚡</span> Non-volatile magnetic memory integration
+            </li>
+          </ul>
+        </div>
+
+        <div class="reveal-on-scroll reveal-initial glass-card p-8 rounded-2xl border border-obsidian-3/45 bg-obsidian-2/30 relative overflow-hidden group">
+          <div class="absolute -right-8 -top-8 w-24 h-24 bg-ember/5 rounded-full blur-xl group-hover:bg-ember/10 transition-colors"></div>
+          <div class="flex justify-between items-start mb-6">
+            <span class="font-mono text-xs text-ember tracking-widest uppercase bg-ember/5 border border-ember/20 px-2.5 py-1 rounded-full">Core B</span>
+            <span class="text-xs font-mono text-parchment-2 uppercase">Proposed</span>
+          </div>
+          <h3 class="text-2xl font-bold text-amber mb-4">Brownian Reservoir Computing (BRC)</h3>
+          <p class="text-sm text-parchment-2 leading-relaxed mb-6">
+            A probabilistic decision-making core. Instead of fighting thermal noise, the BRC harnesses environmental fluctuations to move spin carriers stochastically. Perfect for solving search and probabilistic routing problems.
+          </p>
+          <ul class="space-y-2.5 text-xs font-mono text-parchment-2/90 border-t border-obsidian-3/30 pt-6">
+            <li class="flex items-center gap-2">
+              <span class="text-amber">⚡</span> Noise-assisted thermodynamic computation
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-amber">⚡</span> Reservoir dimensionality expansion
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-amber">⚡</span> Approaching the Landauer energy floor
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Section 5 — Evidence structure / highlights */}
+  <section class="relative border-b border-obsidian-3/20 py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="reveal-on-scroll reveal-initial">
+        <SectionHeading number="05" title="Evidence structure" color="ember" />
+      </div>
+      <p class="reveal-on-scroll reveal-initial text-lg text-parchment-2/90 max-w-3xl mb-12 leading-relaxed">
+        Our research framework segments claims transparently across four developmental stages. Filter the interactive claims matrix below.
+      </p>
+      
+      <div class="grid md:grid-cols-2 gap-6 mb-12">
+        {highlights.map((h) => (
+          <a href={h.href} class="reveal-on-scroll reveal-initial glass-card block rounded-xl p-6 relative group overflow-hidden border border-obsidian-3/40 hover:border-ember/30">
+            <div class="absolute -right-6 -top-6 w-20 h-20 bg-ember/5 rounded-full blur-xl group-hover:bg-ember/10 transition-colors duration-300"></div>
+            <div class="flex items-center justify-between mb-4">
+              <StageBadge stage={h.stage} size="sm" />
+            </div>
+            <h3 class="text-amber font-bold text-lg mb-2 group-hover:text-ember transition-colors">{h.doc}</h3>
+            <p class="text-sm text-parchment-2/90 leading-relaxed">{h.claim}</p>
+          </a>
+        ))}
+      </div>
+
+      <div class="reveal-on-scroll reveal-initial">
+        <ClaimsTable rows={[
+          { claim: 'Hopfion annihilation > 50kBT in EuS/Bi₂Se₃/EuS', tag: 'INFERRED', source: 'Literature Review' },
+          { claim: 'Planar-first, electrical read is the minimum credible path', tag: 'INFERRED', source: 'Alternative Materials' },
+          { claim: 'DISH enables sub-second 3D scaffolding with 19µm resolution', tag: 'PROPOSED', source: 'Literature Review' },
+          { claim: 'Sub-Landauer computation is achievable', tag: 'SPECULATIVE', source: 'Abstract' },
+          { claim: '40-ps write at 1.7 pJ/µm² in Mn₃Sn', tag: 'DEMONSTRATED', source: 'Literature Review' },
+          { claim: 'TOHE is unambiguous 3D-hopfion electrical hallmark', tag: 'INFERRED', source: 'Literature Review' },
+        ]} />
+      </div>
+      
+      <div class="reveal-on-scroll reveal-initial mt-10">
+        <a href="/docs/current/claims-matrix/" class="inline-block px-6 py-3.5 rounded-lg bg-gradient-to-r from-amber to-ember text-obsidian font-bold shadow-[0_4px_25px_rgba(255,107,26,0.2)] hover:shadow-[0_4px_30px_rgba(255,107,26,0.4)] hover:scale-[1.02] transition-all duration-300">
+          See the full claims matrix →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {/* Section 6 — 2026 evidence */}
+  <section class="relative border-b border-obsidian-3/20 bg-obsidian-2/10 py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="reveal-on-scroll reveal-initial">
+        <SectionHeading number="06" title="2026 evidence base" color="violet" />
+      </div>
+      <p class="reveal-on-scroll reveal-initial text-lg text-parchment-2/90 max-w-3xl mb-12 leading-relaxed">
+        Recent literature and experimental constraints driving the coprocessor architecture.
+      </p>
+      <div class="reveal-on-scroll reveal-initial glass-card p-6 rounded-2xl overflow-hidden shadow-2xl border border-obsidian-3/45 bg-obsidian-2/20">
+        <div class="overflow-x-auto">
+          <LiteratureTimeline client:visible />
+        </div>
+      </div>
+      <div class="reveal-on-scroll reveal-initial mt-12">
+        <a href="/docs/established/literature-review/" class="inline-block px-6 py-3 rounded-lg border border-violet/70 text-violet font-semibold hover:bg-violet/5 hover:border-violet hover:scale-[1.02] transition-all duration-300">
+          Read the full literature review →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {/* Section 7 — Reading path */}
+  <section class="relative py-24">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="reveal-on-scroll reveal-initial">
+        <SectionHeading number="07" title="Where to start" color="parchment-2" />
+      </div>
+      <p class="reveal-on-scroll reveal-initial text-lg text-parchment-2/90 max-w-3xl mb-12 leading-relaxed">
+        A structured reading path designed to step from foundational physics to architectural speculation.
+      </p>
+      
+      <ol class="space-y-4 mb-12">
+        {readingPath.map((p) => (
+          <li class="reveal-on-scroll reveal-initial glass-card rounded-xl p-5 hover:border-amber/35 flex items-center justify-between gap-6 group border border-obsidian-3/40 bg-obsidian-2/10">
+            <div class="flex items-center gap-6">
+              <span class="font-mono text-3xl font-bold text-amber/30 group-hover:text-amber transition-colors duration-300 w-12">{String(p.step).padStart(2, '0')}</span>
+              <div>
+                <a href={p.href} class="text-xl font-bold text-amber hover:text-ember transition-colors">{p.title}</a>
+                <p class="mt-1 text-sm text-parchment-2/90 leading-relaxed">{p.desc}</p>
+              </div>
+            </div>
+            <StageBadge stage={p.stage} size="sm" />
+          </li>
+        ))}
+      </ol>
+      <div class="reveal-on-scroll reveal-initial flex flex-wrap gap-4">
+        <a href="/start-here/" class="px-8 py-4 rounded-lg bg-gradient-to-r from-amber to-ember text-obsidian font-extrabold shadow-[0_4px_25px_rgba(255,107,26,0.25)] hover:shadow-[0_4px_35px_rgba(255,107,26,0.45)] hover:scale-[1.03] transition-all duration-300">
+          Start here →
+        </a>
+      </div>
+    </div>
   </section>
 </BaseLayout>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Animate hero section on mount
+  gsap.to('.hero-anim', {
+    opacity: 1,
+    y: 0,
+    duration: 1.2,
+    stagger: 0.15,
+    ease: 'power3.out',
+    delay: 0.1
+  });
+
+  gsap.to('.hero-visual', {
+    opacity: 1,
+    scale: 1,
+    duration: 1.4,
+    ease: 'power4.out',
+    delay: 0.4
+  });
+
+  // Staggered reveals on scroll
+  gsap.utils.toArray('.reveal-on-scroll').forEach((el: any) => {
+    gsap.to(el, {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 85%',
+        toggleActions: 'play none none none'
+      }
+    });
+  });
+
+  // Stat count-ups on scroll
+  gsap.utils.toArray('.stat-value').forEach((el: any) => {
+    const targetVal = parseFloat(el.getAttribute('data-target') || '0');
+    const isDecimal = targetVal % 1 !== 0;
+    const countObj = { val: 0 };
+    
+    gsap.to(countObj, {
+      val: targetVal,
+      duration: 2,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 90%',
+        toggleActions: 'play none none none'
+      },
+      onUpdate: () => {
+        el.innerText = isDecimal 
+          ? countObj.val.toFixed(1) 
+          : Math.round(countObj.val).toString();
+      }
+    });
+  });
+</script>

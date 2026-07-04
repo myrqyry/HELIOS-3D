@@ -10,14 +10,16 @@ export interface Props {
   description?: string;
   showSidebar?: boolean;
   snap?: boolean;
+  fullWidth?: boolean;
 }
 
-const { title, description, showSidebar = true, snap = false } = Astro.props;
+const { title, description, showSidebar = true, snap = false, fullWidth = false } = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
   <head>
     <BaseHead title={title} description={description} />
+    <script is:inline>document.documentElement.classList.add('js-enabled');</script>
     <script is:inline src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script is:inline>
       window.MathJax = {
@@ -30,9 +32,15 @@ const { title, description, showSidebar = true, snap = false } = Astro.props;
     <div class={`flex-1 ${showSidebar ? 'flex' : ''} ${snap ? 'snap-y-mandatory overflow-y-scroll h-screen' : ''}`}>
       {showSidebar && <Sidebar />}
       <main class="flex-1 min-w-0">
-        <article class={`mx-auto max-w-3xl px-6 py-12 prose-custom ${snap ? 'snap-start' : ''}`}>
-          <slot />
-        </article>
+        {fullWidth ? (
+          <div class="w-full">
+            <slot />
+          </div>
+        ) : (
+          <article class={`mx-auto max-w-3xl px-6 py-12 prose-custom ${snap ? 'snap-start' : ''}`}>
+            <slot />
+          </article>
+        )}
       </main>
     </div>
     <Footer />
