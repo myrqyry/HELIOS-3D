@@ -24,7 +24,9 @@ To develop a high-sensitivity **Topological Orbital Hall Effect (TOHE)** detecto
 
 ### 1. The Detector Geometry
 *   **Structure:** A **4-terminal Hall Bridge** patterned directly into the Phase 1 $EuS/Bi_2Se_3/EuS$ trilayer.
-*   **Contacts:** Low-resistance Heavy Metal (Pt or Ta) electrodes to maximize orbital-to-charge conversion via the Inverse Spin Hall Effect (ISHE) or Inverse Orbital Hall Effect (IOHE).
+*   **Contacts:** Crystalline light metal (e.g., epitaxial Mn) or low-resistance heavy metal (Pt or Ta) electrodes to maximize orbital-to-charge conversion via the Inverse Spin Hall Effect (ISHE) or Inverse Orbital Hall Effect (IOHE). 
+*   **Disorder Control:** Based on ETH Zurich findings (Kang et al., 2026), the Mn contact layers must be deposited as highly crystalline, epitaxial films (grown via MBE or cyclic thinned) rather than amorphous sputtered phases. This prevents grain-boundary-induced orbital relaxation and preserves the OHC. `[PROPOSED]`
+
 
 ### 2. Multi-Axis Measurement
 *   **Transverse Voltage ($V_{yx}$):** Detects the in-plane topological signature.

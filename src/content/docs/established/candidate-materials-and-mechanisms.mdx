@@ -47,6 +47,8 @@ To enable active tuning of moiré potentials, HELIOS-3D investigates the integra
 
 *   **Strontium Titanate (SrTiO3 / STO):** STO exhibits a massive, temperature-dependent dielectric constant ($\epsilon \approx 300$ at room temperature, increasing to $>20,000$ at cryogenic temperatures).
 *   **Mechanism:** Proximity to an STO layer (within 1–3 nm) provides in-situ screening of electronic and magnetic interactions. This allows for the dynamic modulation of the "trapping potential" depth in super-moiré lattices, enabling a switchable interface between high-mobility diffusion (for reservoir training) and pinned stability (for state storage). `[INFERRED from Gao et al., 2026]`
+*   **Exsolution-Active Perovskites (LSTN):** Proposes utilizing A-site-deficient perovskite titanate layers (e.g., $\text{La}_{0.2}\text{Sr}_{0.7}\text{Ni}_{0.1}\text{Ti}_{0.9}\text{O}_{3-\delta}$). Under local reducing conditions or electric field pulses, Ni exsolves as metallic nanoparticles, triggering a giant insulator-to-metal transition with a resistivity change exceeding three orders of magnitude (Kim et al., 2026). This defect reconstruction enables a switchable screening interface, transitioning from a diamagnetic insulator (minimal screening, hopfions are pinned) to a degenerate metallic state with superparamagnetic Ni nanoparticles (maximum screening and superparamagnetic pinning nodes). `[PROPOSED]`
+
 
 ### ❄️ 1.2 Quantum-Limit Choice: Ultra-Pure Yttrium Iron Garnet (YIG)
 To overcome the magnonic coherence bottleneck for deep-time processing, the architecture proposes an alternate, cryogenic branch utilizing **ultra-pure single-crystal Yttrium Iron Garnet (YIG)**. `[PROPOSED]`
@@ -54,7 +56,15 @@ To overcome the magnonic coherence bottleneck for deep-time processing, the arch
 2.  **Extended Coherence:** Under these conditions, short-wavelength dipole-exchange magnons (DEMs) exhibit lifetimes exceeding **18 microseconds**. `[DEMONSTRATED]`
 3.  **Quantum Bus Potential:** This extended lifetime aligns magnonic reservoir stability with superconducting transmon qubits, positioning YIG as the foundational substrate for a coherent quantum memory or bus, rather than a room-temperature AI data center processor. `[INFERRED]`
 
+
+### 🌀 1.3 Magnon Polarons and Spin-Lattice Hybridization ($Fe_3GeTe_2$)
+To establish the physical viability of spin-lattice interconversion in metallic van der Waals ferromagnets, HELIOS-3D references the nanoscale observation of **magnon polarons** in single crystals of $Fe_3GeTe_2$ (Li et al., *Nature Communications* 2026). `[DEMONSTRATED]`
+*   **Avoided Band Crossings:** Strong magnetoelastic coupling leads to hybridization between magnonic and phononic bands. At these crossing points, momentum selection rules are softened, significantly enhancing the scattering cross-section with electrons.
+*   **Strain-Engineered Waveguides:** Avoided band crossings can be spatially localized via strain engineering, enabling FGT or $Fe_3GaTe_2$ to host nanoscale magnonic waveguides or use magnetic domain walls to confine acoustic/spin energy.
+*   **Chiral Phonons:** This hybrid bosonic excitation can lead to chiral phonons, allowing for the transport of the lattice's angular momentum.
+
 **Note:** While properties are well-documented on flat epitaxial substrates, maintaining these characteristics on complex 3D polymer scaffolds via conformal coating remains a major research hurdle. See **[`OPEN_QUESTIONS.md`](./OPEN_QUESTIONS.md)**.
+
 
 ---
 
@@ -94,6 +104,7 @@ When two van der Waals ferromagnetic layers (e.g., $CrI_3$, $Fe_3GaTe_2$) are st
 *   **Low-Bias Memory:** By engineering the twist angle between ferromagnetic layers in the HELIOS-3D stack, hopfions may become more stable at reduced bias field. This would improve non-volatility and reduce standby power for field coils.
 *   **Twist Angle Engineering:** The optimal twist angle for maximum topological texture density can be tuned by varying the interlayer coupling strength. A 1.1° twist in $CrI_3$ produces Néel-type skyrmions; similar principles may apply to $Fe_3GaTe_2$ `[INFERRED]`
 *   **Hierarchical Topologies:** The moiré period defines a natural length scale for topological texture arrays, enabling self-organized high-density patterning.
+*   **Dielectric Spacer Engineering (Keldysh Model):** Proposes incorporating organic spacer layers of variable alkyl chain lengths between the magnetic layers. Based on a phenomenological Keldysh framework (Kim et al., 2025/2026), this allows for the precise, structural-distortion-free tuning of the local dielectric constant ($\varepsilon_{ph}$) and exciton/exchange coupling, providing a molecular-level design rule to control the super-moiré potential barrier depth. `[PROPOSED]`
 
 ### 5.3 Advantages for BRC
 
@@ -186,3 +197,13 @@ Drawing from recent breakthroughs in thin-film synthesis (e.g., $CoFe_2O_4$ elec
 *   **Atomic-Level Surface Engineering:** Applying a magnetic field during film growth alters cation distribution and surface states at the atomic level, effectively "baking in" optimal magnetic domain structures. `[DEMONSTRATED]`
 *   **Field-Free Enhancement:** The structural and magnetic improvements gained during MFAD continue to provide a lasting positive effect even during field-free (zero-bias) operation. `[DEMONSTRATED]`
 *   **Application to HELIOS-3D:** For the Topological Compiler and BRC cores, MFAD could intrinsically enhance the Dzyaloshinskii-Moriya Interaction (DMI) or stabilize specific topological phases (like hopfions) without requiring bulky external biasing magnets during inference. `[SPECULATIVE]`
+
+---
+
+## 🌀 9. Confined 1D Magnetic Nanotubes (The 1-nm Limit)
+
+To achieve the ultimate spatial confinement of spin transport channels, HELIOS-3D proposes investigating the synthesis of **atomically precise 1D magnetic nanotubes** (e.g., $Fe_3GaTe_2$ or $CrI_3$) at the 1-nanometer scale. `[PROPOSED]`
+
+*   **Confined Template Growth:** Following the synthesis of single-walled $MoS_2$ nanotubes inside insulating boron nitride (BN) templates (Nakanishi et al., *Science* 2026), we propose utilizing BN nanotubes as a nanoreactor to constrain the crystallization of 1D ferromagnetic/antiferromagnetic vdW materials. `[PROPOSED]`
+*   **Elimination of Skyrmion Hall Effect:** Restricting spin textures to a 1-nm 1D channel mathematically prevents transverse Hall drift. Solitons (skyrmions/hopfions) are physically forced to move in a purely rectilinear path along the tube's axis. `[INFERRED]`
+*   **Coaxial Protection and Gating:** The outer insulating BN tube acts as an atomically thin capping layer, protecting the inner magnetic core from oxidation, while providing the ideal dielectric interface for Gate-All-Around (GAA) electrostatic or spin-orbit torque (SOT) control. `[PROPOSED]`

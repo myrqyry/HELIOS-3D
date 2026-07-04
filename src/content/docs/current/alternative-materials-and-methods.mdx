@@ -229,12 +229,18 @@ Deposit magnetic stacks on flat substrates or membranes where the literature sup
 * Removes the unsupported assumption that vdW or multilayer magnetism must be established directly on a freeform polymer host.
 * Allows magnetic, transport, and readout physics to be validated independently before volumetric integration.
 
-**Mitigation & Stacking Method (Nature, 2026):**
-To mitigate transfer alignment and yield risks, HELIOS-3D proposes adapting the **low-temperature roll lamination transfer process** demonstrated by Lam et al. (*Nature* 2026). The ultrathin (sub-10 nm) spintronic or vdW stacks are released onto a flexible carrier and transferred onto the receiving patterned wafer using a roll laminator. 
+**Mitigation & Stacking Method (Cao et al., Nature 2026):**
+To mitigate transfer alignment and yield risks, HELIOS-3D proposes adapting the **low-temperature roll lamination transfer process** demonstrated by Cao et al. (*Nature* 2026, corresponding author Prof. Qing Cao). The ultrathin (sub-10 nm) spintronic or vdW stacks are released onto a flexible carrier and transferred onto the receiving patterned wafer using a roll laminator. 
 
 This process:
-* Requires a bonding temperature of **only 200 °C**, staying well within the Back-End-of-Line (BEOL) thermal budget (typically < 400 °C) to protect underlying metal wiring.
-* Achieves **98–100% yield** and avoids interfacial voids due to the high mechanical flexibility of the sub-10 nm membranes conforming to the substrate.
+*   Requires a bonding temperature of **only 200 °C**, staying well within the Back-End-of-Line (BEOL) thermal budget (typically < 400 °C) to protect underlying metal wiring.
+*   Achieves **98–100% yield** and avoids interfacial voids due to the high mechanical flexibility of the sub-10 nm membranes conforming to the substrate.
+*   **Leverages Reusable Donor Substrates:** Freestanding nanomembranes can be derived from low-cost, reusable bulk silicon (111) wafers via anisotropic undercut etching along `<110>` directions, leaving the donor wafer intact to be repolished and reused. `[DEMONSTRATED]`
+*   **Minimizes Area Overhead:** The area loss from access/release holes is scalable and negligible. With a 5 µm hole diameter on a 0.5 mm pitch, the chip-area overhead is only **0.008%**, imposing virtually no density penalty. `[DEMONSTRATED]`
+*   **Eliminates Post-Transfer CMP:** The process avoids post-transfer Chemical-Mechanical Polishing (CMP) entirely, bypassing CMP-related surface defects and within-wafer non-uniformity (WIWNU) risks. `[DEMONSTRATED]`
+*   **Precision Thickness Tuning:** We propose adapting repeated surface-oxidation and chemical etching cycles (Deal-Grove and UV-ozone/HF etching) to thin down transferred YIG or $Fe_3GaTe_2$ layers with nanometer-level precision to control active-region thickness. `[PROPOSED]`
+*   **Proximity Doping:** Doping of contact regions or topological interfaces can be done via spin-on dopants (SOD) and proximity rapid thermal diffusion (RTA) on the donor wafer prior to transfer, keeping the integrated stack's thermal budget below the 400 °C BEOL limit. `[PROPOSED]`
+
 
 **Disadvantages:**
 

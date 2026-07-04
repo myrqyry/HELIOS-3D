@@ -25,8 +25,11 @@ def check_mumax3_syntax(path: Path) -> list[SimViolation]:
     called_funcs: list[tuple[int, str]] = []
 
     for lineno, line in enumerate(lines, 1):
+        # Strip inline comments
+        if "//" in line:
+            line = line.split("//")[0]
         stripped = line.strip()
-        if stripped.startswith("//"):
+        if not stripped:
             continue
 
         # Track defined functions

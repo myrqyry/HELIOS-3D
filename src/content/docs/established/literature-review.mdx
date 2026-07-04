@@ -80,12 +80,17 @@ Shi et al. (PRL 2026) demonstrate the deterministic nucleation of 3D fractional 
 </ExpandableChunk>
 
 <ExpandableChunk 
-  title="Monolithic 3D Stacking via Roll Lamination (Lam et al., Nature 2026)" 
-  summary="Wafer-scale low-temperature transfer of 10 nm silicon membranes with 98-100% yield."
+  title="Monolithic 3D Stacking via Roll Lamination (Cao et al., Nature 2026)" 
+  summary="Wafer-scale low-temperature transfer of 10 nm single-crystal membranes with 98-100% yield."
 >
-  Lam et al., *Monolithic three-dimensional integration of silicon transistors* (Nature 2026, DOI: `10.1038/s41586-026-10496-6`), demonstrate monolithic 3D integration of silicon circuits by transferring 10 nm thick single-crystalline silicon membranes onto a receiving wafer using a roll laminator at only 200 °C. The process achieves 98-100% yield with high uniformity.
+  Cao et al., *Monolithic three-dimensional integration of silicon transistors* (Nature 2026, DOI: `10.1038/s41586-026-10496-6`), demonstrate monolithic 3D integration of silicon circuits by transferring 10 nm thick single-crystalline silicon membranes onto a receiving wafer using a roll laminator at only 200 °C. The process achieves 98-100% yield with high uniformity and is compatible with non-planar topologies. 
 
-  **HELIOS-3D Application:** Provides a low-temperature, high-yield wafer-scale mechanical transfer method for stacking our ultra-thin planar spintronic/vdW membranes onto BEOL circuits without exceeding thermal budget. `[PROPOSED]`
+  Key advancements include:
+  1. **Reusable Donor Wafers:** Nanomembranes can be released from bulk Si (111) wafers via anisotropic undercut etching along `<110>` directions, allowing the donor wafer to be repolished and reused.
+  2. **Negligible Area Overhead:** The use of access holes (5 µm diameter at 0.5 mm pitch) results in a negligible area overhead of only 0.008%, showing no practical impact on density.
+  3. **CMP-Free Transfer:** Bypasses post-transfer Chemical-Mechanical Polishing (CMP), eliminating polishing-induced contamination and within-wafer non-uniformity (WIWNU) risks.
+
+  **HELIOS-3D Application:** Provides a low-temperature, high-yield wafer-scale mechanical transfer method for stacking our ultra-thin planar spintronic/vdW membranes onto BEOL circuits or structured scaffolds without exceeding thermal budget. `[PROPOSED]`
 </ExpandableChunk>
 
 ## 5. Readout Infrastructure Benchmarks
@@ -94,16 +99,35 @@ Shi et al. (PRL 2026) demonstrate the deterministic nucleation of 3D fractional 
   title="Topological Orbital Hall Effect (TOHE)" 
   summary="The definitive electronic hallmark for 3D hopfions."
 >
-Göbel & Lounis (2025/2026) identify TOHE as the **electronic hallmark** for 3D magnetic hopfions. When a current passes through a hopfion, its 3D spin texture generates an emergent 3D electromagnetic field, creating a transverse orbital current. `[INFERRED for experiments]`
+  Göbel & Lounis (2025/2026) identify TOHE as the **electronic hallmark** for 3D magnetic hopfions. When a current passes through a hopfion, its 3D spin texture generates an emergent 3D electromagnetic field, creating a transverse orbital current. `[INFERRED for experiments]`
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="Orbital Hall Conductivity and Relaxation in Mn Thin Films (Kang et al., 2026)" 
+  summary="disorder-dependent scaling of orbital Hall conductivity and relaxation time in manganese."
+>
+  Kang et al. (ETH Zurich Research Collection 2026) demonstrate that the orbital Hall conductivity ($\sigma_{OH}$) and orbital relaxation time ($\tau_o \approx 2 \text{ ps}$) in Mn thin films are highly sensitive to structural disorder. Spatially disordered, amorphous sputtered films exhibit severe orbital quenching and OHC suppression due to grain boundary scattering, whereas highly crystalline, epitaxial or textured films grown via MBE show a significant OHC boost.
+
+  **HELIOS-3D Application:** To maximize the signal-to-noise ratio in our TOHE electrical detector bridge, the contact and channel materials must utilize low-disorder, highly crystalline epitaxial light metals (like Mn) rather than amorphous sputtered alloys, preventing rapid orbital current relaxation at grain boundaries. `[PROPOSED]`
 </ExpandableChunk>
 
 <ExpandableChunk 
   title="Microwave Signal Fidelity (PRL 2026)" 
   summary="Preserving sub-GHz signatures against thermal noise."
 >
-Yam et al. (PRL 2026) demonstrate microwave quantum state preservation at temperatures up to 4 K with **59.9% fidelity**. 
+  Yam et al. (PRL 2026) demonstrate microwave quantum state preservation at temperatures up to 4 K with **59.9% fidelity**. 
 
-**Significance:** Establishes a benchmark for the HELIOS-3D **microwave signal chain** and sub-GHz "breathing mode" readout. `[INFERRED]`
+  **Significance:** Establishes a benchmark for the HELIOS-3D **microwave signal chain** and sub-GHz "breathing mode" readout. `[INFERRED]`
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="Spontaneous Photoblinking Upconversion Microscopy (Ren et al., Nature Photonics 2026)" 
+  summary="Super-resolution imaging via defect-mediated upconversion blinking under low NIR power."
+>
+  Ren et al. (*Nature Photonics* 2026, DOI: `10.1038/s41566-026-01937-9`) report spontaneous, reversible photoblinking in $Yb^{3+}/Ho^{3+}$ co-doped upconversion nanoparticles (UCNPs) under continuous-wave near-infrared (976 nm) excitation. 
+  The blinking is driven by a multiphoton energy-trapping process in intrinsic lattice defects (vacancies) with a trap depth of ~1.66 eV. The nanoparticles do not photobleach, enabling infinite imaging duration, and achieve sub-nanometer localization precision and ~30 nm spatial FRC resolution under low excitation intensity (~6.6 kW/cm²).
+
+  **HELIOS-3D Application:** Proposes integrating these non-bleaching UCNPs into TPP resins to perform non-invasive, super-resolution 3D metrology and structural alignment of 3D scaffolds and spintronic channels. The low-power NIR excitation prevents photothermal melting of the delicate polymer scaffold during long-duration reconstructions. `[PROPOSED]`
 </ExpandableChunk>
 
 ## 6. Emerging Applications & Interfacial Physics
@@ -171,6 +195,60 @@ Gao et al. (2026) demonstrate that high-dielectric **SrTiO3** substrates can tun
   Pudell et al. (*Nature Communications* 2026, DOI: `10.1038/s41467-026-73927-y`) demonstrate that sub-picosecond optical laser pulses can trigger terahertz (1 THz) lattice oscillations in Pt/Cu metal superlattices. The process is driven by the pressure exerted by hot electrons reflecting at interfaces within less than a picosecond, rather than slow thermal heating.
 
   **HELIOS Cares:** Provides a physical mechanism and design for an adjacent Pt/Cu superlattice transducer to generate THz coherent acoustic phonon pulses on-demand. This enables sub-picosecond vibronic/phononic gating of topological spin textures in the compute core. `[PROPOSED]`
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="Conformation Description Language (ConfSeq) (Zheng et al., Nature Machine Intelligence 2026)" 
+  summary="Autoregressive generation of 3D geometries via 1D tokenized conformation sequences."
+>
+  Zheng et al. (*Nature Machine Intelligence* 2026, DOI: `10.1038/s42256-026-01937-9`) introduce **ConfSeq**, a conformation description language that represents 3D conformations of molecules directly as tokenized sequences, allowing LLMs to predict and generate 3D structures from 1D/2D representations. The model achieves SOTA 3D validity (82.3% PoseBusters-validity) and a **~285× speedup** over 3D diffusion models on GPU. Furthermore, temperature-controlled sampling modulates the structural energy and diversity of generated conformations.
+
+  **HELIOS-3D Application:** Enables the **Topological Compiler** to operate via a **Spin-ConfSeq (Topological Spin Conformation Language)**. By encoding 3D spin coordinates ($m_x, m_y, m_z$) and topological charges ($Q_H$) directly as discrete tokens interleaved with 1D/2D routing sequences, we can generate physically valid 3D spin textures up to 285× faster than diffusion models. Temperature-controlled sampling allows the compiler to tune between stable, low-energy states (for storage) and high-energy, diverse states (for BRC reservoir dimensionality). `[PROPOSED]`
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="Confined Growth of 1D Nanotubes (Nakanishi et al., Science 2026)" 
+  summary="Synthesis of 1-nm single-walled inorganic nanotubes inside boron nitride templates."
+>
+  Nakanishi et al., *Confined growth of armchair $MoS_2$ nanotubes at the 1-nm limit* (Science 2026, DOI: `10.1126/science.aee3446`), demonstrate the synthesis of single-walled, 1-nanometer-wide $MoS_2$ nanotubes with highly uniform armchair configurations. This is achieved by heating precursor clusters ($Mo_4S_6$) in a confined space inside boron nitride (BN) nanotubes, forcing atomic arrangement under vacuum at 500–700 °C. The coaxial structure isolates the semiconductor core with a dielectric BN shell.
+
+  **HELIOS-3D Application:** Proposes utilizing BN nanotubes as template templates/nanoreactors to grow 1-nm single-walled **magnetic nanotubes** (e.g. $Fe_3GaTe_2$ or $CrI_3$). This 1D confinement prevents the Skyrmion Hall Effect (SHE) by restricting topological soliton transport to a single rectilinear axis, while the BN shell acts as a built-in capping layer against oxidation and provides a Gate-All-Around (GAA) electrostatic interface. `[PROPOSED]`
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="Defect Engineering in Carbon Quantum Dots (Enyoh & Qingyue, Computational Materials Science 2026)" 
+  summary="First-principles study of optoelectronic and excitonic property control via defect encoding."
+>
+  Enyoh & Qingyue (*Computational Materials Science* 2026, DOI: `10.1016/j.commatsci.2026.114813`) establish a predictive density functional theory (DFT) framework for tuning the optical properties of carbon quantum dots (CQDs) through atomic defect encoding (vacancies, nitrogen dopants, oxygen functional groups). They show that the HOMO-LUMO gap can be tuned from 2.77 eV down to 1.08 eV, spanning an optical emission window of 313 nm (UV) to 1,193 (NIR). Vacancies introduce dangling-bond bandgap states, while pyridinic nitrogen localizes edge orbitals.
+
+  **HELIOS-3D Application:** Proposes embedding these defect-encoded CQDs directly into the TPP polymer photoresins. By programming the defect types, we can create photostable, non-bleaching, metal-free optical alignment landmarks for high-precision sub-10 nm multi-tier roll-transfer registration, or utilize their temperature-dependent excitonic states as local thermal sensors to monitor BRC reservoir gradients. `[PROPOSED]`
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="Exciton Binding Energy Modulation in 2D Perovskites (Kim et al., Advanced Functional Materials 2025/2026)" 
+  summary="Phenomenological Keldysh framework for predicting and tuning excitonic properties via organic spacer length."
+>
+  Kim et al. (*Advanced Functional Materials* 2025/2026, DOI: `10.1002/adfm.202520461`) introduce a modified Keldysh model with a phenomenological dielectric function to describe exciton binding energy in 2D lead-iodide perovskites. They show that as the organic spacer length (alkyl chain length) increases, the quasiparticle bandgap increases while the exciton energy remains nearly constant. This leads to a substantial rise in exciton binding energy, offering a molecular-level design rule to control dielectric screening environments without structural distortions.
+
+  **HELIOS-3D Application:** Proposes utilizing this phenomenological Keldysh framework to tune the **super-moiré potential barrier depth** in our twisted magnetic bilayers. By incorporating organic spacer layers of variable alkyl chain lengths between the active magnetic/vdW sheets, we can precisely tune the local dielectric constant ($\varepsilon_{ph}$) and screen interlayer exchange/DMI coupling on a molecular level without inducing lattice distortions. `[PROPOSED]`
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="Defect-Induced Single-Photon Emission in ZnPS₃ (Zawadzka et al., ACS Nano 2026)" 
+  summary="Observation of highly polarized single-photon emission from phosphorus atom vacancies in layered ZnPS₃."
+>
+  Zawadzka et al. (*ACS Nano* 2026, DOI: `10.1021/acsnano.5c19936`) report the observation of defect-induced single-photon emission in the layered 2D metal phosphorus trichalcogenide **zinc phosphorus trisulfide (ZnPS₃)**. Using photoluminescence spectroscopy, they show that single phosphorus atom vacancies behave as stable, point-source quantum emitters. Crucially, the emitted photons exhibit a very high degree of polarization due to local crystal symmetries, allowing their electromagnetic waves to maintain stable spatial orientation.
+
+  **HELIOS-3D Application:** Proposes dry-transferring ZnPS₃ flakes onto the active spintronic layers to act as an integrated **spin-to-photon readout interface**. The proximity-induced exchange coupling between the ZnPS₃ single-photon emitters and the underlying hopfion spin texture can modulate the polarization axis of the emitted photons, enabling a high-contrast, non-invasive optical readout channel. `[PROPOSED]`
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="Exsolution-Induced Giant Electronic and Magnetic Property Changes in Titanate Perovskites (Kim et al., Advanced Materials 2026)" 
+  summary="Coupled control of electronic phase transitions and superparamagnetism in titanate thin films via metal nanoparticle exsolution."
+>
+  Kim et al. (*Advanced Materials* 2026, DOI: `10.1002/adma.202600031`) present a method to simultaneously control the electronic and magnetic properties of non-stoichiometric titanate perovskite thin films ($\text{La}_{0.2}\text{Sr}_{0.7}\text{Ni}_{0.1}\text{Ti}_{0.9}\text{O}_{3-\delta}$) through exsolution. In the pristine state, multiple defects (Sr/O vacancies, La/Ni substitutions) compensate to yield a diamagnetic insulator. Under reducing conditions, Ni exsolves as stable surface-anchored metallic nanoparticles, triggering a defect reconstruction that transforms the oxide lattice into a heavily electron-doped degenerate metal (resistivity drop $> 3$ orders of magnitude) while exhibiting room-temperature superparamagnetism.
+
+  **HELIOS-3D Application:** Proposes integrating exsolution-active perovskite titanate layers (e.g. LSTN) as a **switchable gating interface** in our spintronic memory stack. By applying electric field pulses or local chemical reduction, we can switch the gating layer from a diamagnetic insulator (minimal screening, hopfions remain pinned for non-volatile storage) to a degenerate metallic state with superparamagnetic Ni nanoparticles (maximum screening and localized superparamagnetic pinning nodes, enabling low-current hopfion transport or BRC reservoir state updates). `[PROPOSED]`
 </ExpandableChunk>
 
 
