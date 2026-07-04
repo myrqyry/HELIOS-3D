@@ -1,7 +1,8 @@
 import { useRef, useMemo } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Float, Stars, Text, Billboard } from '@react-three/drei';
+import { useFrame } from '@react-three/fiber';
+import { Float, Text, Billboard } from '@react-three/drei';
 import * as THREE from 'three';
+import { R3FCanvas, R3FControls, R3FEnvironment } from './R3FCanvas';
 
 function HallmarkArrows() {
   const arrows = useMemo(() => {
@@ -98,18 +99,16 @@ function Hall() {
 
 export default function TopologicalOrbitalHallScene({ height = 'h-96', interactive = false }: { height?: string; interactive?: boolean }) {
   return (
-    <div className={`w-full ${height} rounded-lg border border-obsidian-3 bg-obsidian-1 overflow-hidden`}>
-      <Canvas camera={{ position: [0, 2, 5], fov: 45 }}>
-        <color attach="background" args={['#0a0a0a']} />
-        <ambientLight intensity={0.2} />
-        <pointLight position={[10, 10, 10]} intensity={1.5} color="#7dd3fc" />
-        <pointLight position={[-10, -10, -10]} intensity={1} color="#ff6b1a" />
-        <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
-        <Float speed={1.5} rotationIntensity={0.5} floatIntensity={0.5}>
-          <Hall />
-        </Float>
-        {interactive ? <OrbitControls enablePan={false} /> : <OrbitControls enablePan={false} autoRotate autoRotateSpeed={0.5} />}
-      </Canvas>
-    </div>
+    <R3FCanvas height={height} className="bg-obsidian-1" camera={{ position: [0, 2, 5], fov: 45 }}>
+      <color attach="background" args={['#0a0a0a']} />
+      <R3FEnvironment starsCount={5000} />
+      <pointLight position={[10, 10, 10]} intensity={1.5} color="#7dd3fc" />
+      <pointLight position={[-10, -10, -10]} intensity={1} color="#ff6b1a" />
+      <Float speed={1.5} rotationIntensity={0.5} floatIntensity={0.5}>
+        <Hall />
+      </Float>
+      <R3FControls interactive={interactive} autoRotate={!interactive} autoRotateSpeed={0.5} />
+    </R3FCanvas>
   );
 }
+

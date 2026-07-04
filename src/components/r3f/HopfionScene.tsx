@@ -1,7 +1,7 @@
 import { useRef, useMemo } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
+import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
+import { R3FCanvas, R3FControls } from './R3FCanvas';
 
 function Hopfion() {
   const group = useRef<THREE.Group>(null);
@@ -47,14 +47,13 @@ export interface HopfionSceneProps {
 
 export default function HopfionScene({ height = 'h-96', interactive = false }: HopfionSceneProps) {
   return (
-    <div className={`w-full ${height} rounded-lg border border-obsidian-3 bg-obsidian-2 overflow-hidden`}>
-      <Canvas camera={{ position: [0, 0, 4], fov: 50 }}>
-        <ambientLight intensity={0.4} />
-        <pointLight position={[5, 5, 5]} intensity={1.2} color="#ffb627" />
-        <pointLight position={[-5, -3, -2]} intensity={0.6} color="#7dd3fc" />
-        <Hopfion />
-        {interactive && <OrbitControls enablePan={false} />}
-      </Canvas>
-    </div>
+    <R3FCanvas height={height} className="bg-obsidian-2" camera={{ position: [0, 0, 4], fov: 50 }}>
+      <ambientLight intensity={0.4} />
+      <pointLight position={[5, 5, 5]} intensity={1.2} color="#ffb627" />
+      <pointLight position={[-5, -3, -2]} intensity={0.6} color="#7dd3fc" />
+      <Hopfion />
+      <R3FControls interactive={interactive} />
+    </R3FCanvas>
   );
 }
+

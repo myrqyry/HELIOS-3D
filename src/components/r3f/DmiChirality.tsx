@@ -1,7 +1,8 @@
 import { useRef, useMemo } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Float, Stars, PerspectiveCamera } from '@react-three/drei';
+import { useFrame } from '@react-three/fiber';
+import { Float } from '@react-three/drei';
 import * as THREE from 'three';
+import { R3FCanvas, R3FControls, R3FEnvironment } from './R3FCanvas';
 
 function SpinField() {
   const group = useRef<THREE.Group>(null);
@@ -57,19 +58,16 @@ function SpinField() {
 
 export default function DmiChiralityScene({ height = 'h-96', interactive = false }: { height?: string; interactive?: boolean }) {
   return (
-    <div className={`w-full ${height} rounded-lg border border-obsidian-3 bg-obsidian-1 overflow-hidden`}>
-      <Canvas>
-        <PerspectiveCamera makeDefault position={[2, 2, 2]} />
-        <color attach="background" args={['#080808']} />
-        <ambientLight intensity={0.2} />
-        <pointLight position={[10, 10, 10]} intensity={1.5} color="#38bdf8" />
-        <pointLight position={[-10, -10, -10]} intensity={0.5} color="#ff6b1a" />
-        <Stars radius={100} depth={50} count={3000} factor={4} saturation={0} fade speed={1} />
-        <Float speed={1} rotationIntensity={0.2} floatIntensity={0.2}>
-          <SpinField />
-        </Float>
-        {interactive && <OrbitControls enablePan={false} />}
-      </Canvas>
-    </div>
+    <R3FCanvas height={height} className="bg-obsidian-1" camera={{ position: [2, 2, 2], fov: 50 }}>
+      <color attach="background" args={['#080808']} />
+      <R3FEnvironment starsCount={3000} />
+      <pointLight position={[10, 10, 10]} intensity={1.5} color="#38bdf8" />
+      <pointLight position={[-10, -10, -10]} intensity={0.5} color="#ff6b1a" />
+      <Float speed={1} rotationIntensity={0.2} floatIntensity={0.2}>
+        <SpinField />
+      </Float>
+      <R3FControls interactive={interactive} />
+    </R3FCanvas>
   );
 }
+

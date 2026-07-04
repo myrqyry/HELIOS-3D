@@ -1,7 +1,8 @@
 import { useRef } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Text, Billboard } from '@react-three/drei';
+import { useFrame } from '@react-three/fiber';
+import { Billboard, Text } from '@react-three/drei';
 import * as THREE from 'three';
+import { R3FCanvas, R3FControls } from './R3FCanvas';
 
 function Stack() {
   const group = useRef<THREE.Group>(null);
@@ -38,13 +39,12 @@ function Stack() {
 
 export default function MaterialStackScene({ height = 'h-96', interactive = false }: { height?: string; interactive?: boolean }) {
   return (
-    <div className={`w-full ${height} rounded-lg border border-obsidian-3 bg-obsidian-2 overflow-hidden`}>
-      <Canvas camera={{ position: [3, 1.5, 3.5], fov: 45 }}>
-        <ambientLight intensity={0.5} />
-        <pointLight position={[5, 5, 5]} intensity={1.2} color="#ffb627" />
-        <Stack />
-        {interactive && <OrbitControls enablePan={false} />}
-      </Canvas>
-    </div>
+    <R3FCanvas height={height} className="bg-obsidian-2" camera={{ position: [3, 1.5, 3.5], fov: 45 }}>
+      <ambientLight intensity={0.5} />
+      <pointLight position={[5, 5, 5]} intensity={1.2} color="#ffb627" />
+      <Stack />
+      <R3FControls interactive={interactive} />
+    </R3FCanvas>
   );
 }
+

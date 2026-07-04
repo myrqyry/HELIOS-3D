@@ -1,7 +1,8 @@
 import { useRef, useMemo } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Float, Stars, PerspectiveCamera } from '@react-three/drei';
+import { useFrame } from '@react-three/fiber';
+import { Float } from '@react-three/drei';
 import * as THREE from 'three';
+import { R3FCanvas, R3FControls, R3FEnvironment } from './R3FCanvas';
 
 function NeelSkyrmion() {
   const group = useRef<THREE.Group>(null);
@@ -68,19 +69,16 @@ function NeelSkyrmion() {
 
 export default function SkyrmionScene({ height = 'h-96', interactive = false }: { height?: string; interactive?: boolean }) {
   return (
-    <div className={`w-full ${height} rounded-lg border border-obsidian-3 bg-obsidian-1 overflow-hidden`}>
-      <Canvas>
-        <PerspectiveCamera makeDefault position={[0, 0, 4]} />
-        <color attach="background" args={['#050505']} />
-        <ambientLight intensity={0.2} />
-        <pointLight position={[10, 10, 10]} intensity={2} color="#7dd3fc" />
-        <pointLight position={[-10, -10, -10]} intensity={1} color="#ff6b1a" />
-        <Stars radius={100} depth={50} count={3000} factor={4} saturation={0} fade speed={1} />
-        <Float speed={2} rotationIntensity={0.3} floatIntensity={0.3}>
-          <NeelSkyrmion />
-        </Float>
-        {interactive && <OrbitControls enablePan={false} />}
-      </Canvas>
-    </div>
+    <R3FCanvas height={height} className="bg-obsidian-1" camera={{ position: [0, 0, 4], fov: 50 }}>
+      <color attach="background" args={['#050505']} />
+      <R3FEnvironment starsCount={3000} />
+      <pointLight position={[10, 10, 10]} intensity={2} color="#7dd3fc" />
+      <pointLight position={[-10, -10, -10]} intensity={1} color="#ff6b1a" />
+      <Float speed={2} rotationIntensity={0.3} floatIntensity={0.3}>
+        <NeelSkyrmion />
+      </Float>
+      <R3FControls interactive={interactive} />
+    </R3FCanvas>
   );
 }
+

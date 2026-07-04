@@ -1,28 +1,64 @@
-import { useRef, useMemo, useState } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Float, Stars, PerspectiveCamera } from '@react-three/drei';
+import { useRef, useMemo, useState, createContext, useContext } from 'react';
+import { useFrame } from '@react-three/fiber';
+import { Float } from '@react-three/drei';
 import * as THREE from 'three';
+import { R3FCanvas, R3FControls, R3FEnvironment } from './R3FCanvas';
+
+interface NucleationState {
+  phase: number;
+  isPlaying: boolean;
+}
+
+interface NucleationActions {
+  setPhase: (phase: number) => void;
+  togglePlay: () => void;
+}
+
+const NucleationContext = createContext<{ state: NucleationState; actions: NucleationActions } | null>(null);
+
+export function NucleationProvider({ children }: { children: React.ReactNode }) {
+  const [state, setState] = useState<NucleationState>({ phase: 0, isPlaying: true });
+  const actions = useMemo(() => ({
+    setPhase: (phase: number) => setState((s) => ({ ...s, phase })),
+    togglePlay: () => setState((s) => ({ ...s, isPlaying: !s.isPlaying })),
+  }), []);
+
+  return (
+    <NucleationContext.Provider value={{ state, actions }}>
+      {children}
+    </NucleationContext.Provider>
+  );
+}
+
+export function useNucleation() {
+  const ctx = useContext(NucleationContext);
+  if (!ctx) throw new Error('useNucleation must be used within NucleationProvider');
+  return ctx;
+}
 
 function NucleationEvent() {
-  const [phase, setPhase] = useState(0); // 0 to 1 (Twist Accumulation to Nucleation)
+  const { state: { phase, isPlaying }, actions: { setPhase } } = useNucleation();
   const topLayer = useRef<THREE.Group>(null);
   const hopfion = useRef<THREE.Mesh>(null);
 
-  useFrame((state) => {
-    const t = (state.clock.elapsedTime % 6) / 6; // 6s cycle
-    setPhase(t);
+  useFrame((state, delta) => {
+    if (!isPlaying) return;
+
+    // Increment phase based on time
+    const nextPhase = (phase + delta / 6) % 1; // 6s cycle
+    setPhase(nextPhase);
 
     if (topLayer.current) {
       // Accumulate twist up to 0.75, then reset
-      const twist = t < 0.75 ? (t / 0.75) * Math.PI * 0.5 : 0;
+      const twist = phase < 0.75 ? (phase / 0.75) * Math.PI * 0.5 : 0;
       topLayer.current.rotation.y = twist;
     }
 
     if (hopfion.current) {
       // Nucleate at 0.75 phase
-      const scale = t > 0.75 ? (t - 0.75) / 0.25 : 0;
+      const scale = phase > 0.75 ? (phase - 0.75) / 0.25 : 0;
       hopfion.current.scale.setScalar(scale * 0.8);
-      hopfion.current.visible = t > 0.75;
+      hopfion.current.visible = phase > 0.75;
     }
   });
 
@@ -53,19 +89,18 @@ function NucleationEvent() {
 
 export default function TwistReservoirNucleationScene({ height = 'h-96', interactive = false }: { height?: string; interactive?: boolean }) {
   return (
-    <div className={`w-full ${height} rounded-lg border border-obsidian-3 bg-obsidian-1 overflow-hidden`}>
-      <Canvas>
-        <PerspectiveCamera makeDefault position={[3, 3, 3]} />
+    <NucleationProvider>
+      <R3FCanvas height={height} className="bg-obsidian-1" camera={{ position: [3, 3, 3], fov: 50 }}>
         <color attach="background" args={['#050505']} />
-        <ambientLight intensity={0.2} />
+        <R3FEnvironment starsCount={5000} />
         <pointLight position={[10, 10, 10]} intensity={2} color="#ffb627" />
         <pointLight position={[-10, -10, -10]} intensity={1} color="#38bdf8" />
-        <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
         <Float speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
           <NucleationEvent />
         </Float>
-        {interactive && <OrbitControls enablePan={false} />}
-      </Canvas>
-    </div>
+        <R3FControls interactive={interactive} />
+      </R3FCanvas>
+    </NucleationProvider>
   );
 }
+
