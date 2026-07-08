@@ -8,9 +8,10 @@ Test suites for HELIOS-3D project, including unit tests, integration tests, and 
 
 | File | Purpose |
 |------|---------|
+| `tests/test_compiler_protocol.py` | CompilerAdapter protocol contract tests |
+| `tests/test_topological_compiler.py` | Mock adapter behavior tests |
 | `tests/energy_minimization_test.py` | Tests for energy minimization scripts |
 | `tests/topological_charge_validator.py` | Tests for topological charge conservation |
-| `tests/validation_scripts/` | Validation scripts for simulation results |
 
 ## Deviations from Root
 
