@@ -501,6 +501,12 @@ When stacking multiple hBN layers in double-encapsulated or multi-layered gating
     1.  **Hysteresis Mitigation:** For gate-controlled spin transport and SOT switching in the MCA core, the top and bottom hBN layers must be aligned outside the 15°–45° window (ideally close to 0°, 60°, or 90°) to prevent gate screening and uncontrolled state hysteresis. `[PROPOSED]` [Maffione et al. 2026]
     2.  **Stochastic Gating:** Conversely, in the BRC core, the 15°–45° alignment could be intentionally engineered as a local non-volatile memory node, where the gate hysteresis is used to dynamically adjust the local screening potential of the reservoir. `[PROPOSED]` [Maffione et al. 2026]
 
+### 6.1.6 Silicon Defect Centers (T Centers) as Telecom-Band Readout Alternatives
+While hBN $V_B^-$ vacancies offer planar 2D compatibility, they still require specialized optical paths. To achieve monolithic integration with CMOS-compatible silicon photonics, silicon-based spin-photonic defect centers—specifically the T center—offer a native telecom-band alternative (Islam et al., *Light: Science & Applications* 2026, DOI: `10.1038/s41377-026-02345-y`).
+*   **Native Telecom Emission:** The T center exhibits a zero-phonon line (ZPL) doublet at ~1326 nm (telecom O-band), matching standard optical fibers and silicon waveguides without requiring lossy quantum frequency conversion.
+*   **Multi-Qubit Spin Register:** The neutral T center hosts an electron spin ($S=1/2$) coupled to a ¹H nuclear spin ($I=1/2$) and a nearby ²⁹Si nuclear spin ($I=1/2$), providing a long-lived three-qubit quantum memory ($T_2 \approx 0.41$ ms for electron, $T_{2,H} \approx 112$ ms for ¹H at 1.2 K) that can be initialized and read out optically.
+*   **Purcell-Enhanced Nanophotonics:** Integrating T centers into silicon nanophotonic cavities (e.g., photonic crystals or nanobeams) can yield a &gt;10× enhancement of ZPL emission and &gt;10% on-chip collection efficiency, enabling scalable on-chip spin-photon interfaces. `[PROPOSED]` [Islam et al. 2026]
+
 ## 7. Recommended Minimum Viable Demonstrator Revision
 
 The current MVD sequence in `OPEN_QUESTIONS.md` should be interpreted more conservatively.
