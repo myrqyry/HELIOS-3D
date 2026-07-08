@@ -287,6 +287,16 @@ Gao et al. (2026) demonstrate that high-dielectric **SrTiO3** substrates can tun
   **HELIOS-3D Application:** Optimizes the DISH (Digital Incoherent Synthesis of Holographic light fields) hardware architecture. By upgrading from DMD amplitude projection to a MEMS-based phase light modulator (PLM), HELIOS-3D can achieve a 70-fold increase in light engine efficiency, permitting the use of low-power single-mode laser diodes for volumetric printing of macro-scaffolds. Furthermore, utilizing the time-multiplexed axicon shift pipeline minimizes speckle-induced surface roughness and delamination on the printed scaffolds, providing a highly uniform, defect-free substrate for subsequent conformal van Waals thin-film transfers. `[PROPOSED]` [Álvarez-Castaño et al. 2026]
 </ExpandableChunk>
 
+<ExpandableChunk 
+  title="Bio-Inspired Backpropagation-Free Training for Optical Neural Networks (Li et al., Light: Science & Applications 2026)" 
+  summary="Demonstration of a layer-wise target propagation learning algorithm that bypasses gradient backpropagation."
+>
+  Li et al. (*Light: Science & Applications* 2026, DOI: `10.1038/s41377-026-02394-3`) propose a backpropagation-free optical neural network (B-ONN) training framework. By utilizing layer-wise target propagation combined with trainable error convolution kernels, B-ONN circumvents global gradient backpropagation, eliminating the strict physical reciprocity and optical conjugation requirements of traditional backpropagation. B-ONN achieves near-parity classification performance with traditional network training, while demonstrating high robustness against phase noise (up to $\sigma \approx 0.4\pi$) and alignment errors (up to $\pm 3$ pixels). Crucially, the algorithm naturally evolves smooth phase distributions that map directly to the physical constraints of TPP and 3D printing fabrication (where sharp step edges are rounded by polymerization).
+
+  **HELIOS-3D Application:** Strengthens the physical scalability and training feasibility of the Magnetic Convolutional Accelerator (MCA) and BRC cores. Rather than relying on rigid, non-reciprocal optical/magnetic paths for global backpropagation, HELIOS-3D proposes mapping the B-ONN local learning pipeline onto the diffractive spin-modulating components. Trainable error convolution kernels ($E$) enable decentralized local updates, while the algorithm's tendency to converge to smooth phase profiles accommodates SOT and SOT-gating fabrication constraints (fabrication smoothing), preventing performance degradation during chip-scale integration. `[PROPOSED]` [Li et al. 2026]
+</ExpandableChunk>
+
+
 
 
 

@@ -46,6 +46,12 @@ The MCA is a **proposed** deterministic, non-volatile Compute-in-Memory (CiM) ar
 | **Energy Consumption**| 10–100 pJ | ~9.16 fJ per Operation | `[SPECULATIVE]` |
 | **Area Footprint** | Planar Gates | BEOL Compatible Vertical Stack | `[PROPOSED]` |
 
+### 🧠 1.1 Backpropagation-Free Training (B-ONN Framework)
+To train multi-layer architectures without the strict physical symmetries and reciprocal paths required by traditional backpropagation, HELIOS-3D proposes a **backpropagation-free training framework** inspired by B-ONN (Li et al., *Light: Science & Applications* 2026, DOI: `10.1038/s41377-026-02394-3`). 
+*   **Layer-wise Target Propagation:** Each diffractive or spin-modulating layer performs local learning based on target signals and trainable error convolution kernels ($E$), eliminating the need for precise optical conjugation or reciprocal SOT paths.
+*   **Fabrication Smoothing Synergy:** B-ONN naturally learns smooth phase profiles with gentle gradients. This aligns with the physical constraints of TPP and 3D printing fabrication, where sharp step edges are rounded by polymerization (fabrication smoothing). This synergy ensures that the optimized phase maps maintain high execution fidelity (~94% accuracy) after transfer to physical devices.
+*   **Inherent Noise and Alignment Tolerance:** The framework suppresses high-frequency spectral noise, providing robustness against phase noise (up to $\sigma \approx 0.4\pi$) and multi-tier registration/misalignment errors (up to $\pm 3$ pixels) without requiring explicit noise-augmented training. `[PROPOSED]` [Li et al. 2026]
+
 ---
 
 ## 🎲 2. Dual-Core Architecture II: Brownian Reservoir Computing (BRC)
