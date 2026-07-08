@@ -3,6 +3,7 @@ import { useFrame } from '@react-three/fiber';
 import { Float } from '@react-three/drei';
 import * as THREE from 'three';
 import { R3FCanvas, R3FControls, R3FEnvironment } from './R3FCanvas';
+import { directionToEuler } from '../../utils/three';
 
 function SpinField() {
   const group = useRef<THREE.Group>(null);
@@ -10,6 +11,11 @@ function SpinField() {
   const arrows = useMemo(() => {
     const arr = [];
     const N = 8;
+    const up = new THREE.Vector3(0, 1, 0);
+    const tempDir = new THREE.Vector3();
+    const tempQ = new THREE.Quaternion();
+    const tempEuler = new THREE.Euler();
+
     for (let x = 0; x < N; x++) {
       for (let z = 0; z < N; z++) {
         const px = (x - N / 2) * 0.4;
@@ -18,8 +24,16 @@ function SpinField() {
         
         // Chirality: spin rotates based on distance from center
         const angle = dist * 2.5;
-        const dir = new THREE.Vector3(Math.sin(angle), Math.cos(angle), 0);
-        arr.push({ pos: [px, 0.2, pz], dir: dir.toArray(), color: '#ff6b1a' });
+        tempDir.set(Math.sin(angle), Math.cos(angle), 0).normalize();
+        
+        tempQ.setFromUnitVectors(up, tempDir);
+        tempEuler.setFromQuaternion(tempQ);
+
+        arr.push({ 
+          pos: [px, 0.2, pz], 
+          rotation: [tempEuler.x, tempEuler.y, tempEuler.z] as [number, number, number], 
+          color: '#ff6b1a' 
+        });
       }
     }
     return arr;
@@ -42,7 +56,7 @@ function SpinField() {
       {/* Spin Arrows */}
       {arrows.map((a, i) => (
         <group key={i} position={a.pos as [number, number, number]}>
-          <mesh rotation={new THREE.Euler().setFromVector3(new THREE.Vector3(...a.dir))}>
+          <mesh rotation={a.rotation}>
             <coneGeometry args={[0.04, 0.15, 12]} />
             <meshStandardMaterial color={a.color} emissive={a.color} emissiveIntensity={1} />
           </mesh>

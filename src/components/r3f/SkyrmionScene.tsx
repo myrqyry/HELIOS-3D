@@ -1,8 +1,9 @@
 import { useRef, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
-import { Float } from '@react-three/drei';
+import { Float, Instances, Instance } from '@react-three/drei';
 import * as THREE from 'three';
 import { R3FCanvas, R3FControls, R3FEnvironment } from './R3FCanvas';
+import { directionToEuler } from '../../utils/three';
 
 function NeelSkyrmion() {
   const group = useRef<THREE.Group>(null);
@@ -11,6 +12,11 @@ function NeelSkyrmion() {
     const arr = [];
     const layers = 5;
     const count = 12;
+    const up = new THREE.Vector3(0, 1, 0);
+    const tempDir = new THREE.Vector3();
+    const tempQ = new THREE.Quaternion();
+    const tempEuler = new THREE.Euler();
+
     for (let l = 1; l <= layers; l++) {
       const radius = l * 0.3;
       const num = count * l;
@@ -20,15 +26,21 @@ function NeelSkyrmion() {
         const y = Math.sin(angle) * radius;
         
         // Néel texture: spin rotates from Down (-Z) at center to Up (+Z) at edge
-        // Radial component is non-zero
         const rotationAngle = (radius / (layers * 0.3)) * Math.PI;
-        const dir = new THREE.Vector3(
+        tempDir.set(
           Math.cos(angle) * Math.sin(rotationAngle),
           Math.sin(angle) * Math.sin(rotationAngle),
           -Math.cos(rotationAngle)
-        );
+        ).normalize();
         
-        arr.push({ pos: [x, y, 0], dir: dir.toArray(), color: l === 1 ? '#ff6b1a' : '#7dd3fc' });
+        tempQ.setFromUnitVectors(up, tempDir);
+        tempEuler.setFromQuaternion(tempQ);
+        
+        arr.push({ 
+          pos: [x, y, 0], 
+          rotation: [tempEuler.x, tempEuler.y, tempEuler.z] as [number, number, number], 
+          color: l === 1 ? '#ff6b1a' : '#7dd3fc' 
+        });
       }
     }
     return arr;
@@ -54,15 +66,19 @@ function NeelSkyrmion() {
         <meshStandardMaterial color="#0a0a0a" transparent opacity={0.5} />
       </mesh>
 
-      {/* Spin Vectors */}
-      {arrows.map((a, i) => (
-        <group key={i} position={a.pos as [number, number, number]}>
-          <mesh rotation={new THREE.Euler().setFromVector3(new THREE.Vector3(...a.dir))}>
-            <coneGeometry args={[0.03, 0.12, 12]} />
-            <meshStandardMaterial color={a.color} emissive={a.color} emissiveIntensity={1} />
-          </mesh>
-        </group>
-      ))}
+      {/* Spin Vectors using Instanced Mesh */}
+      <Instances limit={arrows.length}>
+        <coneGeometry args={[0.03, 0.12, 12]} />
+        <meshStandardMaterial emissiveIntensity={1} />
+        {arrows.map((a, i) => (
+          <Instance 
+            key={i} 
+            position={a.pos as [number, number, number]} 
+            rotation={a.rotation} 
+            color={a.color} 
+          />
+        ))}
+      </Instances>
     </group>
   );
 }

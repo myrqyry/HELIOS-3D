@@ -1,5 +1,6 @@
 import { useRef, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
+import { Instances, Instance } from '@react-three/drei';
 import * as THREE from 'three';
 import { R3FCanvas, R3FControls } from './R3FCanvas';
 
@@ -26,12 +27,13 @@ function Hopfion() {
 
   return (
     <group ref={group}>
-      {points.map((p, i) => (
-        <mesh key={i} position={p}>
-          <sphereGeometry args={[0.05, 16, 16]} />
-          <meshStandardMaterial color="#ff6b1a" emissive="#ff6b1a" emissiveIntensity={0.5} />
-        </mesh>
-      ))}
+      <Instances limit={points.length}>
+        <sphereGeometry args={[0.05, 16, 16]} />
+        <meshStandardMaterial color="#ff6b1a" emissive="#ff6b1a" emissiveIntensity={0.5} />
+        {points.map((p, i) => (
+          <Instance key={i} position={p} />
+        ))}
+      </Instances>
       <mesh>
         <torusKnotGeometry args={[1, 0.3, 128, 16, 2, 3]} />
         <meshStandardMaterial color="#ffb627" wireframe transparent opacity={0.25} />

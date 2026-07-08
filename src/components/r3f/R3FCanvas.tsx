@@ -1,10 +1,10 @@
 import React from 'react';
-import { Canvas } from '@react-three/fiber';
+import { Canvas, CanvasProps } from '@react-three/fiber';
 import { OrbitControls, Stars } from '@react-three/drei';
 
 interface R3FCanvasProps {
   height?: string;
-  camera?: any;
+  camera?: CanvasProps['camera'];
   className?: string;
   children: React.ReactNode;
 }
@@ -35,13 +35,16 @@ export function R3FControls({
   autoRotateSpeed?: number;
   enablePan?: boolean;
 }) {
-  if (interactive) {
-    return <OrbitControls enablePan={enablePan} />;
-  }
-  if (autoRotate) {
-    return <OrbitControls enablePan={enablePan} autoRotate autoRotateSpeed={autoRotateSpeed} />;
-  }
-  return null;
+  if (!interactive && !autoRotate) return null;
+  return (
+    <OrbitControls
+      enablePan={enablePan}
+      enableRotate={interactive}
+      enableZoom={interactive}
+      autoRotate={autoRotate}
+      autoRotateSpeed={autoRotateSpeed}
+    />
+  );
 }
 
 export function R3FEnvironment({ 

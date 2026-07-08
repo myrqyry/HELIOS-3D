@@ -37,7 +37,8 @@ export function useNucleation() {
 }
 
 function NucleationEvent() {
-  const { state: { phase, isPlaying }, actions: { setPhase } } = useNucleation();
+  const { state: { isPlaying } } = useNucleation();
+  const phaseRef = useRef(0);
   const topLayer = useRef<THREE.Group>(null);
   const hopfion = useRef<THREE.Mesh>(null);
 
@@ -45,8 +46,8 @@ function NucleationEvent() {
     if (!isPlaying) return;
 
     // Increment phase based on time
-    const nextPhase = (phase + delta / 6) % 1; // 6s cycle
-    setPhase(nextPhase);
+    phaseRef.current = (phaseRef.current + delta / 6) % 1; // 6s cycle
+    const phase = phaseRef.current;
 
     if (topLayer.current) {
       // Accumulate twist up to 0.75, then reset

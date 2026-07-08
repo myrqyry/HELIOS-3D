@@ -1,13 +1,12 @@
-import { useRef, useMemo } from 'react';
+import { useRef, useMemo, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Float, Text, Billboard } from '@react-three/drei';
 import * as THREE from 'three';
 import { R3FCanvas, R3FControls, R3FEnvironment } from './R3FCanvas';
+import { directionToEuler } from '../../utils/three';
 
 function HallmarkArrows() {
   const arrows = useMemo(() => {
-    const euler = new THREE.Euler();
-    const vec = new THREE.Vector3();
     const base = [
       { pos: [1.2, 0.2, 0], dir: [0, 1, 0], color: '#7dd3fc', label: 'σ_xz^Ly' },
       { pos: [-1.2, -0.2, 0], dir: [0, -1, 0], color: '#7dd3fc', label: 'σ_xz^Ly' },
@@ -15,7 +14,7 @@ function HallmarkArrows() {
       { pos: [0, -1.2, -0.2], dir: [0, 0, -1], color: '#ff6b1a', label: 'σ_yz^Lx' },
     ];
     return base.map((a) => {
-      euler.setFromVector3(vec.set(a.dir[0], a.dir[1], a.dir[2]));
+      const euler = directionToEuler(new THREE.Vector3(a.dir[0], a.dir[1], a.dir[2]));
       return {
         pos: a.pos,
         dir: a.dir,
@@ -65,6 +64,25 @@ function Hall() {
     return lines;
   }, []);
 
+  const lineObjects = useMemo(() => {
+    const mat = new THREE.LineBasicMaterial({ color: '#38bdf8', transparent: true, opacity: 0.3 });
+    return currentLines.map((line) => {
+      const geom = new THREE.BufferGeometry().setFromPoints(line);
+      return new THREE.Line(geom, mat);
+    });
+  }, [currentLines]);
+
+  useEffect(() => {
+    return () => {
+      lineObjects.forEach((line) => {
+        line.geometry.dispose();
+      });
+      if (lineObjects.length > 0) {
+        lineObjects[0].material.dispose();
+      }
+    };
+  }, [lineObjects]);
+
   useFrame((state) => {
     if (group.current) {
       group.current.rotation.y = state.clock.elapsedTime * 0.2;
@@ -85,12 +103,9 @@ function Hall() {
       </mesh>
       
       {/* 3D Orbital Currents */}
-      {currentLines.map((line, i) => {
-        const geom = new THREE.BufferGeometry().setFromPoints(line);
-        return (
-          <primitive key={i} object={new THREE.Line(geom, new THREE.LineBasicMaterial({ color: '#38bdf8', transparent: true, opacity: 0.3 }))} />
-        );
-      })}
+      {lineObjects.map((line, i) => (
+        <primitive key={i} object={line} />
+      ))}
 
       <HallmarkArrows />
     </group>
