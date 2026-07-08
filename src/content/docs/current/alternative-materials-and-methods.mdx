@@ -489,7 +489,16 @@ Monolayer hBN with boron vacancies ($V_B^-$) offers a van der Waals-compatible a
 
 *   **Fermi Level Alignment:** The $V_B^-$ charge state is stabilized by nearby charge traps; care must be taken during hBN transfer to avoid contamination that shifts the defect levels.
 *   **Magnetic Proximity Effect:** $Fe_3GaTe_2$ has high spin polarization; the hBN layer may experience magnetic proximity-induced splitting. This can be either a feature (enhancing sensitivity) or a noise source (introducing field variability).
-*   **Temperature Operating Range:** $V_B^-$ in hBN retains spin coherence up to $\sim 400$ K, comfortably covering data center operating temperatures ($T &lt; 85^\circ C$).
+*   **Temperature Operating Range:** $V_B^-$ in hBN retains spin coherence up to $\sim 400$ K, comfortably covering data center operating temperatures ($T < 85^\circ C$).
+
+### 6.1.5 BN-Twist-Angle-Controlled Gating Anomalies
+
+When stacking multiple hBN layers in double-encapsulated or multi-layered gating heterostructures, the rotational alignment (twist angle) between the top and bottom BN layers becomes a critical parameter governing electrostatic control. Maffione et al. (*Nature Materials* 2026, DOI: `10.1038/s41563-026-02667-7`) demonstrate that:
+*   **Anomalous Gating Window:** An angular alignment between the two encapsulating BN layers lying between approximately 15° and 45° triggers a room-temperature ferroelectric-like state, resulting in highly ineffective electrostatic gate control and strong resistance hysteresis.
+*   **Sensitivity to Small Angular Changes:** The gate ineffectiveness and hysteresis are highly sensitive to small angular variations, exhibiting no evidence of the expected 60° periodicity of BN lattices.
+*   **HELIOS-3D Design Rules:**
+    1.  **Hysteresis Mitigation:** For gate-controlled spin transport and SOT switching in the MCA core, the top and bottom hBN layers must be aligned outside the 15°–45° window (ideally close to 0°, 60°, or 90°) to prevent gate screening and uncontrolled state hysteresis. `[PROPOSED]` [Maffione et al. 2026]
+    2.  **Stochastic Gating:** Conversely, in the BRC core, the 15°–45° alignment could be intentionally engineered as a local non-volatile memory node, where the gate hysteresis is used to dynamically adjust the local screening potential of the reservoir. `[PROPOSED]` [Maffione et al. 2026]
 
 ## 7. Recommended Minimum Viable Demonstrator Revision
 
