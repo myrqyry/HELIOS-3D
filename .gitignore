@@ -71,3 +71,7 @@ skills/universal-metacognitive-cycle/
 
 # Generated ASCII Art
 ascii/
+
+# Local Tooling State
+.kilo/
+

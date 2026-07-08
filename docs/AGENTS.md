@@ -2,43 +2,41 @@
 
 ## What Lives Here
 
-Documentation for HELIOS-3D project, including research findings, simulation setups, and technical specifications.
+Astro + MDX documentation content and site source. The public site is compiled from these sources.
 
 ## Key Files
 
 | File | Purpose |
 |------|---------|
-| `docs/CORE_ARCHITECTURE.md` | Core architecture and design decisions |
-| `docs/CANDIDATE_MATERIALS_AND_MECHANISMS.md` | Candidate materials and mechanisms |
-| `docs/PROPOSED_FABRICATION_PATH_AND_CONTROL.md` | Proposed fabrication path and control mechanisms |
-| `docs/MATHEMATICS.md` | Mathematical foundations and equations |
-| `docs/BENCHMARKS.md` | Benchmarks and performance metrics |
+| [`src/content/docs/speculative/core-architecture.mdx`](../src/content/docs/speculative/core-architecture.mdx) | Core architecture and speculative design decisions |
+| [`src/content/docs/established/candidate-materials-and-mechanisms.mdx`](../src/content/docs/established/candidate-materials-and-mechanisms.mdx) | Candidate materials and mechanisms (Katmis 2025, etc.) |
+| [`src/content/docs/speculative/proposed-fabrication-path-and-control.mdx`](../src/content/docs/speculative/proposed-fabrication-path-and-control.mdx) | Speculative fabrication periscope and Inverse Faraday Effect controls |
+| [`src/content/docs/established/mathematics.mdx`](../src/content/docs/established/mathematics.mdx) | Topological and thermodynamic mathematical foundations |
+| [`src/content/docs/current/claims-matrix.mdx`](../src/content/docs/current/claims-matrix.mdx) | Public claims matrix table and detailed evidence mapping |
 
 ## Deviations from Root
 
-- Documentation uses Astro 5 + MDX (replaced the previous MkDocs + Material setup; see `docs/superpowers/specs/2026-06-03-helios-3d-site-rebuild-design.md`)
-- Math equations use MathJax + KaTeX (via remark-math + rehype-katex)
+- Documentation uses Astro 5 + MDX (replaced the previous MkDocs + Material setup)
+- Math equations use MathJax + KaTeX (via `remark-math` + `rehype-katex`)
 
 ## Dependencies & Side Effects
 
-- Changes to research findings may affect simulation setups
-- Updates to technical specifications may require changes in implementation
+- Updates to technical specifications may require changes in implementation or compiler code.
 
 ## Watch Out For
 
-- Ensure all math equations are properly formatted with MathJax
-- Keep documentation consistent with the latest research findings
+- Ensure all math equations are properly formatted in MDX using KaTeX.
+- Keep claims aligned with the `VALIDATION_STATUS.md` and claims taxonomy.
 
 ## Commands (Folder-Specific Only)
 
+To develop or build the site locally, run these from the project root:
 ```bash
-uv run docs:serve
-uv run docs:build
+pnpm dev       # Start Astro dev server
+pnpm build     # Build production static site
 ```
 
 ## Notes
 
-- This file should be SHORT. If it's over 80 lines, split the folder further.
-- Don't repeat setup/install/dev commands from root — just reference them.
-- The point is: "here's what's unique about working in this folder."
-- Delete sections that don't apply (e.g., if no deviations, remove that section).
+- Keep documentation consistent with the latest research findings.
+- Verify all links compile without errors during build.

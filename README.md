@@ -30,6 +30,35 @@ HELIOS-3D is a staged research hypothesis investigating whether spintronic, topo
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
+## Current Reproducible Demo
+
+To verify the compiler pipeline, tests, and documentation build system locally, run the following commands:
+
+```bash
+# Set up Python virtual environment and dependencies
+uv sync
+
+# Run the test suite (verifying compiler logic, claims taxonomy, and simulations)
+uv run pytest
+
+# Install Node.js dependencies
+pnpm install
+
+# Compile the documentation and interactive site
+pnpm build
+```
+
+### What these commands prove:
+- **Compiler logic consistency:** The compiler's coordinate translation and mock Inverse Faraday Effect (IFE) function compile correctly and pass topological charge checks ($Q_H = 1$).
+- **Taxonomy integrity:** The claims validation engine runs successfully, verifying that all claims have matching promotion/demotion criteria and references.
+- **Documentation pipeline correctness:** The MDX-based static site builder compiles all pages, charts, and interactive Three.js components without errors.
+
+### What they DO NOT prove:
+- **No physical validation:** These commands run mock physics adapters and compile documentation. They do not run real physical systems or validate micromagnetic dynamics on actual hardware.
+- **No hardware execution:** The MuMax3/OOMMF simulation scripts are templates and have not been executed on a physical device.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 ## Executive Summary
 
 ```
@@ -51,6 +80,14 @@ HELIOS-3D is a staged research hypothesis investigating whether spintronic, topo
 ```
 
 Sub-Landauer behavior is treated as a long-range research question, not a demonstrated capability.
+
+### Thermodynamic & Operational Validation Guardrails
+
+To maintain physical rigor, HELIOS-3D adopts three validation guardrails based on recent literature in information thermodynamics and classical reversible computing:
+
+1. **CRUD Accounting Framework:** Recent work in information thermodynamics (Iizumi 2026, DOI: `10.1016/j.physa.2026.131801`) frames Landauer's erasure bound as the Delete-specific limit of a broader Create/Read/Update/Delete accounting framework. HELIOS-3D uses this as a validation guardrail: any claimed energy advantage must account for the full physical information lifecycle, including reservoir state preparation, update/perturbation, readout/measurement, overwrite/reset behavior, and protocol-dependent dissipation.
+2. **Reversible Operation Accounting:** Proposed classical reversible computation using quantum-coherent spin dynamics in Ge/Si quantum-dot arrays (Loss 2026, arXiv:2607.06219v1) serves as adjacent evidence for post-Landauer physical-computing architectures where storage, transport, and computation may share the same physical state variable. It strengthens the case for explicit operation-level accounting across reversible logic, readout, reset, transport, and error correction.
+3. **Reservoir Thermodynamics:** Recent theory on the thermodynamics of quantum reservoir computing (Ding & Qiu 2026, arXiv:2607.02157v1) links predictive performance to microscopic energetic cost using Holevo-based memory and predictive capacities. HELIOS-3D treats this as a validation framework: physical reservoirs should be evaluated by how much useful predictive information they retain relative to non-predictive historical information, and by the irreversible work required to maintain continuous temporal processing.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 

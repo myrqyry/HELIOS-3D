@@ -62,7 +62,7 @@ The BRC core is designed to explore non-equilibrium thermodynamic computing prin
 
 Rather than fighting the "thermodynamic crisis" of data center cooling, HELIOS-3D turns waste heat into its primary locomotive force. The BRC core leverages **Stochastic Reservoir Computing**, where ambient thermal noise pushes topological solitons through the inference lattice. `[PROPOSED]`
 
-*   **Thermodynamic Advantage:** The Landauer limit (~0.018 eV at 300K) sets a lower bound on bit erasure energy. By using thermal fluctuations as the driving force rather than charge transport, BRC operates closer to the thermodynamic floor.
+*   **Thermodynamic Advantage:** Rather than treating Landauer's erasure bound as the sole thermodynamic event, BRC energy claims are evaluated across the full information lifecycle (Create, Read, Update, and Delete) governed by nonequilibrium free-energy changes. By using thermal fluctuations as the locomotive force for reservoir updates rather than active driving currents, the system implements an operation-level thermodynamic accounting framework for reservoir inference. `[PROPOSED]` [Ding & Qiu 2026, Iizumi 2026]
 *   **Stochastic Resonance:** When tuned correctly, ambient noise maximizes the signal-to-noise ratio in nonlinear systems. This phenomenon—**Stochastic Resonance**—is exploited where the periodic potential of the Super-Moiré lattice aligns with thermal kick statistics.
 *   **Zero-Power Processing:** Once hopfions are nucleated, the "process" phase is thermally driven. The energy cost is shifted entirely to the "write" phase (photonic imprinting), allowing the computation itself to run on ambient entropy. `[SPECULATIVE]`
 *   **Magnon-Phonon Coupling (Locomotive Link):** The physical mechanism translating lattice vibrations (heat/phonons) into coherent spin excitation (magnons) relies on strong magnetoelastic coupling. The nanoscale observation of **magnon polarons** in metallic van der Waals ferromagnets ($Fe_3GeTe_2$, Li et al., 2026) demonstrates that magnon-phonon band crossings soften quantum selection rules, allowing ambient phonons to directly drive stochastic magnetic texture diffusion. `[DEMONSTRATED]`
@@ -118,6 +118,18 @@ The operational frequencies of the HELIOS-3D processor span twelve orders of mag
 *   **Write-Path / Switching Logic:** $10^{10} - 10^{11}\text{ Hz}$ (Tens of GHz). Deterministic all-optical helicity-dependent magnetization switching (DISH write-path) occurs on sub-nanosecond timescales, utilizing **~40-ps SOT/IFE write pulses**. `[DEMONSTRATED]`
 *   **Interfacial Gating & Spin Torque Gating:** $10^{11} - 10^{12}\text{ Hz}$ (Sub-THz). The intrinsic orbital relaxation time of our epitaxial Mn contacts is quantified at **$\tau_o \approx 2\text{ ps}$** (Kang et al., 2026), preventing orbital current quenching. This is coupled with the **THz coherent acoustic phonons** launched by our Pt/Cu superlattice transducers for sub-picosecond gating of DMI and exchange coupling (Jan-Etienne Pudell et al., 2026). `[PROPOSED]`
 *   **Optical Readout & Metrology:** $10^{14} - 10^{15}\text{ Hz}$ (Visible/NIR). Wavelength-selective photostable feedback loops utilizing defect-engineered CQDs (313–1,193 nm) (Enyoh & Qingyue, 2026) and polarized single-photon emission from ZnPS₃ vacancies (Zawadzka et al., 2026) act as high-frequency optical read ports and alignment landmarks. `[PROPOSED]`
+
+### 📐 2.7 Reservoir Validation Metrics
+For each candidate physical reservoir, HELIOS-3D tracks and evaluates the following metrics:
+1. **Predictive accuracy on temporal tasks:** Benchmark scoring (e.g. MNIST or NARMA-10) under identical noise conditions.
+2. **Memory capacity:** Quantifying the maximum history window the reservoir state preserves.
+3. **Predictive capacity:** Holevo-based analysis of how much useful predictive information is retained.
+4. **Non-predictive retained history:** Identifying and subtracting useless historical information that induces excess dissipation.
+5. **Estimated irreversible work:** Energetic cost of non-equilibrium state transformations during continuous temporal processing.
+6. **Readout/reset/update cost:** Explicit energy budgets for state preparation, coupling, readout, and reset protocols.
+7. **Sensitivity near critical or resonant regimes:** Quantifying the spectral resonance alignment near quantum criticality.
+8. **Robustness under noise, leakage, and fabrication variation:** Stability under thermal fluctuations ($T > 300$ K) and spatial disorder.
+
 
 ---
 

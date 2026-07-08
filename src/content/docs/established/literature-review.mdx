@@ -23,7 +23,7 @@ This document maps the HELIOS-3D research hypothesis to current empirical develo
 >
 The *IEA Electricity 2026* (Feb 2026) and *Key Questions on Energy and AI (April 2026)* confirm that combined demand from data centers, AI, and crypto is projected to reach **~600 TWh in 2026**, with high-growth scenarios surpassing **1,000 TWh by 2030**. `[DEMONSTRATED]`
 
-**Significance:** Provides the foundational motivation for investigating sub-Landauer, noise-exploiting computational paradigms.
+**Significance:** Provides the foundational motivation for investigating noise-exploiting computational paradigms through post-Landauer physical-computing analysis using Create/Read/Update/Delete energy budgets.
 </ExpandableChunk>
 
 ## 2. Empirical Support for Room-Temperature Hopfion Substrates
@@ -51,6 +51,37 @@ Analysis indicates that the topological protection of the Hopf index ($Q_H=1$) i
 *   **Non-equilibrium Systems:** *Nonlinear thermodynamic computing out of equilibrium* (2024/2026) provides the theoretical underpinnings for the Brownian Reservoir Computing (BRC) core. `[DEMONSTRATED]`
 *   **Noise-Driven Optimization:** Emerging preprints on gradient descent in thermodynamic systems support the hypothesis that thermal noise can be utilized as a computational resource. `[INFERRED]`
 </ExpandableChunk>
+
+<ExpandableChunk 
+  title="CRUD-Style Information Thermodynamics (Iizumi, Physica A 2026)" 
+  summary="Extending Landauer's erasure bound as the Delete-specific limit of a broader CRUD framework."
+>
+  Iizumi, *Physica A: Statistical Mechanics and its Applications* (2026, DOI: `10.1016/j.physa.2026.131801`), proposes a unified information-thermodynamic framework that treats Landauer's erasure bound as the Delete-specific limit of a broader Create/Read/Update/Delete (CRUD) accounting system. The framework uses nonequilibrium free-energy inequalities to account for transformations of probability distributions over physical memory states. `[DEMONSTRATED]`
+
+  * **Internal Consistency:** The paper reports a sorry-free Lean 4 formalization of the algebraic identities behind the CRUD accounting framework, establishing the internal consistency of the thermodynamic decomposition.
+  * **HELIOS Relevance:** Supports HELIOS-3D’s validation philosophy: energy claims must account for the full lifecycle of information operations (reservoir state creation/preparation, physical update/perturbation, readout/measurement, overwrite/reset, and protocol-dependent dissipation) rather than focusing solely on erasure.
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="Classical Reversible Computation by Quantum Coherence (Loss, arXiv 2026)" 
+  summary="Classical reversible logic mapped to coherent spin dynamics in semiconductor quantum dots."
+>
+  Loss, *Classical Reversible Computation by Quantum Coherence* (arXiv:2607.06219v1, 2026), proposes classical reversible logic implemented with coherent spin dynamics in semiconductor quantum-dot arrays. Classical basis states represent inputs and outputs, while coherent spin rotations implement reversible gates (such as a DC-pulsed Ge/Si hole-spin iToffoli gate). `[DEMONSTRATED]`
+
+  * **Energy-Accounting Discipline:** Shows that gate energy is dominated by dielectric loss in the gate-electrode capacitance from baseband pulses, and claims a calibrated cold-device gate energy below the 4 K Landauer scale. However, system-level caveats (readout, reset, refrigeration, routing, error correction) can reduce this advantage.
+  * **HELIOS Relevance:** Supports the broader plausibility of physical-computing architectures where storage, transport, and computation share the same physical carrier, and where thermodynamic advantage depends on reversible operation plus explicit accounting of readout, reset, error correction, and protocol dissipation.
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="Thermodynamics of Quantum Reservoir Computing (Ding & Qiu, arXiv 2026)" 
+  summary="Linking reservoir predictive performance to microscopic energetic cost."
+>
+  Ding & Qiu, *Thermodynamics of Quantum Reservoir Computing* (arXiv:2607.02157v1, 2026), propose a non-equilibrium thermodynamic framework connecting reservoir predictive performance to microscopic energetic cost. Using Holevo quantities, they separate retained historical information from useful predictive information, treating the difference as quantum informational dissipation, and derive a generalized Landauer-style bound for continuous temporal processing. `[DEMONSTRATED]`
+
+  * **Memory vs. Prediction:** The paper argues that a useful physical reservoir should be evaluated by the alignment between retained memory and predictive capacity, rather than raw memory capacity. Near-critical regimes improve prediction through spectral resonance, but can also increase informational dissipation by retaining non-predictive history.
+  * **HELIOS Relevance:** Strengthens the validation framework for BRC reservoir evaluation, defining metrics like predictive accuracy, memory/predictive capacity, non-predictive history retention, estimated irreversible work, and readout/reset/update cost.
+</ExpandableChunk>
+
 
 ## 4. Advanced Manufacturing Feasibility
 
@@ -304,6 +335,28 @@ Gao et al. (2026) demonstrate that high-dielectric **SrTiO3** substrates can tun
 
   **HELIOS-3D Application:** Informs the selection of spin-to-photon readouts for quantum sensing and interconnects. Rather than relying on diamond NV centers that operate in the visible spectrum and require complex quantum frequency conversion to interface with standard fiber buses, HELIOS-3D proposes integrating silicon-based T centers. By utilizing their native telecom O-band zero-phonon line and long spin-coherence multi-qubit register, we can implement high-fidelity spin-photon interfaces directly within a monolithic, CMOS-compatible silicon photonics platform. `[PROPOSED]` [Islam et al. 2026]
 </ExpandableChunk>
+
+## 8. Evidence Lanes & Citation Map
+
+This section maps our conceptual framework and validation philosophy to empirical and theoretical literature through distinct evidence lanes.
+
+### Evidence Lane: Information Thermodynamics and Operation-Level Accounting
+- **Iizumi 2026 (Physica A):** CRUD-style information-thermodynamic accounting for Create, Read, Update, and Delete operations.
+- **Ding & Qiu 2026 (arXiv):** Connecting quantum reservoir performance to microscopic energetic cost and informational dissipation.
+- **Loss 2026 (arXiv):** Post-Landauer classical reversible computation using coherent spin dynamics.
+
+### Evidence Lane: Reversible Physical Computation and Post-Landauer Architectures
+- **Loss 2026 (arXiv):** Classical reversible computation by quantum coherence in Ge/Si hole-spin quantum dots.
+- **Iizumi 2026 (Physica A):** CRUD-style information-thermodynamic accounting.
+- **Bennett/Fredkin-Toffoli Lineage:** Reversible logic as the theoretical root.
+- **Nature Materials Memristor Focus 2026:** Physical computing requires material-device-array-system validation.
+
+### Evidence Lane: Thermodynamic Reservoir Computing and Predictive Information
+- **Ding & Qiu 2026 (arXiv):** Quantum reservoir computing thermodynamics, quantum informational dissipation, generalized Landauer bound for continuous prediction.
+- **Iizumi 2026 (Physica A):** CRUD operation-level information thermodynamics.
+- **Loss 2026 (arXiv):** Classical reversible computation using quantum-coherent spin dynamics.
+- **Liu et al. 2026 (PRX / APS Viewpoint):** Synchronization and correlation-only collective dynamics in quantum oscillators.
+
 
 
 

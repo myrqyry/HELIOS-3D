@@ -30,9 +30,11 @@ Test suites for HELIOS-3D project, including unit tests, integration tests, and 
 
 ## Commands (Folder-Specific Only)
 
+Run these from the project root:
 ```bash
-uv run test
-uv run test:watch
+uv run pytest     # Run Python unit and integration tests
+pnpm test         # Run Astro/Vite frontend unit tests
+pnpm test:e2e     # Run Playwright E2E tests
 ```
 
 ## Notes

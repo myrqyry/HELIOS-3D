@@ -29,9 +29,9 @@ Micromagnetic simulation configurations and analysis scripts for HELIOS-3D proje
 
 ## Commands (Folder-Specific Only)
 
+Run these from the project root:
 ```bash
-uv run sim:test
-uv run sim:build
+uv run pytest     # Run project tests, including simulations
 ```
 
 ## Notes

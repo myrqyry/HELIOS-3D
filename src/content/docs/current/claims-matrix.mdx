@@ -8,11 +8,61 @@ updated: 2026-06-03
 ---
 import ClaimsTable from '../../../components/ClaimsTable.astro';
 
-<ClaimsTable rows={[]} />
-
 # Claims Matrix
 
 This file tracks the highest-impact HELIOS-3D claims, where they appear, what they depend on, and what would promote or demote them.
+
+### Visual Credibility Map
+
+```mermaid
+graph TD
+    %% Define Styles
+    classDef lit fill:#1e4620,stroke:#2e7d32,color:#fff;
+    classDef sim fill:#0d3c61,stroke:#1565c0,color:#fff;
+    classDef comp fill:#6e2b00,stroke:#e65100,color:#fff;
+    classDef spec fill:#3b0b59,stroke:#6a1b9a,color:#fff;
+
+    subgraph Literature_Evidence ["Lane 1: Literature Evidence (Verified Empirical)"]
+        L1["Room-temp zero-field hopfions<br>in EuS/Bi₂Se₃/EuS (Katmis 2025)"]:::lit
+        L2["40-ps SAF SOT switching<br>at room temp (Tsai 2026)"]:::lit
+        L3["DISH 3D printing: 19 µm<br>in 0.6s (Wang 2026)"]:::lit
+        L4["CRUD Information Thermodynamics<br>Accounting (Iizumi 2026)"]:::lit
+    end
+
+    subgraph Simulation_Validation ["Lane 2: Simulation Validation (Executable Templates)"]
+        S1["SAF magnetic stack gradient<br>modeling (MuMax3)"]:::sim
+        S2["Hopfion stability in cylindrical<br>confinement (OOMMF)"]:::sim
+        S3["Brownian reservoir dynamics<br>& MNIST accuracy modeling"]:::sim
+        S4["Ensemble noise averaging<br>& temperature tolerance"]:::sim
+    end
+
+    subgraph Compiler_Abstraction ["Lane 3: Compiler Abstraction (Code & Logic)"]
+        C1["Semantic vectors compile to<br>3D magnetization tensors"]:::comp
+        C2["Topological Spin Conformation<br>Language (Spin-ConfSeq)"]:::comp
+        C3["Mesh-Free LLG boundary constraint<br>discovery (NeuroDiffEq)"]:::comp
+        C4["Inverse Design loop for holographic<br>prescriptions (PINNs)"]:::comp
+    end
+
+    subgraph Hardware_Speculation ["Lane 4: Long-Range Speculation (Aspirations)"]
+        H1["Conformal vdW Fe₃GaTe₂ coating<br>on TPP 3D scaffolds"]:::spec
+        H2["Sub-second photonic hopfion write<br>via Inverse Faraday Effect"]:::spec
+        H3["Zero-bias BRC reservoir computation<br>running on ambient heat"]:::spec
+        H4["TOHE electrical readout and<br>sub-GHz breathing mode spectroscopy"]:::spec
+    end
+
+    %% Connect lanes logically to show progression
+    L1 --> S2
+    L2 --> S1
+    L3 --> H1
+    L4 --> S3
+    S2 --> C1
+    S3 --> C2
+    C1 --> H2
+    C2 --> H3
+    S4 --> H3
+    C4 --> H2
+```
+
 
 | Claim | Tag | Source anchor | Source conditions | Failure mode | Promotion or demotion test |
 | --- | --- | --- | --- | --- | --- |
@@ -45,3 +95,36 @@ This file tracks the highest-impact HELIOS-3D claims, where they appear, what th
 | Bio-inspired B-ONN local learning rules eliminate global backpropagation reciprocal path constraints and learn smooth phase profiles robust to SOT alignment/noise perturbations | `core-architecture.mdx`, `literature-review.mdx` | Li et al. (Light: Science & Applications 2026) | Layer-wise target propagation with trainable error convolution kernels ($E$) | Suboptimal convergence in systems with very high degrees of freedom compared to global optimization | Compare classification accuracy of traditional backprop vs. B-ONN local learning on a 9-layer diffractive network stack with phase noise |
 | Silicon-based T-center spin-photonic qubits provide a native telecom-band interface (1326 nm ZPL) and host a three-qubit register with long spin coherence times | `alternative-materials-and-methods.mdx`, `literature-review.mdx` | Islam et al. (Light: Science & Applications 2026) | Monolithic silicon-on-insulator (SOI) integration with nanophotonic cavities to achieve Purcell enhancement | Low Debye-Waller factor (~3-5% ZPL fraction) reduces extraction efficiency | Measure on-chip collection efficiency and spin coherence times of a waveguide-integrated single T-center cavity at 1.2 K |
 | Dual-view Bessel two-photon projection microscopy (dv-B2PM) achieves 100 Hz whole-volume 3D imaging with sub-micron spatial resolution | `literature-review.mdx`, `proposed-fabrication-path-and-control.mdx` | Xu et al. (Light: Science & Applications 2026) | Simultaneous recording of two orthogonal projections using a dual-objective Bessel light-sheet optical system | Scattering and resolution degradation in deep tissue/thick materials limits depth penetration | Compare 3D reconstruction accuracy and acquisition speed of point-scanning 2PM vs. dv-B2PM on active 3D spintronic tracks |
+| Landauer's erasure bound is the Delete-specific limit of a broader CRUD information-thermodynamic framework | `literature-review.mdx`, `defensive-framework.mdx` | Iizumi (Physica A 2026) | Nonequilibrium free-energy inequalities over physical memory states | Theoretical framework only; does not account for physical device preparation and dissipation | Keep if internal algebraic consistency is supported by machine-checked formalization |
+| Classical reversible logic can be proposed using coherent spin dynamics in semiconductor quantum-dot arrays | `literature-review.mdx`, `core-architecture.mdx` | Loss (arXiv:2607.06219v1, 2026) | Coherent spin dynamics in quantum-dot arrays with DC voltage pulses | Theoretical/simulation proposal; experimental verification of three-spin gate and error scaling needed | Promote after experimental demonstration of coherent three-spin classical gate |
+| Quantum reservoir performance links to microscopic energetic cost via Holevo memory/predictive capacities | `literature-review.mdx`, `core-architecture.mdx` | Ding & Qiu (arXiv:2607.02157v1, 2026) | Quantum many-body reservoir models out of equilibrium | Theoretical preprint; transfer to magnetic textures or 2D stacks is conceptual only | Promote when reservoir validation metrics are measured in physical hardware |
+
+## Detailed Claims
+
+### From erasure to CRUD: unified information-thermodynamic accounting
+**Claim level:** Theory / framework / simulation-supported
+**Subsystem:** information thermodynamics, operation-level energy accounting, Landauer-bound framing, physical memory operations
+**Source:** Iizumi, *Physica A: Statistical Mechanics and its Applications* 2026. DOI: `10.1016/j.physa.2026.131801`
+**Supported statement:** Landauer’s erasure bound can be treated as the Delete-specific limit of a broader Create, Read, Update, and Delete (CRUD) accounting framework. The framework uses nonequilibrium free-energy inequalities to account for transformations of probability distributions over physical memory states.
+**HELIOS relevance:** Supports HELIOS-3D’s validation philosophy for physical computing: energy claims must account for the full lifecycle of information operations, including reservoir state creation/preparation, physical update or perturbation, readout/measurement, overwrite-like update, relaxation, and deletion/reset.
+**Does not support:** Hopfion stability, skyrmion/hopfion reservoir computing, hBN defect computation, material feasibility, quantum advantage, sub-Landauer operation, or the complete HELIOS-3D architecture.
+**Failure/blocker notes:** This is a theoretical and simulation-backed accounting framework, not a device demonstration. HELIOS would still require operation-level energy budgets for physical state preparation, driving, coupling, readout, noise management, reset, leakage, and protocol dissipation.
+**Special note:** The paper distinguishes state-function information free-energy changes from protocol-dependent dissipation, which is directly useful for separating ideal thermodynamic limits from real implementation losses.
+
+### Classical reversible computation by quantum coherence
+**Claim level:** Proposed externally / simulation-supported / arXiv preprint
+**Subsystem:** reversible computation, spin-based physical logic, post-Landauer operation accounting, coherent data movement
+**Source:** Loss, *Classical Reversible Computation by Quantum Coherence*, arXiv:2607.06219v1, 2026.
+**Supported statement:** Classical reversible logic can be proposed using coherent spin dynamics in semiconductor quantum-dot arrays, with basis-state inputs/outputs and unitary spin rotations implementing reversible gates. The paper proposes a DC-pulsed Ge/Si hole-spin iToffoli gate and analyzes gate error, shuttling, readout, and energy cost.
+**HELIOS relevance:** Supports the broader plausibility of physical-computing architectures where storage, transport, and computation are implemented by the same physical state variable, and where thermodynamic advantage depends on reversible operation plus explicit accounting of readout, reset, error correction, and protocol dissipation.
+**Does not support:** Hopfion stability, skyrmion/hopfion reservoir computing, hBN defect computation, optical spin readout, 2D-material stack feasibility, or the complete HELIOS-3D architecture.
+**Failure/blocker notes:** This is a theoretical/simulation proposal, not a demonstrated processor. Experimental tests still need to verify the three-spin truth table, error landscape, exchange stability during hopping, driven capacitance, and shuttling energy. Transfer to HELIOS-style magnetic textures or layered 2D stacks is conceptual only.
+
+### Thermodynamics of quantum reservoir computing
+**Claim level:** Theory / simulation-supported / arXiv preprint
+**Subsystem:** quantum reservoir computing, information thermodynamics, critical dynamics, predictive-capacity accounting
+**Source:** Ding & Qiu, *Thermodynamics of Quantum Reservoir Computing*, arXiv:2607.02157v1, 2026.
+**Supported statement:** Quantum reservoir computing can be analyzed using a non-equilibrium thermodynamic framework that links predictive performance to microscopic energetic cost. Holevo-based memory and predictive capacities can separate retained historical information from useful predictive information, and the difference can be treated as quantum informational dissipation.
+**HELIOS relevance:** Supports HELIOS-3D’s validation philosophy for physical reservoir inference: candidate reservoirs should be evaluated not only by accuracy, memory, or criticality, but by operation-level energetic cost, predictive capacity, non-predictive history retention, coherence contribution, and irreversible work.
+**Does not support:** Hopfion stability, skyrmion/hopfion reservoir computing specifically, hBN defect computation, material feasibility, optical readout integration, sub-Landauer operation, or the complete HELIOS-3D architecture.
+**Failure/blocker notes:** This is a theoretical arXiv preprint using quantum many-body reservoir models, not a demonstrated HELIOS-like device. Transfer to magnetic textures, hopfions, 2D stacks, or spin-defect layers is conceptual only.
