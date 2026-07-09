@@ -1,17 +1,31 @@
 # Validation Status
 
-This document tracks the execution and validation state of the HELIOS-3D project, separating theoretical frameworks and simulations from physical hardware demonstration.
+## Demonstrated in this repository
 
-## Executable Validations
-- **Claim Taxonomy:** Exists and is tracked via [`claims-matrix.mdx`](file:///home/myrqyry/MQR/HELIOS-3D/src/content/docs/current/claims-matrix.mdx). [Verified]
-- **Compiler Protocol Scaffold:** Exists and passes unit tests in `tests/test_topological_compiler.py`. [Verified]
-- **Mock Topology Tests:** Passing in `tests/` (verifying mathematical properties of coordinate synthesis and Hopf Index calculations). [Verified]
-- **Physics Adapters:** Implemented as mock components in the compiler pipeline. [Verified]
+- Documentation and claims taxonomy compile.
+- Mock topological compiler tests pass.
+- Claims matrix tracks promotion/demotion criteria.
 
-## Simulation and Modeling (Pending Verification)
-- **MuMax3 Templates:** Pre-configured in `simulations/`, but not yet validated against physical parameters.
-- **OOMMF Templates:** Pre-configured in `simulations/`, but not yet validated against physical parameters.
+## Demonstrated externally
 
-## Physical Hardware (Unverified / Speculative)
-- **No Fabricated Device:** The physical 3D polymer scaffold and active magnetic heterostructures have not been manufactured.
-- **No Measured Energy Advantage:** Energy-efficiency claims (e.g. fJ-scale) are purely theoretical targets/simulations and have not been measured on real hardware.
+- hBN twist-angle gating and hysteresis.
+- 2D-material contact transfer-length measurement.
+- 2D leakage/tunnelling constraints.
+- Spin-photon and defect-emitter platforms.
+- Optical magnetic-domain control.
+- Memristor precision requires device-array-system co-design.
+
+## Theory / framework only
+
+- CRUD information thermodynamics.
+- Thermodynamics of quantum reservoir computing.
+- Classical reversible computation by quantum coherence.
+- Quantum synchronization in coupled oscillator systems.
+
+## Not demonstrated
+
+- HELIOS physical hardware.
+- Hopfion reservoir inference.
+- hBN defect coupling to magnetic reservoirs.
+- Sub-Landauer or full-system energy advantage.
+- 3D conformal magnetic stack fabrication.

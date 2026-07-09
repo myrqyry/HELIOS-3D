@@ -70,8 +70,9 @@ pnpm build
 │  Hopfion Advantage    Theoretically bypass Skyrmion Hall Effect via         │
 │                       zero net topological charge [INFERRED]                │
 │                                                                             │
-│  Long-Range Target    fJ-scale computation approaching Landauer limit       │
-│                       (kBT ln 2) [SPECULATIVE]                              │
+│  Long-Range Target    operation-accounted fJ-scale physical inference       │
+│                       approaching thermodynamic efficiency limits           │
+│                       [SPECULATIVE]                                         │
 │                                                                             │
 │  Strongest Candidate  Compensated ferrimagnet/altermagnet transport with    │
 │                       spin-pumping readout                                  │
