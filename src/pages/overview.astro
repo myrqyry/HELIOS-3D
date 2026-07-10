@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const readingPath = [
+  { label: 'Overview', href: '/overview/' },
+  { label: 'Start here', href: '/start-here/' },
+  { label: 'Claims matrix', href: '/docs/current/claims-matrix/' },
+  { label: 'Literature review', href: '/docs/established/literature-review/' },
+];
+---
+<BaseLayout title="Overview" description="A plain-language introduction to HELIOS-3D.">
+  <header class="mb-12 pb-6 border-b border-obsidian-3">
+    <p class="text-xs font-mono uppercase tracking-[0.2em] text-amber mb-3">Public overview</p>
+    <h1 class="text-5xl font-bold text-amber mb-4">What HELIOS-3D is, and is not</h1>
+    <p class="text-lg text-parchment-2 max-w-3xl leading-relaxed">
+      HELIOS-3D is a research site about a speculative spintronic computing
+      program. It asks whether magnetic textures such as hopfions could one day
+      support more energy-efficient computation, but it does not claim a working
+      device today.
+    </p>
+  </header>
+
+  <section class="grid gap-6 md:grid-cols-3 mb-12">
+    <article class="rounded-lg border border-obsidian-3 bg-obsidian-2 p-6">
+      <h2 class="text-xl font-bold text-amber mb-3">Why it exists</h2>
+      <p class="text-parchment-2 leading-relaxed">
+        Modern computing moves a lot of charge, and moving charge costs energy.
+        HELIOS-3D explores whether topological spin textures could reduce some of
+        that cost.
+      </p>
+    </article>
+    <article class="rounded-lg border border-obsidian-3 bg-obsidian-2 p-6">
+      <h2 class="text-xl font-bold text-amber mb-3">What it studies</h2>
+      <p class="text-parchment-2 leading-relaxed">
+        The project follows a staged research path: established physics,
+        candidate materials, current evidence, and long-range speculation.
+      </p>
+    </article>
+    <article class="rounded-lg border border-obsidian-3 bg-obsidian-2 p-6">
+      <h2 class="text-xl font-bold text-amber mb-3">What it does not claim</h2>
+      <p class="text-parchment-2 leading-relaxed">
+        The site does not present a finished chip or a proven sub-Landauer
+        computer. It keeps the line between evidence, inference, and speculation
+        visible.
+      </p>
+    </article>
+  </section>
+
+  <section class="rounded-xl border border-ember/25 bg-ember/5 p-6 mb-12">
+    <h2 class="text-2xl font-bold text-amber mb-3">How to read the site</h2>
+    <p class="text-parchment-2 leading-relaxed mb-5 max-w-3xl">
+      Start here if you want the big picture. Then move into the guided path,
+      the claims matrix, and the literature review. That order gives you context
+      before detail.
+    </p>
+    <div class="flex flex-wrap gap-3">
+      {readingPath.map((item) => (
+        <a href={item.href} class="rounded-full border border-obsidian-3 px-4 py-2 text-sm text-parchment-2 hover:border-amber hover:text-amber transition-colors">
+          {item.label}
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="grid gap-6 md:grid-cols-2">
+    <article class="rounded-lg border border-obsidian-3 bg-obsidian-2 p-6">
+      <h2 class="text-2xl font-bold text-amber mb-3">The public version</h2>
+      <p class="text-parchment-2 leading-relaxed mb-4">
+        If you are new to the topic, read this page first and then use the
+        guided path. It gives you a short explanation before you meet the more
+        technical language.
+      </p>
+      <a href="/start-here/" class="text-amber hover:underline">Open the guided path →</a>
+    </article>
+
+    <article class="rounded-lg border border-obsidian-3 bg-obsidian-2 p-6">
+      <h2 class="text-2xl font-bold text-amber mb-3">The technical trail</h2>
+      <p class="text-parchment-2 leading-relaxed mb-4">
+        If you want the evidence first, jump straight to the claims matrix and
+        literature review.
+      </p>
+      <a href="/docs/current/claims-matrix/" class="text-amber hover:underline">Open the claims matrix →</a>
+    </article>
+  </section>
+</BaseLayout>

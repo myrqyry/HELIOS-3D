@@ -1,5 +1,6 @@
 import React from 'react';
-import { Canvas, CanvasProps } from '@react-three/fiber';
+import { Canvas } from '@react-three/fiber';
+import type { CanvasProps } from '@react-three/fiber';
 import { OrbitControls, Stars } from '@react-three/drei';
 
 interface R3FCanvasProps {

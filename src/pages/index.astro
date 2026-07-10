@@ -16,6 +16,7 @@ const highlights: Array<{ doc: string; stage: DocStage; claim: string; href: str
 ];
 
 const readingPath: Array<{ step: number; title: string; desc: string; stage: DocStage; href: string }> = [
+  { step: 0, title: 'Overview', desc: 'A plain-language introduction to the project.', stage: 'established', href: '/overview/' },
   { step: 1, title: 'Abstract', desc: 'Project pitch and dual-core architecture.', stage: 'established', href: '/docs/established/abstract/' },
   { step: 2, title: 'Candidate Materials', desc: 'Spin textures and the EuS/Bi₂Se₃/EuS substrate.', stage: 'established', href: '/docs/established/candidate-materials-and-mechanisms/' },
   { step: 3, title: 'Literature Review', desc: 'The 2026 evidence base.', stage: 'established', href: '/docs/established/literature-review/' },
@@ -31,20 +32,23 @@ const readingPath: Array<{ step: number; title: string; desc: string; stage: Doc
       <div class="md:col-span-3 flex flex-col justify-center">
         <div class="hero-anim reveal-initial inline-flex items-center gap-2 px-3 py-1 rounded-full border border-amber/25 bg-amber/5 text-amber text-xs font-mono mb-6 w-fit">
           <span class="w-1.5 h-1.5 rounded-full bg-amber animate-pulse"></span>
-          Thermodynamic Inference Coprocessor
+          Public-first research site
         </div>
         <h1 class="hero-anim reveal-initial text-5xl md:text-7xl font-extrabold leading-[1.1] mb-6 tracking-tight">
-          A spintronic coprocessor<br />
-          <span class="gradient-text-amber drop-shadow-[0_0_20px_rgba(255,182,39,0.15)]">architecture using 3D hopfions.</span>
+          A research site about<br />
+          <span class="gradient-text-amber drop-shadow-[0_0_20px_rgba(255,182,39,0.15)]">spintronic computing with 3D hopfions.</span>
         </h1>
         <p class="hero-anim reveal-initial text-lg md:text-xl text-parchment-2/90 max-w-2xl mb-10 leading-relaxed">
-          HELIOS-3D is a staged research hypothesis for an ultra-low-energy thermodynamic inference coprocessor, utilizing 3D spin configurations for nanoscale high-frequency computation.
+          HELIOS-3D explains a staged research hypothesis in plain language first, then opens the technical evidence, claims, and roadmap underneath.
         </p>
         <div class="hero-anim reveal-initial flex flex-wrap gap-4">
-          <a href="/start-here/" class="px-6 py-3.5 rounded-lg bg-gradient-to-r from-amber to-ember text-obsidian font-extrabold shadow-[0_4px_20px_rgba(255,107,26,0.25)] hover:shadow-[0_4px_30px_rgba(255,107,26,0.45)] hover:scale-[1.03] transition-all duration-300">
-            Start here →
+          <a href="/overview/" class="px-6 py-3.5 rounded-lg bg-gradient-to-r from-amber to-ember text-obsidian font-extrabold shadow-[0_4px_20px_rgba(255,107,26,0.25)] hover:shadow-[0_4px_30px_rgba(255,107,26,0.45)] hover:scale-[1.03] transition-all duration-300">
+            Read the overview →
           </a>
-          <a href="/docs/current/claims-matrix/" class="px-6 py-3.5 rounded-lg border border-amber/70 text-amber font-semibold hover:bg-amber/5 hover:border-amber hover:scale-[1.03] transition-all duration-300">
+          <a href="/start-here/" class="px-6 py-3.5 rounded-lg border border-amber/70 text-amber font-semibold hover:bg-amber/5 hover:border-amber hover:scale-[1.03] transition-all duration-300">
+            Start reading →
+          </a>
+          <a href="/docs/current/claims-matrix/" class="px-6 py-3.5 rounded-lg border border-obsidian-3/60 text-parchment-2 hover:text-parchment hover:border-parchment-2 hover:scale-[1.03] transition-all duration-300">
             Read the claims →
           </a>
           <a href="/figures/" class="px-6 py-3.5 rounded-lg border border-obsidian-3/60 text-parchment-2 hover:text-parchment hover:border-parchment-2 hover:scale-[1.03] transition-all duration-300">
@@ -57,9 +61,41 @@ const readingPath: Array<{ step: number; title: string; desc: string; stage: Doc
           <div class="absolute inset-0 bg-gradient-to-tr from-ember/5 to-transparent pointer-events-none"></div>
           <HopfionScene client:visible height="h-[28rem]" interactive={true} />
           <div class="absolute bottom-4 left-4 bg-obsidian/60 backdrop-blur px-3 py-1 rounded border border-obsidian-3/40 text-xs font-mono text-parchment-2 pointer-events-none">
-            Interactive 3D Hopfion Knot (Drag to rotate)
+            Interactive 3D Hopfion knot (drag to rotate)
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Section 1.5 — Public overview */}
+  <section class="relative border-b border-obsidian-3/20 bg-obsidian-2/10 py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="reveal-on-scroll reveal-initial">
+        <SectionHeading number="01" title="A plain-language entry point" color="ember" />
+      </div>
+      <div class="reveal-on-scroll reveal-initial max-w-3xl mb-10">
+        <h2 class="text-3xl md:text-4xl font-extrabold mb-6">
+          Start with the <span class="gradient-text-amber">idea</span>, then move into the evidence.
+        </h2>
+        <p class="text-parchment-2/95 text-base md:text-lg leading-relaxed">
+          The site is designed so a curious reader can understand the project without already knowing the jargon. The science is still here, but the first step is a clear explanation of what the project is trying to do, why it matters, and how much is actually proven.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <a href="/overview/" class="reveal-on-scroll reveal-initial glass-card block rounded-xl p-6 border border-obsidian-3/40 hover:border-amber/35 transition-colors">
+          <h3 class="text-xl font-bold text-amber mb-3">1. Read the overview</h3>
+          <p class="text-sm text-parchment-2/90 leading-relaxed">A short, plain-language explanation of the project, the problem it addresses, and the claims boundary.</p>
+        </a>
+        <a href="/start-here/" class="reveal-on-scroll reveal-initial glass-card block rounded-xl p-6 border border-obsidian-3/40 hover:border-amber/35 transition-colors">
+          <h3 class="text-xl font-bold text-amber mb-3">2. Follow the guided path</h3>
+          <p class="text-sm text-parchment-2/90 leading-relaxed">A reading order that moves from orientation to evidence to the more technical material.</p>
+        </a>
+        <a href="/docs/current/claims-matrix/" class="reveal-on-scroll reveal-initial glass-card block rounded-xl p-6 border border-obsidian-3/40 hover:border-amber/35 transition-colors">
+          <h3 class="text-xl font-bold text-amber mb-3">3. Check the evidence ladder</h3>
+          <p class="text-sm text-parchment-2/90 leading-relaxed">See what is demonstrated, inferred, proposed, and speculative before you go deeper.</p>
+        </a>
       </div>
     </div>
   </section>
@@ -127,7 +163,7 @@ const readingPath: Array<{ step: number; title: string; desc: string; stage: Doc
   <section class="relative border-b border-obsidian-3/20 py-24">
     <div class="max-w-6xl mx-auto px-6">
       <div class="reveal-on-scroll reveal-initial">
-        <SectionHeading number="03" title="Topological Magnetism: 2D vs 3D" color="amber" />
+        <SectionHeading number="03" title="Topological Magnetism: 2D vs 3D" color="ember" />
       </div>
       <div class="reveal-on-scroll reveal-initial max-w-3xl mb-12">
         <h2 class="text-3xl md:text-4xl font-extrabold mb-6">
