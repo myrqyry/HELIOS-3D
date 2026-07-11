@@ -1,4 +1,4 @@
-import data from '../../data/literature-timeline.json';
+import { getResearchTimelineRows } from '../../data/research-ingestion';
 
 const tagColor: Record<string, string> = {
   DEMONSTRATED: 'bg-gold',
@@ -8,6 +8,8 @@ const tagColor: Record<string, string> = {
 };
 
 export default function LiteratureTimeline({ height = 'h-48' }: { height?: string }) {
+  const data = getResearchTimelineRows();
+
   return (
     <div className={`w-full ${height} rounded-lg border border-obsidian-3 bg-obsidian-2 p-4 overflow-x-auto`}>
       <h4 className="font-mono text-xs uppercase tracking-wider text-amber mb-3">Literature timeline 2024–2026</h4>
