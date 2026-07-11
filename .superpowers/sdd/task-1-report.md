@@ -27,6 +27,13 @@
 - `pnpm check` still reports existing unused-import/unused-variable warnings in unrelated files.
 - `UBIQUITOUS_LANGUAGE.md` was already untracked and left untouched.
 
+## Fix addendum
+- Updated `src/data/research-ingestion.ts` so seed loading stays tolerant if a future record is malformed, while `normalizeResearchRecords()` remains strict for tests and callers.
+- Tightened URL validation to accept only `http:` and `https:` URLs when a URL is present.
+- Removed placeholder URLs from the seed records that did not yet have canonical links.
+- Expanded `src/data/__tests__/research-ingestion.test.ts` to cover missing IDs, malformed URLs, invalid stages, and invalid timeline tags.
+- Re-ran `pnpm test -- src/data/__tests__/research-ingestion.test.ts`, `pnpm check`, and `pnpm build`; all passed.
+
 ## Follow-up fix
 - Refactored `src/data/research-ingestion.ts` to use a tolerant `loadResearchRecords()` path for the exported public seed data while keeping `normalizeResearchRecords()` strict for direct callers and tests.
 - Added coverage for missing ids, malformed URLs, invalid stages, invalid timeline tags, and the tolerant seed-loading path.

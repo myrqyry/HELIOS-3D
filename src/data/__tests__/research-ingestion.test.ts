@@ -44,6 +44,85 @@ it('rejects duplicate ids', () => {
   ).toThrow('duplicate id: iea-ai-energy-crisis');
 });
 
+it('rejects missing ids', () => {
+  expect(() =>
+    normalizeResearchRecords([
+      {
+        id: '',
+        title: 'Missing id',
+        source: 'IEA',
+        publishedAt: '2026-01-01',
+        stage: 'established',
+        tags: ['energy'],
+        summary: 'x',
+        evidenceLevel: 'DEMONSTRATED',
+        publicUse: 'overview',
+      } as any,
+    ]),
+  ).toThrow('missing id at index 0');
+});
+
+it('rejects malformed urls', () => {
+  expect(() =>
+    normalizeResearchRecords([
+      {
+        id: 'bad-url',
+        title: 'Bad URL',
+        source: 'IEA',
+        url: 'javascript:alert(1)',
+        publishedAt: '2026-01-01',
+        stage: 'established',
+        tags: ['energy'],
+        summary: 'x',
+        evidenceLevel: 'DEMONSTRATED',
+        publicUse: 'overview',
+      },
+    ]),
+  ).toThrow('invalid url for id: bad-url');
+});
+
+it('rejects invalid stages', () => {
+  expect(() =>
+    normalizeResearchRecords([
+      {
+        id: 'bad-stage',
+        title: 'Bad stage',
+        source: 'IEA',
+        publishedAt: '2026-01-01',
+        stage: 'broken' as any,
+        tags: ['energy'],
+        summary: 'x',
+        evidenceLevel: 'DEMONSTRATED',
+        publicUse: 'overview',
+      },
+    ]),
+  ).toThrow('invalid stage: broken');
+});
+
+it('rejects invalid timeline tags', () => {
+  expect(() =>
+    normalizeResearchRecords([
+      {
+        id: 'bad-timeline-tag',
+        title: 'Bad timeline tag',
+        source: 'IEA',
+        publishedAt: '2026-01-01',
+        stage: 'current',
+        tags: ['energy'],
+        summary: 'x',
+        evidenceLevel: 'DEMONSTRATED',
+        publicUse: 'timeline',
+        timeline: {
+          year: 2026,
+          title: 'Bad timeline tag',
+          tag: 'BAD' as any,
+          order: 1,
+        },
+      },
+    ]),
+  ).toThrow('invalid timeline tag for id: bad-timeline-tag');
+});
+
 it('derives timeline rows from the normalized records', () => {
   expect(getResearchTimelineRows()).toContainEqual({
     year: 2026,

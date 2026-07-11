@@ -20,7 +20,7 @@ export interface ResearchRecord {
   id: string;
   title: string;
   source: string;
-  url: string;
+  url?: string;
   publishedAt: string;
   stage: ResearchStage;
   tags: string[];
@@ -41,8 +41,8 @@ function isNonEmptyString(value: unknown): value is string {
 
 function isValidUrl(value: string): boolean {
   try {
-    new URL(value);
-    return true;
+    const parsed = new URL(value);
+    return parsed.protocol === 'http:' || parsed.protocol === 'https:';
   } catch {
     return false;
   }
@@ -82,7 +82,7 @@ function normalizeResearchRecord(
     throw new Error(`invalid source for id: ${record.id}`);
   }
 
-  if (!isValidUrl(record.url)) {
+  if (record.url !== undefined && !isValidUrl(record.url)) {
     throw new Error(`invalid url for id: ${record.id}`);
   }
 
@@ -177,7 +177,6 @@ const seedResearchRecords: ResearchRecord[] = [
     id: 'katmis-hopfion-stability',
     title: 'EuS/Bi2Se3/EuS hopfion (Katmis)',
     source: 'Katmis et al.',
-    url: 'https://example.com/katmis-hopfion-stability',
     publishedAt: '2025-05-01',
     stage: 'established',
     tags: ['hopfion', 'topological-insulator'],
@@ -219,7 +218,6 @@ const seedResearchRecords: ResearchRecord[] = [
     id: 'wang-dish-holographic-printing',
     title: 'DISH holographic printing',
     source: 'Wang et al.',
-    url: 'https://example.com/wang-dish-holographic-printing',
     publishedAt: '2024-06-01',
     stage: 'established',
     tags: ['fabrication', 'holography'],
@@ -237,7 +235,6 @@ const seedResearchRecords: ResearchRecord[] = [
     id: 'wang-dish-printing',
     title: 'DISH Nature 2026',
     source: 'Wang et al.',
-    url: 'https://example.com/wang-dish-nature-2026',
     publishedAt: '2026-06-01',
     stage: 'current',
     tags: ['fabrication', 'volumetric-printing'],
@@ -255,7 +252,6 @@ const seedResearchRecords: ResearchRecord[] = [
     id: 'wang-y-zipper-flexible-rigid',
     title: 'Y-zipper flexible-rigid',
     source: 'Wang et al.',
-    url: 'https://example.com/wang-y-zipper-flexible-rigid',
     publishedAt: '2026-05-01',
     stage: 'current',
     tags: ['fabrication', 'mechanical-transition'],
@@ -273,7 +269,6 @@ const seedResearchRecords: ResearchRecord[] = [
     id: 'tsai-mn3sn-switching',
     title: 'Mn3Sn AFM switching (Tsai)',
     source: 'Tsai et al.',
-    url: 'https://example.com/tsai-mn3sn-switching',
     publishedAt: '2026-05-01',
     stage: 'established',
     tags: ['switching', 'antiferromagnet'],
@@ -291,7 +286,6 @@ const seedResearchRecords: ResearchRecord[] = [
     id: 'wang-polaritonic-switch',
     title: 'Polaritonic switch 4 fJ (Wang)',
     source: 'Wang et al.',
-    url: 'https://example.com/wang-polaritonic-switch',
     publishedAt: '2026-05-15',
     stage: 'current',
     tags: ['switching', 'polaritonic'],
@@ -309,7 +303,6 @@ const seedResearchRecords: ResearchRecord[] = [
     id: 'gobel-lounis-tohe',
     title: 'TOHE hopfion (Göbel & Lounis)',
     source: 'Göbel & Lounis',
-    url: 'https://example.com/gobel-lounis-tohe',
     publishedAt: '2026-05-20',
     stage: 'current',
     tags: ['readout', 'orbital-current'],
@@ -327,7 +320,6 @@ const seedResearchRecords: ResearchRecord[] = [
     id: 'wang-2d-peptide-crystals',
     title: '2D peptide crystals (Wang)',
     source: 'Wang et al.',
-    url: 'https://example.com/wang-2d-peptide-crystals',
     publishedAt: '2026-04-15',
     stage: 'established',
     tags: ['materials', 'chiral-recognition'],
