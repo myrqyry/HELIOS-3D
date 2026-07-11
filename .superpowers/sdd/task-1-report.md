@@ -34,6 +34,13 @@
 - Expanded `src/data/__tests__/research-ingestion.test.ts` to cover missing IDs, malformed URLs, invalid stages, and invalid timeline tags.
 - Re-ran `pnpm test -- src/data/__tests__/research-ingestion.test.ts`, `pnpm check`, and `pnpm build`; all passed.
 
+## Final fix addendum
+- Converted the negative-path validator tests into a table-driven suite.
+- Added an explicit warning callback to `loadResearchRecords()` so malformed seed
+  entries are reported instead of silently dropped.
+- Re-ran `pnpm test -- src/data/__tests__/research-ingestion.test.ts`,
+  `pnpm check`, and `pnpm build`; all passed after the final cleanup.
+
 ## Follow-up fix
 - Refactored `src/data/research-ingestion.ts` to use a tolerant `loadResearchRecords()` path for the exported public seed data while keeping `normalizeResearchRecords()` strict for direct callers and tests.
 - Added coverage for missing ids, malformed URLs, invalid stages, invalid timeline tags, and the tolerant seed-loading path.

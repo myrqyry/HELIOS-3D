@@ -141,7 +141,10 @@ export function normalizeResearchRecords(records: ReadonlyArray<ResearchRecord>)
   return records.map((record, index) => normalizeResearchRecord(record, index, seenIds));
 }
 
-export function loadResearchRecords(records: ReadonlyArray<ResearchRecord>): ResearchRecord[] {
+export function loadResearchRecords(
+  records: ReadonlyArray<ResearchRecord>,
+  reportIssue: (message: string) => void = console.warn,
+): ResearchRecord[] {
   if (!Array.isArray(records)) {
     return [];
   }
@@ -152,7 +155,8 @@ export function loadResearchRecords(records: ReadonlyArray<ResearchRecord>): Res
   for (const [index, record] of records.entries()) {
     try {
       normalized.push(normalizeResearchRecord(record, index, seenIds));
-    } catch {
+    } catch (error) {
+      reportIssue(error instanceof Error ? error.message : `invalid research record at index ${index}`);
       continue;
     }
   }
