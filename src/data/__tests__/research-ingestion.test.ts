@@ -2,6 +2,7 @@ import { expect, it } from 'vitest';
 import {
   getResearchRecordsByUse,
   getResearchTimelineRows,
+  loadResearchRecords,
   normalizeResearchRecords,
 } from '../research-ingestion';
 
@@ -49,4 +50,117 @@ it('derives timeline rows from the normalized records', () => {
     title: 'DISH Nature 2026',
     tag: 'FABRICATION',
   });
+});
+
+it('drops malformed records when loading seed data', () => {
+  expect(
+    loadResearchRecords([
+      {
+        id: 'valid-record',
+        title: 'Valid record',
+        source: 'IEA',
+        url: 'https://example.com/valid',
+        publishedAt: '2026-01-01',
+        stage: 'current',
+        tags: ['energy'],
+        summary: 'kept',
+        evidenceLevel: 'DEMONSTRATED',
+        publicUse: 'overview',
+      },
+      {
+        id: 'broken-record',
+        title: 'Broken record',
+        source: 'IEA',
+        url: 'not a url',
+        publishedAt: '2026-01-01',
+        stage: 'current',
+        tags: ['energy'],
+        summary: 'dropped',
+        evidenceLevel: 'DEMONSTRATED',
+        publicUse: 'timeline',
+      },
+    ]).map((record) => record.id),
+  ).toEqual(['valid-record']);
+});
+
+it('rejects records with missing ids', () => {
+  expect(() =>
+    normalizeResearchRecords([
+      {
+        id: '',
+        title: 'Missing id',
+        source: 'IEA',
+        url: 'https://example.com/missing-id',
+        publishedAt: '2026-01-01',
+        stage: 'current',
+        tags: ['energy'],
+        summary: 'x',
+        evidenceLevel: 'DEMONSTRATED',
+        publicUse: 'overview',
+      },
+    ]),
+  ).toThrow('missing id at index 0');
+});
+
+it('rejects malformed urls', () => {
+  expect(() =>
+    normalizeResearchRecords([
+      {
+        id: 'bad-url',
+        title: 'Bad url',
+        source: 'IEA',
+        url: 'not a url',
+        publishedAt: '2026-01-01',
+        stage: 'current',
+        tags: ['energy'],
+        summary: 'x',
+        evidenceLevel: 'DEMONSTRATED',
+        publicUse: 'overview',
+      },
+    ]),
+  ).toThrow('invalid url for id: bad-url');
+});
+
+it('rejects invalid stages', () => {
+  expect(() =>
+    normalizeResearchRecords([
+      {
+        id: 'bad-stage',
+        title: 'Bad stage',
+        source: 'IEA',
+        url: 'https://example.com/bad-stage',
+        publishedAt: '2026-01-01',
+        stage: 'deprecated' as never,
+        tags: ['energy'],
+        summary: 'x',
+        evidenceLevel: 'DEMONSTRATED',
+        publicUse: 'overview',
+      },
+    ]),
+  ).toThrow('invalid stage: deprecated');
+});
+
+it('rejects invalid timeline tags', () => {
+  expect(() =>
+    normalizeResearchRecords([
+      {
+        id: 'bad-timeline-tag',
+        title: 'Bad timeline tag',
+        source: 'IEA',
+        url: 'https://example.com/bad-timeline-tag',
+        publishedAt: '2026-01-01',
+        stage: 'current',
+        tags: ['energy'],
+        summary: 'x',
+        evidenceLevel: 'DEMONSTRATED',
+        publicUse: 'timeline',
+        timeline: {
+          year: 2026,
+          title: 'Bad timeline tag',
+          tag: 'NOT_REAL' as never,
+          order: 1,
+        },
+      },
+    ]),
+  ).toThrow('invalid timeline tag for id: bad-timeline-tag');
 });

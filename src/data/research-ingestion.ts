@@ -56,6 +56,81 @@ function cloneTimeline(timeline: ResearchTimelineEntry): ResearchTimelineEntry {
   return { ...timeline };
 }
 
+function normalizeResearchRecord(
+  record: ResearchRecord,
+  index: number,
+  seenIds: Set<string>,
+): ResearchRecord {
+  if (!record || typeof record !== 'object') {
+    throw new Error(`invalid record at index ${index}`);
+  }
+
+  if (!isNonEmptyString(record.id)) {
+    throw new Error(`missing id at index ${index}`);
+  }
+
+  if (seenIds.has(record.id)) {
+    throw new Error(`duplicate id: ${record.id}`);
+  }
+  seenIds.add(record.id);
+
+  if (!isNonEmptyString(record.title)) {
+    throw new Error(`invalid title for id: ${record.id}`);
+  }
+
+  if (!isNonEmptyString(record.source)) {
+    throw new Error(`invalid source for id: ${record.id}`);
+  }
+
+  if (!isValidUrl(record.url)) {
+    throw new Error(`invalid url for id: ${record.id}`);
+  }
+
+  if (!validatePublishedAt(record.publishedAt)) {
+    throw new Error(`invalid publishedAt for id: ${record.id}`);
+  }
+
+  if (!allowedStages.has(record.stage)) {
+    throw new Error(`invalid stage: ${record.stage}`);
+  }
+
+  if (!allowedUse.has(record.publicUse)) {
+    throw new Error(`invalid publicUse for id: ${record.id}`);
+  }
+
+  if (!allowedEvidenceLevels.has(record.evidenceLevel)) {
+    throw new Error(`invalid evidenceLevel for id: ${record.id}`);
+  }
+
+  if (!Array.isArray(record.tags) || record.tags.some((tag: string) => !isNonEmptyString(tag))) {
+    throw new Error(`invalid tags for id: ${record.id}`);
+  }
+
+  if (record.timeline) {
+    if (!Number.isInteger(record.timeline.year) || record.timeline.year < 0) {
+      throw new Error(`invalid timeline year for id: ${record.id}`);
+    }
+
+    if (!isNonEmptyString(record.timeline.title)) {
+      throw new Error(`invalid timeline title for id: ${record.id}`);
+    }
+
+    if (!allowedTimelineTags.has(record.timeline.tag)) {
+      throw new Error(`invalid timeline tag for id: ${record.id}`);
+    }
+
+    if (!Number.isInteger(record.timeline.order) || record.timeline.order < 0) {
+      throw new Error(`invalid timeline order for id: ${record.id}`);
+    }
+  }
+
+  return {
+    ...record,
+    tags: [...record.tags],
+    timeline: record.timeline ? cloneTimeline(record.timeline) : undefined,
+  };
+}
+
 export function normalizeResearchRecords(records: ReadonlyArray<ResearchRecord>): ResearchRecord[] {
   if (!Array.isArray(records)) {
     throw new Error('records must be an array');
@@ -63,76 +138,26 @@ export function normalizeResearchRecords(records: ReadonlyArray<ResearchRecord>)
 
   const seenIds = new Set<string>();
 
-  return records.map((record, index) => {
-    if (!record || typeof record !== 'object') {
-      throw new Error(`invalid record at index ${index}`);
+  return records.map((record, index) => normalizeResearchRecord(record, index, seenIds));
+}
+
+export function loadResearchRecords(records: ReadonlyArray<ResearchRecord>): ResearchRecord[] {
+  if (!Array.isArray(records)) {
+    return [];
+  }
+
+  const seenIds = new Set<string>();
+  const normalized: ResearchRecord[] = [];
+
+  for (const [index, record] of records.entries()) {
+    try {
+      normalized.push(normalizeResearchRecord(record, index, seenIds));
+    } catch {
+      continue;
     }
+  }
 
-    if (!isNonEmptyString(record.id)) {
-      throw new Error(`missing id at index ${index}`);
-    }
-
-    if (seenIds.has(record.id)) {
-      throw new Error(`duplicate id: ${record.id}`);
-    }
-    seenIds.add(record.id);
-
-    if (!isNonEmptyString(record.title)) {
-      throw new Error(`invalid title for id: ${record.id}`);
-    }
-
-    if (!isNonEmptyString(record.source)) {
-      throw new Error(`invalid source for id: ${record.id}`);
-    }
-
-    if (!isValidUrl(record.url)) {
-      throw new Error(`invalid url for id: ${record.id}`);
-    }
-
-    if (!validatePublishedAt(record.publishedAt)) {
-      throw new Error(`invalid publishedAt for id: ${record.id}`);
-    }
-
-    if (!allowedStages.has(record.stage)) {
-      throw new Error(`invalid stage: ${record.stage}`);
-    }
-
-    if (!allowedUse.has(record.publicUse)) {
-      throw new Error(`invalid publicUse for id: ${record.id}`);
-    }
-
-    if (!allowedEvidenceLevels.has(record.evidenceLevel)) {
-      throw new Error(`invalid evidenceLevel for id: ${record.id}`);
-    }
-
-    if (!Array.isArray(record.tags) || record.tags.some((tag: string) => !isNonEmptyString(tag))) {
-      throw new Error(`invalid tags for id: ${record.id}`);
-    }
-
-    if (record.timeline) {
-      if (!Number.isInteger(record.timeline.year) || record.timeline.year < 0) {
-        throw new Error(`invalid timeline year for id: ${record.id}`);
-      }
-
-      if (!isNonEmptyString(record.timeline.title)) {
-        throw new Error(`invalid timeline title for id: ${record.id}`);
-      }
-
-      if (!allowedTimelineTags.has(record.timeline.tag)) {
-        throw new Error(`invalid timeline tag for id: ${record.id}`);
-      }
-
-      if (!Number.isInteger(record.timeline.order) || record.timeline.order < 0) {
-        throw new Error(`invalid timeline order for id: ${record.id}`);
-      }
-    }
-
-    return {
-      ...record,
-      tags: [...record.tags],
-      timeline: record.timeline ? cloneTimeline(record.timeline) : undefined,
-    };
-  });
+  return normalized;
 }
 
 const seedResearchRecords: ResearchRecord[] = [
@@ -318,7 +343,7 @@ const seedResearchRecords: ResearchRecord[] = [
   },
 ];
 
-export const researchRecords = normalizeResearchRecords(seedResearchRecords);
+export const researchRecords = loadResearchRecords(seedResearchRecords);
 
 export function getResearchRecordsByUse(use: ResearchUse): ResearchRecord[] {
   return researchRecords.filter((record) => record.publicUse === use);
