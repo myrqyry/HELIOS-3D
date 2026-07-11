@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ResearchFeed from '../components/research/ResearchFeed.astro';
 
 const readingPath = [
   { label: 'Overview', href: '/overview/' },
@@ -44,6 +45,16 @@ const readingPath = [
         visible.
       </p>
     </article>
+  </section>
+
+  <section class="mb-12">
+    <ResearchFeed
+      use="overview"
+      title="Public research feed"
+      summary="A compact feed of normalized records that is safe to expose on the public overview page."
+      limit={2}
+      compact={true}
+    />
   </section>
 
   <section class="rounded-xl border border-ember/25 bg-ember/5 p-6 mb-12">
