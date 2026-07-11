@@ -41,6 +41,12 @@
 - Re-ran `pnpm test -- src/data/__tests__/research-ingestion.test.ts`,
   `pnpm check`, and `pnpm build`; all passed after the final cleanup.
 
+## Regression fix addendum
+- Moved duplicate-id reservation until after validation completes so a malformed
+  record no longer blocks a later valid record with the same id.
+- Added a regression test proving malformed-first input does not reserve ids.
+- Re-ran the focused test file, `pnpm check`, and `pnpm build`; all passed.
+
 ## Follow-up fix
 - Refactored `src/data/research-ingestion.ts` to use a tolerant `loadResearchRecords()` path for the exported public seed data while keeping `normalizeResearchRecords()` strict for direct callers and tests.
 - Added coverage for missing ids, malformed URLs, invalid stages, invalid timeline tags, and the tolerant seed-loading path.

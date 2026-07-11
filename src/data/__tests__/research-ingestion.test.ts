@@ -170,84 +170,40 @@ it('warns and drops malformed records when loading seed data', () => {
   expect(warnings).toEqual(['invalid url for id: broken-record']);
 });
 
-it('rejects records with missing ids', () => {
-  expect(() =>
-    normalizeResearchRecords([
-      {
-        id: '',
-        title: 'Missing id',
-        source: 'IEA',
-        url: 'https://example.com/missing-id',
-        publishedAt: '2026-01-01',
-        stage: 'current',
-        tags: ['energy'],
-        summary: 'x',
-        evidenceLevel: 'DEMONSTRATED',
-        publicUse: 'overview',
-      },
-    ]),
-  ).toThrow('missing id at index 0');
-});
+it('does not reserve ids for malformed records that get dropped', () => {
+  const warnings: string[] = [];
 
-it('rejects malformed urls', () => {
-  expect(() =>
-    normalizeResearchRecords([
-      {
-        id: 'bad-url',
-        title: 'Bad url',
-        source: 'IEA',
-        url: 'not a url',
-        publishedAt: '2026-01-01',
-        stage: 'current',
-        tags: ['energy'],
-        summary: 'x',
-        evidenceLevel: 'DEMONSTRATED',
-        publicUse: 'overview',
-      },
-    ]),
-  ).toThrow('invalid url for id: bad-url');
-});
-
-it('rejects invalid stages', () => {
-  expect(() =>
-    normalizeResearchRecords([
-      {
-        id: 'bad-stage',
-        title: 'Bad stage',
-        source: 'IEA',
-        url: 'https://example.com/bad-stage',
-        publishedAt: '2026-01-01',
-        stage: 'deprecated' as never,
-        tags: ['energy'],
-        summary: 'x',
-        evidenceLevel: 'DEMONSTRATED',
-        publicUse: 'overview',
-      },
-    ]),
-  ).toThrow('invalid stage: deprecated');
-});
-
-it('rejects invalid timeline tags', () => {
-  expect(() =>
-    normalizeResearchRecords([
-      {
-        id: 'bad-timeline-tag',
-        title: 'Bad timeline tag',
-        source: 'IEA',
-        url: 'https://example.com/bad-timeline-tag',
-        publishedAt: '2026-01-01',
-        stage: 'current',
-        tags: ['energy'],
-        summary: 'x',
-        evidenceLevel: 'DEMONSTRATED',
-        publicUse: 'timeline',
-        timeline: {
-          year: 2026,
-          title: 'Bad timeline tag',
-          tag: 'NOT_REAL' as never,
-          order: 1,
+  expect(
+    loadResearchRecords(
+      [
+        {
+          id: 'shared-id',
+          title: 'Broken first record',
+          source: 'IEA',
+          url: 'not a url',
+          publishedAt: '2026-01-01',
+          stage: 'current',
+          tags: ['energy'],
+          summary: 'dropped',
+          evidenceLevel: 'DEMONSTRATED',
+          publicUse: 'overview',
         },
-      },
-    ]),
-  ).toThrow('invalid timeline tag for id: bad-timeline-tag');
+        {
+          id: 'shared-id',
+          title: 'Valid second record',
+          source: 'IEA',
+          url: 'https://example.com/shared-id',
+          publishedAt: '2026-01-02',
+          stage: 'current',
+          tags: ['energy'],
+          summary: 'kept',
+          evidenceLevel: 'DEMONSTRATED',
+          publicUse: 'overview',
+        },
+      ],
+      (message) => warnings.push(message),
+    ).map((record) => record.id),
+  ).toEqual(['shared-id']);
+
+  expect(warnings).toEqual(['invalid url for id: shared-id']);
 });

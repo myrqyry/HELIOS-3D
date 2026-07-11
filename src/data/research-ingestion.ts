@@ -72,7 +72,6 @@ function normalizeResearchRecord(
   if (seenIds.has(record.id)) {
     throw new Error(`duplicate id: ${record.id}`);
   }
-  seenIds.add(record.id);
 
   if (!isNonEmptyString(record.title)) {
     throw new Error(`invalid title for id: ${record.id}`);
@@ -123,6 +122,8 @@ function normalizeResearchRecord(
       throw new Error(`invalid timeline order for id: ${record.id}`);
     }
   }
+
+  seenIds.add(record.id);
 
   return {
     ...record,
