@@ -38,9 +38,10 @@ function formatDate(value: string): string {
           data-research-search
           autocomplete="off"
           spellcheck="false"
-          placeholder="Search title, source, summary, or tags…"
-          class="rounded-lg border border-obsidian-3 bg-obsidian-1 px-4 py-2 text-parchment placeholder:text-parchment-2/60 outline-none transition-colors focus-visible:border-amber focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian"
+          class="rounded-lg border border-obsidian-3 bg-obsidian-1 px-4 py-2 text-parchment outline-none transition-colors focus-visible:border-amber focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian"
+          aria-describedby="research-search-help"
         />
+        <span id="research-search-help" class="text-xs text-parchment-2/70">Search title, source, summary, or tags.</span>
       </label>
     </div>
   </div>

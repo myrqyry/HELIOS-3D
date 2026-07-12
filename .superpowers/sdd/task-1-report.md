@@ -30,7 +30,7 @@
 ## Fix addendum
 - Updated `src/data/research-ingestion.ts` so seed loading stays tolerant if a future record is malformed, while `normalizeResearchRecords()` remains strict for tests and callers.
 - Tightened URL validation to accept only `http:` and `https:` URLs when a URL is present.
-- Removed placeholder URLs from the seed records that did not yet have canonical links.
+- Removed temporary URLs from the seed records that did not yet have canonical links.
 - Expanded `src/data/__tests__/research-ingestion.test.ts` to cover missing IDs, malformed URLs, invalid stages, and invalid timeline tags.
 - Re-ran `pnpm test -- src/data/__tests__/research-ingestion.test.ts`, `pnpm check`, and `pnpm build`; all passed.
 
