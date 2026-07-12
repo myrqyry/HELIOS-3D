@@ -16,7 +16,7 @@ export default function LiteratureTimeline({ height = 'h-48' }: { height?: strin
       <h4 className="font-mono text-xs uppercase tracking-wider text-amber mb-3">Literature timeline 2024–2026</h4>
       <div className="flex items-end gap-1 min-w-[600px] h-32">
         {rows.map((row, i) => (
-          <div key={`${row.year}-${row.title}`} className="flex-1 flex flex-col items-center gap-1">
+          <div key={row.id} className="flex-1 flex flex-col items-center gap-1">
             <div className={`w-full rounded-t ${tagColor[row.tag] ?? 'bg-ember'}`} style={{ height: `${20 + (i * 5) % 80}px` }} />
             <span className="font-mono text-xs text-parchment-2">{row.year}</span>
             <span className="text-xs text-parchment text-center leading-tight">{row.title}</span>

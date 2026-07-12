@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import StageBadge from '../../components/StageBadge.astro';
+import { getResearchRecordById, researchBrowserIndex } from '../../data/research-browser';
+
+export function getStaticPaths() {
+  return researchBrowserIndex.records.map((record) => ({
+    params: { id: record.id },
+    props: { record },
+  }));
+}
+
+const record = Astro.props.record ?? getResearchRecordById(Astro.params.id ?? '');
+---
+
+<BaseLayout
+  title={record ? record.title : 'Research record not found'}
+  description={record ? record.summary : 'A research record could not be found.'}
+>
+  {record ? (
+    <article class="mx-auto max-w-4xl rounded-xl border border-obsidian-3 bg-obsidian-2 p-6 md:p-8">
+      <div class="mb-4 flex flex-wrap items-start justify-between gap-3">
+        <StageBadge stage={record.stage} size="sm" />
+        <time class="font-mono text-xs uppercase tracking-wider text-parchment-2" datetime={record.publishedAt}>
+          {new Intl.DateTimeFormat('en', { month: 'short', day: 'numeric', year: 'numeric' }).format(new Date(record.publishedAt))}
+        </time>
+      </div>
+
+      <p class="mb-3 text-xs font-mono uppercase tracking-[0.2em] text-amber">Research detail</p>
+      <h1 class="mb-4 text-4xl font-bold text-amber">{record.title}</h1>
+      <p class="mb-6 max-w-3xl text-lg leading-relaxed text-parchment-2">{record.summary}</p>
+
+      <dl class="grid gap-4 rounded-lg border border-obsidian-3/60 bg-obsidian-1/40 p-5 md:grid-cols-2">
+        <div>
+          <dt class="text-xs uppercase tracking-wider text-parchment-2">Source</dt>
+          <dd class="mt-1 text-parchment">{record.source}</dd>
+        </div>
+        <div>
+          <dt class="text-xs uppercase tracking-wider text-parchment-2">Public use</dt>
+          <dd class="mt-1 text-parchment">{record.publicUse}</dd>
+        </div>
+        <div>
+          <dt class="text-xs uppercase tracking-wider text-parchment-2">Evidence level</dt>
+          <dd class="mt-1 text-parchment">{record.evidenceLevel}</dd>
+        </div>
+        <div>
+          <dt class="text-xs uppercase tracking-wider text-parchment-2">Stable id</dt>
+          <dd class="mt-1 font-mono text-parchment">{record.id}</dd>
+        </div>
+      </dl>
+
+      <div class="mt-6 flex flex-wrap gap-2 text-[11px] uppercase tracking-wider text-parchment-2">
+        {record.tags.map((tag) => (
+          <span class="rounded-full border border-obsidian-3 px-2 py-1">{tag}</span>
+        ))}
+      </div>
+
+      <div class="mt-8 flex flex-wrap gap-3">
+        {record.url ? (
+          <a class="rounded-lg bg-gradient-to-r from-amber to-ember px-5 py-3 font-semibold text-obsidian" href={record.url}>
+            Open source
+          </a>
+        ) : null}
+        <a class="rounded-lg border border-obsidian-3 px-5 py-3 text-parchment-2 hover:border-amber hover:text-amber" href="/research/">
+          Back to browser
+        </a>
+      </div>
+    </article>
+  ) : (
+    <section class="mx-auto max-w-2xl rounded-xl border border-obsidian-3 bg-obsidian-2 p-6 text-center">
+      <h1 class="mb-3 text-3xl font-bold text-amber">Research record not found</h1>
+      <p class="mb-6 text-parchment-2">The stable id you requested does not match a known research record.</p>
+      <a class="rounded-lg border border-obsidian-3 px-5 py-3 text-parchment-2 hover:border-amber hover:text-amber" href="/research/">
+        Back to browser
+      </a>
+    </section>
+  )}
+</BaseLayout>

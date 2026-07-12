@@ -51,7 +51,9 @@
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(42, 32, 26, 0.4);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-property: transform, border-color, box-shadow, background-color;
+    transition-duration: 0.4s;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   }
   .glass-card:hover {
     transform: translateY(-4px) scale(1.01);
@@ -109,4 +111,3 @@
     animation: none;
   }
 }
-

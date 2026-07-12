@@ -3,7 +3,6 @@ import { useFrame } from '@react-three/fiber';
 import { Float, Instances, Instance } from '@react-three/drei';
 import * as THREE from 'three';
 import { R3FCanvas, R3FControls, R3FEnvironment } from './R3FCanvas';
-import { directionToEuler } from '../../utils/three';
 
 function NeelSkyrmion() {
   const group = useRef<THREE.Group>(null);
@@ -97,4 +96,3 @@ export default function SkyrmionScene({ height = 'h-96', interactive = false }: 
     </R3FCanvas>
   );
 }
-

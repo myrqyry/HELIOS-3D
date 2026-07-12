@@ -28,10 +28,16 @@ const { title, description, showSidebar = true, snap = false, fullWidth = false 
     </script>
   </head>
   <body class="min-h-screen flex flex-col">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-obsidian-1 focus:px-4 focus:py-2 focus:text-amber focus:outline-none focus:ring-2 focus:ring-amber"
+    >
+      Skip to main content
+    </a>
     <Header />
     <div class={`flex-1 ${showSidebar ? 'flex' : ''} ${snap ? 'snap-y-mandatory overflow-y-scroll h-screen' : ''}`}>
       {showSidebar && <Sidebar />}
-      <main class="flex-1 min-w-0">
+      <main id="main-content" class="flex-1 min-w-0">
         {fullWidth ? (
           <div class="w-full">
             <slot />

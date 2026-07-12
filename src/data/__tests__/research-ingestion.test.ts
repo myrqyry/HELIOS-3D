@@ -125,11 +125,11 @@ it.each([
 });
 
 it('derives timeline rows from the normalized records', () => {
-  expect(getResearchTimelineRows()).toContainEqual({
-    year: 2026,
-    title: 'DISH Nature 2026',
-    tag: 'FABRICATION',
-  });
+  expect(
+    getResearchTimelineRows().some(
+      (row) => row.id === 'wang-dish-printing' && row.year === 2026 && row.title === 'DISH Nature 2026' && row.tag === 'FABRICATION',
+    ),
+  ).toBe(true);
 });
 
 it('warns and drops malformed records when loading seed data', () => {

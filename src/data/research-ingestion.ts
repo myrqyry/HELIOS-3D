@@ -7,6 +7,7 @@ export type EvidenceLevel = 'DEMONSTRATED' | 'INFERRED' | 'PROPOSED' | 'SPECULAT
 export type TimelineTag = EvidenceLevel | 'FABRICATION';
 
 export interface ResearchTimelineRow {
+  id: string;
   year: number;
   title: string;
   tag: TimelineTag;
@@ -189,6 +190,7 @@ const seedResearchRecords: ResearchRecord[] = [
     evidenceLevel: 'DEMONSTRATED',
     publicUse: 'overview',
     timeline: {
+      id: 'katmis-hopfion-stability',
       year: 2025,
       title: 'EuS/Bi2Se3/EuS hopfion (Katmis)',
       tag: 'DEMONSTRATED',
@@ -230,6 +232,7 @@ const seedResearchRecords: ResearchRecord[] = [
     evidenceLevel: 'DEMONSTRATED',
     publicUse: 'timeline',
     timeline: {
+      id: 'wang-dish-holographic-printing',
       year: 2024,
       title: 'DISH holographic printing',
       tag: 'FABRICATION',
@@ -247,6 +250,7 @@ const seedResearchRecords: ResearchRecord[] = [
     evidenceLevel: 'DEMONSTRATED',
     publicUse: 'timeline',
     timeline: {
+      id: 'wang-dish-printing',
       year: 2026,
       title: 'DISH Nature 2026',
       tag: 'FABRICATION',
@@ -264,6 +268,7 @@ const seedResearchRecords: ResearchRecord[] = [
     evidenceLevel: 'DEMONSTRATED',
     publicUse: 'timeline',
     timeline: {
+      id: 'wang-y-zipper-flexible-rigid',
       year: 2026,
       title: 'Y-zipper flexible-rigid',
       tag: 'FABRICATION',
@@ -281,6 +286,7 @@ const seedResearchRecords: ResearchRecord[] = [
     evidenceLevel: 'DEMONSTRATED',
     publicUse: 'timeline',
     timeline: {
+      id: 'tsai-mn3sn-switching',
       year: 2026,
       title: 'Mn3Sn AFM switching (Tsai)',
       tag: 'DEMONSTRATED',
@@ -298,6 +304,7 @@ const seedResearchRecords: ResearchRecord[] = [
     evidenceLevel: 'DEMONSTRATED',
     publicUse: 'timeline',
     timeline: {
+      id: 'wang-polaritonic-switch',
       year: 2026,
       title: 'Polaritonic switch 4 fJ (Wang)',
       tag: 'DEMONSTRATED',
@@ -315,6 +322,7 @@ const seedResearchRecords: ResearchRecord[] = [
     evidenceLevel: 'DEMONSTRATED',
     publicUse: 'timeline',
     timeline: {
+      id: 'gobel-lounis-tohe',
       year: 2026,
       title: 'TOHE hopfion (Göbel & Lounis)',
       tag: 'DEMONSTRATED',
@@ -332,6 +340,7 @@ const seedResearchRecords: ResearchRecord[] = [
     evidenceLevel: 'DEMONSTRATED',
     publicUse: 'timeline',
     timeline: {
+      id: 'wang-2d-peptide-crystals',
       year: 2026,
       title: '2D peptide crystals (Wang)',
       tag: 'DEMONSTRATED',
@@ -352,6 +361,7 @@ export function getResearchTimelineRows(): ResearchTimelineRow[] {
     .slice()
     .sort((left, right) => left.timeline!.order - right.timeline!.order)
     .map((record) => ({
+      id: record.id,
       year: record.timeline!.year,
       title: record.timeline!.title,
       tag: record.timeline!.tag,

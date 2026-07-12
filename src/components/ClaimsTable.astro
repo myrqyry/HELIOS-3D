@@ -1,5 +1,5 @@
 ---
-import { filterClaims, type ClaimRow } from '../utils/filterClaims';
+import type { ClaimRow } from '../utils/filterClaims';
 
 export interface Props {
   rows: ClaimRow[];
@@ -16,7 +16,7 @@ const tags = ['DEMONSTRATED', 'INFERRED', 'PROPOSED', 'SPECULATIVE'] as const;
   <div class="flex flex-wrap items-center gap-3 mb-4">
     <span class="font-mono text-xs text-parchment-2 uppercase tracking-wider mr-2">Filter Matrix:</span>
     {tags.map((tag) => (
-      <label class="inline-flex items-center gap-2 text-xs font-mono cursor-pointer bg-obsidian-2/50 hover:bg-obsidian-2 border border-obsidian-3/40 rounded px-2.5 py-1 text-parchment-2 hover:text-parchment transition-all select-none">
+      <label class="inline-flex items-center gap-2 text-xs font-mono cursor-pointer bg-obsidian-2/50 hover:bg-obsidian-2 border border-obsidian-3/40 rounded px-2.5 py-1 text-parchment-2 hover:text-parchment transition-colors select-none">
         <input type="checkbox" data-tag={tag} class="accent-ember rounded border-obsidian-3 bg-obsidian-2" />
         <span>{tag}</span>
       </label>
@@ -35,7 +35,7 @@ const tags = ['DEMONSTRATED', 'INFERRED', 'PROPOSED', 'SPECULATIVE'] as const;
       </thead>
       <tbody data-body>
         {rows.map((row) => (
-          <tr class="border-b border-obsidian-3/30 hover:bg-obsidian-3/20 transition-all duration-150" data-tag={row.tag}>
+          <tr class="border-b border-obsidian-3/30 hover:bg-obsidian-3/20 transition-colors duration-150" data-tag={row.tag}>
             <td class="py-3.5 px-5 text-parchment/95">{row.claim}</td>
             <td class="py-3.5 px-5 font-mono text-xs text-amber font-semibold">{row.tag}</td>
             <td class="py-3.5 px-5 text-parchment-2/90">{row.source}</td>

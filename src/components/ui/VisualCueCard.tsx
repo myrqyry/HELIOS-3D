@@ -54,7 +54,7 @@ export function VisualCueCard({
 
   return (
     <div className={cn(
-      "flex flex-col gap-3 p-4 rounded-xl border bg-obsidian-2/60 shadow-sm transition-all hover:shadow-md hover:bg-obsidian-2",
+      "flex flex-col gap-3 p-4 rounded-xl border bg-obsidian-2/60 shadow-sm transition-[box-shadow,background-color] hover:shadow-md hover:bg-obsidian-2",
       config.border
     )}>
       <div className="flex items-start justify-between gap-4">

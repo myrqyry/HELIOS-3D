@@ -1,6 +1,6 @@
 ---
 import StageBadge from '../StageBadge.astro';
-import { getResearchRecordsByUse, type ResearchUse } from '../../data/research-ingestion';
+import { getResearchRecordsByUse, type ResearchRecord, type ResearchUse } from '../../data/research-ingestion';
 
 export interface Props {
   use: ResearchUse;
@@ -12,12 +12,17 @@ export interface Props {
 
 const { use, title, summary, limit = 3, compact = false } = Astro.props as Props;
 
-const records = getResearchRecordsByUse(use).slice(0, limit);
 const dateFormatter = new Intl.DateTimeFormat('en', {
   month: 'short',
   day: 'numeric',
   year: 'numeric',
 });
+
+function isRenderableRecord(record: ResearchRecord): boolean {
+  return record.title.trim().length > 0 && record.source.trim().length > 0 && !Number.isNaN(Date.parse(record.publishedAt));
+}
+
+const records = getResearchRecordsByUse(use).filter(isRenderableRecord).slice(0, limit);
 
 function formatDate(value: string): string {
   return dateFormatter.format(new Date(value));

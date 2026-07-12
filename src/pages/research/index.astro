@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ResearchBrowser from '../../components/research/ResearchBrowser.astro';
+import { researchBrowserIndex } from '../../data/research-browser';
+---
+
+<BaseLayout title="Research browser" description="Search the normalized HELIOS-3D research records.">
+  <header class="mb-10 border-b border-obsidian-3 pb-6">
+    <p class="mb-3 text-xs font-mono uppercase tracking-[0.2em] text-amber">Public research</p>
+    <h1 class="mb-4 text-5xl font-bold text-amber">Research browser</h1>
+    <p class="max-w-3xl text-lg leading-relaxed text-parchment-2">
+      Search the same normalized research records that feed the public overview
+      and the literature timeline. Every entry uses a stable id, so you can open
+      a direct detail page without relying on a title string.
+    </p>
+  </header>
+
+  <ResearchBrowser records={researchBrowserIndex.records} />
+</BaseLayout>

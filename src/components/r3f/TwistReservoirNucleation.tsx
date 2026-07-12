@@ -42,7 +42,7 @@ function NucleationEvent() {
   const topLayer = useRef<THREE.Group>(null);
   const hopfion = useRef<THREE.Mesh>(null);
 
-  useFrame((state, delta) => {
+  useFrame((_state, delta) => {
     if (!isPlaying) return;
 
     // Increment phase based on time
@@ -104,4 +104,3 @@ export default function TwistReservoirNucleationScene({ height = 'h-96', interac
     </NucleationProvider>
   );
 }
-
