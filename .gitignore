@@ -58,6 +58,7 @@ playwright-report/
 # Project Specific Artifacts
 repomix-output.md
 tool-outputs/
+.superpowers/
 docs/superpowers/
 docs/.snapshot-originals/
 site/
