@@ -19,6 +19,7 @@
     "@astrojs/mdx": "^4.3.14",
     "@astrojs/react": "^5.0.7",
     "@astrojs/sitemap": "^3.7.3",
+    "@fontsource-variable/bricolage-grotesque": "^5.2.10",
     "@fontsource-variable/geist": "^5.2.9",
     "@fontsource-variable/geist-mono": "^5.2.8",
     "@radix-ui/react-accordion": "^1.2.13",
