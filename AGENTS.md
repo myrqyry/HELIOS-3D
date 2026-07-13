@@ -26,7 +26,7 @@ Python-based validation for the research and simulation side of the repo.
 - ERC data check: `make validate-erc`
 - Link check: `make check-links`
 - Simulation syntax check: `make check-sims`
-- Placeholder simulation scan: `make check-stubs`
+- Stub simulation scan: `make check-stubs`
 - Full site build: `make build`
 
 ## Routing
