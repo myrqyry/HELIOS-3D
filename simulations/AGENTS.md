@@ -8,7 +8,7 @@ Micromagnetic simulation configurations and analysis scripts for HELIOS-3D proje
 
 | File | Purpose |
 |------|---------|
-| `simulations/placeholders/magnex_hopfion.mx3` | MuMax3 placeholder for hopfion dynamics (not yet runnable) |
+| `magnex_hopfion.mx3` | Pending MuMax3 hopfion dynamics config (not yet runnable) |
 | `simulations/energy_minimization.py` | Energy minimization scripts |
 | `simulations/analysis_scripts/` | Analysis scripts for simulation results |
 
