@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { getReservoirPhase } from '../BrownianReservoirScene';
+import { getStabilizerPhase } from '../DmiStabilizerScene';
 
 describe('getReservoirPhase', () => {
   it.each([
@@ -11,5 +12,18 @@ describe('getReservoirPhase', () => {
     [1, 'readout'],
   ])('maps progress %s to %s', (progress, phase) => {
     expect(getReservoirPhase(progress)).toBe(phase);
+  });
+});
+
+describe('getStabilizerPhase', () => {
+  it.each([
+    [0, 'competing'],
+    [0.29, 'competing'],
+    [0.3, 'stabilizing'],
+    [0.74, 'stabilizing'],
+    [0.75, 'coherent'],
+    [1, 'coherent'],
+  ])('maps progress %s to %s', (progress, phase) => {
+    expect(getStabilizerPhase(progress)).toBe(phase);
   });
 });

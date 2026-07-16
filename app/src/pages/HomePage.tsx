@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import HopfionScene from '../components/r3f/HopfionScene';
 import SkyrmionScene from '../components/r3f/SkyrmionScene';
 import BrownianReservoirScene from '../components/r3f/BrownianReservoirScene';
-import DmiChiralityScene from '../components/r3f/DmiChirality';
+import DmiStabilizerScene from '../components/r3f/DmiStabilizerScene';
 import TopologicalOrbitalHallScene from '../components/r3f/TopologicalOrbitalHall';
 import MaterialStackScene from '../components/r3f/MaterialStack';
 import { ExhibitSection } from '../components/exhibit/ExhibitSection';
@@ -82,8 +82,7 @@ export function HomePage() {
 
       <ExhibitSection id="dmi" eyebrow="03 / Make the knot" title="DMI: give the texture a handedness" description="Dzyaloshinskii–Moriya interaction favors chiral spin arrangements at an interface. In the proposed stack, that preference helps define which textures can form and persist." evidenceLabel="Inspect candidate materials" evidenceHref="/docs/established/candidate-materials-and-mechanisms">
         <div className="rounded-xl border border-obsidian-3/40 bg-obsidian-2/30 p-3">
-          <DmiChiralityScene height="h-72" interactive={true} />
-          <p className="mt-3 text-sm leading-relaxed text-parchment-2">Text fallback: the arrows show a rotating spin field across an interface. DMI is an established interaction; its use here is part of the proposal.</p>
+          <DmiStabilizerScene height="h-72" interactive={true} />
         </div>
       </ExhibitSection>
 
