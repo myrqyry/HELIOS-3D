@@ -63,22 +63,22 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-obsidian-3/30 bg-obsidian/70 backdrop-blur-md transition-colors duration-300">
+    <header className="sticky top-0 z-50 border-b border-outline-variant/30 bg-surface/80 backdrop-blur-md transition-colors duration-[var(--duration-medium)]">
       <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-6">
         <Link
           to="/"
-          className="font-mono text-amber text-lg font-bold tracking-wider hover:text-ember focus-visible:text-ember focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian transition-colors flex items-center gap-2"
+          className="rounded font-mono text-primary text-lg font-bold tracking-wider hover:text-secondary focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 transition-colors flex items-center gap-2"
         >
           <span className="text-xl animate-pulse">☀️</span>HELIOS-3D
         </Link>
         <div className="flex flex-wrap items-center gap-3 sm:gap-6">
           <nav aria-label="Primary navigation" className="flex flex-wrap gap-x-4 gap-y-2 text-sm font-medium">
             {PRIMARY_NAV.map((item) => {
-              const className = "relative inline-flex min-h-11 items-center text-parchment-2 hover:text-ember focus-visible:text-ember focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian transition-colors duration-200 group";
+              const className = "relative inline-flex min-h-11 items-center rounded text-on-surface-variant hover:text-secondary focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 transition-colors duration-[var(--duration-short)] group";
               const content = (
                 <>
                   {item.label}
-                  <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-amber to-ember transition-[width] duration-300 group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-primary to-secondary transition-[width] duration-[var(--duration-medium)] ease-[var(--ease-spring)] group-hover:w-full"></span>
                 </>
               );
 
@@ -98,7 +98,7 @@ export function Header() {
               ref={selRef}
               onChange={handleChange}
               data-stage-filter
-              className="min-h-11 font-mono text-xs bg-obsidian-2/60 border border-obsidian-3/60 text-parchment rounded px-2.5 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian transition-colors sm:py-1"
+              className="min-h-11 rounded-lg border border-outline-variant bg-surface-container px-3 py-2 font-mono text-xs text-on-surface focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 transition-colors sm:py-1"
               aria-label="Filter technical content by stage"
             >
               <option value="all">All stages</option>

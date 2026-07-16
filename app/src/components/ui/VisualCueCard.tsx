@@ -54,13 +54,13 @@ export function VisualCueCard({
 
   return (
     <div className={cn(
-      "flex flex-col gap-3 p-4 rounded-xl border bg-obsidian-2/60 shadow-sm transition-[box-shadow,background-color] hover:shadow-md hover:bg-obsidian-2",
+      "flex flex-col gap-3 rounded-xl border bg-surface-container p-5 shadow-[0_1px_3px_rgba(0,0,0,0.3),0_4px_8px_rgba(0,0,0,0.15)] transition-[box-shadow,transform,background-color] duration-[var(--duration-medium)] ease-[var(--ease-spring)] hover:-translate-y-0.5 hover:shadow-[0_2px_8px_rgba(0,0,0,0.3),0_8px_24px_rgba(0,0,0,0.2)]",
       config.border
     )}>
       <div className="flex items-start justify-between gap-4">
-        <h3 className="font-bold text-parchment-1 leading-tight">{title}</h3>
+        <h3 className="font-bold leading-tight text-on-surface">{title}</h3>
         <div className={cn(
-          "flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider whitespace-nowrap",
+          "flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider whitespace-nowrap",
           config.bg,
           config.color
         )}>
@@ -68,7 +68,7 @@ export function VisualCueCard({
           {config.label}
         </div>
       </div>
-      <div className="text-sm text-parchment-2/80 leading-relaxed prose prose-invert prose-xs max-w-none">
+      <div className="max-w-none text-sm leading-relaxed text-on-surface-variant prose prose-invert prose-xs">
         {children}
       </div>
     </div>

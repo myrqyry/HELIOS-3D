@@ -1,7 +1,7 @@
 const palette = {
-  info: 'border-amber bg-obsidian-2',
-  warning: 'border-rose bg-obsidian-2',
-  note: 'border-cyan-2 bg-obsidian-2',
+  info: 'border-primary bg-primary/5',
+  warning: 'border-error bg-error/5',
+  note: 'border-cyan-2 bg-cyan-2/5',
 };
 
 export function Callout({
@@ -14,9 +14,9 @@ export function Callout({
   children: React.ReactNode;
 }) {
   return (
-    <aside className={`my-4 rounded-lg border-l-4 p-4 ${palette[type]}`}>
-      {title && <p className="font-bold text-parchment mb-1">{title}</p>}
-      <div className="text-parchment-2 text-sm">{children}</div>
+    <aside className={`my-4 rounded-xl border-l-4 p-4 ${palette[type]}`}>
+      {title && <p className="mb-1 font-bold text-on-surface">{title}</p>}
+      <div className="text-on-surface-variant text-sm">{children}</div>
     </aside>
   );
 }
