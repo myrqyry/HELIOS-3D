@@ -1,12 +1,14 @@
-import { useRef, useMemo, useEffect } from 'react';
+import { useRef, useMemo, useEffect, useState, type RefObject } from 'react';
+import { useFrame } from '@react-three/fiber';
 import { Text, Billboard } from '@react-three/drei';
 import * as THREE from 'three';
 import { R3FCanvas, R3FControls, R3FEnvironment } from './R3FCanvas';
 import { directionToEuler } from '../../utils/three';
 import { isMotionEnabled, usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
+import { ExhibitControl } from '../exhibit/ExhibitControl';
 
-export function shouldAutoRotate(interactive: boolean, prefersReducedMotion: boolean): boolean {
-  return !interactive && isMotionEnabled(prefersReducedMotion);
+export function shouldAutoRotate(interactive: boolean, prefersReducedMotion: boolean, paused = false): boolean {
+  return !paused && !interactive && isMotionEnabled(prefersReducedMotion);
 }
 
 function HallmarkArrows() {
@@ -48,8 +50,14 @@ function HallmarkArrows() {
   );
 }
 
-function Hall() {
+function Hall({ pausedRef }: { pausedRef: RefObject<boolean> }) {
   const group = useRef<THREE.Group>(null);
+  const prefersReducedMotion = usePrefersReducedMotion();
+
+  useFrame((_, delta) => {
+    if (pausedRef.current || !isMotionEnabled(prefersReducedMotion)) return;
+    if (group.current) group.current.rotation.y += delta * 0.08;
+  });
   
   const currentLines = useMemo(() => {
     const lines: THREE.Vector3[][] = [];
@@ -113,19 +121,25 @@ function Hall() {
 
 export default function TopologicalOrbitalHallScene({ height = 'h-96', interactive = false }: { height?: string; interactive?: boolean }) {
   const prefersReducedMotion = usePrefersReducedMotion();
+  const [paused, setPaused] = useState(false);
+  const pausedRef = useRef(paused);
+  useEffect(() => { pausedRef.current = paused; }, [paused]);
 
   return (
-    <R3FCanvas height={height} className="bg-obsidian-1" camera={{ position: [0, 2, 5], fov: 45 }}>
+    <div>
+      <ExhibitControl label={paused ? 'Resume animation' : 'Pause animation'} paused={paused} onToggle={() => setPaused((value) => !value)} />
+      <R3FCanvas fallback="TOHE is represented as candidate transverse orbital responses around a hopfion." height={height} className="bg-obsidian-1" camera={{ position: [0, 2, 5], fov: 45 }}>
       <color attach="background" args={['#0a0a0a']} />
       <R3FEnvironment starsCount={5000} />
       <pointLight position={[10, 10, 10]} intensity={1.5} color="#7dd3fc" />
       <pointLight position={[-10, -10, -10]} intensity={1} color="#ff6b1a" />
-      <Hall />
+      <Hall pausedRef={pausedRef} />
       <R3FControls
         interactive={interactive}
-        autoRotate={shouldAutoRotate(interactive, prefersReducedMotion)}
+        autoRotate={shouldAutoRotate(interactive, prefersReducedMotion, paused)}
         autoRotateSpeed={0.5}
       />
-    </R3FCanvas>
+      </R3FCanvas>
+    </div>
   );
 }

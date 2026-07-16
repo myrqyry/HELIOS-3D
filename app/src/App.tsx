@@ -17,7 +17,7 @@ export function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<HomePage />} />
-          <Route path="explore" element={<StartHerePage />} />
+          <Route path="explore" element={<HomePage />} />
           <Route path="overview" element={<OverviewPage />} />
           <Route path="start-here" element={<StartHerePage />} />
           <Route path="figures" element={<FiguresPage />} />

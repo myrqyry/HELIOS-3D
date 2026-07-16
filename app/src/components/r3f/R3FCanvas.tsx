@@ -9,19 +9,38 @@ interface R3FCanvasProps {
   camera?: CanvasProps['camera'];
   className?: string;
   children: React.ReactNode;
+  fallback?: React.ReactNode;
+}
+
+class CanvasErrorBoundary extends React.Component<
+  { fallback: React.ReactNode; children: React.ReactNode },
+  { hasError: boolean }
+> {
+  state = { hasError: false };
+
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+
+  render() {
+    return this.state.hasError ? this.props.fallback : this.props.children;
+  }
 }
 
 export function R3FCanvas({ 
   height = 'h-96', 
   camera = { position: [0, 0, 4], fov: 50 }, 
   className = 'bg-obsidian-1', 
-  children 
+  children,
+  fallback = 'Interactive 3D rendering is unavailable. The accompanying text describes this model.'
 }: R3FCanvasProps) {
   return (
     <div className={`w-full ${height} rounded-lg border border-obsidian-3 ${className} overflow-hidden`}>
-      <Canvas camera={camera}>
-        {children}
-      </Canvas>
+      <CanvasErrorBoundary fallback={<div className="flex h-full items-center justify-center p-6 text-center text-sm leading-relaxed text-parchment-2">{fallback}</div>}>
+        <Canvas camera={camera} dpr={[1, 1.5]}>
+          {children}
+        </Canvas>
+      </CanvasErrorBoundary>
     </div>
   );
 }

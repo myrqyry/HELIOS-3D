@@ -3,9 +3,9 @@ import { useLocation, Link } from 'react-router-dom';
 
 export const PRIMARY_NAV: ReadonlyArray<{ href: string; label: string; external?: boolean }> = [
   { href: '/explore', label: 'Explore' },
-  { href: '/figures', label: 'Visuals' },
-  { href: '/research', label: 'Evidence' },
-  { href: '/docs/established/abstract', label: 'Technical archive' },
+  { href: '/visuals', label: 'Visuals' },
+  { href: '/evidence', label: 'Evidence' },
+  { href: '/technical-archive', label: 'Technical archive' },
   { href: 'https://github.com/myrqyry/HELIOS-3D', label: 'GitHub', external: true },
 ] as const;
 

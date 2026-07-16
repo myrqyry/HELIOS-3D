@@ -8,6 +8,7 @@ import { filterRecordsByStage, ResearchBrowser } from '../ResearchBrowser';
 import type { ResearchRecord } from '../../data/research-ingestion';
 import { getInitialReducedMotion, isMotionEnabled } from '../../hooks/usePrefersReducedMotion';
 import { shouldAutoRotate } from '../r3f/TopologicalOrbitalHall';
+import { shouldActivateDeferredScene } from './DeferredScene';
 
 const researchRecords: ResearchRecord[] = [
   {
@@ -24,9 +25,9 @@ describe('exhibit navigation and controls', () => {
   it('defines the primary navigation destinations', () => {
     expect(PRIMARY_NAV.map(({ label, href }) => ({ label, href }))).toEqual([
       { label: 'Explore', href: '/explore' },
-      { label: 'Visuals', href: '/figures' },
-      { label: 'Evidence', href: '/research' },
-      { label: 'Technical archive', href: '/docs/established/abstract' },
+      { label: 'Visuals', href: '/visuals' },
+      { label: 'Evidence', href: '/evidence' },
+      { label: 'Technical archive', href: '/technical-archive' },
       { label: 'GitHub', href: 'https://github.com/myrqyry/HELIOS-3D' },
     ]);
     expect(PRIMARY_NAV).toContainEqual({ label: 'Explore', href: '/explore' });
@@ -100,6 +101,13 @@ describe('exhibit navigation and controls', () => {
     expect(shouldAutoRotate(false, false)).toBe(true);
     expect(shouldAutoRotate(false, true)).toBe(false);
     expect(shouldAutoRotate(true, false)).toBe(false);
+    expect(shouldAutoRotate(false, false, true)).toBe(false);
+  });
+
+  it('activates deferred scenes only when they approach the viewport', () => {
+    expect(shouldActivateDeferredScene(false, 0)).toBe(false);
+    expect(shouldActivateDeferredScene(true, 0)).toBe(true);
+    expect(shouldActivateDeferredScene(false, 0.1)).toBe(true);
   });
 
   it('enables motion only when reduced motion is not preferred', () => {

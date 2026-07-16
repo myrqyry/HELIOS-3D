@@ -1,12 +1,11 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import HopfionScene from '../components/r3f/HopfionScene';
-import SkyrmionScene from '../components/r3f/SkyrmionScene';
-import BrownianReservoirScene from '../components/r3f/BrownianReservoirScene';
-import DmiStabilizerScene from '../components/r3f/DmiStabilizerScene';
-import TopologicalOrbitalHallScene from '../components/r3f/TopologicalOrbitalHall';
-import MaterialStackScene from '../components/r3f/MaterialStack';
 import { ExhibitSection } from '../components/exhibit/ExhibitSection';
+import { DeferredScene } from '../components/exhibit/DeferredScene';
+
+const deferredSceneProps = { height: 'h-56', interactive: true };
+const sceneFallback = (text: string) => <div className="flex h-full min-h-56 items-center justify-center p-6 text-center text-sm leading-relaxed text-parchment-2">{text}</div>;
 
 const promptCards = [
   { label: 'Store', text: 'Keep a stable magnetic state in a knot that does not need a moving charge.', href: '/figures' },
@@ -63,11 +62,10 @@ export function HomePage() {
       <ExhibitSection id="knot-explainer" eyebrow="01 / The object" title="Why a knot?" description="A magnetic knot carries structure through its three-dimensional linking. The useful question is not whether it looks exotic, but whether the state can be created, moved, and read reliably." evidenceLabel="Compare the textures" evidenceHref="/figures">
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="rounded-xl border border-obsidian-3/40 bg-obsidian-2/30 p-3">
-            <SkyrmionScene height="h-56" interactive={true} />
-            <p className="mt-3 text-sm leading-relaxed text-parchment-2">Text fallback: a planar skyrmion is a 2D magnetic texture whose drift can complicate transport.</p>
+            <DeferredScene loader={() => import('../components/r3f/SkyrmionScene')} sceneProps={deferredSceneProps} fallback={sceneFallback('A planar skyrmion is a 2D magnetic texture whose drift can complicate transport.')} />
           </div>
           <div className="rounded-xl border border-amber/20 bg-amber/5 p-3">
-            <HopfionScene height="h-56" interactive={true} />
+            <DeferredScene loader={() => import('../components/r3f/HopfionScene')} sceneProps={deferredSceneProps} fallback={sceneFallback('A hopfion closes the texture into a 3D linked state, offering a route to rectilinear transport.')} />
             <p className="mt-3 text-sm leading-relaxed text-parchment-2">Text fallback: a hopfion closes the texture into a 3D linked state, offering a route to rectilinear transport.</p>
           </div>
         </div>
@@ -75,27 +73,27 @@ export function HomePage() {
 
       <ExhibitSection id="brc" eyebrow="02 / Compute" title="BRC: compute with the reservoir" description="Brownian reservoir computing treats controlled fluctuations as part of the computation. This is a proposed core, not a demonstrated product: the experiment is to measure whether the reservoir retains useful memory." evidenceLabel="Read the architecture" evidenceHref="/docs/speculative/core-architecture">
         <div className="rounded-xl border border-obsidian-3/40 bg-obsidian-2/30 p-3">
-          <BrownianReservoirScene height="h-72" interactive={true} />
+          <DeferredScene loader={() => import('../components/r3f/BrownianReservoirScene')} sceneProps={{ height: 'h-72', interactive: true }} fallback={sceneFallback('Input pulses enter a fluctuating reservoir, relax into a mixed state, and are sampled as a readout.')} />
           <p className="mt-3 text-sm leading-relaxed text-parchment-2">Text fallback: input pulses enter a fluctuating reservoir, relax into a mixed state, and are sampled as a readout. The animation represents the proposed mechanism.</p>
         </div>
       </ExhibitSection>
 
-      <ExhibitSection id="dmi" eyebrow="03 / Make the knot" title="DMI: give the texture a handedness" description="Dzyaloshinskii–Moriya interaction favors chiral spin arrangements at an interface. In the proposed stack, that preference helps define which textures can form and persist." evidenceLabel="Inspect candidate materials" evidenceHref="/docs/established/candidate-materials-and-mechanisms">
+      <ExhibitSection id="dmi" eyebrow="03 / Hold the knot" title="DMI: stabilize the texture" description="DMI helps hold the knot together. It favors chiral spin arrangements at an interface, giving the proposed stack a directional interaction that can help coherent textures form and persist." evidenceLabel="Inspect candidate materials" evidenceHref="/docs/established/candidate-materials-and-mechanisms">
         <div className="rounded-xl border border-obsidian-3/40 bg-obsidian-2/30 p-3">
-          <DmiStabilizerScene height="h-72" interactive={true} />
+          <DeferredScene loader={() => import('../components/r3f/DmiStabilizerScene')} sceneProps={{ height: 'h-72', interactive: true }} fallback={sceneFallback('Competing directions resolve into a coherent chiral twist.')} />
         </div>
       </ExhibitSection>
 
       <ExhibitSection id="readout" eyebrow="04 / Read" title="Readout: turn topology into a signal" description="A useful computer needs an electrical observable. HELIOS-3D points to orbital and transverse responses as candidate readout channels, while keeping the measurement path open to validation." evidenceLabel="Open the visual index" evidenceHref="/figures">
         <div className="rounded-xl border border-obsidian-3/40 bg-obsidian-2/30 p-3">
-          <TopologicalOrbitalHallScene height="h-72" interactive={true} />
+          <DeferredScene loader={() => import('../components/r3f/TopologicalOrbitalHall')} sceneProps={{ height: 'h-72', interactive: true }} fallback={sceneFallback('Colored arrows represent candidate transverse responses around the texture.')} />
           <p className="mt-3 text-sm leading-relaxed text-parchment-2">Text fallback: colored arrows represent candidate transverse responses around the texture. The visual is a conceptual map, not a measured trace.</p>
         </div>
       </ExhibitSection>
 
       <ExhibitSection id="scaling" eyebrow="05 / Scale" title="Scaling starts with a stack" description="The proposed EuS / Bi₂Se₃ / EuS stack places chiral magnetic layers around a topological-insulator interface. Material choice is a constraint, not a promise of fabrication." evidenceLabel="See the evidence trail" evidenceHref="/research">
         <div className="rounded-xl border border-obsidian-3/40 bg-obsidian-2/30 p-3">
-          <MaterialStackScene height="h-72" interactive={true} />
+          <DeferredScene loader={() => import('../components/r3f/MaterialStack')} sceneProps={{ height: 'h-72', interactive: true }} fallback={sceneFallback('Two EuS layers surround a Bi₂Se₃ interface in this candidate stack.')} />
           <p className="mt-3 text-sm leading-relaxed text-parchment-2">Text fallback: two EuS layers surround a Bi₂Se₃ interface. The stack visualizes the candidate geometry and its open experimental questions.</p>
         </div>
       </ExhibitSection>

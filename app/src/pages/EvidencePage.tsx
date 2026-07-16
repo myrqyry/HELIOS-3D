@@ -18,7 +18,7 @@ const groups: EvidenceGroup[] = [
     sourceHref: '/docs/established/literature-review',
     rows: [
       { claim: 'Hopfion stability in a EuS/Bi₂Se₃/EuS system anchors the phase-1 demonstrator.', tag: 'DEMONSTRATED', source: 'Katmis et al.' },
-      { claim: 'TOHE is identified as an electronic hallmark for simulated 3D hopfions.', tag: 'DEMONSTRATED', source: 'Göbel & Lounis' },
+      { claim: 'TOHE is demonstrated in simulation as an electronic hallmark for 3D hopfions and inferred as a candidate signature for experiments.', tag: 'DEMONSTRATED', source: 'Göbel & Lounis' },
     ],
   },
   {

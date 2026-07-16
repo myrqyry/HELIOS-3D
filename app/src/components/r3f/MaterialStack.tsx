@@ -1,15 +1,16 @@
-import { useRef } from 'react';
+import { useEffect, useRef, useState, type RefObject } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Billboard, Text } from '@react-three/drei';
 import * as THREE from 'three';
 import { R3FCanvas, R3FControls } from './R3FCanvas';
 import { isMotionEnabled, usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
+import { ExhibitControl } from '../exhibit/ExhibitControl';
 
-function Stack() {
+function Stack({ pausedRef }: { pausedRef: RefObject<boolean> }) {
   const group = useRef<THREE.Group>(null);
   const prefersReducedMotion = usePrefersReducedMotion();
   useFrame((_, delta) => {
-    if (!isMotionEnabled(prefersReducedMotion)) return;
+    if (pausedRef.current || !isMotionEnabled(prefersReducedMotion)) return;
     if (group.current) group.current.rotation.y += delta * 0.2;
   });
 
@@ -43,12 +44,19 @@ function Stack() {
 }
 
 export default function MaterialStackScene({ height = 'h-96', interactive = false }: { height?: string; interactive?: boolean }) {
+  const [paused, setPaused] = useState(false);
+  const pausedRef = useRef(paused);
+  useEffect(() => { pausedRef.current = paused; }, [paused]);
+
   return (
-    <R3FCanvas height={height} className="bg-obsidian-2" camera={{ position: [3, 1.5, 3.5], fov: 45 }}>
+    <div>
+      <ExhibitControl label={paused ? 'Resume animation' : 'Pause animation'} paused={paused} onToggle={() => setPaused((value) => !value)} />
+      <R3FCanvas fallback="The candidate EuS / Bi₂Se₃ / EuS material stack is shown in text above." height={height} className="bg-obsidian-2" camera={{ position: [3, 1.5, 3.5], fov: 45 }}>
       <ambientLight intensity={0.5} />
       <pointLight position={[5, 5, 5]} intensity={1.2} color="#ffb627" />
-      <Stack />
+      <Stack pausedRef={pausedRef} />
       <R3FControls interactive={interactive} />
-    </R3FCanvas>
+      </R3FCanvas>
+    </div>
   );
 }
