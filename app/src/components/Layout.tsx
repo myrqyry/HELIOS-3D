@@ -21,7 +21,7 @@ export function Layout() {
         {showSidebar && <Sidebar />}
         <main id="main-content" className="flex-1 min-w-0">
           {isHomePage ? (
-            <div className="w-full">
+            <div className="w-full exhibit-main">
               <Outlet />
             </div>
           ) : (
