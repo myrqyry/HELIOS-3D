@@ -7,6 +7,9 @@ import { FiguresPage } from './pages/FiguresPage';
 import { ResearchIndexPage } from './pages/ResearchIndexPage';
 import { ResearchDetailPage } from './pages/ResearchDetailPage';
 import { DocsPage } from './pages/DocsPage';
+import { VisualsPage } from './pages/VisualsPage';
+import { EvidencePage } from './pages/EvidencePage';
+import { TechnicalArchivePage } from './pages/TechnicalArchivePage';
 
 export function App() {
   return (
@@ -18,6 +21,9 @@ export function App() {
           <Route path="overview" element={<OverviewPage />} />
           <Route path="start-here" element={<StartHerePage />} />
           <Route path="figures" element={<FiguresPage />} />
+          <Route path="visuals" element={<VisualsPage />} />
+          <Route path="evidence" element={<EvidencePage />} />
+          <Route path="technical-archive" element={<TechnicalArchivePage />} />
           <Route path="research" element={<ResearchIndexPage />} />
           <Route path="research/:id" element={<ResearchDetailPage />} />
           <Route path="docs/:stage/:slug" element={<DocsPage />} />

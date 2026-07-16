@@ -10,6 +10,8 @@ import BreathingModeSpectrum from '../components/charts/BreathingModeSpectrum';
 import EnergyBarrier from '../components/charts/EnergyBarrier';
 import LiteratureTimeline from '../components/charts/LiteratureTimeline';
 import PerformanceFloor from '../components/charts/PerformanceFloor';
+import ReadoutScene from '../components/r3f/ReadoutScene';
+import ScaleTransitionScene from '../components/r3f/ScaleTransitionScene';
 
 interface FigureData {
   title: string;
@@ -30,6 +32,8 @@ const figures: FigureData[] = [
   { title: 'Energy Barrier', kind: 'chart', source: 'data-driven', component: 'EnergyBarrier', description: 'Comparative energy barriers (in kBT) for topological configurations.' },
   { title: 'Literature Timeline', kind: 'chart', source: 'data-driven', component: 'LiteratureTimeline', description: 'Chronological evidence mapping from 2024 to 2026.' },
   { title: 'Performance Floor', kind: 'chart', source: 'data-driven', component: 'PerformanceFloor', description: 'Write speed and energy density benchmarks for candidate systems.' },
+  { title: 'Readout Signal', kind: 'r3f', source: 'stylized', component: 'ReadoutScene', description: 'Conceptual mapping from one magnetic state to one electrical or optical signal.' },
+  { title: 'Scale Transition', kind: 'r3f', source: 'stylized', component: 'ScaleTransitionScene', description: 'Repeated magnetic knots staged from a single knot to a three-dimensional array.' },
 ];
 
 const allSources = Array.from(new Set(figures.map((f) => f.source)));
@@ -46,6 +50,8 @@ const sceneComponents = {
   EnergyBarrier,
   LiteratureTimeline,
   PerformanceFloor,
+  ReadoutScene,
+  ScaleTransitionScene,
 } as Record<string, React.ComponentType<{ height?: string }>>;
 
 export function FiguresPage() {
@@ -86,7 +92,7 @@ export function FiguresPage() {
       </Helmet>
       <header className="mb-8 pb-6 border-b border-obsidian-3">
         <h1 className="text-5xl font-bold text-amber mb-3">Figures</h1>
-        <p className="text-lg text-parchment-2 max-w-2xl">Every visualization used in the site, grouped by source and kind.</p>
+        <p className="text-lg text-parchment-2 max-w-2xl">The complete technical gallery: every visualization used in the site, grouped by source and kind.</p>
       </header>
       <div className="mb-8 flex flex-wrap gap-2">
         <div className="flex items-center gap-2 mr-4">
