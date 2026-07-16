@@ -3,10 +3,15 @@ import { useFrame } from '@react-three/fiber';
 import { Billboard, Text } from '@react-three/drei';
 import * as THREE from 'three';
 import { R3FCanvas, R3FControls } from './R3FCanvas';
+import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
 
 function Stack() {
   const group = useRef<THREE.Group>(null);
-  useFrame((_, delta) => { if (group.current) group.current.rotation.y += delta * 0.2; });
+  const prefersReducedMotion = usePrefersReducedMotion();
+  useFrame((_, delta) => {
+    if (prefersReducedMotion) return;
+    if (group.current) group.current.rotation.y += delta * 0.2;
+  });
 
   const layers = [
     { y: 0.9, color: '#ff6b1a', label: 'EuS (top)' },
@@ -47,4 +52,3 @@ export default function MaterialStackScene({ height = 'h-96', interactive = fals
     </R3FCanvas>
   );
 }
-

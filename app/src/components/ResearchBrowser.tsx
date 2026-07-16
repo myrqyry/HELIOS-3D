@@ -74,7 +74,7 @@ export function ResearchBrowser({
         {filtered.length > 0 ? (
           <div className="grid gap-4 md:grid-cols-2">
             {filtered.map((record) => (
-              <article key={record.id} className="rounded-lg border border-obsidian-3/60 bg-obsidian-1/40 p-5">
+              <article key={record.id} className="rounded-lg border border-obsidian-3/60 bg-obsidian-1/40 p-5" data-stage-card={record.stage}>
                 <div className="mb-3 flex flex-wrap items-start justify-between gap-3">
                   <StageBadge stage={record.stage} size="sm" />
                   <time className="font-mono text-xs uppercase tracking-wider text-parchment-2" dateTime={record.publishedAt}>

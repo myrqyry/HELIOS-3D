@@ -3,9 +3,11 @@ import { useFrame } from '@react-three/fiber';
 import { Float, Instances, Instance } from '@react-three/drei';
 import * as THREE from 'three';
 import { R3FCanvas, R3FControls, R3FEnvironment } from './R3FCanvas';
+import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
 
 function NeelSkyrmion() {
   const group = useRef<THREE.Group>(null);
+  const prefersReducedMotion = usePrefersReducedMotion();
   
   const arrows = useMemo(() => {
     const arr = [];
@@ -58,6 +60,7 @@ function NeelSkyrmion() {
   }, []);
 
   useFrame((state) => {
+    if (prefersReducedMotion) return;
     if (group.current) {
       group.current.rotation.z = state.clock.elapsedTime * 0.1;
     }
@@ -95,13 +98,15 @@ function NeelSkyrmion() {
 }
 
 export default function SkyrmionScene({ height = 'h-96', interactive = false }: { height?: string; interactive?: boolean }) {
+  const prefersReducedMotion = usePrefersReducedMotion();
+
   return (
     <R3FCanvas height={height} className="bg-obsidian-1" camera={{ position: [0, 0, 4], fov: 50 }}>
       <color attach="background" args={['#050505']} />
       <R3FEnvironment starsCount={3000} />
       <pointLight position={[10, 10, 10]} intensity={2} color="#7dd3fc" />
       <pointLight position={[-10, -10, -10]} intensity={1} color="#ff6b1a" />
-      <Float speed={2} rotationIntensity={0.3} floatIntensity={0.3}>
+      <Float enabled={!prefersReducedMotion} speed={2} rotationIntensity={0.3} floatIntensity={0.3}>
         <NeelSkyrmion />
       </Float>
       <R3FControls interactive={interactive} />

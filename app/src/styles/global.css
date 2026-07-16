@@ -116,7 +116,11 @@
   html[data-stage="established"] [data-stage-section]:not([data-stage-section="established"]),
   html[data-stage="current"] [data-stage-section]:not([data-stage-section="current"]),
   html[data-stage="speculative"] [data-stage-section]:not([data-stage-section="speculative"]),
-  html[data-stage="project-ops"] [data-stage-section]:not([data-stage-section="project-ops"]) {
+  html[data-stage="project-ops"] [data-stage-section]:not([data-stage-section="project-ops"]),
+  html[data-stage="established"] [data-stage-card]:not([data-stage-card="established"]),
+  html[data-stage="current"] [data-stage-card]:not([data-stage-card="current"]),
+  html[data-stage="speculative"] [data-stage-card]:not([data-stage-card="speculative"]),
+  html[data-stage="project-ops"] [data-stage-card]:not([data-stage-card="project-ops"]) {
     display: none !important;
   }
 
