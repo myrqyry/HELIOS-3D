@@ -28,4 +28,18 @@ pnpm --dir app test -- --run     PASSED — 2 files, 22 tests
 ## Concerns
 
 - Commit: `249a883` (`feat: add curated exhibit routes`).
+
+## Phase regression coverage
+
+- Added boundary and clamping tests for `getReadoutPhase` and `getScalePhase`.
+- `pnpm --dir app exec tsc -b` — **passed**.
+- `pnpm --dir app test -- --run` — **passed**, 2 files, 40 tests.
+- `pnpm --dir app build` — **passed**; chunk-size warning only.
+- Commit: `785a3fc` (`test: cover readout and scale phases`).
 - Header navigation still reflects the existing Task 1 destinations; this task added the requested routes without changing unrelated navigation files.
+
+## Current-session verification
+
+- Shell access was unavailable, so the working tree could not be inspected.
+- The requested validation commands were not run; no current command results are claimed.
+- The requested commit was not created; no current commit hash is claimed.
