@@ -212,6 +212,9 @@
   .glass-card:hover {
     transform: none;
   }
+  [class*="hover:scale-"]:hover {
+    transform: none;
+  }
   .snap-y-mandatory {
     scroll-snap-type: y proximity;
   }

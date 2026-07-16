@@ -7,6 +7,7 @@ import { getStageFilterState, PRIMARY_NAV } from '../Header';
 import { ResearchBrowser } from '../ResearchBrowser';
 import type { ResearchRecord } from '../../data/research-ingestion';
 import { getInitialReducedMotion } from '../../hooks/usePrefersReducedMotion';
+import { shouldAutoRotate } from '../r3f/TopologicalOrbitalHall';
 
 const researchRecords: ResearchRecord[] = [
   {
@@ -86,5 +87,11 @@ describe('exhibit navigation and controls', () => {
     vi.stubGlobal('window', { matchMedia: vi.fn().mockReturnValue({ matches: true }) });
     expect(getInitialReducedMotion()).toBe(true);
     vi.stubGlobal('window', originalWindow);
+  });
+
+  it('disables passive camera rotation when reduced motion is preferred', () => {
+    expect(shouldAutoRotate(false, false)).toBe(true);
+    expect(shouldAutoRotate(false, true)).toBe(false);
+    expect(shouldAutoRotate(true, false)).toBe(false);
   });
 });

@@ -3,6 +3,11 @@ import { Text, Billboard } from '@react-three/drei';
 import * as THREE from 'three';
 import { R3FCanvas, R3FControls, R3FEnvironment } from './R3FCanvas';
 import { directionToEuler } from '../../utils/three';
+import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
+
+export function shouldAutoRotate(interactive: boolean, prefersReducedMotion: boolean): boolean {
+  return !interactive && !prefersReducedMotion;
+}
 
 function HallmarkArrows() {
   const arrows = useMemo(() => {
@@ -107,6 +112,8 @@ function Hall() {
 }
 
 export default function TopologicalOrbitalHallScene({ height = 'h-96', interactive = false }: { height?: string; interactive?: boolean }) {
+  const prefersReducedMotion = usePrefersReducedMotion();
+
   return (
     <R3FCanvas height={height} className="bg-obsidian-1" camera={{ position: [0, 2, 5], fov: 45 }}>
       <color attach="background" args={['#0a0a0a']} />
@@ -114,8 +121,11 @@ export default function TopologicalOrbitalHallScene({ height = 'h-96', interacti
       <pointLight position={[10, 10, 10]} intensity={1.5} color="#7dd3fc" />
       <pointLight position={[-10, -10, -10]} intensity={1} color="#ff6b1a" />
       <Hall />
-      <R3FControls interactive={interactive} autoRotate={!interactive} autoRotateSpeed={0.5} />
+      <R3FControls
+        interactive={interactive}
+        autoRotate={shouldAutoRotate(interactive, prefersReducedMotion)}
+        autoRotateSpeed={0.5}
+      />
     </R3FCanvas>
   );
 }
-
