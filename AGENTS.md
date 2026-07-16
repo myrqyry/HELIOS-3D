@@ -33,7 +33,7 @@ Python-based validation for the research and simulation side of the repo.
 - When editing repo documentation or site meta docs, read `docs/AGENTS.md`.
 - When editing public content under `src/content/docs/`, read
   `src/content/docs/AGENTS.md`.
-- When editing pages, read `src/pages/AGENTS.md`.
+- When editing pages, read `src/AGENTS.md`.
 - When editing Astro or React components, read `src/components/AGENTS.md` and
   the nearest nested file such as `src/components/ui/AGENTS.md`,
   `src/components/r3f/AGENTS.md`, `src/components/research/AGENTS.md`, or

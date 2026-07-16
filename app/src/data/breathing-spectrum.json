@@ -1,0 +1,7 @@
+{
+  "frequencies": [
+    { "system": "Fe3GaTe2 hopfion (theoretical)", "freqGhz": 2.4, "amplitude": 1.0 },
+    { "system": "Mn3Sn AFM mode (Tsai 2026)", "freqGhz": 8.1, "amplitude": 0.7 },
+    { "system": "Thermal noise floor (300 K)", "freqGhz": 1.0, "amplitude": 0.05 }
+  ]
+}

@@ -1,0 +1,367 @@
+---
+title: "Literature Review"
+summary: "Interactive evidence mapping and literature analysis for HELIOS-3D."
+stage: established
+tags: ["DEMONSTRATED", "INFERRED", "PROPOSED"]
+figures: []
+updated: 2026-06-07
+---
+import LiteratureTimeline from '../../../components/charts/LiteratureTimeline.tsx';
+import { ExpandableChunk, TermTooltip, MetricPopover } from '../../../components/ui';
+
+<LiteratureTimeline client:visible height="h-48" />
+
+# 📚 HELIOS-3D: Evidence Mapping & Literature Analysis
+
+This document maps the HELIOS-3D research hypothesis to current empirical developments in spintronics, non-equilibrium thermodynamics, and volumetric manufacturing.
+
+## 1. Macro-Energetic Context: The Silicon Wall
+
+<ExpandableChunk 
+  title="IEA Electricity Demand Projections (2024-2030)" 
+  summary="Data center demand reaching ~600 TWh in 2026."
+>
+The *IEA Electricity 2026* (Feb 2026) and *Key Questions on Energy and AI (April 2026)* confirm that combined demand from data centers, AI, and crypto is projected to reach **~600 TWh in 2026**, with high-growth scenarios surpassing **1,000 TWh by 2030**. `[DEMONSTRATED]`
+
+**Significance:** Provides the foundational motivation for investigating noise-exploiting computational paradigms through post-Landauer physical-computing analysis using Create/Read/Update/Delete energy budgets.
+</ExpandableChunk>
+
+## 2. Empirical Support for Room-Temperature Hopfion Substrates
+
+<ExpandableChunk 
+  title="EuS/Bi₂Se₃/EuS Trilayers (Katmis et al., 2025)" 
+  summary="First observation of room-temperature, zero-field magnetic hopfions."
+>
+Katmis et al., *Interface-Induced Stability of Nontrivial Topological Spin Textures* (Advanced Materials 2025), report the first observation of robust magnetic hopfions and skyrmions at **room temperature and zero magnetic field**. The stability is driven by proximity-enhanced magnetism at the **Topological Insulator (TI)** / **Ferromagnetic Insulator (FMI)** interface. `[DEMONSTRATED]`
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="Topological Protection & Energy Barriers" 
+  summary="Hopf index stability exceeding 50 kBT."
+>
+Analysis indicates that the topological protection of the Hopf index ($Q_H=1$) in optimized heterostructures provides an annihilation barrier exceeding **$50 k_B T$** at room temperature, meeting non-volatility requirements. `[DEMONSTRATED]`
+</ExpandableChunk>
+
+## 3. Foundational Frameworks for Thermodynamic Computing
+
+<ExpandableChunk 
+  title="Non-equilibrium Thermodynamic Computing" 
+  summary="Harnessing noise as a computational resource."
+>
+*   **Non-equilibrium Systems:** *Nonlinear thermodynamic computing out of equilibrium* (2024/2026) provides the theoretical underpinnings for the Brownian Reservoir Computing (BRC) core. `[DEMONSTRATED]`
+*   **Noise-Driven Optimization:** Emerging preprints on gradient descent in thermodynamic systems support the hypothesis that thermal noise can be utilized as a computational resource. `[INFERRED]`
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="CRUD-Style Information Thermodynamics (Iizumi, Physica A 2026)" 
+  summary="Extending Landauer's erasure bound as the Delete-specific limit of a broader CRUD framework."
+>
+  Iizumi, *Physica A: Statistical Mechanics and its Applications* (2026, DOI: `10.1016/j.physa.2026.131801`), proposes a unified information-thermodynamic framework that treats Landauer's erasure bound as the Delete-specific limit of a broader Create/Read/Update/Delete (CRUD) accounting system. The framework uses nonequilibrium free-energy inequalities to account for transformations of probability distributions over physical memory states. `[DEMONSTRATED]`
+
+  * **Internal Consistency:** The paper reports a sorry-free Lean 4 formalization of the algebraic identities behind the CRUD accounting framework, establishing the internal consistency of the thermodynamic decomposition.
+  * **HELIOS Relevance:** Supports HELIOS-3D’s validation philosophy: energy claims must account for the full lifecycle of information operations (reservoir state creation/preparation, physical update/perturbation, readout/measurement, overwrite/reset, and protocol-dependent dissipation) rather than focusing solely on erasure.
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="Classical Reversible Computation by Quantum Coherence (Loss, arXiv 2026)" 
+  summary="Classical reversible logic mapped to coherent spin dynamics in semiconductor quantum dots."
+>
+  Loss, *Classical Reversible Computation by Quantum Coherence* (arXiv:2607.06219v1, 2026), proposes classical reversible logic implemented with coherent spin dynamics in semiconductor quantum-dot arrays. Classical basis states represent inputs and outputs, while coherent spin rotations implement reversible gates (such as a DC-pulsed Ge/Si hole-spin iToffoli gate). `[DEMONSTRATED]`
+
+  * **Energy-Accounting Discipline:** Shows that gate energy is dominated by dielectric loss in the gate-electrode capacitance from baseband pulses, and claims a calibrated cold-device gate energy below the 4 K Landauer scale. However, system-level caveats (readout, reset, refrigeration, routing, error correction) can reduce this advantage.
+  * **HELIOS Relevance:** Supports the broader plausibility of physical-computing architectures where storage, transport, and computation share the same physical carrier, and where thermodynamic advantage depends on reversible operation plus explicit accounting of readout, reset, error correction, and protocol dissipation.
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="Thermodynamics of Quantum Reservoir Computing (Ding & Qiu, arXiv 2026)" 
+  summary="Linking reservoir predictive performance to microscopic energetic cost."
+>
+  Ding & Qiu, *Thermodynamics of Quantum Reservoir Computing* (arXiv:2607.02157v1, 2026), propose a non-equilibrium thermodynamic framework connecting reservoir predictive performance to microscopic energetic cost. Using Holevo quantities, they separate retained historical information from useful predictive information, treating the difference as quantum informational dissipation, and derive a generalized Landauer-style bound for continuous temporal processing. `[DEMONSTRATED]`
+
+  * **Memory vs. Prediction:** The paper argues that a useful physical reservoir should be evaluated by the alignment between retained memory and predictive capacity, rather than raw memory capacity. Near-critical regimes improve prediction through spectral resonance, but can also increase informational dissipation by retaining non-predictive history.
+  * **HELIOS Relevance:** Strengthens the validation framework for BRC reservoir evaluation, defining metrics like predictive accuracy, memory/predictive capacity, non-predictive history retention, estimated irreversible work, and readout/reset/update cost.
+</ExpandableChunk>
+
+
+## 4. Advanced Manufacturing Feasibility
+
+<ExpandableChunk 
+  title="Volumetric 3D Printing (DISH)" 
+  summary="Sub-second (0.6s) macro-scaffold creation at 19 µm resolution."
+>
+Wang et al., *Sub-second volumetric 3D printing by synthesis of holographic light fields* (Nature 2026), demonstrate Digital Incoherent Synthesis of Holographic light fields (DISH), achieving 19 µm printing resolution across a 1 cm depth in only 0.6 seconds. `[DEMONSTRATED]`
+
+**In Situ Integration:** DISH's single-side illumination enables printing directly onto **fixed surfaces** without sample rotation, supporting the "Planar-First" hybrid pipeline.
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="Flexible-Rigid Transition (Y-zipper)" 
+  summary="Rapid and reversible assembly of 3D scaffolds."
+>
+Li et al. (2026) demonstrate a 3D-printed "Y-zipper" structure that enables rapid transition between flexible strips and rigid rods. `[DEMONSTRATED]`
+
+**Significance:** Offers a potential path for **reconfigurable or deployable 3D scaffolds**, allowing complex architectures to be "zipped" into rigid operational geometry. `[PROPOSED]`
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="Deterministic Nucleation (PRL 2026)" 
+  summary="Quantized phase slips for on-demand soliton creation."
+>
+Shi et al. (PRL 2026) demonstrate the deterministic nucleation of 3D fractional solitons using a "twist reservoir" mechanism. Chen et al. (Nature Physics 2026) report **isolated magnetic hopfions** in FeGe triggered by femtosecond laser pulses. `[DEMONSTRATED]`
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="Monolithic 3D Stacking via Roll Lamination (Cao et al., Nature 2026)" 
+  summary="Wafer-scale low-temperature transfer of 10 nm single-crystal membranes with 98-100% yield."
+>
+  Cao et al., *Monolithic three-dimensional integration of silicon transistors* (Nature 2026, DOI: `10.1038/s41586-026-10496-6`), demonstrate monolithic 3D integration of silicon circuits by transferring 10 nm thick single-crystalline silicon membranes onto a receiving wafer using a roll laminator at only 200 °C. The process achieves 98-100% yield with high uniformity and is compatible with non-planar topologies. 
+
+  Key advancements include:
+  1. **Reusable Donor Wafers:** Nanomembranes can be released from bulk Si (111) wafers via anisotropic undercut etching along `<110>` directions, allowing the donor wafer to be repolished and reused.
+  2. **Negligible Area Overhead:** The use of access holes (5 µm diameter at 0.5 mm pitch) results in a negligible area overhead of only 0.008%, showing no practical impact on density.
+  3. **CMP-Free Transfer:** Bypasses post-transfer Chemical-Mechanical Polishing (CMP), eliminating polishing-induced contamination and within-wafer non-uniformity (WIWNU) risks.
+
+  **HELIOS-3D Application:** Provides a low-temperature, high-yield wafer-scale mechanical transfer method for stacking our ultra-thin planar spintronic/vdW membranes onto BEOL circuits or structured scaffolds without exceeding thermal budget. `[PROPOSED]`
+</ExpandableChunk>
+
+## 5. Readout Infrastructure Benchmarks
+
+<ExpandableChunk 
+  title="Topological Orbital Hall Effect (TOHE)" 
+  summary="The definitive electronic hallmark for 3D hopfions."
+>
+  Göbel & Lounis (2025/2026) identify TOHE as the **electronic hallmark** for 3D magnetic hopfions. When a current passes through a hopfion, its 3D spin texture generates an emergent 3D electromagnetic field, creating a transverse orbital current. `[INFERRED for experiments]`
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="Orbital Hall Conductivity and Relaxation in Mn Thin Films (Kang et al., 2026)" 
+  summary="disorder-dependent scaling of orbital Hall conductivity and relaxation time in manganese."
+>
+  Kang et al. (ETH Zurich Research Collection 2026) demonstrate that the orbital Hall conductivity ($\sigma_{OH}$) and orbital relaxation time ($\tau_o \approx 2 \text{ ps}$) in Mn thin films are highly sensitive to structural disorder. Spatially disordered, amorphous sputtered films exhibit severe orbital quenching and OHC suppression due to grain boundary scattering, whereas highly crystalline, epitaxial or textured films grown via MBE show a significant OHC boost.
+
+  **HELIOS-3D Application:** To maximize the signal-to-noise ratio in our TOHE electrical detector bridge, the contact and channel materials must utilize low-disorder, highly crystalline epitaxial light metals (like Mn) rather than amorphous sputtered alloys, preventing rapid orbital current relaxation at grain boundaries. `[PROPOSED]`
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="Microwave Signal Fidelity (PRL 2026)" 
+  summary="Preserving sub-GHz signatures against thermal noise."
+>
+  Yam et al. (PRL 2026) demonstrate microwave quantum state preservation at temperatures up to 4 K with **59.9% fidelity**. 
+
+  **Significance:** Establishes a benchmark for the HELIOS-3D **microwave signal chain** and sub-GHz "breathing mode" readout. `[INFERRED]`
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="Spontaneous Photoblinking Upconversion Microscopy (Ren et al., Nature Photonics 2026)" 
+  summary="Super-resolution imaging via defect-mediated upconversion blinking under low NIR power."
+>
+  Ren et al. (*Nature Photonics* 2026, DOI: `10.1038/s41566-026-01937-9`) report spontaneous, reversible photoblinking in $Yb^{3+}/Ho^{3+}$ co-doped upconversion nanoparticles (UCNPs) under continuous-wave near-infrared (976 nm) excitation. 
+  The blinking is driven by a multiphoton energy-trapping process in intrinsic lattice defects (vacancies) with a trap depth of ~1.66 eV. The nanoparticles do not photobleach, enabling infinite imaging duration, and achieve sub-nanometer localization precision and ~30 nm spatial FRC resolution under low excitation intensity (~6.6 kW/cm²).
+
+  **HELIOS-3D Application:** Proposes integrating these non-bleaching UCNPs into TPP resins to perform non-invasive, super-resolution 3D metrology and structural alignment of 3D scaffolds and spintronic channels. The low-power NIR excitation prevents photothermal melting of the delicate polymer scaffold during long-duration reconstructions. `[PROPOSED]`
+</ExpandableChunk>
+
+## 6. Emerging Applications & Interfacial Physics
+
+<ExpandableChunk 
+  title="Chiral-Induced Spin Selectivity (CISS)" 
+  summary="Isotopic fractionation via chiral magnetic interfaces."
+>
+Vardi et al. (Chem 2026) demonstrate that magnetic surfaces can filter isotopes ($^{13}C$ vs $^{12}C$) in chiral molecules. 
+
+**Significance:** Since hopfions are inherently chiral, this provides a foundation for HELIOS-3D as a **programmable CISS interface** for bio-chemical sensing. `[PROPOSED]`
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="High-Speed Switching Performance Floor" 
+  summary="40-ps switching at 1.7 pJ/µm² energy density."
+>
+Tsai et al. (Science 2026) demonstrate deterministic octupole switching in **$Mn_3Sn$** using **40-ps pulses** with device endurance exceeding **$10^{11}$ cycles**. `[DEMONSTRATED]`
+
+**Optical-to-Magnetic Interface:** Confirms switching via **60-ps photocurrent pulses** generated directly from telecom-band lasers.
+</ExpandableChunk>
+
+## 7. Planar Spintronic Interface and Control Candidates
+
+<ExpandableChunk 
+  title="Environmental Dielectric Tuning (Nature Physics 2026)" 
+  summary="In-situ moiré control via high-dielectric substrates."
+>
+Gao et al. (2026) demonstrate that high-dielectric **SrTiO3** substrates can tune or suppress correlated moiré states via dielectric screening. 
+
+**HELIOS Application:** Enables dynamic modulation of "trapping potential" depth for switchable mobility/stability. `[INFERRED]`
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="Twistless Moiré Engineering (Cornell 2026)" 
+  summary="Deterministic printing of moiré potentials."
+>
+  Cornell researchers demonstrate creating moiré superlattices without manual twisting by using lithographically patterned **metal stressor films**.
+
+  **Significance:** Replaces manual stacking with standard semiconductor manufacturing, enabling deterministic printing of moiré trapping potentials. `[PROPOSED for 3D]`
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="Quantum Vibronic and Photoinduced Moiré Switching (Gabor et al., 2026)" 
+  summary="Ultrafast wave function control and metal-to-insulator transitions in 2D moiré devices."
+>
+  Ouyang et al. (*Physical Review Letters* 2026, DOI: `10.1103/mjhj-83wc`) and Li et al. (*Physical Review B / Letters* 2026, DOIs: `10.1103/jf1h-4qcm`, `10.1103/mt2s-jkbl`) demonstrate that applied electric fields can control interlayer excitons in bilayer $WSe_2$, and that optical excitation can trigger picosecond metal-to-insulator transitions in 2D moiré devices. Furthermore, they propose using crystal vibrations (phonons) as a "control knob" for quantum vibronic switches.
+
+  **HELIOS-3D Application:** Offers a blueprint for (a) using femtosecond optical pulses to dynamically tune moiré trapping potential depth on picosecond timescales rather than slow thermal tuning, and (b) utilizing coherent phonons to gate the interlayer transport of topological solitons. `[PROPOSED]`
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="Scalable QNN Training via Butterfly Layouts (Mathur et al., arXiv 2026)" 
+  summary="Reducing gradient evaluation complexity from O(n^2) to O(log n) using parallel parameter shifts."
+>
+  Mathur et al., *Scalable On-Hardware Training of Quantum Neural Networks* (arXiv 2026, DOI: `10.48550/arXiv.2606.03517`), introduce a training framework for QNNs that reduces gradient estimation complexity to $O(\log n)$ using a subspace-preserving Butterfly architecture (with RBS gates), layer-wise training, and a parallelized parameter-shift rule.
+
+  **HELIOS-3D Application:** Because our spintronic/soliton networks conserve excitation number (Hopf index) during propagation and SOT logic operations, they can be mapped to Hamming-weight-preserving RBS networks. The parallel parameter-shift protocol allows us to calibrate our array of SOT gates in parallel, reducing the on-hardware calibration sweeps from $O(N^2)$ to $O(\log N)$. `[PROPOSED]`
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="Hot-Electron-Driven THz Phonons (Pudell et al., Nature Communications 2026)" 
+  summary="Direct excitation of THz lattice vibrations in metal superlattices via hot electron pressure."
+>
+  Pudell et al. (*Nature Communications* 2026, DOI: `10.1038/s41467-026-73927-y`) demonstrate that sub-picosecond optical laser pulses can trigger terahertz (1 THz) lattice oscillations in Pt/Cu metal superlattices. The process is driven by the pressure exerted by hot electrons reflecting at interfaces within less than a picosecond, rather than slow thermal heating.
+
+  **HELIOS Cares:** Provides a physical mechanism and design for an adjacent Pt/Cu superlattice transducer to generate THz coherent acoustic phonon pulses on-demand. This enables sub-picosecond vibronic/phononic gating of topological spin textures in the compute core. `[PROPOSED]`
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="Conformation Description Language (ConfSeq) (Zheng et al., Nature Machine Intelligence 2026)" 
+  summary="Autoregressive generation of 3D geometries via 1D tokenized conformation sequences."
+>
+  Zheng et al. (*Nature Machine Intelligence* 2026, DOI: `10.1038/s42256-026-01937-9`) introduce **ConfSeq**, a conformation description language that represents 3D conformations of molecules directly as tokenized sequences, allowing LLMs to predict and generate 3D structures from 1D/2D representations. The model achieves SOTA 3D validity (82.3% PoseBusters-validity) and a **~285× speedup** over 3D diffusion models on GPU. Furthermore, temperature-controlled sampling modulates the structural energy and diversity of generated conformations.
+
+  **HELIOS-3D Application:** Enables the **Topological Compiler** to operate via a **Spin-ConfSeq (Topological Spin Conformation Language)**. By encoding 3D spin coordinates ($m_x, m_y, m_z$) and topological charges ($Q_H$) directly as discrete tokens interleaved with 1D/2D routing sequences, we can generate physically valid 3D spin textures up to 285× faster than diffusion models. Temperature-controlled sampling allows the compiler to tune between stable, low-energy states (for storage) and high-energy, diverse states (for BRC reservoir dimensionality). `[PROPOSED]`
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="Confined Growth of 1D Nanotubes (Nakanishi et al., Science 2026)" 
+  summary="Synthesis of 1-nm single-walled inorganic nanotubes inside boron nitride templates."
+>
+  Nakanishi et al., *Confined growth of armchair $MoS_2$ nanotubes at the 1-nm limit* (Science 2026, DOI: `10.1126/science.aee3446`), demonstrate the synthesis of single-walled, 1-nanometer-wide $MoS_2$ nanotubes with highly uniform armchair configurations. This is achieved by heating precursor clusters ($Mo_4S_6$) in a confined space inside boron nitride (BN) nanotubes, forcing atomic arrangement under vacuum at 500–700 °C. The coaxial structure isolates the semiconductor core with a dielectric BN shell.
+
+  **HELIOS-3D Application:** Proposes utilizing BN nanotubes as template templates/nanoreactors to grow 1-nm single-walled **magnetic nanotubes** (e.g. $Fe_3GaTe_2$ or $CrI_3$). This 1D confinement prevents the Skyrmion Hall Effect (SHE) by restricting topological soliton transport to a single rectilinear axis, while the BN shell acts as a built-in capping layer against oxidation and provides a Gate-All-Around (GAA) electrostatic interface. `[PROPOSED]`
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="Defect Engineering in Carbon Quantum Dots (Enyoh & Qingyue, Computational Materials Science 2026)" 
+  summary="First-principles study of optoelectronic and excitonic property control via defect encoding."
+>
+  Enyoh & Qingyue (*Computational Materials Science* 2026, DOI: `10.1016/j.commatsci.2026.114813`) establish a predictive density functional theory (DFT) framework for tuning the optical properties of carbon quantum dots (CQDs) through atomic defect encoding (vacancies, nitrogen dopants, oxygen functional groups). They show that the HOMO-LUMO gap can be tuned from 2.77 eV down to 1.08 eV, spanning an optical emission window of 313 nm (UV) to 1,193 (NIR). Vacancies introduce dangling-bond bandgap states, while pyridinic nitrogen localizes edge orbitals.
+
+  **HELIOS-3D Application:** Proposes embedding these defect-encoded CQDs directly into the TPP polymer photoresins. By programming the defect types, we can create photostable, non-bleaching, metal-free optical alignment landmarks for high-precision sub-10 nm multi-tier roll-transfer registration, or utilize their temperature-dependent excitonic states as local thermal sensors to monitor BRC reservoir gradients. `[PROPOSED]`
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="Exciton Binding Energy Modulation in 2D Perovskites (Kim et al., Advanced Functional Materials 2025/2026)" 
+  summary="Phenomenological Keldysh framework for predicting and tuning excitonic properties via organic spacer length."
+>
+  Kim et al. (*Advanced Functional Materials* 2025/2026, DOI: `10.1002/adfm.202520461`) introduce a modified Keldysh model with a phenomenological dielectric function to describe exciton binding energy in 2D lead-iodide perovskites. They show that as the organic spacer length (alkyl chain length) increases, the quasiparticle bandgap increases while the exciton energy remains nearly constant. This leads to a substantial rise in exciton binding energy, offering a molecular-level design rule to control dielectric screening environments without structural distortions.
+
+  **HELIOS-3D Application:** Proposes utilizing this phenomenological Keldysh framework to tune the **super-moiré potential barrier depth** in our twisted magnetic bilayers. By incorporating organic spacer layers of variable alkyl chain lengths between the active magnetic/vdW sheets, we can precisely tune the local dielectric constant ($\varepsilon_{ph}$) and screen interlayer exchange/DMI coupling on a molecular level without inducing lattice distortions. `[PROPOSED]`
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="Defect-Induced Single-Photon Emission in ZnPS₃ (Zawadzka et al., ACS Nano 2026)" 
+  summary="Observation of highly polarized single-photon emission from phosphorus atom vacancies in layered ZnPS₃."
+>
+  Zawadzka et al. (*ACS Nano* 2026, DOI: `10.1021/acsnano.5c19936`) report the observation of defect-induced single-photon emission in the layered 2D metal phosphorus trichalcogenide **zinc phosphorus trisulfide (ZnPS₃)**. Using photoluminescence spectroscopy, they show that single phosphorus atom vacancies behave as stable, point-source quantum emitters. Crucially, the emitted photons exhibit a very high degree of polarization due to local crystal symmetries, allowing their electromagnetic waves to maintain stable spatial orientation.
+
+  **HELIOS-3D Application:** Proposes dry-transferring ZnPS₃ flakes onto the active spintronic layers to act as an integrated **spin-to-photon readout interface**. The proximity-induced exchange coupling between the ZnPS₃ single-photon emitters and the underlying hopfion spin texture can modulate the polarization axis of the emitted photons, enabling a high-contrast, non-invasive optical readout channel. `[PROPOSED]`
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="Exsolution-Induced Giant Electronic and Magnetic Property Changes in Titanate Perovskites (Kim et al., Advanced Materials 2026)" 
+  summary="Coupled control of electronic phase transitions and superparamagnetism in titanate thin films via metal nanoparticle exsolution."
+>
+  Kim et al. (*Advanced Materials* 2026, DOI: `10.1002/adma.202600031`) present a method to simultaneously control the electronic and magnetic properties of non-stoichiometric titanate perovskite thin films ($\text{La}_{0.2}\text{Sr}_{0.7}\text{Ni}_{0.1}\text{Ti}_{0.9}\text{O}_{3-\delta}$) through exsolution. In the pristine state, multiple defects (Sr/O vacancies, La/Ni substitutions) compensate to yield a diamagnetic insulator. Under reducing conditions, Ni exsolves as stable surface-anchored metallic nanoparticles, triggering a defect reconstruction that transforms the oxide lattice into a heavily electron-doped degenerate metal (resistivity drop $> 3$ orders of magnitude) while exhibiting room-temperature superparamagnetism.
+
+  **HELIOS-3D Application:** Proposes integrating exsolution-active perovskite titanate layers (e.g. LSTN) as a **switchable gating interface** in our spintronic memory stack. By applying electric field pulses or local chemical reduction, we can switch the gating layer from a diamagnetic insulator (minimal screening, hopfions remain pinned for non-volatile storage) to a degenerate metallic state with superparamagnetic Ni nanoparticles (maximum screening and localized superparamagnetic pinning nodes, enabling low-current hopfion transport or BRC reservoir state updates). `[PROPOSED]`
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="Twist-Angle-Controlled Anomalous Gating in Bilayer Graphene/BN Heterostructures (Maffione et al., Nature Materials 2026)" 
+  summary="Demonstration that the angular alignment between encapsulating BN layers governs anomalous gating and hysteresis."
+>
+  Maffione et al. (*Nature Materials* 2026, DOI: `10.1038/s41563-026-02667-7`) investigate the origin of anomalous gating effects (such as gate ineffectiveness and strong resistance hysteresis) in dual-gated bilayer graphene encapsulated in hexagonal boron nitride (hBN). By utilizing dynamically rotatable heterostructures, they show that the relative angular alignment between the top and bottom BN encapsulation layers—rather than any moiré superlattice between graphene and BN—is the primary driver of these effects at room temperature. The anomalous gating is observed when the BN-to-BN twist angle lies between approximately 15° and 45°, with no evidence of the expected 60° periodicity, and is highly sensitive to small angular variations.
+
+  **HELIOS-3D Application:** Establishes a critical design constraint and failure mode for gated vdW and spintronic devices. In multi-gate MCA components or hBN-encapsulated spin channels, stacking encapsulating hBN layers with an interlayer twist angle of 15°–45° must be avoided to prevent gate screening and uncontrolled hysteresis during SOT-induced switching or SOT gating. Conversely, in the BRC core, this twist-induced ferroelectric-like response can be actively exploited to construct non-volatile local gate states for in-situ reservoir weight adjustments. `[PROPOSED]` [Maffione et al. 2026]
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="Altermagnetic Spintronics Review (Jungwirth et al., Nature Physics 2026)" 
+  summary="Review of theoretical concepts and experimental outlook for d-wave collinear compensated spin ordering."
+>
+  Jungwirth et al. (*Nature Physics* 2026, DOI: `10.1038/s41567-026-03337-w`) review the emerging field of altermagnetic spintronics, highlighting the properties of altermagnetism—a form of magnetism characterized by collinear, compensated spin ordering with unconventional d-wave (or higher even-parity) symmetry. They outline how altermagnets support strongly spin-polarized currents without net magnetization, exhibit fast spin dynamics, and interact with relativistic spin-orbit coupling, ferroelectricity (e.g. switchable altermagnetism), and superconductivity. The review presents altermagnets as a scalable solution for high-density, high-speed spintronic devices.
+
+  **HELIOS-3D Application:** Strengthens the physical foundation for the Phase 3 MCA core and high-density scaling. By utilizing altermagnetic materials (such as $Mn_3Sn$ or $Mn_5Si_3$), HELIOS-3D can achieve zero stray fields to enable sub-10 nm pitch scaling while maintaining fast switching dynamics (&lt;100 ps) and strongly spin-polarized currents, mitigating cross-talk between adjacent hopfion pipelines. `[DEMONSTRATED]` [Jungwirth et al. 2026]
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="3D Integrated Photonic Packaging and Waveguide Couplers (Weninger et al., Light: Science & Applications 2026)" 
+  summary="Review of optical waveguide-to-waveguide couplers and vertical photonic vias for 3D packaging."
+>
+  Weninger et al. (*Light: Science & Applications* 2026, DOI: `10.1038/s41377-025-02048-w`) present a comprehensive review of optical waveguide-to-waveguide couplers (edge, grating, free form, evanescent, cantilever, and optical wirebonds) and 3D photonic vias (guided-mode and free-form) across silicon, glass, and organic substrates. They highlight that packaging, assembly, and testing dominate 70–80% of photonic integrated circuit (PIC) costs. The review details how shifting to vertical 3D integration with high-density evanescent couplers (pitches &lt;10 µm, density &gt;100 couplers/mm) and photonic vias (such as 45° TIR mirrors) can achieve a two-fold reduction in latency and energy consumption while scaling bandwidth capacity.
+
+  **HELIOS-3D Application:** In Phase 4 vertical stacking and MVD routing, HELIOS-3D proposes implementing high-density evanescent couplers and 3D photonic vias rather than serial fiber array active alignment. By using 45° TIR mirrors on silicon/glass interposers, we can route spin-to-photon readout signals vertically between stacked MCA and BRC tiers, targeting &lt;1 dB insertion loss. However, strict fabrication controls must keep alignment within 3 µm and mirror angles at 45° ± 4° to prevent severe excess loss. `[INFERRED]` [Weninger et al. 2026]
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="Phase Light Modulator Holographic Volumetric 3D Printing (Álvarez-Castaño et al., Light: Science & Applications 2026)" 
+  summary="Demonstration of tomographic volumetric 3D printing utilizing a phase-only spatial light modulator."
+>
+  Álvarez-Castaño et al. (*Light: Science & Applications* 2026, DOI: `10.1038/s41377-026-02331-4`) present the first tomographic volumetric additive manufacturing (TVAM) system utilizing a phase-only spatial light modulator (PLM) based on an array of MEMS piston mirrors. Compared to binary amplitude modulators (DMDs), this phase light modulator provides a 70-fold increase in laser power efficiency, enabling large-scale, multi-material volumetric prints (up to 3 × 3 × 4 cm³) within 2 minutes using low-power (150 mW) laser diodes. Additionally, the system incorporates a speckle reduction algorithm using time-multiplexed lateral shifts of axicon phase patterns to dramatically improve print surface quality and prevent structural delamination down to ~30 µm features.
+
+  **HELIOS-3D Application:** Optimizes the DISH (Digital Incoherent Synthesis of Holographic light fields) hardware architecture. By upgrading from DMD amplitude projection to a MEMS-based phase light modulator (PLM), HELIOS-3D can achieve a 70-fold increase in light engine efficiency, permitting the use of low-power single-mode laser diodes for volumetric printing of macro-scaffolds. Furthermore, utilizing the time-multiplexed axicon shift pipeline minimizes speckle-induced surface roughness and delamination on the printed scaffolds, providing a highly uniform, defect-free substrate for subsequent conformal van Waals thin-film transfers. `[PROPOSED]` [Álvarez-Castaño et al. 2026]
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="Bio-Inspired Backpropagation-Free Training for Optical Neural Networks (Li et al., Light: Science & Applications 2026)" 
+  summary="Demonstration of a layer-wise target propagation learning algorithm that bypasses gradient backpropagation."
+>
+  Li et al. (*Light: Science & Applications* 2026, DOI: `10.1038/s41377-026-02394-3`) propose a backpropagation-free optical neural network (B-ONN) training framework. By utilizing layer-wise target propagation combined with trainable error convolution kernels, B-ONN circumvents global gradient backpropagation, eliminating the strict physical reciprocity and optical conjugation requirements of traditional backpropagation. B-ONN achieves near-parity classification performance with traditional network training, while demonstrating high robustness against phase noise (up to $\sigma \approx 0.4\pi$) and alignment errors (up to $\pm 3$ pixels). Crucially, the algorithm naturally evolves smooth phase distributions that map directly to the physical constraints of TPP and 3D printing fabrication (where sharp step edges are rounded by polymerization).
+
+  **HELIOS-3D Application:** Strengthens the physical scalability and training feasibility of the Magnetic Convolutional Accelerator (MCA) and BRC cores. Rather than relying on rigid, non-reciprocal optical/magnetic paths for global backpropagation, HELIOS-3D proposes mapping the B-ONN local learning pipeline onto the diffractive spin-modulating components. Trainable error convolution kernels ($E$) enable decentralized local updates, while the algorithm's tendency to converge to smooth phase profiles accommodates SOT and SOT-gating fabrication constraints (fabrication smoothing), preventing performance degradation during chip-scale integration. `[PROPOSED]` [Li et al. 2026]
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="Spin-Photon Qubits for Scalable Quantum Networks (Islam et al., Light: Science & Applications 2026)" 
+  summary="Review of solid-state spin-photonic qubits and their scalability, focusing on silicon defect centers."
+>
+  Islam et al. (*Light: Science & Applications* 2026, DOI: `10.1038/s41377-026-02345-y`) present a comprehensive review of solid-state spin-photonic qubits (including diamond color centers, silicon carbide defects, quantum dots, 2D materials, and silicon defect centers) for long-distance quantum communication and networks. They evaluate each platform based on spin-photon interface availability, CMOS compatibility, and scalability. Special focus is given to silicon-based color centers (G, T, C, and Ci centers) which emit natively in the telecom O-, S-, C-, and L-bands, avoiding lossy frequency conversion. In particular, the silicon T center (~1326 ZPL) supports a multi-qubit register containing an electron spin and two nuclear spins (¹H and ²⁹Si) with long coherence times ($T_2 \approx 0.41$ ms for electron, $T_{2,H} \approx 112$ ms for ¹H).
+
+  **HELIOS-3D Application:** Informs the selection of spin-to-photon readouts for quantum sensing and interconnects. Rather than relying on diamond NV centers that operate in the visible spectrum and require complex quantum frequency conversion to interface with standard fiber buses, HELIOS-3D proposes integrating silicon-based T centers. By utilizing their native telecom O-band zero-phonon line and long spin-coherence multi-qubit register, we can implement high-fidelity spin-photon interfaces directly within a monolithic, CMOS-compatible silicon photonics platform. `[PROPOSED]` [Islam et al. 2026]
+</ExpandableChunk>
+
+## 8. Evidence Lanes & Citation Map
+
+This section maps our conceptual framework and validation philosophy to empirical and theoretical literature through distinct evidence lanes.
+
+### Evidence Lane: Information Thermodynamics and Operation-Level Accounting
+- **Iizumi 2026 (Physica A):** CRUD-style information-thermodynamic accounting for Create, Read, Update, and Delete operations.
+- **Ding & Qiu 2026 (arXiv):** Connecting quantum reservoir performance to microscopic energetic cost and informational dissipation.
+- **Loss 2026 (arXiv):** Post-Landauer classical reversible computation using coherent spin dynamics.
+
+### Evidence Lane: Reversible Physical Computation and Post-Landauer Architectures
+- **Loss 2026 (arXiv):** Classical reversible computation by quantum coherence in Ge/Si hole-spin quantum dots.
+- **Iizumi 2026 (Physica A):** CRUD-style information-thermodynamic accounting.
+- **Bennett/Fredkin-Toffoli Lineage:** Reversible logic as the theoretical root.
+- **Nature Materials Memristor Focus 2026:** Physical computing requires material-device-array-system validation.
+
+### Evidence Lane: Thermodynamic Reservoir Computing and Predictive Information
+- **Ding & Qiu 2026 (arXiv):** Quantum reservoir computing thermodynamics, quantum informational dissipation, generalized Landauer bound for continuous prediction.
+- **Iizumi 2026 (Physica A):** CRUD operation-level information thermodynamics.
+- **Loss 2026 (arXiv):** Classical reversible computation using quantum-coherent spin dynamics.
+- **Liu et al. 2026 (PRX / APS Viewpoint):** Synchronization and correlation-only collective dynamics in quantum oscillators.
+
+
+
+
+
+
+
+
+

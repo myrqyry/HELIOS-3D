@@ -16,12 +16,12 @@ const tags = ['DEMONSTRATED', 'INFERRED', 'PROPOSED', 'SPECULATIVE'] as const;
   <div class="flex flex-wrap items-center gap-3 mb-4">
     <span class="font-mono text-xs text-parchment-2 uppercase tracking-wider mr-2">Filter Matrix:</span>
     {tags.map((tag) => (
-      <label class="inline-flex items-center gap-2 text-xs font-mono cursor-pointer bg-obsidian-2/50 hover:bg-obsidian-2 border border-obsidian-3/40 rounded px-2.5 py-1 text-parchment-2 hover:text-parchment transition-colors select-none">
+      <label class="inline-flex items-center gap-2 text-xs font-mono cursor-pointer bg-obsidian-2/50 hover:bg-obsidian-2 border border-obsidian-3/40 rounded px-2.5 py-1 text-parchment-2 hover:text-parchment focus-within:ring-2 focus-within:ring-amber focus-within:ring-offset-2 focus-within:ring-offset-obsidian transition-colors select-none">
         <input type="checkbox" data-tag={tag} class="accent-ember rounded border-obsidian-3 bg-obsidian-2" />
         <span>{tag}</span>
       </label>
     ))}
-    <button data-reset class="text-xs text-parchment-2 hover:text-ember ml-auto font-mono underline underline-offset-4 cursor-pointer">Reset Filters</button>
+    <button data-reset type="button" class="text-xs text-parchment-2 hover:text-ember focus-visible:text-ember focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian ml-auto font-mono underline underline-offset-4 cursor-pointer">Reset Filters</button>
   </div>
   
   <div class="overflow-x-auto rounded-xl border border-obsidian-3/30 bg-obsidian-2/30 backdrop-blur-sm shadow-xl">
@@ -51,13 +51,33 @@ const tags = ['DEMONSTRATED', 'INFERRED', 'PROPOSED', 'SPECULATIVE'] as const;
     const body = root.querySelector('[data-body]');
     const checkboxes = root.querySelectorAll('input[type="checkbox"]');
     const reset = root.querySelector('[data-reset]');
+    if (!body || !reset) return;
+    const url = new URL(window.location.href);
+    const selectedTags = new Set(url.searchParams.getAll('tag'));
+
+    checkboxes.forEach((c) => {
+      const tag = c.getAttribute('data-tag');
+      if (tag && selectedTags.has(tag)) {
+        c.checked = true;
+      }
+    });
+
+    const syncUrl = (selected) => {
+      const next = new URL(window.location.href);
+      next.searchParams.delete('tag');
+      selected.forEach((tag) => next.searchParams.append('tag', tag));
+      window.history.replaceState({}, '', next);
+    };
+
     const apply = () => {
-      const selected = Array.from(checkboxes).filter((c) => c.checked).map((c) => c.getAttribute('data-tag'));
+      const selected = Array.from(checkboxes).filter((c) => c.checked).map((c) => c.getAttribute('data-tag')).filter(Boolean);
       body.querySelectorAll('tr[data-tag]').forEach((tr) => {
         tr.style.display = selected.length === 0 || selected.includes(tr.getAttribute('data-tag')) ? '' : 'none';
       });
+      syncUrl(selected);
     };
     checkboxes.forEach((c) => c.addEventListener('change', apply));
     reset.addEventListener('click', () => { checkboxes.forEach((c) => (c.checked = false)); apply(); });
+    apply();
   });
 </script>

@@ -1,0 +1,90 @@
+---
+title: "Open Questions"
+summary: "Technical blockers and research milestones for HELIOS-3D prototype development."
+stage: current
+tags: ["DEMONSTRATED", "PROPOSED", "SPECULATIVE"]
+figures: []
+updated: 2026-06-07
+---
+import { VisualCueCard, TermTooltip, MetricPopover } from '../../../components/ui';
+
+# 🔍 HELIOS-3D: Open Research Questions & Technical Blockers
+
+This document tracks the critical uncertainties and technical challenges that must be addressed to move the HELIOS-3D architecture from a theoretical hypothesis to a verifiable prototype.
+
+---
+
+## 🏗️ 1. Materials & Fabrication Integration
+
+<div class="grid md:grid-cols-2 gap-4 my-6">
+  <VisualCueCard title="Conformal vdW Deposition" status="speculative">
+    **Blocker:** Can high-quality vdW ferromagnets like $Fe_3GaTe_2$ maintain magnetic anisotropy when applied via ALD over complex 3D DISH/TPP scaffolds?
+  </VisualCueCard>
+
+  <VisualCueCard title="Thermal Expansion Mismatch" status="speculative">
+    **Blocker:** Differential expansion between polymer scaffolds and magnetic coatings may lead to delamination or property drift during thermal cycling.
+  </VisualCueCard>
+
+  <VisualCueCard title="Y-zipper Alignment" status="proposed">
+    **Blocker:** Can the 3D-printed zipping process achieve the sub-micron alignment precision required for continuous spintronic interconnects?
+  </VisualCueCard>
+
+  <VisualCueCard title="Moiré Reproducibility" status="proposed">
+    **Update (June 2026):** Cornell's **strain-induced moiré** method mitigates manual twisting disorder. 
+    **Blocker:** Precise calibration for magnetic vdW materials remains unverified; proposed mitigation via AI-surrogate modeling of large-scale atomic stacks.
+  </VisualCueCard>
+
+  <VisualCueCard title="BN Twist-Angle Gating" status="proposed">
+    **Blocker:** Relative twist angles between 15° and 45° in dual-encapsulated hBN layers cause room-temperature ferroelectric-like gate screening and hysteresis.
+    **Mitigation:** Enforce angular alignment outside the 15°–45° window to preserve SOT and electrostatic control.
+  </VisualCueCard>
+</div>
+
+---
+
+## 🎲 2. Core Logic & Stochastic Processing
+
+<div class="grid md:grid-cols-2 gap-4 my-6">
+  <VisualCueCard title="BRC Signal-to-Noise" status="speculative">
+    **Blocker:** What is the minimum population density required for ensemble accuracy? Can we distinguish "ReLU-like" transforms from pure noise?
+  </VisualCueCard>
+
+  <VisualCueCard title="MCA Readout Latency" status="proposed">
+    **Blocker:** Does the overhead of microwave signal processing (RF shielding, ADC/DAC) nullify the energy gains of the spintronic core?
+  </VisualCueCard>
+</div>
+
+---
+
+## 🌀 3. Topological Stability
+
+<div class="grid md:grid-cols-2 gap-4 my-6">
+  <VisualCueCard title="Hopfion Nucleation Barrier" status="demonstrated">
+    **Update:** $EuS/Bi_2Se_3/EuS$ trilayers show zero-field stability at 300 K. 
+    **Blocker:** Precize barriers for **sub-100nm confined 3D geometries** remain unverified.
+  </VisualCueCard>
+
+  <VisualCueCard title="Data Center Stability" status="speculative">
+    **Blocker:** Is topological protection sufficient at $T > 350$ K? 
+    **Metric:** Requires binding energy $E_B > 50 k_B T$ at max operating temperature.
+  </VisualCueCard>
+
+  <VisualCueCard title="Skyrmion-to-Hopfion Path" status="proposed">
+    **Blocker:** Is the transformation from 2D strings to 3D knots topologically allowed without destroying the spin texture?
+  </VisualCueCard>
+
+  <VisualCueCard title="Super-Moiré Textures" status="proposed">
+    **Blocker:** How does protection translate in non-planar geometries? Can stressor films be applied conformally to a DISH scaffold?
+  </VisualCueCard>
+</div>
+
+---
+
+## 🎯 4. Minimum Viable Demonstrator (MVD)
+
+To validate the HELIOS-3D hypothesis, a series of incremental demonstrators are required:
+
+1.  **Phase I (Materials):** Proof-of-concept deposition of $Fe_3GaTe_2$ on a TPP-refined surface with MFM verification.
+2.  **Phase II (MCA Logic):** Single-track domain wall displacement driven by SOT with microwave readout.
+3.  **Phase III (BRC Stochasticity):** Observation of skyrmion Brownian motion in a confined polymer micro-harbor.
+4.  **Phase IV (Integration):** 3D routing between a single MCA gate and a single BRC reservoir.

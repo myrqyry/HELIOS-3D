@@ -41,15 +41,24 @@ const nav = [
     const sel = document.querySelector('[data-stage-filter]');
     if (!sel) return;
     const STORAGE_KEY = 'helios-3d-stage-filter';
-    const saved = localStorage.getItem(STORAGE_KEY) || 'all';
+    const url = new URL(window.location.href);
+    const saved = url.searchParams.get('stage') || localStorage.getItem(STORAGE_KEY) || 'all';
     sel.value = saved;
+    const syncUrl = (value) => {
+      const next = new URL(window.location.href);
+      if (value === 'all') next.searchParams.delete('stage');
+      else next.searchParams.set('stage', value);
+      window.history.replaceState({}, '', next);
+    };
     sel.addEventListener('change', (e) => {
       const value = e.target.value;
       localStorage.setItem(STORAGE_KEY, value);
       const root = document.documentElement;
       if (value === 'all') root.removeAttribute('data-stage');
       else root.setAttribute('data-stage', value);
+      syncUrl(value);
     });
     if (saved !== 'all') document.documentElement.setAttribute('data-stage', saved);
+    syncUrl(saved);
   })();
 </script>

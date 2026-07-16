@@ -1,0 +1,18 @@
+@theme {
+  --color-obsidian: #0b0908;
+  --color-obsidian-2: #1a1410;
+  --color-obsidian-3: #2a201a;
+  --color-parchment: #f4e8d8;
+  --color-parchment-2: #a89880;
+  --color-ember: #ff6b1a;
+  --color-ember-2: #cc4f10;
+  --color-amber: #ffb627;
+  --color-gold: #ffd166;
+  --color-rose: #e63946;
+  --color-cyan-2: #7dd3fc;
+  --color-violet: #a78bfa;
+  --color-violet-2: #8b5cf6;
+
+  --font-sans: "Bricolage Grotesque Variable", "Geist", "Geist Fallback", system-ui, sans-serif;
+  --font-mono: "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
+}

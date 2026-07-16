@@ -1,0 +1,50 @@
+---
+title: "Targets Comparators And Projections"
+summary: "The following analysis contextualizes the HELIOS-3D research hypothesis against established and upcoming neuromorphic architectures. These comparisons represent theoretical aspirations and are intende"
+stage: current
+tags: ["SPECULATIVE"]
+figures: []
+updated: 2026-06-03
+---
+import PerformanceFloor from '../../../components/charts/PerformanceFloor.tsx';
+
+<PerformanceFloor client:visible height="h-64" />
+
+# 🏆 Comparative Potential and Research Projections
+
+The following analysis contextualizes the HELIOS-3D research hypothesis against established and upcoming neuromorphic architectures. These comparisons represent **theoretical aspirations** and are intended to define the research "hypothesis envelope."
+
+### 📊 Comparative Scaling Potential (Conceptual)
+
+| Feature | Intel Loihi 2 / Hala Point-class | IBM NorthPole | HELIOS-3D (Hypothesis) | Status |
+| :--- | :--- | :--- | :--- | :--- |
+| **Mechanism** | 4nm CMOS Spiking | 12nm Near-Memory SRAM Inference Accelerator | Topological Magnonics | `[SPECULATIVE]` |
+| **Thermodynamics** | Joule-constrained | Joule-constrained | Heat-scavenging | `[SPECULATIVE]` |
+| **Efficiency Target** | pJ range | ~pJ/op (measured, 288-card prototype) | fJ range aspiration | `[SPECULATIVE]` |
+| **Power Scaling** | Active cooling req. | Active cooling req. | Thermally assisted | `[SPECULATIVE]` |
+
+*Mechanism is demonstrated only for related standalone physical experiments, not for the full HELIOS-3D system.*
+
+### ⚠️ Aspiration vs. Demonstration
+While standalone spintronic components have demonstrated low switching energy in isolated laboratory conditions, achieving those metrics in a volumetric, multi-core integrated system remains an unverified research goal. Any projected improvements depend on the exact material stack, readout path, and thermal regime.
+
+---
+
+## 📚 Evidence Mapping
+
+### 🧪 Section A: Foundational Physics and Device Papers
+1. **[Topological Spintronics]** *Magnetic skyrmions: materials, manipulation, detection, and applications.* (2024). [Evidence: room-temperature skyrmion stability in specific multilayers].
+2. **[3D Magnonics]** *Breathing modes of skyrmion strings in a synthetic antiferromagnet multilayer.* (2025). [Evidence: microwave-detectable collective modes in 3D-like textures].
+3. **[Thermodynamic Computing]** *Nonlinear thermodynamic computing out of equilibrium.* (2024). [Evidence: noise-powered logic in nano-scale reservoirs].
+4. **[van der Waals Magnets]** *Room-temperature single-layer 2D van der Waals ferromagnetic ferromagnet hosting skyrmions.* (2024). [Evidence: Curie temperature for Fe3GaTe2 on flat substrates].
+5. **[Dynamics]** *Current-driven dynamics of antiferromagnetic skyrmions.* [Evidence: neutralization of SkHE in SAF systems].
+
+### 📈 Section B: Benchmark and Context Assumptions
+1. **[Grid Demand]** International Energy Agency. (2024). *Electricity 2024: Analysis and forecast to 2026.* [Context: data center energy trajectory].
+2. **[Intel Loihi 2]** *Loihi 2: A 4nm Neuromorphic Research Chip.* [Context: competitive pJ-scale baseline].
+3. **[IBM NorthPole]** *A Scalable NorthPole System with End-to-End Vertical Integration for Low-Latency and Energy-Efficient LLM Inference.* (2025). [Context: SRAM-based near-memory inference accelerator, 288-card prototype].
+4. **[IEA 2026]** *Energy demand from AI.* [Context: LLM power consumption projections].
+
+### 📰 Section C: Commentary Only
+1. *IBM's new North Pole Chip is a big deal.* Medium commentary. [Context only].
+2. *Thermodynamic Computing Breakthrough.* Berkeley Today summary. [Context only].

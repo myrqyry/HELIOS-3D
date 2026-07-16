@@ -386,59 +386,61 @@ const readingPath: Array<{ step: number; title: string; desc: string; stage: Doc
 
   gsap.registerPlugin(ScrollTrigger);
 
-  // Animate hero section on mount
-  gsap.to('.hero-anim', {
-    opacity: 1,
-    y: 0,
-    duration: 1.2,
-    stagger: 0.15,
-    ease: 'power3.out',
-    delay: 0.1
-  });
+  const motionQuery = window.matchMedia('(prefers-reduced-motion: no-preference)');
 
-  gsap.to('.hero-visual', {
-    opacity: 1,
-    scale: 1,
-    duration: 1.4,
-    ease: 'power4.out',
-    delay: 0.4
-  });
-
-  // Staggered reveals on scroll
-  gsap.utils.toArray('.reveal-on-scroll').forEach((el: any) => {
-    gsap.to(el, {
+  if (motionQuery.matches) {
+    // Animate hero section on mount.
+    gsap.to('.hero-anim', {
       opacity: 1,
       y: 0,
-      duration: 0.8,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: el,
-        start: 'top 85%',
-        toggleActions: 'play none none none'
-      }
+      duration: 1.2,
+      stagger: 0.15,
+      ease: 'power3.out',
+      delay: 0.1,
     });
-  });
 
-  // Stat count-ups on scroll
-  gsap.utils.toArray('.stat-value').forEach((el: any) => {
-    const targetVal = parseFloat(el.getAttribute('data-target') || '0');
-    const isDecimal = targetVal % 1 !== 0;
-    const countObj = { val: 0 };
-    
-    gsap.to(countObj, {
-      val: targetVal,
-      duration: 2,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: el,
-        start: 'top 90%',
-        toggleActions: 'play none none none'
-      },
-      onUpdate: () => {
-        el.innerText = isDecimal 
-          ? countObj.val.toFixed(1) 
-          : Math.round(countObj.val).toString();
-      }
+    gsap.to('.hero-visual', {
+      opacity: 1,
+      scale: 1,
+      duration: 1.4,
+      ease: 'power4.out',
+      delay: 0.4,
     });
-  });
+
+    // Staggered reveals on scroll.
+    gsap.utils.toArray('.reveal-on-scroll').forEach((el: any) => {
+      gsap.to(el, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 85%',
+          toggleActions: 'play none none none',
+        },
+      });
+    });
+
+    // Stat count-ups on scroll.
+    gsap.utils.toArray('.stat-value').forEach((el: any) => {
+      const targetVal = parseFloat(el.getAttribute('data-target') || '0');
+      const isDecimal = targetVal % 1 !== 0;
+      const countObj = { val: 0 };
+
+      gsap.to(countObj, {
+        val: targetVal,
+        duration: 2,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 90%',
+          toggleActions: 'play none none none',
+        },
+        onUpdate: () => {
+          el.innerText = isDecimal ? countObj.val.toFixed(1) : Math.round(countObj.val).toString();
+        },
+      });
+    });
+  }
 </script>

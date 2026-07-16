@@ -1,0 +1,154 @@
+---
+title: "Core Architecture"
+summary: "!!! warning \"Long-Range Branch\""
+stage: speculative
+tags: ["DEMONSTRATED", "INFERRED", "PROPOSED", "SPECULATIVE"]
+figures: ['hopfion']
+updated: 2026-06-03
+---
+# 🧠 HELIOS-3D Dual-Core Architecture: Long-Range Branch
+
+!!! warning "Long-Range Branch"
+    This document describes a **speculative future phase** of HELIOS-3D.
+    The current minimum credible path is documented in
+    [ALTERNATIVE_MATERIALS_AND_METHODS.md](./ALTERNATIVE_MATERIALS_AND_METHODS.md).
+
+## 🏗️ 0. Three-Pillar Pipeline: Write-Process-Read
+
+This document is the long-range branch for HELIOS-3D. It explores whether a later-stage integrated system could approach thermodynamically efficient, low-bias operation through three pillars:
+
+| Pillar | Mechanism | Technical Integration | Status |
+| :--- | :--- | :--- | :--- |
+| **Write** | Photonic Hopfion Imprinting | DISH Optics + Bichromatic Knotted Light + Inverse Faraday Effect | `[SPECULATIVE]` |
+| **Process** | Brownian Reservoir Computing | Super-Moiré Zero-Bias Lattices (Twisted $CrI_3$) + Ambient Heat | `[SPECULATIVE]` |
+| **Read** | Microwave Spectroscopy | Sub-GHz Breathing Mode Frequency Filtering | `[INFERRED]` |
+
+This pipeline would only be credible if the following conditions are independently demonstrated:
+1. **DISH Volumetric Optics** to imprint photonic hopfions via the Inverse Faraday Effect
+2. **Super-Moiré Geometry** to stabilize hopfions at low bias, driven by thermal noise
+3. **Microwave Frequency Filtering** to read states via coherent breathing dynamics
+
+---
+
+## 🧮 1. Dual-Core Architecture I: Magnetic Convolutional Accelerator (MCA)
+
+The MCA is a **proposed** deterministic, non-volatile Compute-in-Memory (CiM) architecture. It seeks to mitigate the traditional von Neumann bottleneck by physically mapping mathematical primitives to spatial displacement. `[PROPOSED]`
+
+*   **CiM Logic Operations:** Input values ($L_D$) are conceptualized as being encoded as the dynamic length of a magnetic domain. Kernel weights ($W_P$) are hypothesized to be fixed persistently via the geometric spacing of stationary readout electrodes. `[PROPOSED]`
+*   **Spin-Orbit Torque (SOT) Mechanics:** Computation is physically driven by Spin-Orbit Torque. Driving a charge current through a heavy metal underlayer generates a transverse spin current via the Spin Hall Effect. `[DEMONSTRATED]` This allows domain wall shifting with significantly reduced Joule heating compared to standard charge transport. `[INFERRED]`
+
+### ⚡ Projected Efficiency Envelope (Theoretical Target)
+
+| Metric | 28nm CMOS | HELIOS-3D MCA (Aspiration) | Status |
+| :--- | :--- | :--- | :--- |
+| **Paradigm** | von Neumann (Separate) | Compute-in-Memory (Unified) | `[PROPOSED]` |
+| **Data Type** | Volatile Charge | Non-volatile Domain Length | `[PROPOSED]` |
+| **Energy Consumption**| 10–100 pJ | ~9.16 fJ per Operation | `[SPECULATIVE]` |
+| **Area Footprint** | Planar Gates | BEOL Compatible Vertical Stack | `[PROPOSED]` |
+
+### 🧠 1.1 Backpropagation-Free Training (B-ONN Framework)
+To train multi-layer architectures without the strict physical symmetries and reciprocal paths required by traditional backpropagation, HELIOS-3D proposes a **backpropagation-free training framework** inspired by B-ONN (Li et al., *Light: Science & Applications* 2026, DOI: `10.1038/s41377-026-02394-3`). 
+*   **Layer-wise Target Propagation:** Each diffractive or spin-modulating layer performs local learning based on target signals and trainable error convolution kernels ($E$), eliminating the need for precise optical conjugation or reciprocal SOT paths.
+*   **Fabrication Smoothing Synergy:** B-ONN naturally learns smooth phase profiles with gentle gradients. This aligns with the physical constraints of TPP and 3D printing fabrication, where sharp step edges are rounded by polymerization (fabrication smoothing). This synergy ensures that the optimized phase maps maintain high execution fidelity (~94% accuracy) after transfer to physical devices.
+*   **Inherent Noise and Alignment Tolerance:** The framework suppresses high-frequency spectral noise, providing robustness against phase noise (up to $\sigma \approx 0.4\pi$) and multi-tier registration/misalignment errors (up to $\pm 3$ pixels) without requiring explicit noise-augmented training. `[PROPOSED]` [Li et al. 2026]
+
+---
+
+## 🎲 2. Dual-Core Architecture II: Brownian Reservoir Computing (BRC)
+
+The BRC core is designed to explore non-equilibrium thermodynamic computing principles, investigating the use of ambient thermal noise as a foundational computational engine. `[PROPOSED]`
+
+### 🌡️ 2.1 Brownian Computing: Heat as a Locomotive Force
+
+Rather than fighting the "thermodynamic crisis" of data center cooling, HELIOS-3D turns waste heat into its primary locomotive force. The BRC core leverages **Stochastic Reservoir Computing**, where ambient thermal noise pushes topological solitons through the inference lattice. `[PROPOSED]`
+
+*   **Thermodynamic Advantage:** Rather than treating Landauer's erasure bound as the sole thermodynamic event, BRC energy claims are evaluated across the full information lifecycle (Create, Read, Update, and Delete) governed by nonequilibrium free-energy changes. By using thermal fluctuations as the locomotive force for reservoir updates rather than active driving currents, the system implements an operation-level thermodynamic accounting framework for reservoir inference. `[PROPOSED]` [Ding & Qiu 2026, Iizumi 2026]
+*   **Stochastic Resonance:** When tuned correctly, ambient noise maximizes the signal-to-noise ratio in nonlinear systems. This phenomenon—**Stochastic Resonance**—is exploited where the periodic potential of the Super-Moiré lattice aligns with thermal kick statistics.
+*   **Zero-Power Processing:** Once hopfions are nucleated, the "process" phase is thermally driven. The energy cost is shifted entirely to the "write" phase (photonic imprinting), allowing the computation itself to run on ambient entropy. `[SPECULATIVE]`
+*   **Magnon-Phonon Coupling (Locomotive Link):** The physical mechanism translating lattice vibrations (heat/phonons) into coherent spin excitation (magnons) relies on strong magnetoelastic coupling. The nanoscale observation of **magnon polarons** in metallic van der Waals ferromagnets ($Fe_3GeTe_2$, Li et al., 2026) demonstrates that magnon-phonon band crossings soften quantum selection rules, allowing ambient phonons to directly drive stochastic magnetic texture diffusion. `[DEMONSTRATED]`
+
+### 📐 2.2 Stability and Geometry: Super-Moiré Engineering
+
+The stability and dynamics of the BRC are governed by the underlying geometric landscape:
+
+*   **Super-Moiré Stability:** To reduce bulky external magnetic biasing, HELIOS-3D utilizes twist-engineered 2D materials. A small-angle twist in twisted double-bilayer Chromium Triiodide ($CrI_3$) creates mesoscale "Super-Moiré" structures (up to 300nm). This provides the intrinsic trapping potential necessary to stabilize hopfions at reduced bias. `[PROPOSED]`
+*   **Equilateral Triangle Micro-Harbors:** In addition to moiré stability, hopfions confined in equilateral triangle micro-harbors exhibit chaotic scattering patterns mathematically equivalent to universal logic gates. The vertex reflections introduce deterministic nonlinearities, while thermal kicks provide randomness.
+*   **Brownian XOR Gates:** Hopfion trajectories in triangular geometry can implement XOR logic purely through geometric scattering, requiring no external switching fields. `[INFERRED]`
+*   **Scale:** 36–40 $\mu m$ triangles are proposed for initial prototypes; scaling to sub-$\mu m$ geometries via Super-Moiré engineering will be necessary for chip-scale integration. `[PROPOSED]`
+
+### 🌊 2.3 Ensemble Reservoir Computing (ERC)
+
+Single skyrmion reservoirs are inherently stochastic and highly sensitive to local temperature variations. To achieve usable accuracy and resilience:
+
+*   **Spatial Multiplexing:** Thousands of independent reservoirs operate in parallel.
+*   **Ensemble Averaging:** By averaging across the population, systemic noise averages out while the signal (input-driven response) is reinforced.
+*   **Target:** ~98% accuracy on standard benchmark tasks (e.g., MNIST) via ERC, contingent on ensemble scaling and signal separation. `[SPECULATIVE]`
+
+### 🔬 2.4 Microwave Spectroscopy: Breathing Mode Readout
+
+Traditional optical readout (NV centers, hBN fluorescence) is slow and incompatible with silicon bus architectures. HELIOS-3D proposes **frequency-domain readout** via hopfion breathing modes. `[PROPOSED]`
+
+*   **Breathing Mode Physics:** A magnetic hopfion exhibits a coherent oscillation of its core diameter and shell width—the "breathing mode." This mode has a characteristic sub-GHz frequency (typically **0.54–0.56 GHz** for $H=1$ in $Fe_3GaTe_2$).
+*   **Frequency Encoding:** Different topological states (single hopfion, nested hopfions, hopfion lattices) produce distinct resonance frequencies. Reading the frequency domain is far simpler than imaging the 3D structure.
+*   **FMR Compatibility:** Ferromagnetic resonance (FMR) spectroscopy is a mature technology in spintronics. The hopfion breathing mode can be detected using standard microwave vector network analyzers or **STFMR** (Spin-Torque FMR) with near-field probes.
+*   **Polaritonic Readout Resolution:** Because magnon-phonon hybridization lifts traditional spin-selection rules at avoided band crossings, we can resolve and probe localized magnonic excitations via inelastic scattering spectroscopy or microwave near-field probes without traditional magnetic scanning constraints. `[INFERRED]`
+
+### 🧩 2.5 The Topological Compiler
+A critical challenge is bridging the semantic gap between high-level AI representations (like those from an LLM) and the low-level physics of 3D spin textures. The HELIOS-3D "Topological Compiler" handles this translation using a **Hybrid SciML Pipeline**. `[PROPOSED]`
+
+*   **Geometric Tensors as an "Optical Modem":** A highly distilled model (e.g. 3B parameters) takes semantic vectors and compiles them into **3D geometric magnetization tensors**.
+*   **Spin-ConfSeq (Topological Spin Conformation Language):** To bypass slow numerical solvers, the compiler adapts the **ConfSeq framework** (Zheng et al., *Nature Machine Intelligence* 2026). By representing 3D spin orientations and topological charges ($Q_H$) directly as discrete tokens interleaved with 1D/2D routing sequences, an autoregressive language model generates physically valid 3D spin textures up to ~285× faster than SOTA 3D diffusion models on GPU. `[PROPOSED]`
+*   **Temperature-Controlled Sampling:** By modulating the LLM's sampling temperature, we can tune the compiler's output: low temperatures enforce low-energy, stable spin textures (optimal for non-volatile storage), whereas higher temperatures generate highly diverse, high-energy states (optimal for expanding BRC reservoir dimensionality). `[PROPOSED]`
+*   **Mesh-Free Discovery (NeuroDiffEq):** We use **`neurodiffeq`** to enforce physical laws (LLG equation) directly on complex 3D scaffold geometries without requiring regular grids.
+*   **Performance Optimization (PINNs-Torch):** High-resolution topological synthesis is performed using **`pinns-torch`**, leveraging CUDA Graphs for sub-100 ps switching dynamics.
+*   **Inverse Design Loop:** The compiler utilizes **Automatic Differentiation** to optimize the DISH holographic prescriptions, ensuring the target topological charge ($Q_H$) is physically stable and robust to manufacturing noise.
+*   **Verification:** For the development roadmap, see **[`research_specifications/module_5_topological_compiler_tdd.md`](../research_specifications/module_5_topological_compiler_tdd.md)**.
+
+
+### ⚡ BRC Efficiency Projection
+
+*   **Energy Consumption Target:** ~0.15 fJ within the BRC core (excluding write energy, which uses photonic imprinting). `[SPECULATIVE]`
+*   **Target Accuracy:** ~98% via Ensemble Reservoir Computing. `[SPECULATIVE]`
+
+### 🕰️ 2.6 Dynamic Timescale Spectrum (The Harmonics of HELIOS-3D)
+
+The operational frequencies of the HELIOS-3D processor span twelve orders of magnitude, forming a coherent harmonic hierarchy across our structural, magnetic, and optical layers:
+
+*   **Computing Core (BRC Dynamics):** $10^8 - 10^9\text{ Hz}$ (Sub-GHz). Hopfion breathing modes, where the outer shell radially oscillates, operate at **0.54–0.56 GHz**, serving as the primary frequency-encoded signature for low-latency FMR readout. `[PROPOSED]`
+*   **Write-Path / Switching Logic:** $10^{10} - 10^{11}\text{ Hz}$ (Tens of GHz). Deterministic all-optical helicity-dependent magnetization switching (DISH write-path) occurs on sub-nanosecond timescales, utilizing **~40-ps SOT/IFE write pulses**. `[DEMONSTRATED]`
+*   **Interfacial Gating & Spin Torque Gating:** $10^{11} - 10^{12}\text{ Hz}$ (Sub-THz). The intrinsic orbital relaxation time of our epitaxial Mn contacts is quantified at **$\tau_o \approx 2\text{ ps}$** (Kang et al., 2026), preventing orbital current quenching. This is coupled with the **THz coherent acoustic phonons** launched by our Pt/Cu superlattice transducers for sub-picosecond gating of DMI and exchange coupling (Jan-Etienne Pudell et al., 2026). `[PROPOSED]`
+*   **Optical Readout & Metrology:** $10^{14} - 10^{15}\text{ Hz}$ (Visible/NIR). Wavelength-selective photostable feedback loops utilizing defect-engineered CQDs (313–1,193 nm) (Enyoh & Qingyue, 2026) and polarized single-photon emission from ZnPS₃ vacancies (Zawadzka et al., 2026) act as high-frequency optical read ports and alignment landmarks. `[PROPOSED]`
+
+### 📐 2.7 Reservoir Validation Metrics
+For each candidate physical reservoir, HELIOS-3D tracks and evaluates the following metrics:
+1. **Predictive accuracy on temporal tasks:** Benchmark scoring (e.g. MNIST or NARMA-10) under identical noise conditions.
+2. **Memory capacity:** Quantifying the maximum history window the reservoir state preserves.
+3. **Predictive capacity:** Holevo-based analysis of how much useful predictive information is retained.
+4. **Non-predictive retained history:** Identifying and subtracting useless historical information that induces excess dissipation.
+5. **Estimated irreversible work:** Energetic cost of non-equilibrium state transformations during continuous temporal processing.
+6. **Readout/reset/update cost:** Explicit energy budgets for state preparation, coupling, readout, and reset protocols.
+7. **Sensitivity near critical or resonant regimes:** Quantifying the spectral resonance alignment near quantum criticality.
+8. **Robustness under noise, leakage, and fabrication variation:** Stability under thermal fluctuations ($T > 300$ K) and spatial disorder.
+
+
+---
+
+## 📊 3. State-of-the-Art Benchmarking (NVM Comparison)
+
+To validate the thermodynamic efficiency of the HELIOS-3D core, the architecture is benchmarked against cutting-edge non-volatile memory (NVM) technologies:
+
+*   **AlScN Memristors:** Benchmarking against $Pt/Al_{0.7}Sc_{0.3}N/Pt$ thin-film ferroelectric memory provides critical metrics for RC time constants, switching energy, and high-temperature tolerance.
+*   **The Landauer Advantage:** While AlScN represents a highly stable, scalable memristive layer for CMOS interfacing, HELIOS-3D's hopfion-based core targets the **Landauer limit** of computation, aiming for an order-of-magnitude reduction in switching energy by replacing charge/phase transition with topological soliton displacement.
+*   **Hybrid Interfacing:** AlScN thin films are proposed as the intermediate "Read/Write" buffer layer, bridging the spintronic hopfion core with standard silicon CMOS outputs. `[PROPOSED]`
+
+---
+
+## 🌌 4. The Quantum Co-Processor Branch (Millikelvin Limit)
+
+While the BRC core leverages ambient thermal noise for room-temperature, data-center-scale AI inference, introducing millikelvin temperatures presents an orthogonal, highly lucrative application: **Hybrid Quantum-Classical Interfacing**. `[PROPOSED]`
+
+By replacing $Fe_3GaTe_2$ with ultra-pure single-crystal Yttrium Iron Garnet (YIG) and operating at the quantum limit (~30-100 mK):
+*   **Magnonic Coherence Breakthrough:** Intrinsic scattering channels (magnon-phonon) freeze out, extending magnon lifetimes past 18 $\mu s$.
+*   **Deep-Time Reservoir:** The hopfion crystal transitions from a noisy, stochastic AI reservoir into a coherent "deep-time" quantum memory.
+*   **Transmon Qubit Parity:** The 18 $\mu s$ coherence time puts the magnonic reservoir on par with superconducting transmon qubits. In this branch, HELIOS-3D acts not as a standalone AI processor, but as a topological quantum bus or 3D quantum memory directly coupled to superconducting quantum computers.
+*   **Solving the QML Data Loading Bottleneck:** A critical flaw in Quantum Machine Learning (QML) is the exponential time required to load classical data into quantum states using standard sequential gates. HELIOS-3D bypasses this entirely: the **Topological Compiler** (DISH optics) imprints classical data holographically in a single sub-second burst. This creates a "pre-loaded", massively parallel quantum state that is instantly ready for processing.

@@ -1,0 +1,8 @@
+{
+  "configurations": [
+    { "name": "Trivial", "kbT": 0 },
+    { "name": "Skyrmion (2D)", "kbT": 12 },
+    { "name": "Hopfion (EuS/Bi2Se3/EuS)", "kbT": 52 },
+    { "name": "Thermal noise @ 350 K", "kbT": 1 }
+  ]
+}

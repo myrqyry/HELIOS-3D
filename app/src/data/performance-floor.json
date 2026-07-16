@@ -1,0 +1,13 @@
+{
+  "writeSpeedPs": [
+    { "system": "Mn3Sn AFM (Tsai 2026)", "value": 40, "label": "40 ps" },
+    { "system": "Optical-to-SOT (Tsai 2026)", "value": 60, "label": "60 ps" },
+    { "system": "Polaritonic switch (Wang 2026)", "value": 1000, "label": "~1 ps regime" },
+    { "system": "CMOS baseline", "value": 5000, "label": "~5 ns" }
+  ],
+  "energyDensityPjPerUm2": [
+    { "system": "Mn3Sn AFM (Tsai 2026)", "value": 1.7 },
+    { "system": "Polaritonic (Wang 2026)", "value": 0.004 },
+    { "system": "HELIOS target", "value": 1.0 }
+  ]
+}

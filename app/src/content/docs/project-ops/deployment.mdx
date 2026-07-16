@@ -1,0 +1,40 @@
+---
+title: "Deployment"
+summary: "HELIOS-3D is automatically deployed via GitHub Actions."
+stage: project-ops
+tags: ["PROPOSED"]
+figures: []
+updated: 2026-06-07
+---
+
+# Deployed Site
+
+The technical documentation is live at **[myrqyry.github.io/HELIOS-3D/](https://myrqyry.github.io/HELIOS-3D/)**.
+
+The site is built with **Astro + MDX** and automatically deployed via **GitHub Actions** and **Vercel** on every push to the `main` branch.
+
+## CI/CD Workflow
+
+The deployment is managed by the workflow file at `.github/workflows/deploy.yml`. 
+
+1. **Validation:** Runs `pnpm check` and `pnpm test` to ensure code and documentation integrity.
+2. **Build:** Executes `pnpm build` to generate the static site in the `dist/` directory.
+3. **Publish:** Publishes the build artifacts directly to GitHub Pages.
+
+## Local Development & Preview
+
+To preview the site locally before pushing to GitHub:
+
+1. **Install dependencies:**
+   ```bash
+   pnpm install
+   ```
+2. **Run development server:**
+   ```bash
+   pnpm dev
+   ```
+3. **Build & Preview:**
+   ```bash
+   pnpm build
+   pnpm preview
+   ```

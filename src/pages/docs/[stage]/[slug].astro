@@ -1,5 +1,5 @@
 ---
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import TOC from '../../../components/TOC.astro';
 import DocHero from '../../../components/DocHero.astro';
@@ -30,7 +30,7 @@ export async function getStaticPaths() {
 
 interface Props { doc: CollectionEntry<'docs'> }
 const { doc } = Astro.props;
-const { Content, headings } = await doc.render();
+const { Content, headings } = await render(doc);
 
 const slug = doc.id.split('/').pop()?.replace(/\.mdx?$/, '') ?? doc.id;
 const Summary: any = {

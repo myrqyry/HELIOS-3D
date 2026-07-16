@@ -25,16 +25,16 @@ const allKinds = Array.from(new Set(figures.map((f) => f.data.kind)));
   <div class="mb-8 flex flex-wrap gap-2" data-figures-filters>
     <div class="flex items-center gap-2 mr-4">
       <span class="font-mono text-xs uppercase text-parchment-2">Source</span>
-      <button data-filter-source="all" class="font-mono text-xs px-3 py-1 rounded border border-obsidian-3 bg-obsidian-2 text-amber">All</button>
+      <button type="button" data-filter-source="all" class="font-mono text-xs px-3 py-1 rounded border border-obsidian-3 bg-obsidian-2 text-amber focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian">All</button>
       {allSources.map((s) => (
-        <button data-filter-source={s} class="font-mono text-xs px-3 py-1 rounded border border-obsidian-3 text-parchment-2 hover:text-amber">{s}</button>
+        <button type="button" data-filter-source={s} class="font-mono text-xs px-3 py-1 rounded border border-obsidian-3 text-parchment-2 hover:text-amber focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian">{s}</button>
       ))}
     </div>
     <div class="flex items-center gap-2">
       <span class="font-mono text-xs uppercase text-parchment-2">Kind</span>
-      <button data-filter-kind="all" class="font-mono text-xs px-3 py-1 rounded border border-obsidian-3 bg-obsidian-2 text-amber">All</button>
+      <button type="button" data-filter-kind="all" class="font-mono text-xs px-3 py-1 rounded border border-obsidian-3 bg-obsidian-2 text-amber focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian">All</button>
       {allKinds.map((k) => (
-        <button data-filter-kind={k} class="font-mono text-xs px-3 py-1 rounded border border-obsidian-3 text-parchment-2 hover:text-amber">{k}</button>
+        <button type="button" data-filter-kind={k} class="font-mono text-xs px-3 py-1 rounded border border-obsidian-3 text-parchment-2 hover:text-amber focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian">{k}</button>
       ))}
     </div>
   </div>
@@ -73,8 +73,31 @@ const allKinds = Array.from(new Set(figures.map((f) => f.data.kind)));
   const grid = document.querySelector('[data-figures-grid]');
   const filterButtons = document.querySelectorAll('[data-figures-filters] button');
   if (grid) {
-    let sourceFilter: string = 'all';
-    let kindFilter: string = 'all';
+    const url = new URL(window.location.href);
+    let sourceFilter = url.searchParams.get('source') || 'all';
+    let kindFilter = url.searchParams.get('kind') || 'all';
+
+    const sourceButtons = Array.from(document.querySelectorAll('[data-filter-source]')) as HTMLButtonElement[];
+    const kindButtons = Array.from(document.querySelectorAll('[data-filter-kind]')) as HTMLButtonElement[];
+
+    const setActive = (buttons: HTMLButtonElement[], attr: 'data-filter-source' | 'data-filter-kind', value: string) => {
+      buttons.forEach((btn) => {
+        const active = (btn.getAttribute(attr) || 'all') === value;
+        btn.classList.toggle('bg-obsidian-2', active);
+        btn.classList.toggle('text-amber', active);
+        btn.setAttribute('aria-pressed', String(active));
+      });
+    };
+
+    const syncUrl = () => {
+      const next = new URL(window.location.href);
+      if (sourceFilter === 'all') next.searchParams.delete('source');
+      else next.searchParams.set('source', sourceFilter);
+      if (kindFilter === 'all') next.searchParams.delete('kind');
+      else next.searchParams.set('kind', kindFilter);
+      window.history.replaceState({}, '', next);
+    };
+
     const applyFilters = () => {
       const cards = grid.querySelectorAll('article');
       cards.forEach((card) => {
@@ -84,20 +107,24 @@ const allKinds = Array.from(new Set(figures.map((f) => f.data.kind)));
         (card as HTMLElement).style.display = show ? '' : 'none';
       });
     };
+
+    setActive(sourceButtons, 'data-filter-source', sourceFilter);
+    setActive(kindButtons, 'data-filter-kind', kindFilter);
+    syncUrl();
+
     filterButtons.forEach((btn) => {
       btn.addEventListener('click', (e) => {
         const t = e.currentTarget as HTMLButtonElement;
         if (t.hasAttribute('data-filter-source')) {
           sourceFilter = t.getAttribute('data-filter-source') || 'all';
-          document.querySelectorAll('[data-filter-source]').forEach((b) => b.classList.remove('bg-obsidian-2', 'text-amber'));
-          t.classList.add('bg-obsidian-2', 'text-amber');
+          setActive(sourceButtons, 'data-filter-source', sourceFilter);
         }
         if (t.hasAttribute('data-filter-kind')) {
           kindFilter = t.getAttribute('data-filter-kind') || 'all';
-          document.querySelectorAll('[data-filter-kind]').forEach((b) => b.classList.remove('bg-obsidian-2', 'text-amber'));
-          t.classList.add('bg-obsidian-2', 'text-amber');
+          setActive(kindButtons, 'data-filter-kind', kindFilter);
         }
         applyFilters();
+        syncUrl();
       });
     });
   }
