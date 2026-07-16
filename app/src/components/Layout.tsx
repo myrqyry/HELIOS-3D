@@ -5,8 +5,8 @@ import { Footer } from './Footer';
 
 export function Layout() {
   const { pathname } = useLocation();
-  const isHomePage = pathname === '/';
-  const showSidebar = !isHomePage;
+  const isExhibitPage = pathname === '/' || pathname === '/explore';
+  const showSidebar = !isExhibitPage;
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -20,7 +20,7 @@ export function Layout() {
       <div className={`flex-1 ${showSidebar ? 'flex' : ''}`}>
         {showSidebar && <Sidebar />}
         <main id="main-content" className="flex-1 min-w-0">
-          {isHomePage ? (
+          {isExhibitPage ? (
             <div className="w-full exhibit-main">
               <Outlet />
             </div>
