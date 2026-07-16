@@ -1,9 +1,10 @@
-import type { ReactNode } from 'react';
+import { useId, type ReactNode } from 'react';
 
 export interface ExhibitSectionProps {
   eyebrow: string;
   title: string;
   description: string;
+  id?: string;
   evidenceLabel?: string;
   evidenceHref?: string;
   children: ReactNode;
@@ -13,18 +14,22 @@ export function ExhibitSection({
   eyebrow,
   title,
   description,
+  id,
   evidenceLabel,
   evidenceHref,
   children,
 }: ExhibitSectionProps) {
+  const generatedId = useId().replace(/[^a-zA-Z0-9_-]/g, '');
+  const sectionId = id ?? `exhibit-section-${generatedId}`;
+  const headingId = `${sectionId}-heading`;
   const hasEvidenceLink = Boolean(evidenceLabel && evidenceHref);
 
   return (
-    <section className="exhibit-section" aria-labelledby={`${title}-heading`}>
+    <section id={sectionId} className="exhibit-section" aria-labelledby={headingId}>
       <div className="exhibit-section__grid">
         <header className="exhibit-section__intro">
           <p className="exhibit-section__eyebrow">{eyebrow}</p>
-          <h2 id={`${title}-heading`} className="exhibit-section__title">
+          <h2 id={headingId} className="exhibit-section__title">
             {title}
           </h2>
           <p className="exhibit-section__description">{description}</p>

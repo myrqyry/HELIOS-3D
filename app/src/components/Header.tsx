@@ -1,28 +1,52 @@
 import { useEffect, useRef } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 
-const nav = [
+export const PRIMARY_NAV: ReadonlyArray<{ href: string; label: string; external?: boolean }> = [
   { href: '/overview', label: 'Explore' },
   { href: '/figures', label: 'Visuals' },
   { href: '/research', label: 'Evidence' },
   { href: '/docs/established/abstract', label: 'Technical archive' },
   { href: 'https://github.com/myrqyry/HELIOS-3D', label: 'GitHub', external: true },
-];
+] as const;
 
 const STORAGE_KEY = 'helios-3d-stage-filter';
+export type StageFilterValue = 'all' | 'established' | 'current' | 'speculative' | 'project-ops';
+
+export function isTechnicalFilterRoute(pathname: string): boolean {
+  return pathname.startsWith('/docs') || pathname.startsWith('/research');
+}
+
+export function isStageFilterValue(value: string | null): value is StageFilterValue {
+  return value === 'all' || value === 'established' || value === 'current' || value === 'speculative' || value === 'project-ops';
+}
+
+export function resolveStageFilter(search: string, savedPreference: string | null): StageFilterValue {
+  const queryValue = new URLSearchParams(search).get('stage');
+  if (isStageFilterValue(queryValue)) return queryValue;
+  return isStageFilterValue(savedPreference) ? savedPreference : 'all';
+}
+
+export function getStageFilterState(pathname: string, search: string, savedPreference: string | null) {
+  const showStageFilter = isTechnicalFilterRoute(pathname);
+  return {
+    showStageFilter,
+    stage: showStageFilter ? resolveStageFilter(search, savedPreference) : 'all' as const,
+  };
+}
 
 export function Header() {
   const location = useLocation();
   const selRef = useRef<HTMLSelectElement>(null);
-  const showStageFilter = location.pathname.startsWith('/docs') || location.pathname.startsWith('/research');
-
   useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const saved = params.get('stage') || localStorage.getItem(STORAGE_KEY) || 'all';
-    if (selRef.current) selRef.current.value = saved;
-    if (saved !== 'all') document.documentElement.setAttribute('data-stage', saved);
+    const { showStageFilter, stage } = getStageFilterState(
+      location.pathname,
+      location.search,
+      localStorage.getItem(STORAGE_KEY),
+    );
+    if (selRef.current) selRef.current.value = stage;
+    if (showStageFilter && stage !== 'all') document.documentElement.setAttribute('data-stage', stage);
     else document.documentElement.removeAttribute('data-stage');
-  }, [location.search]);
+  }, [location.pathname, location.search]);
 
   const handleChange = () => {
     const sel = selRef.current;
@@ -49,7 +73,7 @@ export function Header() {
         </Link>
         <div className="flex items-center gap-6">
           <nav className="flex gap-6 text-sm font-medium">
-            {nav.map((item) => {
+            {PRIMARY_NAV.map((item) => {
               const className = "text-parchment-2 hover:text-ember focus-visible:text-ember focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian transition-colors duration-200 relative py-1 group";
               const content = (
                 <>
@@ -69,7 +93,7 @@ export function Header() {
               );
             })}
           </nav>
-          {showStageFilter && (
+          {isTechnicalFilterRoute(location.pathname) && (
             <select
               ref={selRef}
               onChange={handleChange}

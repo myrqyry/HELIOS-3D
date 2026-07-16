@@ -113,6 +113,13 @@
     background: color-mix(in srgb, var(--color-amber) 10%, var(--color-obsidian-2));
   }
 
+  html[data-stage="established"] [data-stage-section]:not([data-stage-section="established"]),
+  html[data-stage="current"] [data-stage-section]:not([data-stage-section="current"]),
+  html[data-stage="speculative"] [data-stage-section]:not([data-stage-section="speculative"]),
+  html[data-stage="project-ops"] [data-stage-section]:not([data-stage-section="project-ops"]) {
+    display: none !important;
+  }
+
   .snap-y-mandatory {
     scroll-snap-type: y mandatory;
   }
@@ -183,6 +190,24 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .animate-pulse,
+  .glass-card,
+  .glass-card:hover,
+  a,
+  button,
+  select {
+    animation: none !important;
+    transition: none !important;
+  }
+  .glass-card:hover {
+    transform: none;
+  }
   .snap-y-mandatory {
     scroll-snap-type: y proximity;
   }
@@ -196,10 +221,6 @@
   }
   html {
     scroll-behavior: auto;
-  }
-  .exhibit-control,
-  .exhibit-section__evidence {
-    transition: none;
   }
 }
 
