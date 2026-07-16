@@ -37,7 +37,7 @@ export function useNucleation() {
   return ctx;
 }
 
-function NucleationEvent() {
+function NucleationEvent({ paused }: { paused: boolean }) {
   const { state: { isPlaying }, actions } = useNucleation();
   const prefersReducedMotion = usePrefersReducedMotion();
   const phaseRef = useRef(0);
@@ -45,7 +45,7 @@ function NucleationEvent() {
   const hopfion = useRef<THREE.Mesh>(null);
 
   useFrame((_state, delta) => {
-    if (!isPlaying || !isMotionEnabled(prefersReducedMotion)) return;
+    if (paused || !isPlaying || !isMotionEnabled(prefersReducedMotion)) return;
 
     phaseRef.current = (phaseRef.current + delta / 6) % 1;
     actions.setPhase(phaseRef.current);
@@ -90,18 +90,18 @@ function NucleationEvent() {
   );
 }
 
-export default function TwistReservoirNucleationScene({ height = 'h-96', interactive = false }: { height?: string; interactive?: boolean }) {
+export default function TwistReservoirNucleationScene({ height = 'h-96', interactive = false, paused = false }: { height?: string; interactive?: boolean; paused?: boolean }) {
   const prefersReducedMotion = usePrefersReducedMotion();
 
   return (
     <NucleationProvider>
       <R3FCanvas height={height} className="bg-obsidian-1" camera={{ position: [3, 3, 3], fov: 50 }}>
         <color attach="background" args={['#050505']} />
-        <R3FEnvironment starsCount={5000} />
+        <R3FEnvironment starsCount={5000} paused={paused} />
         <pointLight position={[10, 10, 10]} intensity={2} color="#ffb627" />
         <pointLight position={[-10, -10, -10]} intensity={1} color="#38bdf8" />
-        <Float enabled={isMotionEnabled(prefersReducedMotion)} speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
-          <NucleationEvent />
+        <Float enabled={!paused && isMotionEnabled(prefersReducedMotion)} speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
+          <NucleationEvent paused={paused} />
         </Float>
         <R3FControls interactive={interactive} />
       </R3FCanvas>

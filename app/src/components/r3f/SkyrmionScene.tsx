@@ -109,7 +109,7 @@ export default function SkyrmionScene({ height = 'h-96', interactive = false }: 
       <ExhibitControl label={paused ? 'Resume animation' : 'Pause animation'} paused={paused} onToggle={() => setPaused((value) => !value)} />
       <R3FCanvas fallback="A planar skyrmion is a 2D magnetic texture whose drift can complicate transport." height={height} className="bg-obsidian-1" camera={{ position: [0, 0, 4], fov: 50 }}>
       <color attach="background" args={['#050505']} />
-      <R3FEnvironment starsCount={3000} />
+      <R3FEnvironment starsCount={3000} paused={paused} />
       <pointLight position={[10, 10, 10]} intensity={2} color="#7dd3fc" />
       <pointLight position={[-10, -10, -10]} intensity={1} color="#ff6b1a" />
       <Float enabled={!paused && isMotionEnabled(prefersReducedMotion)} speed={2} rotationIntensity={0.3} floatIntensity={0.3}>

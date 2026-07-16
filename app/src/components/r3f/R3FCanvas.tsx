@@ -77,17 +77,19 @@ export function R3FControls({
 
 export function R3FEnvironment({ 
   starsCount = 3000, 
-  ambientIntensity = 0.2 
+  ambientIntensity = 0.2,
+  paused = false,
 }: { 
   starsCount?: number; 
   ambientIntensity?: number;
+  paused?: boolean;
 }) {
   const prefersReducedMotion = usePrefersReducedMotion();
 
   return (
     <>
       <ambientLight intensity={ambientIntensity} />
-      <Stars radius={100} depth={50} count={starsCount} factor={4} saturation={0} fade speed={isMotionEnabled(prefersReducedMotion) ? 1 : 0} />
+      <Stars radius={100} depth={50} count={starsCount} factor={4} saturation={0} fade speed={!paused && isMotionEnabled(prefersReducedMotion) ? 1 : 0} />
     </>
   );
 }

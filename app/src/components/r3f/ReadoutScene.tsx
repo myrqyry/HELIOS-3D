@@ -78,7 +78,7 @@ export default function ReadoutScene({ height = 'h-96', interactive = false }: {
     <div>
       <R3FCanvas height={height} className="bg-obsidian-1" camera={{ position: [0, 0.6, 4.6], fov: 48 }}>
         <color attach="background" args={['#050505']} />
-        <R3FEnvironment starsCount={1600} />
+        <R3FEnvironment starsCount={1600} paused={paused} />
         <pointLight position={[3, 3, 4]} intensity={2} color="#ffb627" />
         <pointLight position={[-3, 1, -2]} intensity={1.2} color="#38bdf8" />
         <ReadoutMechanism paused={paused} reduceMotion={prefersReducedMotion} />

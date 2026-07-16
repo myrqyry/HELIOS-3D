@@ -5,7 +5,7 @@ import * as THREE from 'three';
 import { R3FCanvas, R3FControls, R3FEnvironment } from './R3FCanvas';
 import { isMotionEnabled, usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
 
-function SpinField() {
+function SpinField({ paused }: { paused: boolean }) {
   const group = useRef<THREE.Group>(null);
   const prefersReducedMotion = usePrefersReducedMotion();
   
@@ -45,7 +45,7 @@ function SpinField() {
   }, []);
 
   useFrame((state) => {
-    if (!isMotionEnabled(prefersReducedMotion)) return;
+    if (paused || !isMotionEnabled(prefersReducedMotion)) return;
     if (group.current) {
       group.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.5) * 0.2;
     }
@@ -76,17 +76,17 @@ function SpinField() {
   );
 }
 
-export default function DmiChiralityScene({ height = 'h-96', interactive = false }: { height?: string; interactive?: boolean }) {
+export default function DmiChiralityScene({ height = 'h-96', interactive = false, paused = false }: { height?: string; interactive?: boolean; paused?: boolean }) {
   const prefersReducedMotion = usePrefersReducedMotion();
 
   return (
     <R3FCanvas height={height} className="bg-obsidian-1" camera={{ position: [2, 2, 2], fov: 50 }}>
       <color attach="background" args={['#080808']} />
-      <R3FEnvironment starsCount={3000} />
+      <R3FEnvironment starsCount={3000} paused={paused} />
       <pointLight position={[10, 10, 10]} intensity={1.5} color="#38bdf8" />
       <pointLight position={[-10, -10, -10]} intensity={0.5} color="#ff6b1a" />
-      <Float enabled={isMotionEnabled(prefersReducedMotion)} speed={1} rotationIntensity={0.2} floatIntensity={0.2}>
-        <SpinField />
+      <Float enabled={!paused && isMotionEnabled(prefersReducedMotion)} speed={1} rotationIntensity={0.2} floatIntensity={0.2}>
+        <SpinField paused={paused} />
       </Float>
       <R3FControls interactive={interactive} />
     </R3FCanvas>

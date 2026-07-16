@@ -68,7 +68,7 @@ export default function ScaleTransitionScene({ height = 'h-96', interactive = fa
     <div>
       <R3FCanvas height={height} className="bg-obsidian-1" camera={{ position: [0, 1.1, 5.2], fov: 48 }}>
         <color attach="background" args={['#050505']} />
-        <R3FEnvironment starsCount={1600} />
+        <R3FEnvironment starsCount={1600} paused={paused} />
         <pointLight position={[3, 3, 4]} intensity={2} color="#ffb627" />
         <pointLight position={[-3, 1, -2]} intensity={1.2} color="#7dd3fc" />
         <ScaleMechanism paused={paused} reduceMotion={prefersReducedMotion} />

@@ -2,7 +2,7 @@ import { useEffect, useRef, useMemo, useState, type RefObject } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Instances, Instance } from '@react-three/drei';
 import * as THREE from 'three';
-import { R3FCanvas, R3FControls } from './R3FCanvas';
+import { R3FCanvas, R3FControls, R3FEnvironment } from './R3FCanvas';
 import { isMotionEnabled, usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
 import { ExhibitControl } from '../exhibit/ExhibitControl';
 
@@ -60,6 +60,7 @@ export default function HopfionScene({ height = 'h-96', interactive = false }: H
     <div>
       <ExhibitControl label={paused ? 'Resume animation' : 'Pause animation'} paused={paused} onToggle={() => setPaused((value) => !value)} />
       <R3FCanvas fallback="A hopfion is a closed, knotted magnetic texture." height={height} className="bg-obsidian-2" camera={{ position: [0, 0, 4], fov: 50 }}>
+      <R3FEnvironment paused={paused} />
       <ambientLight intensity={0.4} />
       <pointLight position={[5, 5, 5]} intensity={1.2} color="#ffb627" />
       <pointLight position={[-5, -3, -2]} intensity={0.6} color="#7dd3fc" />

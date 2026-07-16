@@ -125,7 +125,7 @@ export default function DmiStabilizerScene({ height = 'h-96', interactive = fals
     <div>
       <R3FCanvas height={height} className="bg-obsidian-1" camera={{ position: [0, 2.1, 4.2], fov: 48 }}>
         <color attach="background" args={['#050505']} />
-        <R3FEnvironment starsCount={1800} />
+        <R3FEnvironment starsCount={1800} paused={paused} />
         <pointLight position={[3, 3, 4]} intensity={2} color="#7dd3fc" />
         <pointLight position={[-3, 1, -2]} intensity={1.2} color="#ff6b1a" />
         <DirectionalField paused={paused} reduceMotion={prefersReducedMotion} />

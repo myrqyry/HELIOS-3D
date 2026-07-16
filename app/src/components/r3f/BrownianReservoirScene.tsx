@@ -120,7 +120,7 @@ export default function BrownianReservoirScene({ height = 'h-96', interactive = 
       <div className="relative">
         <R3FCanvas height={height} className="bg-obsidian-1" camera={{ position: [0, 1.2, 4.5], fov: 50 }}>
           <color attach="background" args={['#050505']} />
-          <R3FEnvironment starsCount={3000} />
+          <R3FEnvironment starsCount={3000} paused={paused} />
           <pointLight position={[3, 3, 4]} intensity={2} color="#ffb627" />
           <pointLight position={[-3, 1, -2]} intensity={1.2} color="#38bdf8" />
           <ReservoirField paused={paused} reduceMotion={prefersReducedMotion} />

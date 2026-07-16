@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, type RefObject } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Billboard, Text } from '@react-three/drei';
 import * as THREE from 'three';
-import { R3FCanvas, R3FControls } from './R3FCanvas';
+import { R3FCanvas, R3FControls, R3FEnvironment } from './R3FCanvas';
 import { isMotionEnabled, usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
 import { ExhibitControl } from '../exhibit/ExhibitControl';
 
@@ -52,6 +52,7 @@ export default function MaterialStackScene({ height = 'h-96', interactive = fals
     <div>
       <ExhibitControl label={paused ? 'Resume animation' : 'Pause animation'} paused={paused} onToggle={() => setPaused((value) => !value)} />
       <R3FCanvas fallback="The candidate EuS / Bi₂Se₃ / EuS material stack is shown in text above." height={height} className="bg-obsidian-2" camera={{ position: [3, 1.5, 3.5], fov: 45 }}>
+      <R3FEnvironment paused={paused} />
       <ambientLight intensity={0.5} />
       <pointLight position={[5, 5, 5]} intensity={1.2} color="#ffb627" />
       <Stack pausedRef={pausedRef} />

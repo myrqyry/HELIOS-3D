@@ -130,7 +130,7 @@ export default function TopologicalOrbitalHallScene({ height = 'h-96', interacti
       <ExhibitControl label={paused ? 'Resume animation' : 'Pause animation'} paused={paused} onToggle={() => setPaused((value) => !value)} />
       <R3FCanvas fallback="TOHE is represented as candidate transverse orbital responses around a hopfion." height={height} className="bg-obsidian-1" camera={{ position: [0, 2, 5], fov: 45 }}>
       <color attach="background" args={['#0a0a0a']} />
-      <R3FEnvironment starsCount={5000} />
+      <R3FEnvironment starsCount={5000} paused={paused} />
       <pointLight position={[10, 10, 10]} intensity={1.5} color="#7dd3fc" />
       <pointLight position={[-10, -10, -10]} intensity={1} color="#ff6b1a" />
       <Hall pausedRef={pausedRef} />

@@ -18,7 +18,7 @@ const groups: EvidenceGroup[] = [
     sourceHref: '/docs/established/literature-review',
     rows: [
       { claim: 'Hopfion stability in a EuS/Bi₂Se₃/EuS system anchors the phase-1 demonstrator.', tag: 'DEMONSTRATED', source: 'Katmis et al.' },
-      { claim: 'TOHE is demonstrated in simulation as an electronic hallmark for 3D hopfions and inferred as a candidate signature for experiments.', tag: 'DEMONSTRATED', source: 'Göbel & Lounis' },
+      { claim: 'TOHE is demonstrated in simulation as an electronic hallmark for 3D hopfions.', tag: 'DEMONSTRATED', source: 'Göbel & Lounis' },
     ],
   },
   {
@@ -28,7 +28,7 @@ const groups: EvidenceGroup[] = [
     sourceHref: '/docs/current/claims-matrix',
     rows: [
       { claim: 'A planar-first, electrically read multilayer stack is the minimum credible validation path.', tag: 'INFERRED', source: 'Current demonstrator memo' },
-      { claim: 'A hopfion’s transverse orbital response could provide a measurable readout channel.', tag: 'INFERRED', source: 'Literature-to-experiment mapping' },
+      { claim: 'TOHE could provide a measurable experimental readout channel for a hopfion’s transverse orbital response.', tag: 'INFERRED', source: 'Literature-to-experiment mapping' },
     ],
   },
   {
