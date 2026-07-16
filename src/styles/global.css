@@ -35,6 +35,95 @@
 }
 
 @layer utilities {
+  .exhibit-section {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: clamp(2rem, 6vw, 5rem);
+    align-items: center;
+    max-width: 72rem;
+    margin-inline: auto;
+    padding: clamp(4rem, 10vw, 8rem) 1.5rem;
+  }
+
+  .exhibit-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .exhibit-copy h2 {
+    margin: 0;
+    color: var(--color-on-surface);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+  }
+
+  .exhibit-copy > p:not(.exhibit-eyebrow) {
+    max-width: 38rem;
+    margin: 0;
+    color: color-mix(in srgb, var(--color-on-surface-variant) 95%, transparent);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+  }
+
+  .exhibit-visual {
+    min-width: 0;
+    min-height: 16rem;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+  }
+
+  .exhibit-eyebrow {
+    margin: 0;
+    color: var(--color-primary);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .exhibit-evidence-link {
+    margin-top: 0.5rem;
+    color: var(--color-primary);
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.3em;
+    transition: color var(--duration-short) var(--ease-standard);
+  }
+
+  .exhibit-evidence-link:hover,
+  .exhibit-evidence-link:focus-visible {
+    color: var(--color-secondary);
+  }
+
+  .exhibit-control {
+    border: 1px solid var(--color-outline);
+    border-radius: 999px;
+    background: var(--color-surface-container);
+    color: var(--color-on-surface);
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    transition: background-color var(--duration-short) var(--ease-standard),
+      border-color var(--duration-short) var(--ease-standard),
+      color var(--duration-short) var(--ease-standard);
+  }
+
+  .exhibit-control:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
   .snap-y-mandatory {
     scroll-snap-type: y mandatory;
   }
@@ -51,15 +140,25 @@
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(42, 32, 26, 0.4);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.15);
     transition-property: transform, border-color, box-shadow, background-color;
-    transition-duration: 0.4s;
-    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    transition-duration: var(--duration-medium, 300ms);
+    transition-timing-function: var(--ease-spring);
   }
   .glass-card:hover {
     transform: translateY(-4px) scale(1.01);
     border-color: rgba(255, 107, 26, 0.35);
-    box-shadow: 0 12px 40px rgba(255, 107, 26, 0.15), 0 0 20px rgba(255, 107, 26, 0.05);
+    box-shadow: 0 4px 12px rgba(255, 107, 26, 0.12), 0 12px 40px rgba(0, 0, 0, 0.25);
+  }
+
+  /* M3E focus ring */
+  .m3e-focus {
+    outline: none;
+  }
+  .m3e-focus:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 4px;
   }
 
   .gradient-text-amber {
@@ -82,7 +181,7 @@
   @keyframes fadeInUp {
     from {
       opacity: 0;
-      transform: translateY(24px);
+      transform: translateY(16px);
     }
     to {
       opacity: 1;
@@ -90,7 +189,7 @@
     }
   }
   .animate-fade-in-up {
-    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: fadeInUp var(--duration-long, 500ms) var(--ease-emphasized-decel) forwards;
   }
   
   /* Initial state for GSAP scroll-triggered reveals (only applied when JS is active) */
@@ -105,6 +204,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .snap-y-mandatory {
     scroll-snap-type: y proximity;
   }
@@ -115,5 +218,21 @@
   .js-enabled .hero-visual {
     opacity: 1;
     transform: none;
+  }
+
+  .exhibit-evidence-link,
+  .exhibit-control {
+    transition: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .exhibit-section {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .exhibit-visual {
+    min-height: 12rem;
   }
 }
