@@ -4,6 +4,7 @@ import { Float } from '@react-three/drei';
 import * as THREE from 'three';
 import { R3FCanvas, R3FControls, R3FEnvironment } from './R3FCanvas';
 import { isMotionEnabled, usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
+import { ExhibitControl } from '../exhibit/ExhibitControl';
 
 interface NucleationState {
   phase: number;
@@ -92,19 +93,25 @@ function NucleationEvent({ paused }: { paused: boolean }) {
 
 export default function TwistReservoirNucleationScene({ height = 'h-96', interactive = false, paused = false }: { height?: string; interactive?: boolean; paused?: boolean }) {
   const prefersReducedMotion = usePrefersReducedMotion();
+  const [isPaused, setIsPaused] = useState(paused || !isMotionEnabled(prefersReducedMotion));
 
   return (
-    <NucleationProvider>
-      <R3FCanvas height={height} className="bg-obsidian-1" camera={{ position: [3, 3, 3], fov: 50 }}>
-        <color attach="background" args={['#050505']} />
-        <R3FEnvironment starsCount={5000} paused={paused} />
-        <pointLight position={[10, 10, 10]} intensity={2} color="#ffb627" />
-        <pointLight position={[-10, -10, -10]} intensity={1} color="#38bdf8" />
-        <Float enabled={!paused && isMotionEnabled(prefersReducedMotion)} speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
-          <NucleationEvent paused={paused} />
-        </Float>
-        <R3FControls interactive={interactive} />
-      </R3FCanvas>
-    </NucleationProvider>
+    <div>
+      <NucleationProvider>
+        <R3FCanvas height={height} className="bg-obsidian-1" camera={{ position: [3, 3, 3], fov: 50 }}>
+          <color attach="background" args={['#050505']} />
+          <R3FEnvironment starsCount={5000} paused={isPaused} />
+          <pointLight position={[10, 10, 10]} intensity={2} color="#ffb627" />
+          <pointLight position={[-10, -10, -10]} intensity={1} color="#38bdf8" />
+          <Float enabled={!isPaused && isMotionEnabled(prefersReducedMotion)} speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
+            <NucleationEvent paused={isPaused} />
+          </Float>
+          <R3FControls interactive={interactive} />
+        </R3FCanvas>
+      </NucleationProvider>
+      <div className="mt-3 flex justify-end">
+        <ExhibitControl label={isPaused ? 'Resume animation' : 'Pause animation'} paused={isPaused} onToggle={() => setIsPaused((value) => !value)} />
+      </div>
+    </div>
   );
 }

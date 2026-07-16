@@ -91,10 +91,10 @@ export function HomePage() {
         </div>
       </ExhibitSection>
 
-      <ExhibitSection id="scaling" eyebrow="05 / Scale" title="Scaling starts with a stack" description="The proposed EuS / Bi₂Se₃ / EuS stack places chiral magnetic layers around a topological-insulator interface. Material choice is a constraint, not a promise of fabrication." evidenceLabel="See the evidence trail" evidenceHref="/research">
+      <ExhibitSection id="scaling" eyebrow="05 / Scale" title="One knot becomes an array" description="The proposed machine scales by repeating the same magnetic idea: a knot becomes a cell, cells become a layer, and layers become a three-dimensional array. Material stacks remain a constraint, not a promise of fabrication." evidenceLabel="See the evidence trail" evidenceHref="/research">
         <div className="rounded-xl border border-obsidian-3/40 bg-obsidian-2/30 p-3">
-          <DeferredScene loader={() => import('../components/r3f/MaterialStack')} sceneProps={{ height: 'h-72', interactive: true }} fallback={sceneFallback('Two EuS layers surround a Bi₂Se₃ interface in this candidate stack.')} />
-          <p className="mt-3 text-sm leading-relaxed text-parchment-2">Text fallback: two EuS layers surround a Bi₂Se₃ interface. The stack visualizes the candidate geometry and its open experimental questions.</p>
+          <DeferredScene loader={() => import('../components/r3f/ScaleTransitionScene')} sceneProps={{ height: 'h-72', interactive: true }} fallback={sceneFallback('The same knot repeats from one cell to a layer and then a three-dimensional array.')} />
+          <p className="mt-3 text-sm leading-relaxed text-parchment-2">Text fallback: a knot becomes a cell, a layer, and finally a 3D array. Material stack details remain available in the technical gallery.</p>
         </div>
       </ExhibitSection>
 

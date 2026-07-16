@@ -1,17 +1,6 @@
 import { useState, useMemo, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import HopfionScene from '../components/r3f/HopfionScene';
-import SkyrmionScene from '../components/r3f/SkyrmionScene';
-import MaterialStack from '../components/r3f/MaterialStack';
-import DmiChirality from '../components/r3f/DmiChirality';
-import TwistReservoirNucleation from '../components/r3f/TwistReservoirNucleation';
-import TopologicalOrbitalHall from '../components/r3f/TopologicalOrbitalHall';
-import BreathingModeSpectrum from '../components/charts/BreathingModeSpectrum';
-import EnergyBarrier from '../components/charts/EnergyBarrier';
-import LiteratureTimeline from '../components/charts/LiteratureTimeline';
-import PerformanceFloor from '../components/charts/PerformanceFloor';
-import ReadoutScene from '../components/r3f/ReadoutScene';
-import ScaleTransitionScene from '../components/r3f/ScaleTransitionScene';
+import { DeferredScene, type DeferredSceneLoader } from '../components/exhibit/DeferredScene';
 
 interface FigureData {
   title: string;
@@ -39,20 +28,22 @@ const figures: FigureData[] = [
 const allSources = Array.from(new Set(figures.map((f) => f.source)));
 const allKinds = Array.from(new Set(figures.map((f) => f.kind)));
 
+type FigureSceneProps = { height?: string };
+
 const sceneComponents = {
-  HopfionScene,
-  SkyrmionScene,
-  MaterialStack,
-  DmiChirality,
-  TwistReservoirNucleation,
-  TopologicalOrbitalHall,
-  BreathingModeSpectrum,
-  EnergyBarrier,
-  LiteratureTimeline,
-  PerformanceFloor,
-  ReadoutScene,
-  ScaleTransitionScene,
-} as Record<string, React.ComponentType<{ height?: string }>>;
+  HopfionScene: () => import('../components/r3f/HopfionScene'),
+  SkyrmionScene: () => import('../components/r3f/SkyrmionScene'),
+  MaterialStack: () => import('../components/r3f/MaterialStack'),
+  DmiChirality: () => import('../components/r3f/DmiChirality'),
+  TwistReservoirNucleation: () => import('../components/r3f/TwistReservoirNucleation'),
+  TopologicalOrbitalHall: () => import('../components/r3f/TopologicalOrbitalHall'),
+  BreathingModeSpectrum: () => import('../components/charts/BreathingModeSpectrum'),
+  EnergyBarrier: () => import('../components/charts/EnergyBarrier'),
+  LiteratureTimeline: () => import('../components/charts/LiteratureTimeline'),
+  PerformanceFloor: () => import('../components/charts/PerformanceFloor'),
+  ReadoutScene: () => import('../components/r3f/ReadoutScene'),
+  ScaleTransitionScene: () => import('../components/r3f/ScaleTransitionScene'),
+} satisfies Record<string, DeferredSceneLoader<FigureSceneProps>>;
 
 export function FiguresPage() {
   const [sourceFilter, setSourceFilter] = useState('all');
@@ -112,12 +103,18 @@ export function FiguresPage() {
       </div>
       <div className="grid md:grid-cols-2 gap-8">
         {filtered.map((f) => {
-          const Scene = sceneComponents[f.component];
+          const loader = sceneComponents[f.component as keyof typeof sceneComponents];
           return (
             <article key={f.component} className="glass-card rounded-xl p-5 flex flex-col justify-between group overflow-hidden">
               <div>
                 <div className="relative rounded-lg overflow-hidden border border-obsidian-3/45 bg-obsidian/30 shadow-inner">
-                  {Scene && <Scene height="h-48" />}
+                  {loader && (
+                    <DeferredScene
+                      loader={loader}
+                      sceneProps={{ height: 'h-48' }}
+                      fallback={<div className="flex h-48 items-center justify-center px-5 text-center text-sm text-parchment-2">Loading figure: {f.title}</div>}
+                    />
+                  )}
                 </div>
                 <h3 className="mt-4 font-bold text-amber text-lg group-hover:text-ember transition-colors">{f.title}</h3>
                 <p className="text-sm text-parchment-2/90 mt-1.5 leading-relaxed">{f.description}</p>

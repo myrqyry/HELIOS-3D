@@ -1,9 +1,10 @@
-import { useRef, useMemo } from 'react';
+import { useRef, useMemo, useState } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Float } from '@react-three/drei';
 import * as THREE from 'three';
 import { R3FCanvas, R3FControls, R3FEnvironment } from './R3FCanvas';
 import { isMotionEnabled, usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
+import { ExhibitControl } from '../exhibit/ExhibitControl';
 
 function SpinField({ paused }: { paused: boolean }) {
   const group = useRef<THREE.Group>(null);
@@ -78,17 +79,23 @@ function SpinField({ paused }: { paused: boolean }) {
 
 export default function DmiChiralityScene({ height = 'h-96', interactive = false, paused = false }: { height?: string; interactive?: boolean; paused?: boolean }) {
   const prefersReducedMotion = usePrefersReducedMotion();
+  const [isPaused, setIsPaused] = useState(paused || !isMotionEnabled(prefersReducedMotion));
 
   return (
-    <R3FCanvas height={height} className="bg-obsidian-1" camera={{ position: [2, 2, 2], fov: 50 }}>
-      <color attach="background" args={['#080808']} />
-      <R3FEnvironment starsCount={3000} paused={paused} />
-      <pointLight position={[10, 10, 10]} intensity={1.5} color="#38bdf8" />
-      <pointLight position={[-10, -10, -10]} intensity={0.5} color="#ff6b1a" />
-      <Float enabled={!paused && isMotionEnabled(prefersReducedMotion)} speed={1} rotationIntensity={0.2} floatIntensity={0.2}>
-        <SpinField paused={paused} />
-      </Float>
-      <R3FControls interactive={interactive} />
-    </R3FCanvas>
+    <div>
+      <R3FCanvas height={height} className="bg-obsidian-1" camera={{ position: [2, 2, 2], fov: 50 }}>
+        <color attach="background" args={['#080808']} />
+        <R3FEnvironment starsCount={3000} paused={isPaused} />
+        <pointLight position={[10, 10, 10]} intensity={1.5} color="#38bdf8" />
+        <pointLight position={[-10, -10, -10]} intensity={0.5} color="#ff6b1a" />
+        <Float enabled={!isPaused && isMotionEnabled(prefersReducedMotion)} speed={1} rotationIntensity={0.2} floatIntensity={0.2}>
+          <SpinField paused={isPaused} />
+        </Float>
+        <R3FControls interactive={interactive} />
+      </R3FCanvas>
+      <div className="mt-3 flex justify-end">
+        <ExhibitControl label={isPaused ? 'Resume animation' : 'Pause animation'} paused={isPaused} onToggle={() => setIsPaused((value) => !value)} />
+      </div>
+    </div>
   );
 }

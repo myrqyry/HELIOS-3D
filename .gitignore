@@ -63,6 +63,9 @@ docs/superpowers/
 docs/.snapshot-originals/
 site/
 e2e/
+!app/e2e/
+!app/e2e/**
+*.tsbuildinfo
 skills/universal-metacognitive-cycle/
 
 # Simulation Temporaries
