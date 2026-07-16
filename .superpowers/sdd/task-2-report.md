@@ -37,3 +37,19 @@ PASSED — 1 file, 10 tests.
 
 1. The BRC and DMI sections currently use existing proxy scenes; dedicated BRC/DMI exhibit scenes are planned in Tasks 3 and 4.
 2. Git commit: `b65d374` (`feat: reshape app homepage as exhibit`).
+
+## Route review fix
+
+- Pointed the primary `Explore` navigation item to `/explore`, the canonical
+  guided exhibit route.
+- Added a focused navigation assertion.
+- `pnpm --dir app exec tsc -b` — **passed**.
+- `pnpm --dir app test -- --run` — **passed**, 1 file, 10 tests.
+- `pnpm --dir app build` — **passed**; chunk-size warning only.
+- Commit: `2540247` (`fix: point explore navigation to exhibit`).
+
+## Task 2 navigation review follow-up
+
+- Changed `PRIMARY_NAV` Explore destination from `/overview` to `/explore`.
+- Added a deterministic `PRIMARY_NAV` assertion for `{ label: 'Explore', href: '/explore' }`.
+- Validation and commit were not executed: terminal execution was unavailable in this environment, so no actual results or commit hash exist.
