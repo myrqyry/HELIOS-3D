@@ -1,7 +1,8 @@
 import data from '../../data/energy-barrier.json';
 
+const max = Math.max(...data.configurations.map((d) => d.kbT));
+
 export default function EnergyBarrier({ height = 'h-64' }: { height?: string }) {
-  const max = Math.max(...data.configurations.map((d) => d.kbT));
   return (
     <div className={`w-full ${height} rounded-lg border border-obsidian-3 bg-obsidian-2 p-4`}>
       <h4 className="font-mono text-xs uppercase tracking-wider text-amber mb-3">Energy barrier (k_B T)</h4>

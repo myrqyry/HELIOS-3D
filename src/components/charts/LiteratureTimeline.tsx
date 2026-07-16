@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { getResearchTimelineRows, type ResearchTimelineRow } from '../../data/research-ingestion';
 
 const tagColor: Record<ResearchTimelineRow['tag'], string> = {
@@ -9,7 +10,7 @@ const tagColor: Record<ResearchTimelineRow['tag'], string> = {
 };
 
 export default function LiteratureTimeline({ height = 'h-48' }: { height?: string }) {
-  const rows = getResearchTimelineRows();
+  const rows = useMemo(() => getResearchTimelineRows(), []);
 
   return (
     <div className={`w-full ${height} rounded-lg border border-obsidian-3 bg-obsidian-2 p-4 overflow-x-auto`}>

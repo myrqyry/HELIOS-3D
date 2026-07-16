@@ -1,8 +1,9 @@
 import data from '../../data/breathing-spectrum.json';
 
+const maxAmp = Math.max(...data.frequencies.map((d) => d.amplitude));
+const maxFreq = Math.max(...data.frequencies.map((d) => d.freqGhz));
+
 export default function BreathingModeSpectrum({ height = 'h-64' }: { height?: string }) {
-  const maxAmp = Math.max(...data.frequencies.map((d) => d.amplitude));
-  const maxFreq = Math.max(...data.frequencies.map((d) => d.freqGhz));
   return (
     <div className={`w-full ${height} rounded-lg border border-obsidian-3 bg-obsidian-2 p-4`}>
       <h4 className="font-mono text-xs uppercase tracking-wider text-amber mb-3">Sub-GHz breathing-mode spectrum</h4>

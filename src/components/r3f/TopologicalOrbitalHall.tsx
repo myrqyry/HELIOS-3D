@@ -44,8 +44,6 @@ function HallmarkArrows() {
 }
 
 function Hall() {
-  const group = useRef<THREE.Group>(null);
-  
   const currentLines = useMemo(() => {
     const lines: THREE.Vector3[][] = [];
     for (let i = 0; i < 16; i++) {
@@ -84,7 +82,7 @@ function Hall() {
   }, [lineObjects]);
 
   return (
-    <group ref={group}>
+    <group>
       {/* Central Hopfion Ring */}
       <mesh>
         <torusKnotGeometry args={[0.8, 0.2, 128, 16, 2, 3]} />

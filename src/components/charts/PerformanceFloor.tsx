@@ -1,13 +1,13 @@
 import data from '../../data/performance-floor.json';
 
+const speedMax = Math.max(...data.writeSpeedPs.map((d) => d.value));
+const energyMax = Math.max(...data.energyDensityPjPerUm2.map((d) => d.value));
+
 export interface PerformanceFloorProps {
   height?: string;
 }
 
 export default function PerformanceFloor({ height = 'h-64' }: PerformanceFloorProps) {
-  const speedMax = Math.max(...data.writeSpeedPs.map((d) => d.value));
-  const energyMax = Math.max(...data.energyDensityPjPerUm2.map((d) => d.value));
-
   return (
     <div className={`w-full ${height} rounded-lg border border-obsidian-3 bg-obsidian-2 p-4 grid md:grid-cols-2 gap-6`}>
       <div>

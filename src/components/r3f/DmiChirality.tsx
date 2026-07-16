@@ -1,6 +1,6 @@
 import { useRef, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
-import { Float } from '@react-three/drei';
+import { Float, Instances, Instance } from '@react-three/drei';
 import * as THREE from 'three';
 import { R3FCanvas, R3FControls, R3FEnvironment } from './R3FCanvas';
 
@@ -33,9 +33,8 @@ function SpinField() {
         tempEuler.setFromQuaternion(tempQ);
 
         arr.push({ 
-          pos: [px, 0.2, pz], 
+          pos: [px, 0.2, pz] as [number, number, number],
           rotation: [tempEuler.x, tempEuler.y, tempEuler.z] as [number, number, number], 
-          color: '#ff6b1a' 
         });
       }
     }
@@ -56,19 +55,23 @@ function SpinField() {
         <meshStandardMaterial color="#38bdf8" transparent opacity={0.2} />
       </mesh>
 
-      {/* Spin Arrows */}
-      {arrows.map((a, i) => (
-        <group key={i} position={a.pos as [number, number, number]}>
-          <mesh rotation={a.rotation}>
-            <coneGeometry args={[0.04, 0.15, 12]} />
-            <meshStandardMaterial color={a.color} emissive={a.color} emissiveIntensity={1} />
-          </mesh>
-          <mesh position={[0, -0.075, 0]}>
-            <cylinderGeometry args={[0.005, 0.005, 0.15]} />
-            <meshStandardMaterial color={a.color} transparent opacity={0.5} />
-          </mesh>
-        </group>
-      ))}
+      {/* Cone Heads - instanced */}
+      <Instances limit={arrows.length}>
+        <coneGeometry args={[0.04, 0.15, 12]} />
+        <meshStandardMaterial color="#ff6b1a" emissive="#ff6b1a" emissiveIntensity={1} />
+        {arrows.map((a, i) => (
+          <Instance key={i} position={a.pos} rotation={a.rotation} />
+        ))}
+      </Instances>
+
+      {/* Cylinder Stems - instanced */}
+      <Instances limit={arrows.length}>
+        <cylinderGeometry args={[0.005, 0.005, 0.15]} />
+        <meshStandardMaterial color="#ff6b1a" transparent opacity={0.5} />
+        {arrows.map((a, i) => (
+          <Instance key={i} position={[a.pos[0], a.pos[1] - 0.075, a.pos[2]]} rotation={a.rotation} />
+        ))}
+      </Instances>
     </group>
   );
 }

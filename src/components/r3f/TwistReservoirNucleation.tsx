@@ -37,7 +37,7 @@ export function useNucleation() {
 }
 
 function NucleationEvent() {
-  const { state: { isPlaying }, actions } = useNucleation();
+  const { state: { isPlaying } } = useNucleation();
   const phaseRef = useRef(0);
   const topLayer = useRef<THREE.Group>(null);
   const hopfion = useRef<THREE.Mesh>(null);
@@ -46,17 +46,14 @@ function NucleationEvent() {
     if (!isPlaying) return;
 
     phaseRef.current = (phaseRef.current + delta / 6) % 1;
-    actions.setPhase(phaseRef.current);
     const phase = phaseRef.current;
 
     if (topLayer.current) {
-      // Accumulate twist up to 0.75, then reset
       const twist = phase < 0.75 ? (phase / 0.75) * Math.PI * 0.5 : 0;
       topLayer.current.rotation.y = twist;
     }
 
     if (hopfion.current) {
-      // Nucleate at 0.75 phase
       const scale = phase > 0.75 ? (phase - 0.75) / 0.25 : 0;
       hopfion.current.scale.setScalar(scale * 0.8);
       hopfion.current.visible = phase > 0.75;
