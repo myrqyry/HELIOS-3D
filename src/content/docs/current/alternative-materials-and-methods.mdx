@@ -8,16 +8,16 @@ updated: 2026-06-03
 ---
 # HELIOS-3D: Alternative Materials and Methods Decision Memo
 
-This memo evaluates lower-risk alternatives that preserve the HELIOS-3D architectural thesis while reducing exposure to the two weakest assumptions in the current plan:
+This memo evaluates lower-risk alternatives that preserve the HELIOS-3D architectural thesis while reducing exposure to two weak assumptions:
 
 1. Conformal deposition of a vdW ferromagnet such as $Fe_3GaTe_2$ onto a complex 3D polymer scaffold.
 2. Microwave-first readout as the primary sensing path for early prototypes.
 
-The conclusion is not that the current hypothesis is invalid. The conclusion is narrower and more precise: the current hypothesis is stronger as a phased program than as a single integrated fabrication jump.
+The current hypothesis holds. The fix is phasing: run it as a staged program rather than a single fabrication jump.
 
 ## 1. Decision Criteria
 
-Alternatives are evaluated against the following criteria:
+Each alternative scores against five criteria:
 
 | Criterion | Question |
 | :--- | :--- |
@@ -29,7 +29,7 @@ Alternatives are evaluated against the following criteria:
 
 ## 2. Bottom-Line Recommendation
 
-For the first demonstrator, HELIOS-3D should pivot to a **planar-first, electrically read, multilayer spintronic stack**. The most defensible path is:
+The first demonstrator should pivot to a **planar-first, electrically read, multilayer spintronic stack**. The most defensible path:
 
 1. **Material system:** `Ir/Fe/Co/Pt` or `Ir/Co/Pt` for initial MCA experiments.
 2. **Transport-optimized branch:** `GdFeCo` or related ferrimagnetic multilayers if skyrmion Hall suppression becomes dominant.
@@ -38,7 +38,7 @@ For the first demonstrator, HELIOS-3D should pivot to a **planar-first, electric
 
 This preserves the logic of HELIOS-3D while replacing the least-supported fabrication step with an experimentally credible progression.
 
-Among later-stage branch candidates, the strongest family is now the compensated ferrimagnet/altermagnet route: the compensated-ferrimagnet paper gives a natural spin-pumping readout mechanism, while the altermagnet paper shows current-driven nonlinear skyrmion dynamics and THz-scale helicity motion. That makes this path a stronger long-range candidate than freeform 3D magnetic coating, but still a branch beyond the planar demonstrator.
+The compensated ferrimagnet/altermagnet route ranks strongest among later-stage branch candidates: the compensated-ferrimagnet paper gives a natural spin-pumping readout mechanism, and the altermagnet paper shows current-driven nonlinear skyrmion dynamics and THz-scale helicity motion. This path beats freeform 3D magnetic coating for long-range work, but remains a branch beyond the planar demonstrator.
 
 ## 3. Candidate Materials
 
@@ -79,8 +79,8 @@ Among later-stage branch candidates, the strongest family is now the compensated
 **Advantages:**
 
 * Simpler than `Ir/Fe/Co/Pt`.
-* Extensively studied on standard substrates.
-* Compatible with Hall-style electrical characterization.
+* Studied on standard substrates with extensive characterization data.
+* Works with Hall-style electrical characterization.
 
 **Disadvantages:**
 
@@ -137,7 +137,7 @@ Among later-stage branch candidates, the strongest family is now the compensated
 
 **Compatibility with HELIOS-3D:**
 
-* Strong option if the project wants ferrimagnetic transport but a different engineering tradeoff from `GdFeCo`.
+* Strong option if the project wants ferrimagnetic transport with a different engineering tradeoff from `GdFeCo`.
 
 **Assessment:**
 
@@ -226,8 +226,8 @@ Deposit magnetic stacks on flat substrates or membranes where the literature sup
 
 **Advantages:**
 
-* Removes the unsupported assumption that vdW or multilayer magnetism must be established directly on a freeform polymer host.
-* Allows magnetic, transport, and readout physics to be validated independently before volumetric integration.
+* Drops the unsupported assumption that vdW or multilayer magnetism must be established directly on a freeform polymer host.
+* Validates magnetic, transport, and readout physics independently before volumetric integration.
 
 **Mitigation & Stacking Method (Cao et al., Nature 2026):**
 To mitigate transfer alignment and yield risks, HELIOS-3D proposes adapting the **low-temperature roll lamination transfer process** demonstrated by Cao et al. (*Nature* 2026, corresponding author Prof. Qing Cao). The ultrathin (sub-10 nm) spintronic or vdW stacks are released onto a flexible carrier and transferred onto the receiving patterned wafer using a roll laminator. 
@@ -289,7 +289,7 @@ Retain TPP or related writing methods only for passive microfluidic, confinement
 
 **Disadvantages:**
 
-* Reduces the rhetorical simplicity of a single monolithic 3D fabrication story.
+* Weakens the rhetorical simplicity of a single monolithic 3D fabrication story.
 
 **Assessment:**
 
@@ -358,9 +358,9 @@ Adapt the liquid crystal "twist reservoir" mechanism for magnetic hopfion synthe
 
 **Advantages:**
 
-* Low-overhead compared with microwave spectroscopy.
-* Already common in skyrmion and multilayer characterization.
-* Readily multiplexed and integrated with electronics.
+* Lower overhead than microwave spectroscopy.
+* Common in skyrmion and multilayer characterization.
+* Multiplexes readily and integrates with electronics.
 
 **Disadvantages:**
 
@@ -389,8 +389,8 @@ Adapt the liquid crystal "twist reservoir" mechanism for magnetic hopfion synthe
 
 **Advantages:**
 
-* Both are already embedded in modern spintronic device literature.
-* Strong alignment with low-latency electrical control.
+* Both appear in modern spintronic device literature.
+* Both support low-latency electrical control.
 
 **Disadvantages:**
 
@@ -418,7 +418,7 @@ Use high-mobility graphene spin valves and transverse magnetic focusing to route
 
 **Disadvantages:**
 
-* It is not a magnetic-texture carrier path and does not validate skyrmion, hopfion, or Brownian reservoir operation.
+* Not a magnetic-texture carrier path. Does not validate skyrmion, hopfion, or Brownian reservoir operation.
 * The demonstrated device depends on high-mobility graphene, ferromagnetic edge contacts, and transverse magnetic focusing geometry.
 
 **Assessment:**
@@ -430,7 +430,7 @@ Use high-mobility graphene spin valves and transverse magnetic focusing to route
 **Advantages:**
 
 * Strong physics basis for probing skyrmion and hopfion resonance modes.
-* **Breathing Mode Detection:** Recent identifies distinct **sub-GHz breathing modes** in 3D hopfions. By using Ferromagnetic Resonance (FMR) or Brillouin Light Scattering (BLS), these frequencies can be detected as a fast, frequency-encoded spectral fingerprint.
+* **Breathing Mode Detection:** Recent work identifies distinct **sub-GHz breathing modes** in 3D hopfions. Using Ferromagnetic Resonance (FMR) or Brillouin Light Scattering (BLS) detects these frequencies as a fast, frequency-encoded spectral fingerprint.
 * **Electrical Integration:** Offers a path for electrical readout that bypasses the energy-intensive processing of optical point clouds (NV-centers).
 
 **Disadvantages:**
@@ -455,17 +455,17 @@ Use high-mobility graphene spin valves and transverse magnetic focusing to route
 
 ## 6.1 Readout Integration: hBN $V_B^-$ and Microwave Spectroscopy vs. Diamond NV Centers
 
-HELIOS-3D formally shifts the primary readout strategy from Diamond NV centers to negatively charged boron vacancies ($V_B^-$) in hBN or direct Microwave Spectroscopy. This solves the $1/r^3$ distance-decay problem associated with NV centers and ensures compatibility with silicon bus architectures.
+HELIOS-3D shifts its primary readout strategy from Diamond NV centers to negatively charged boron vacancies ($V_B^-$) in hBN or direct Microwave Spectroscopy. This solves the $1/r^3$ distance-decay problem with NV centers and ensures compatibility with silicon bus architectures.
 
-A critical architectural decision for the HELIOS-3D readout chain involves the choice of quantum sensor for detecting magnetic hopfion and skyrmion textures. The original hypothesis proposed diamond NV centers; the following analysis recommends a pivot to monolayer hexagonal boron nitride (hBN) with negatively charged boron vacancies ($V_B^-$).
+The original hypothesis proposed diamond NV centers; the following analysis recommends a pivot to monolayer hexagonal boron nitride (hBN) with negatively charged boron vacancies ($V_B^-$).
 
 ### 6.1.1 Distance-Decay Problem with NV Centers
 
-Diamond NV centers offer excellent spin coherence at room temperature, but suffer from a fundamental sensing geometry constraint:
+Diamond NV centers offer excellent spin coherence at room temperature, but suffer from a sensing geometry constraint:
 
 *   **$1/r^3$ Falloff:** The magnetic dipole-dipole interaction between the NV center and a magnetic texture scales as $1/r^3$, where $r$ is the separation distance.
-*   **Optimal Distance:** For reliable detection of skyrmion core fields ($B_z \sim 10-100$ mT), the NV center must be within $\sim 10-20$ nm of the magnetic texture surface.
-*   **Integration Challenge:** Achieving this proximity in a 3D stacked geometry while maintaining fabrication yield is non-trivial.
+*   **Optimal Distance:** For reliable detection of skyrmion core fields ($B_z \sim 10-100$ mT), the NV center must sit within $\sim 10-20$ nm of the magnetic texture surface.
+*   **Integration Challenge:** Achieving this proximity in a 3D stacked geometry while maintaining fabrication yield is difficult.
 
 ### 6.1.2 hBN $V_B^-$ as Alternative
 
@@ -490,7 +490,7 @@ Monolayer hBN with boron vacancies ($V_B^-$) offers a van der Waals-compatible a
 
 *   **Fermi Level Alignment:** The $V_B^-$ charge state is stabilized by nearby charge traps; care must be taken during hBN transfer to avoid contamination that shifts the defect levels.
 *   **Magnetic Proximity Effect:** $Fe_3GaTe_2$ has high spin polarization; the hBN layer may experience magnetic proximity-induced splitting. This can be either a feature (enhancing sensitivity) or a noise source (introducing field variability).
-*   **Temperature Operating Range:** $V_B^-$ in hBN retains spin coherence up to $\sim 400$ K, comfortably covering data center operating temperatures ($T < 85^\circ C$).
+*   **Temperature Operating Range:** $V_B^-$ in hBN retains spin coherence up to $\sim 400$ K, covering data center operating temperatures ($T < 85^\circ C$).
 
 ### 6.1.5 BN-Twist-Angle-Controlled Gating Anomalies
 
@@ -502,10 +502,10 @@ When stacking multiple hBN layers in double-encapsulated or multi-layered gating
     2.  **Stochastic Gating:** Conversely, in the BRC core, the 15°–45° alignment could be intentionally engineered as a local non-volatile memory node, where the gate hysteresis is used to dynamically adjust the local screening potential of the reservoir. `[PROPOSED]` [Maffione et al. 2026]
 
 ### 6.1.6 Silicon Defect Centers (T Centers) as Telecom-Band Readout Alternatives
-While hBN $V_B^-$ vacancies offer planar 2D compatibility, they still require specialized optical paths. To achieve monolithic integration with CMOS-compatible silicon photonics, silicon-based spin-photonic defect centers—specifically the T center—offer a native telecom-band alternative (Islam et al., *Light: Science & Applications* 2026, DOI: `10.1038/s41377-026-02345-y`).
+While hBN $V_B^-$ vacancies offer planar 2D compatibility, they still require specialized optical paths. For monolithic integration with CMOS-compatible silicon photonics, silicon-based spin-photonic defect centers—specifically the T center—offer a native telecom-band alternative (Islam et al., *Light: Science & Applications* 2026, DOI: `10.1038/s41377-026-02345-y`).
 *   **Native Telecom Emission:** The T center exhibits a zero-phonon line (ZPL) doublet at ~1326 nm (telecom O-band), matching standard optical fibers and silicon waveguides without requiring lossy quantum frequency conversion.
 *   **Multi-Qubit Spin Register:** The neutral T center hosts an electron spin ($S=1/2$) coupled to a ¹H nuclear spin ($I=1/2$) and a nearby ²⁹Si nuclear spin ($I=1/2$), providing a long-lived three-qubit quantum memory ($T_2 \approx 0.41$ ms for electron, $T_{2,H} \approx 112$ ms for ¹H at 1.2 K) that can be initialized and read out optically.
-*   **Purcell-Enhanced Nanophotonics:** Integrating T centers into silicon nanophotonic cavities (e.g., photonic crystals or nanobeams) can yield a &gt;10× enhancement of ZPL emission and &gt;10% on-chip collection efficiency, enabling scalable on-chip spin-photon interfaces. `[PROPOSED]` [Islam et al. 2026]
+*   **Purcell-Enhanced Nanophotonics:** Integrating T centers into silicon nanophotonic cavities (e.g., photonic crystals or nanobeams) can yield a >10× enhancement of ZPL emission and >10% on-chip collection efficiency, enabling scalable on-chip spin-photon interfaces. `[PROPOSED]` [Islam et al. 2026]
 
 ## 7. Recommended Minimum Viable Demonstrator Revision
 
@@ -533,7 +533,7 @@ The current MVD sequence in `OPEN_QUESTIONS.md` should be interpreted more conse
 
 ## 8. Final Position
 
-The strongest defensible version of HELIOS-3D is not a direct 3D-vdW fabrication jump. It is a staged program:
+The strongest defensible version of HELIOS-3D is a staged program, not a direct 3D-vdW fabrication jump:
 
 1. Prove the spin-texture logic on planar or membrane-compatible multilayers.
 2. Replace microwave-first assumptions with electrical sensing and control.
