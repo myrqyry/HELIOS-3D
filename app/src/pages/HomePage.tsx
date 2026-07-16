@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import HopfionScene from '../components/r3f/HopfionScene';
 import SkyrmionScene from '../components/r3f/SkyrmionScene';
-import TwistReservoirNucleationScene from '../components/r3f/TwistReservoirNucleation';
+import BrownianReservoirScene from '../components/r3f/BrownianReservoirScene';
 import DmiChiralityScene from '../components/r3f/DmiChirality';
 import TopologicalOrbitalHallScene from '../components/r3f/TopologicalOrbitalHall';
 import MaterialStackScene from '../components/r3f/MaterialStack';
@@ -75,8 +75,8 @@ export function HomePage() {
 
       <ExhibitSection id="brc" eyebrow="02 / Compute" title="BRC: compute with the reservoir" description="Brownian reservoir computing treats controlled fluctuations as part of the computation. This is a proposed core, not a demonstrated product: the experiment is to measure whether the reservoir retains useful memory." evidenceLabel="Read the architecture" evidenceHref="/docs/speculative/core-architecture">
         <div className="rounded-xl border border-obsidian-3/40 bg-obsidian-2/30 p-3">
-          <TwistReservoirNucleationScene height="h-72" interactive={true} />
-          <p className="mt-3 text-sm leading-relaxed text-parchment-2">Text fallback: twist accumulates between magnetic layers, then nucleates a knot-like state. The animation represents the proposed mechanism.</p>
+          <BrownianReservoirScene height="h-72" interactive={true} />
+          <p className="mt-3 text-sm leading-relaxed text-parchment-2">Text fallback: input pulses enter a fluctuating reservoir, relax into a mixed state, and are sampled as a readout. The animation represents the proposed mechanism.</p>
         </div>
       </ExhibitSection>
 
