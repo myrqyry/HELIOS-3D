@@ -26,6 +26,13 @@ pnpm --dir app test -- --run src/components/r3f/__tests__/exhibit-phases.test.ts
 pnpm --dir app build             PASSED — exit 0; chunk-size warning only
 ```
 
+## Final DMI fallback fix
+
+- Reduced motion now renders only the coherent directional state.
+- DMI includes visible fallback copy: “Competing spin directions resolve into a
+  coherent twist; DMI helps hold the knot together.”
+- Commit: `90a5c6a` (`feat: add brc and dmi exhibit scenes`).
+
 ## Static self-review
 
 - `getReservoirPhase` clamps progress and maps the requested boundaries:
