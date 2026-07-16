@@ -76,30 +76,13 @@ Only the ten intended `app/src/` verification-fix files were committed.
 - `git diff --check -- app` — **passed**.
 - Commit: `8d3f2af` (`fix: complete exhibit architecture`).
 
-## Final whole-branch review follow-up
+## Final pause and evidence fix
 
-### Changed files
-
-- `app/src/App.tsx`
-- `app/src/components/Header.tsx`
-- `app/src/components/exhibit/DeferredScene.tsx`
-- `app/src/components/exhibit/exhibit-primitives.test.tsx`
-- `app/src/components/r3f/R3FCanvas.tsx`
-- `app/src/components/r3f/HopfionScene.tsx`
-- `app/src/components/r3f/SkyrmionScene.tsx`
-- `app/src/components/r3f/MaterialStack.tsx`
-- `app/src/components/r3f/TopologicalOrbitalHall.tsx`
-- `app/src/pages/HomePage.tsx`
-- `app/src/pages/VisualsPage.tsx`
-- `app/src/pages/EvidencePage.tsx`
-
-### Verification and commit status
-
-The requested validation commands and commit could not be executed because the
-available environment denied shell access:
-
-- `pnpm --dir app exec tsc -b` — **NOT RUN** (shell access denied)
-- `pnpm --dir app test -- --run` — **NOT RUN** (shell access denied)
-- `pnpm --dir app build` — **NOT RUN** (shell access denied)
-- `git commit -m "fix: complete exhibit architecture"` — **NOT RUN** (shell access denied)
-- Commit hash: **NONE**
+- Split TOHE into a demonstrated simulation result and an inferred experimental
+  readout row.
+- Passed each scene's paused state into `R3FEnvironment` so star motion stops
+  with the scene animation.
+- `pnpm --dir app exec tsc -b` — **passed**.
+- `pnpm --dir app test -- --run` — **passed**, 2 files, 41 tests.
+- `pnpm --dir app build` — **passed**; chunk-size warning only.
+- `git diff --check -- app` — **passed**.
