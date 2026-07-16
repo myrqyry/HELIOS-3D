@@ -38,11 +38,13 @@ Commit message: `fix: harden app exhibit primitives`
   `data-stage` CSS filter so stage selection hides nonmatching records and the
   all-stage state restores every record.
 - Added `usePrefersReducedMotion` with synchronous initial `matchMedia` state
-  and change-listener updates. Paused decorative `useFrame`, Drei `Float`, and
-  star-field motion in all five app scenes while retaining static visuals and
-  controls.
-- Extended focused tests for research-card stage attributes and initial reduced
-  motion detection.
+  and change-listener updates. All app R3F scene motion is covered, including
+  `TopologicalOrbitalHall`: decorative `useFrame`, Drei `Float`, star-field,
+  and passive camera rotation are paused while static visuals and functional
+  controls remain available.
+- Extended focused tests for research-card stage attributes, initial reduced
+  motion detection, and the deterministic TopologicalOrbitalHall auto-rotate
+  decision.
 
 ## Remaining-fix verification
 
@@ -79,3 +81,20 @@ Result: **passed** — exit 0, build completed; chunk-size warning only.
 Commit: `04e6d1d45eab12c50a93f4fa17bdc8e882c0b9d1`
 
 Commit message: `test: fix exhibit router fixture`
+
+## Final reduced-motion fix
+
+- Disabled Topological Orbital Hall camera auto-rotation when reduced motion is
+  preferred.
+- Reset Tailwind hover scale transforms under the reduced-motion media query.
+- Added a deterministic auto-rotation decision test.
+
+Commands:
+
+- `pnpm --dir app exec tsc -b` — **passed**.
+- `pnpm --dir app test -- --run` — **passed**, 1 file, 7 tests.
+- `pnpm --dir app build` — **passed**; chunk-size warning only.
+
+Commit: `1afa741`
+
+Commit message: `fix: cover remaining reduced motion paths`
