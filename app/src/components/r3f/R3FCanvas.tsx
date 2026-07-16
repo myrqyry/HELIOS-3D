@@ -2,7 +2,7 @@ import React from 'react';
 import { Canvas } from '@react-three/fiber';
 import type { CanvasProps } from '@react-three/fiber';
 import { OrbitControls, Stars } from '@react-three/drei';
-import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
+import { isMotionEnabled, usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
 
 interface R3FCanvasProps {
   height?: string;
@@ -68,7 +68,7 @@ export function R3FEnvironment({
   return (
     <>
       <ambientLight intensity={ambientIntensity} />
-      <Stars radius={100} depth={50} count={starsCount} factor={4} saturation={0} fade speed={prefersReducedMotion ? 0 : 1} />
+      <Stars radius={100} depth={50} count={starsCount} factor={4} saturation={0} fade speed={isMotionEnabled(prefersReducedMotion) ? 1 : 0} />
     </>
   );
 }

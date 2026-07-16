@@ -3,7 +3,7 @@ import { useFrame } from '@react-three/fiber';
 import { Float } from '@react-three/drei';
 import * as THREE from 'three';
 import { R3FCanvas, R3FControls, R3FEnvironment } from './R3FCanvas';
-import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
+import { isMotionEnabled, usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
 
 interface NucleationState {
   phase: number;
@@ -45,7 +45,7 @@ function NucleationEvent() {
   const hopfion = useRef<THREE.Mesh>(null);
 
   useFrame((_state, delta) => {
-    if (!isPlaying || prefersReducedMotion) return;
+    if (!isPlaying || !isMotionEnabled(prefersReducedMotion)) return;
 
     phaseRef.current = (phaseRef.current + delta / 6) % 1;
     actions.setPhase(phaseRef.current);
@@ -100,7 +100,7 @@ export default function TwistReservoirNucleationScene({ height = 'h-96', interac
         <R3FEnvironment starsCount={5000} />
         <pointLight position={[10, 10, 10]} intensity={2} color="#ffb627" />
         <pointLight position={[-10, -10, -10]} intensity={1} color="#38bdf8" />
-        <Float enabled={!prefersReducedMotion} speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
+        <Float enabled={isMotionEnabled(prefersReducedMotion)} speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
           <NucleationEvent />
         </Float>
         <R3FControls interactive={interactive} />

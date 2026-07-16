@@ -2,12 +2,17 @@ import { useMemo, useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { StageBadge } from './StageBadge';
 import type { ResearchRecord } from '../data/research-ingestion';
+import { isStageFilterValue, resolveStageFilter, type StageFilterValue } from './Header';
 
 const dateFormatter = new Intl.DateTimeFormat('en', {
   month: 'short',
   day: 'numeric',
   year: 'numeric',
 });
+
+export function filterRecordsByStage(records: ResearchRecord[], stage: StageFilterValue): ResearchRecord[] {
+  return stage === 'all' ? records : records.filter((record) => record.stage === stage);
+}
 
 export function ResearchBrowser({
   records,
@@ -17,11 +22,24 @@ export function ResearchBrowser({
   detailBasePath?: string;
 }) {
   const [query, setQuery] = useState('');
+  const [stage, setStage] = useState<StageFilterValue>('all');
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const q = params.get('q') || '';
     setQuery(q);
+    setStage(resolveStageFilter(window.location.search, localStorage.getItem('helios-3d-stage-filter')));
+  }, []);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    const syncStage = () => {
+      const value = root.getAttribute('data-stage');
+      setStage(isStageFilterValue(value) ? value : 'all');
+    };
+    const observer = new MutationObserver(syncStage);
+    observer.observe(root, { attributes: true, attributeFilter: ['data-stage'] });
+    return () => observer.disconnect();
   }, []);
 
   const handleInput = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
@@ -35,14 +53,15 @@ export function ResearchBrowser({
 
   const filtered = useMemo(() => {
     const terms = query.trim().toLowerCase().split(/\s+/).filter(Boolean);
-    if (terms.length === 0) return records;
-    return records.filter((record) => {
+    const stageFiltered = filterRecordsByStage(records, stage);
+    if (terms.length === 0) return stageFiltered;
+    return stageFiltered.filter((record) => {
       const searchable = [record.id, record.title, record.source, record.summary, record.tags.join(' '), record.publicUse, record.evidenceLevel]
         .join(' ')
         .toLowerCase();
       return terms.every((term) => searchable.includes(term));
     });
-  }, [query, records]);
+  }, [query, records, stage]);
 
   return (
     <section className="rounded-xl border border-obsidian-3 bg-obsidian-2 p-6">

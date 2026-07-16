@@ -3,10 +3,10 @@ import { Text, Billboard } from '@react-three/drei';
 import * as THREE from 'three';
 import { R3FCanvas, R3FControls, R3FEnvironment } from './R3FCanvas';
 import { directionToEuler } from '../../utils/three';
-import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
+import { isMotionEnabled, usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
 
 export function shouldAutoRotate(interactive: boolean, prefersReducedMotion: boolean): boolean {
-  return !interactive && !prefersReducedMotion;
+  return !interactive && isMotionEnabled(prefersReducedMotion);
 }
 
 function HallmarkArrows() {

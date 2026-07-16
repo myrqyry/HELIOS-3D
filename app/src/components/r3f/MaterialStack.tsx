@@ -3,13 +3,13 @@ import { useFrame } from '@react-three/fiber';
 import { Billboard, Text } from '@react-three/drei';
 import * as THREE from 'three';
 import { R3FCanvas, R3FControls } from './R3FCanvas';
-import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
+import { isMotionEnabled, usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
 
 function Stack() {
   const group = useRef<THREE.Group>(null);
   const prefersReducedMotion = usePrefersReducedMotion();
   useFrame((_, delta) => {
-    if (prefersReducedMotion) return;
+    if (!isMotionEnabled(prefersReducedMotion)) return;
     if (group.current) group.current.rotation.y += delta * 0.2;
   });
 

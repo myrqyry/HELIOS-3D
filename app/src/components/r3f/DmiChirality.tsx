@@ -3,7 +3,7 @@ import { useFrame } from '@react-three/fiber';
 import { Float } from '@react-three/drei';
 import * as THREE from 'three';
 import { R3FCanvas, R3FControls, R3FEnvironment } from './R3FCanvas';
-import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
+import { isMotionEnabled, usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
 
 function SpinField() {
   const group = useRef<THREE.Group>(null);
@@ -45,7 +45,7 @@ function SpinField() {
   }, []);
 
   useFrame((state) => {
-    if (prefersReducedMotion) return;
+    if (!isMotionEnabled(prefersReducedMotion)) return;
     if (group.current) {
       group.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.5) * 0.2;
     }
@@ -85,7 +85,7 @@ export default function DmiChiralityScene({ height = 'h-96', interactive = false
       <R3FEnvironment starsCount={3000} />
       <pointLight position={[10, 10, 10]} intensity={1.5} color="#38bdf8" />
       <pointLight position={[-10, -10, -10]} intensity={0.5} color="#ff6b1a" />
-      <Float enabled={!prefersReducedMotion} speed={1} rotationIntensity={0.2} floatIntensity={0.2}>
+      <Float enabled={isMotionEnabled(prefersReducedMotion)} speed={1} rotationIntensity={0.2} floatIntensity={0.2}>
         <SpinField />
       </Float>
       <R3FControls interactive={interactive} />

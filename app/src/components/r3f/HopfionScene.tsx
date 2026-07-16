@@ -3,7 +3,7 @@ import { useFrame } from '@react-three/fiber';
 import { Instances, Instance } from '@react-three/drei';
 import * as THREE from 'three';
 import { R3FCanvas, R3FControls } from './R3FCanvas';
-import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
+import { isMotionEnabled, usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
 
 function Hopfion() {
   const group = useRef<THREE.Group>(null);
@@ -24,7 +24,7 @@ function Hopfion() {
   }, []);
 
   useFrame((_, delta) => {
-    if (prefersReducedMotion) return;
+    if (!isMotionEnabled(prefersReducedMotion)) return;
     if (group.current) group.current.rotation.y += delta * 0.3;
   });
 

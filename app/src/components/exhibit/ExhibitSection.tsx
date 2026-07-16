@@ -10,6 +10,10 @@ export interface ExhibitSectionProps {
   children: ReactNode;
 }
 
+function sanitizeSectionId(id: string): string {
+  return id.trim().replace(/[^a-zA-Z0-9_-]/g, '');
+}
+
 export function ExhibitSection({
   eyebrow,
   title,
@@ -20,7 +24,8 @@ export function ExhibitSection({
   children,
 }: ExhibitSectionProps) {
   const generatedId = useId().replace(/[^a-zA-Z0-9_-]/g, '');
-  const sectionId = id ?? `exhibit-section-${generatedId}`;
+  const sanitizedId = id === undefined ? '' : sanitizeSectionId(id);
+  const sectionId = sanitizedId || `exhibit-section-${generatedId}`;
   const headingId = `${sectionId}-heading`;
   const hasEvidenceLink = Boolean(evidenceLabel && evidenceHref);
 

@@ -2,6 +2,10 @@ import { useEffect, useState } from 'react';
 
 const REDUCED_MOTION_QUERY = '(prefers-reduced-motion: reduce)';
 
+export function isMotionEnabled(prefersReducedMotion: boolean): boolean {
+  return !prefersReducedMotion;
+}
+
 export function getInitialReducedMotion(): boolean {
   return typeof window !== 'undefined' && typeof window.matchMedia === 'function'
     ? window.matchMedia(REDUCED_MOTION_QUERY).matches

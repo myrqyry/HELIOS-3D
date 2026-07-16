@@ -4,9 +4,9 @@ import { describe, expect, it, vi } from 'vitest';
 import { ExhibitControl } from './ExhibitControl';
 import { ExhibitSection } from './ExhibitSection';
 import { getStageFilterState, PRIMARY_NAV } from '../Header';
-import { ResearchBrowser } from '../ResearchBrowser';
+import { filterRecordsByStage, ResearchBrowser } from '../ResearchBrowser';
 import type { ResearchRecord } from '../../data/research-ingestion';
-import { getInitialReducedMotion } from '../../hooks/usePrefersReducedMotion';
+import { getInitialReducedMotion, isMotionEnabled } from '../../hooks/usePrefersReducedMotion';
 import { shouldAutoRotate } from '../r3f/TopologicalOrbitalHall';
 
 const researchRecords: ResearchRecord[] = [
@@ -72,6 +72,12 @@ describe('exhibit navigation and controls', () => {
     expect(markup).toContain('Read the source');
   });
 
+  it('filters research records by established and current stages, and restores all records', () => {
+    expect(filterRecordsByStage(researchRecords, 'established').map(({ id }) => id)).toEqual(['established-record']);
+    expect(filterRecordsByStage(researchRecords, 'current').map(({ id }) => id)).toEqual(['current-record']);
+    expect(filterRecordsByStage(researchRecords, 'all')).toEqual(researchRecords);
+  });
+
   it('marks each research card with its stage for the shared stage filter', () => {
     const markup = renderToStaticMarkup(
       <MemoryRouter>
@@ -93,5 +99,26 @@ describe('exhibit navigation and controls', () => {
     expect(shouldAutoRotate(false, false)).toBe(true);
     expect(shouldAutoRotate(false, true)).toBe(false);
     expect(shouldAutoRotate(true, false)).toBe(false);
+  });
+
+  it('enables motion only when reduced motion is not preferred', () => {
+    expect(isMotionEnabled(true)).toBe(false);
+    expect(isMotionEnabled(false)).toBe(true);
+  });
+
+  it('falls back to a generated section id when an explicit id has no valid characters', () => {
+    const markup = renderToStaticMarkup(
+      <ExhibitSection
+        id=" !!! "
+        eyebrow="Evidence"
+        title="Measured behavior"
+        description="A concise description."
+      >
+        <div>Visual</div>
+      </ExhibitSection>,
+    );
+
+    expect(markup).toMatch(/<section id="exhibit-section-[a-zA-Z0-9_-]+"/);
+    expect(markup).not.toContain('id=" !!! "');
   });
 });
