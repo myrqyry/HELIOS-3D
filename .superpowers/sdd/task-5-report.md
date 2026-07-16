@@ -58,3 +58,48 @@ Only the ten intended `app/src/` verification-fix files were committed.
 - `pnpm --dir app test -- --run` — **passed**, 2 files, 40 tests.
 - `pnpm --dir app build` — **passed**; chunk-size warning only.
 - Commit: `9b0b40e` (`fix: expose exhibit filter state`).
+
+## Final architecture fix
+
+- Primary navigation now points to `/explore`, `/visuals`, `/evidence`, and
+  `/technical-archive`; `/explore` renders the guided exhibit narrative.
+- Below-fold scenes use `DeferredScene` with IntersectionObserver, Suspense, and
+  visible static fallbacks. Canvas DPR is capped at `[1, 1.5]`.
+- R3F canvas errors render visible fallback copy, and continuously animated
+  scenes expose pause controls.
+- TOHE evidence distinguishes demonstrated simulation results from inferred
+  experimental readout.
+- `pnpm --dir app exec tsc -b` — **passed**.
+- `pnpm --dir app test -- --run` — **passed**, 2 files, 41 tests.
+- `pnpm --dir app build` — **passed**; Vite chunk-size and dynamic-import
+  advisories remain warnings only.
+- `git diff --check -- app` — **passed**.
+- Commit: `8d3f2af` (`fix: complete exhibit architecture`).
+
+## Final whole-branch review follow-up
+
+### Changed files
+
+- `app/src/App.tsx`
+- `app/src/components/Header.tsx`
+- `app/src/components/exhibit/DeferredScene.tsx`
+- `app/src/components/exhibit/exhibit-primitives.test.tsx`
+- `app/src/components/r3f/R3FCanvas.tsx`
+- `app/src/components/r3f/HopfionScene.tsx`
+- `app/src/components/r3f/SkyrmionScene.tsx`
+- `app/src/components/r3f/MaterialStack.tsx`
+- `app/src/components/r3f/TopologicalOrbitalHall.tsx`
+- `app/src/pages/HomePage.tsx`
+- `app/src/pages/VisualsPage.tsx`
+- `app/src/pages/EvidencePage.tsx`
+
+### Verification and commit status
+
+The requested validation commands and commit could not be executed because the
+available environment denied shell access:
+
+- `pnpm --dir app exec tsc -b` — **NOT RUN** (shell access denied)
+- `pnpm --dir app test -- --run` — **NOT RUN** (shell access denied)
+- `pnpm --dir app build` — **NOT RUN** (shell access denied)
+- `git commit -m "fix: complete exhibit architecture"` — **NOT RUN** (shell access denied)
+- Commit hash: **NONE**
