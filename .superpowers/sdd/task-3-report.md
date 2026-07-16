@@ -38,7 +38,18 @@ pnpm --dir app build             PASSED — exit 0; chunk-size warning only
 
 ## Concerns
 
-- The broader brief also mentions a DMI scene; this change intentionally stays
-  within the requested BRC replacement scope and does not alter the existing
-  DMI exhibit.
-- Commit: `43edbae` (`feat: add brc exhibit scene`).
+- The existing `DmiChirality` scene remains available in the complete figures
+  gallery; the homepage now uses the dedicated stabilizer scene.
+- Commits: `43edbae` (`feat: add brc exhibit scene`) and `02ac802`
+  (`feat: add dmi stabilizer exhibit`).
+
+## DMI stabilizer completion
+
+```text
+pnpm --dir app exec tsc -b       PASSED — exit 0
+pnpm --dir app test -- --run src/components/r3f/__tests__/exhibit-phases.test.ts
+                                 PASSED — 2 files, 22 tests passed
+pnpm --dir app build             PASSED — exit 0; chunk-size warning only
+git commit -m "feat: add dmi stabilizer exhibit"
+                                 CREATED — 02ac8029df59dceca0095b3f759addeae495444b
+```
