@@ -98,7 +98,7 @@ export function Header() {
               ref={selRef}
               onChange={handleChange}
               data-stage-filter
-              className="font-mono text-xs bg-obsidian-2/60 border border-obsidian-3/60 text-parchment rounded px-2.5 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian transition-colors"
+              className="min-h-11 font-mono text-xs bg-obsidian-2/60 border border-obsidian-3/60 text-parchment rounded px-2.5 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian transition-colors sm:py-1"
               aria-label="Filter technical content by stage"
             >
               <option value="all">All stages</option>

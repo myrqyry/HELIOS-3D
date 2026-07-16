@@ -97,16 +97,16 @@ export function FiguresPage() {
       <div className="mb-8 flex flex-wrap gap-4" aria-label="Figure filters">
         <fieldset className="flex flex-wrap items-center gap-2">
           <legend className="mr-1 font-mono text-xs uppercase text-parchment-2">Source</legend>
-          <button type="button" onClick={() => setSource('all')} className={`min-h-11 font-mono text-xs px-3 py-1 rounded border border-obsidian-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber ${sourceFilter === 'all' ? 'bg-obsidian-2 text-amber' : 'text-parchment-2 hover:text-amber'}`}>All</button>
+          <button type="button" aria-pressed={sourceFilter === 'all'} onClick={() => setSource('all')} className={`min-h-11 font-mono text-xs px-3 py-1 rounded border border-obsidian-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber ${sourceFilter === 'all' ? 'bg-obsidian-2 text-amber' : 'text-parchment-2 hover:text-amber'}`}>All</button>
           {allSources.map((s) => (
-            <button type="button" key={s} onClick={() => setSource(s)} className={`min-h-11 font-mono text-xs px-3 py-1 rounded border border-obsidian-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber ${sourceFilter === s ? 'bg-obsidian-2 text-amber' : 'text-parchment-2 hover:text-amber'}`}>{s}</button>
+            <button type="button" key={s} aria-pressed={sourceFilter === s} onClick={() => setSource(s)} className={`min-h-11 font-mono text-xs px-3 py-1 rounded border border-obsidian-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber ${sourceFilter === s ? 'bg-obsidian-2 text-amber' : 'text-parchment-2 hover:text-amber'}`}>{s}</button>
           ))}
         </fieldset>
         <fieldset className="flex flex-wrap items-center gap-2">
           <legend className="mr-1 font-mono text-xs uppercase text-parchment-2">Kind</legend>
-          <button type="button" onClick={() => setKind('all')} className={`min-h-11 font-mono text-xs px-3 py-1 rounded border border-obsidian-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber ${kindFilter === 'all' ? 'bg-obsidian-2 text-amber' : 'text-parchment-2 hover:text-amber'}`}>All</button>
+          <button type="button" aria-pressed={kindFilter === 'all'} onClick={() => setKind('all')} className={`min-h-11 font-mono text-xs px-3 py-1 rounded border border-obsidian-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber ${kindFilter === 'all' ? 'bg-obsidian-2 text-amber' : 'text-parchment-2 hover:text-amber'}`}>All</button>
           {allKinds.map((k) => (
-            <button type="button" key={k} onClick={() => setKind(k)} className={`min-h-11 font-mono text-xs px-3 py-1 rounded border border-obsidian-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber ${kindFilter === k ? 'bg-obsidian-2 text-amber' : 'text-parchment-2 hover:text-amber'}`}>{k}</button>
+            <button type="button" key={k} aria-pressed={kindFilter === k} onClick={() => setKind(k)} className={`min-h-11 font-mono text-xs px-3 py-1 rounded border border-obsidian-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber ${kindFilter === k ? 'bg-obsidian-2 text-amber' : 'text-parchment-2 hover:text-amber'}`}>{k}</button>
           ))}
         </fieldset>
       </div>
