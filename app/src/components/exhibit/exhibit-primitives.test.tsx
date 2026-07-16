@@ -27,6 +27,7 @@ describe('exhibit navigation and controls', () => {
       { label: 'Explore', href: '/explore' },
       { label: 'Visuals', href: '/visuals' },
       { label: 'Evidence', href: '/evidence' },
+      { label: 'Sources', href: '/sources' },
       { label: 'Technical archive', href: '/technical-archive' },
       { label: 'GitHub', href: 'https://github.com/myrqyry/HELIOS-3D' },
     ]);

@@ -5,6 +5,7 @@ export const PRIMARY_NAV: ReadonlyArray<{ href: string; label: string; external?
   { href: '/explore', label: 'Explore' },
   { href: '/visuals', label: 'Visuals' },
   { href: '/evidence', label: 'Evidence' },
+  { href: '/sources', label: 'Sources' },
   { href: '/technical-archive', label: 'Technical archive' },
   { href: 'https://github.com/myrqyry/HELIOS-3D', label: 'GitHub', external: true },
 ] as const;
