@@ -89,21 +89,21 @@ function DirectionalField({ paused, reduceMotion }: { paused: boolean; reduceMot
         <circleGeometry args={[1.25, 48]} />
         <meshStandardMaterial color="#12303b" transparent opacity={0.8} />
       </mesh>
-      <group ref={competingRef} scale={reduceMotion ? 1 : 0.05}>
+      <group ref={competingRef} scale={reduceMotion ? 0 : 0.05}>
         <Instances limit={ELEMENT_COUNT} range={ELEMENT_COUNT}>
           <coneGeometry args={[0.055, 0.32, 8]} />
           <meshStandardMaterial color="#ff6b1a" emissive="#ff6b1a" emissiveIntensity={1.4} />
           {ELEMENTS.competing.map((element, index) => <Instance key={index} {...element} />)}
         </Instances>
       </group>
-      <group ref={stabilizingRef} scale={reduceMotion ? 1 : 0.05}>
+      <group ref={stabilizingRef} scale={reduceMotion ? 0 : 0.05}>
         <Instances limit={ELEMENT_COUNT} range={ELEMENT_COUNT}>
           <coneGeometry args={[0.055, 0.32, 8]} />
           <meshStandardMaterial color="#ffb627" emissive="#ffb627" emissiveIntensity={1.4} />
           {ELEMENTS.stabilizing.map((element, index) => <Instance key={index} {...element} />)}
         </Instances>
       </group>
-      <group ref={coherentRef} scale={reduceMotion ? 1 : 0.05}>
+      <group ref={coherentRef} scale={1}>
         <Instances limit={ELEMENT_COUNT} range={ELEMENT_COUNT}>
           <coneGeometry args={[0.055, 0.32, 8]} />
           <meshStandardMaterial color="#7dd3fc" emissive="#7dd3fc" emissiveIntensity={1.4} />
@@ -132,7 +132,9 @@ export default function DmiStabilizerScene({ height = 'h-96', interactive = fals
         <R3FControls interactive={interactive} />
       </R3FCanvas>
       <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
-        <p className="text-sm text-parchment-2">DMI helps hold the knot together.</p>
+        <p className="text-sm text-parchment-2">
+          Competing spin directions resolve into a coherent twist; DMI helps hold the knot together.
+        </p>
         <ExhibitControl label={paused ? 'Resume sequence' : 'Pause sequence'} paused={paused} onToggle={() => setPaused((value) => !value)} />
       </div>
       <p className="sr-only">Static fallback: competing spin directions settle into a stabilizing arrangement and then a coherent chiral field. Reduced motion freezes the coherent state.</p>
