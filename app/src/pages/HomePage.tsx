@@ -16,7 +16,7 @@ const promptCards = [
 
 export function HomePage() {
   return (
-    <div className="-mx-6 -my-12 max-w-none">
+    <div className="max-w-none">
       <Helmet>
         <title>HELIOS-3D — Magnetic knots as a computer</title>
         <meta name="description" content="An interactive exhibit about HELIOS-3D and magnetic knots as a proposed computing substrate." />

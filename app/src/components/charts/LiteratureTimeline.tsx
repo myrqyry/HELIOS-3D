@@ -13,7 +13,7 @@ export default function LiteratureTimeline({ height = 'h-48' }: { height?: strin
 
   return (
     <div className={`w-full ${height} rounded-lg border border-obsidian-3 bg-obsidian-2 p-4 overflow-x-auto`}>
-      <h4 className="font-mono text-xs uppercase tracking-wider text-amber mb-3">Literature timeline 2024–2026</h4>
+        <p className="font-mono text-xs uppercase tracking-wider text-amber mb-3">Literature timeline 2024–2026</p>
       <div className="flex items-end gap-1 min-w-[600px] h-32">
         {rows.map((row, i) => (
           <div key={row.id} className="flex-1 flex flex-col items-center gap-1">

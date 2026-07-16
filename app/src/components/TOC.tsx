@@ -4,7 +4,7 @@ export function TOC({ headings }: { headings: Array<{ depth: number; slug: strin
 
   return (
     <nav className="mb-8 rounded-lg border border-obsidian-3 bg-obsidian-2 p-4 text-sm">
-      <h4 className="font-mono text-xs uppercase tracking-wider text-amber mb-2">On this page</h4>
+      <h2 className="font-mono text-xs uppercase tracking-wider text-amber mb-2">On this page</h2>
       <ul className="space-y-1">
         {toc.map((h) => (
           <li key={h.slug} className={h.depth === 3 ? 'ml-4' : ''}>

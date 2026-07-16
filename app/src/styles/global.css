@@ -9,12 +9,19 @@
   html { 
     color-scheme: dark; 
     scroll-behavior: smooth;
+    overflow-x: clip;
   }
   body {
     background: radial-gradient(ellipse at top, #1e1613 0%, #0b0908 70%);
     background-attachment: fixed;
     color: var(--color-parchment);
     font-family: var(--font-sans);
+    overflow-x: clip;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-amber);
+    outline-offset: 3px;
   }
 
   /* Custom styled scrollbars */

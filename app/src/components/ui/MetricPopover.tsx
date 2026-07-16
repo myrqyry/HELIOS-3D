@@ -35,7 +35,7 @@ export function MetricPopover({
         >
           <div className="flex flex-col gap-2">
             <div className="flex justify-between items-start gap-4">
-              <h4 className="font-bold text-amber">{label}</h4>
+              <p className="font-bold text-amber">{label}</p>
               <span className="text-xs font-mono bg-obsidian-3 px-1.5 py-0.5 rounded text-parchment-3">{value}</span>
             </div>
             <div className="text-xs leading-relaxed opacity-90">

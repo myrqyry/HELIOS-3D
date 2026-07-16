@@ -11,7 +11,7 @@ export default function PerformanceFloor({ height = 'h-64' }: PerformanceFloorPr
   return (
     <div className={`w-full ${height} rounded-lg border border-obsidian-3 bg-obsidian-2 p-4 grid md:grid-cols-2 gap-6`}>
       <div>
-        <h4 className="font-mono text-xs uppercase tracking-wider text-amber mb-3">Write speed (log scale, ps)</h4>
+        <p className="font-mono text-xs uppercase tracking-wider text-amber mb-3">Write speed (log scale, ps)</p>
         {data.writeSpeedPs.map((row) => (
           <div key={row.system} className="flex items-center gap-2 text-xs mb-1.5">
             <span className="w-48 text-parchment-2 truncate">{row.system}</span>
@@ -23,7 +23,7 @@ export default function PerformanceFloor({ height = 'h-64' }: PerformanceFloorPr
         ))}
       </div>
       <div>
-        <h4 className="font-mono text-xs uppercase tracking-wider text-amber mb-3">Energy density (pJ/µm²)</h4>
+        <p className="font-mono text-xs uppercase tracking-wider text-amber mb-3">Energy density (pJ/µm²)</p>
         {data.energyDensityPjPerUm2.map((row) => (
           <div key={row.system} className="flex items-center gap-2 text-xs mb-1.5">
             <span className="w-48 text-parchment-2 truncate">{row.system}</span>

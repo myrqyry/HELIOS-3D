@@ -64,17 +64,17 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-obsidian-3/30 bg-obsidian/70 backdrop-blur-md transition-colors duration-300">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
+      <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-6">
         <Link
           to="/"
           className="font-mono text-amber text-lg font-bold tracking-wider hover:text-ember focus-visible:text-ember focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian transition-colors flex items-center gap-2"
         >
           <span className="text-xl animate-pulse">☀️</span>HELIOS-3D
         </Link>
-        <div className="flex items-center gap-6">
-          <nav className="flex gap-6 text-sm font-medium">
+        <div className="flex flex-wrap items-center gap-3 sm:gap-6">
+          <nav aria-label="Primary navigation" className="flex flex-wrap gap-x-4 gap-y-2 text-sm font-medium">
             {PRIMARY_NAV.map((item) => {
-              const className = "text-parchment-2 hover:text-ember focus-visible:text-ember focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian transition-colors duration-200 relative py-1 group";
+              const className = "relative inline-flex min-h-11 items-center text-parchment-2 hover:text-ember focus-visible:text-ember focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian transition-colors duration-200 group";
               const content = (
                 <>
                   {item.label}

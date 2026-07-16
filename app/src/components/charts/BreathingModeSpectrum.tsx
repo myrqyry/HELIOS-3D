@@ -5,7 +5,7 @@ export default function BreathingModeSpectrum({ height = 'h-64' }: { height?: st
   const maxFreq = Math.max(...data.frequencies.map((d) => d.freqGhz));
   return (
     <div className={`w-full ${height} rounded-lg border border-obsidian-3 bg-obsidian-2 p-4`}>
-      <h4 className="font-mono text-xs uppercase tracking-wider text-amber mb-3">Sub-GHz breathing-mode spectrum</h4>
+      <p className="font-mono text-xs uppercase tracking-wider text-amber mb-3">Sub-GHz breathing-mode spectrum</p>
       {data.frequencies.map((row) => (
         <div key={row.system} className="flex items-center gap-2 text-xs mb-2">
           <span className="w-64 text-parchment-2 truncate">{row.system}</span>
