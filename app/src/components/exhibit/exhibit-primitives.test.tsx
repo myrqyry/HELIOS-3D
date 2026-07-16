@@ -23,12 +23,13 @@ const researchRecords: ResearchRecord[] = [
 describe('exhibit navigation and controls', () => {
   it('defines the primary navigation destinations', () => {
     expect(PRIMARY_NAV.map(({ label, href }) => ({ label, href }))).toEqual([
-      { label: 'Explore', href: '/overview' },
+      { label: 'Explore', href: '/explore' },
       { label: 'Visuals', href: '/figures' },
       { label: 'Evidence', href: '/research' },
       { label: 'Technical archive', href: '/docs/established/abstract' },
       { label: 'GitHub', href: 'https://github.com/myrqyry/HELIOS-3D' },
     ]);
+    expect(PRIMARY_NAV).toContainEqual({ label: 'Explore', href: '/explore' });
   });
 
   it('resolves stage visibility without leaking state onto public routes', () => {

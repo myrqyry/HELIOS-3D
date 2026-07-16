@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 
 export const PRIMARY_NAV: ReadonlyArray<{ href: string; label: string; external?: boolean }> = [
-  { href: '/overview', label: 'Explore' },
+  { href: '/explore', label: 'Explore' },
   { href: '/figures', label: 'Visuals' },
   { href: '/research', label: 'Evidence' },
   { href: '/docs/established/abstract', label: 'Technical archive' },
