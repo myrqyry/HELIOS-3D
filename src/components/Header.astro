@@ -8,23 +8,23 @@ const nav = [
   { href: '/docs/project-ops/deployment/', label: 'Deploy' },
 ];
 ---
-<header class="sticky top-0 z-50 border-b border-obsidian-3/30 bg-obsidian/70 backdrop-blur-md transition-colors duration-300">
+<header class="sticky top-0 z-50 border-b border-outline-variant/30 bg-surface/80 backdrop-blur-md transition-colors duration-[var(--duration-medium)]">
   <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
-    <a href="/" class="font-mono text-amber text-lg font-bold tracking-wider hover:text-ember focus-visible:text-ember focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian transition-colors flex items-center gap-2">
+    <a href="/" class="font-mono text-primary text-lg font-bold tracking-wider hover:text-secondary focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 transition-colors flex items-center gap-2 rounded">
       <span class="text-xl animate-pulse">☀️</span>HELIOS-3D
     </a>
     <div class="flex items-center gap-6">
       <nav class="flex gap-6 text-sm font-medium">
         {nav.map((item) => (
-          <a href={item.href} class="text-parchment-2 hover:text-ember focus-visible:text-ember focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian transition-colors duration-200 relative py-1 group">
+          <a href={item.href} class="text-on-surface-variant hover:text-secondary focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 transition-colors duration-[var(--duration-short)] relative py-1 group rounded">
             {item.label}
-            <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-amber to-ember transition-[width] duration-300 group-hover:w-full"></span>
+            <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-primary to-secondary transition-[width] duration-[var(--duration-medium)] ease-[var(--ease-spring)] group-hover:w-full"></span>
           </a>
         ))}
       </nav>
       <select
         data-stage-filter
-        class="font-mono text-xs bg-obsidian-2/60 border border-obsidian-3/60 text-parchment rounded px-2.5 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian transition-colors"
+        class="font-mono text-xs bg-surface-container border border-outline-variant text-on-surface rounded-lg px-3 py-1.5 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 transition-colors"
         aria-label="Filter docs by stage"
       >
         <option value="all">All stages</option>

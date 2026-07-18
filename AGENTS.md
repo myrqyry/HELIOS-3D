@@ -47,10 +47,30 @@ Python-based validation for the research and simulation side of the repo.
   instruction file.
 - When editing ASCII art assets, read `ascii/AGENTS.md`.
 
+## Canonical app
+
+<!-- Evolution: 2026-07-17 | source: ep-2026-07-17-002 | description: Astro→Vite migration pattern -->
+
+The canonical app lives in `app/`. Do not modify root `astro.config.mjs`, root
+`package.json`, or root `src/` unless the task explicitly targets the old
+Astro build.
+
+- **app build**: `pnpm --dir app build`
+- **app dev**: `pnpm --dir app dev`
+- **app check**: `pnpm --dir app check`
+- **app test**: `pnpm --dir app test`
+- **app E2E**: `pnpm --dir app test:e2e`
+
+### App routing
+
+When editing the new app (`app/src/`), read `app/src/AGENTS.md` if it exists,
+then the nearest nested instruction file.
+
 ## Quick guidance
 
 - `docs/` contains repo documentation and snapshot archives.
 - `src/pages/` owns routes, `src/components/` owns reusable UI, `src/data/`
   owns validated research records, and `src/utils/` owns pure helpers.
-- `src/components/r3f/` is the Three.js client-hydration area; keep heavy scene
-  work there and use the shared R3F wrapper patterns.
+- `src/components/r3f/` is the old Astro Three.js client-hydration area; keep
+  heavy scene work in `app/src/components/r3f/` for the new app.
+- `app/src/components/r3f/` has its own AGENTS.md with exhibit/scene patterns.

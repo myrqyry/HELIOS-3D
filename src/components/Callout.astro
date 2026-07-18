@@ -6,14 +6,14 @@ export interface Props {
 const { type = 'info', title } = Astro.props;
 
 const palette = {
-  info: 'border-amber bg-obsidian-2',
-  warning: 'border-rose bg-obsidian-2',
-  note: 'border-cyan-2 bg-obsidian-2',
+  info: 'border-primary bg-primary/5',
+  warning: 'border-error bg-error/5',
+  note: 'border-cyan-2 bg-cyan-2/5',
 };
 ---
-<aside class={`my-4 rounded-lg border-l-4 p-4 ${palette[type]}`}>
-  {title && <p class="font-bold text-parchment mb-1">{title}</p>}
-  <div class="text-parchment-2 text-sm">
+<aside class={`my-4 rounded-xl border-l-4 p-4 ${palette[type]}`}>
+  {title && <p class="font-bold text-on-surface mb-1">{title}</p>}
+  <div class="text-on-surface-variant text-sm">
     <slot />
   </div>
 </aside>
