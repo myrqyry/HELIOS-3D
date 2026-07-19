@@ -37,6 +37,9 @@ const accessibleRecordIds = new Set([
   'kovnir-ai-magnito-magnets',
   'ouellette-agf-post-von-neumann',
   'inphinie-frustro-voltaic-storage',
+  'inphinie-ipf-programmable-matter',
+  'inphinie-twistronique',
+  'inphinie-lsp1-thermodynamic-sailing',
 ]);
 
 const recordSources: SourceRegistryEntry[] = researchRecords.map((record) => {

@@ -33,6 +33,9 @@ export const groups: EvidenceGroup[] = [
       { claim: 'AI-driven high-throughput screening and synthesis (MAGNUMS / ARPA-E MAGNITO) accelerates discovery of rare-earth-free ultra-strong permanent magnets.', tag: 'DEMONSTRATED', source: 'Kirill Kovnir et al.' },
       { claim: 'A full-stack post-Von Neumann computing architecture (AGF) combines Clifford algebra, hyperdimensional memory (HDC), self-organizing logic (SOLG), and discrete time crystals (DTC).', tag: 'DEMONSTRATED', source: 'Bryan Ouellette & Claude (AGF 2026)' },
       { claim: 'Multi-scale geometric frustration architecture (FVS) exploits Kagome quantum spin liquids, ionic twistronics, and auxetic metamaterial casings to prevent strain degradation.', tag: 'DEMONSTRATED', source: 'Inphinie (FVS 2026)' },
+      { claim: 'Unified theory of programmable matter (IPF) utilizes artificial spin ice (ASI) and topological defects for reconfigurable physical memory and emergent computation.', tag: 'DEMONSTRATED', source: 'Inphinie (IPF 2026)' },
+      { claim: 'Advanced twistronics and Moiré superlattices enable magic-angle flat-band spin localization and chiral spin-orbit coupling in 2D heterostructures.', tag: 'DEMONSTRATED', source: 'Inphinie (Twistronique 2026)' },
+      { claim: 'Biomimetic MemComputing architecture (LSP-1) utilizes Davydov soliton solitary waves and Grotthuss proton hopping along Kagome networks for near-reversible energy transport.', tag: 'DEMONSTRATED', source: 'Inphinie (LSP-1 2026)' },
     ],
   },
   {
