@@ -47,6 +47,7 @@ const accessibleRecordIds = new Set([
   'halcrow-skyrmions3d-julialab',
   'katase-science-tokyo-thermoelectric-2026',
   'kochmann-eth-phononic-metamaterial-2026',
+  'quvet-physorg-quantum-vibronics-2026',
 ]);
 
 const recordSources: SourceRegistryEntry[] = researchRecords.map((record) => {

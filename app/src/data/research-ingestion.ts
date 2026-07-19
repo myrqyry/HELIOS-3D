@@ -929,6 +929,25 @@ const seedResearchRecords: ResearchRecord[] = [
       order: 35,
     },
   },
+  {
+    id: 'quvet-physorg-quantum-vibronics-2026',
+    title: 'Quantum Vibronics for Room-Temperature Energy & Computing Technologies',
+    source: 'QuVET & Phys.org',
+    url: 'https://phys.org/news/2026-05-quantum-vibronics-future-energy-technologies.html',
+    publishedAt: '2026-05-28',
+    stage: 'current',
+    tags: ['quantum-vibronics', 'phonon-electron-coupling', 'room-temperature-coherence', 'electric-field-wavefunction-steering', 'vibronic-energy-funneling'],
+    summary: 'Demonstrates coherent quantized coupling between phonons and electron/spin quantum states, electric-field wavefunction steering across 2D/3D layers, and room-temperature quantum phonon coherence.',
+    evidenceLevel: 'DEMONSTRATED',
+    publicUse: 'timeline',
+    timeline: {
+      id: 'quvet-physorg-quantum-vibronics-2026',
+      year: 2026,
+      title: 'Quantum Vibronics & Room-Temp Coherence (QuVET et al.)',
+      tag: 'DEMONSTRATED',
+      order: 36,
+    },
+  },
 ];
 
 export const researchRecords = loadResearchRecords(seedResearchRecords);

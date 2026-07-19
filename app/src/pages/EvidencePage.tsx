@@ -43,6 +43,7 @@ export const groups: EvidenceGroup[] = [
       { claim: 'Rational Map approximations and ADHM construction generate mathematically exact initial 3D skyrmion and hopfion field profiles with derivative stencil stability.', tag: 'DEMONSTRATED', source: 'Chris Halcrow & Disney-Hogg (Skyrmions3D.jl 2026)' },
       { claim: 'Bulk 3D crystal-embedded atomically thin FeSe layers with iron vacancies achieve ultra-low thermal conductivity (0.2 W/mK) via phonon scattering while preserving 2D electrical transport.', tag: 'DEMONSTRATED', source: 'Prof. Takayoshi Katase et al. (Institute of Science Tokyo 2026)' },
       { claim: 'Spatially graded micro-patterned unit cells in silicon membranes guide mechanical vibrations along custom routes, suppressing radial wave dissipation.', tag: 'DEMONSTRATED', source: 'Prof. Dennis Kochmann et al. (ETH Zurich 2026)' },
+      { claim: 'Coherent quantum vibronic phonon-magnon coupling enables room-temperature quantum phonon coherence and electric-field wavefunction steering across layered heterostructures.', tag: 'DEMONSTRATED', source: 'QuVET & Phys.org (2026)' },
     ],
   },
   {
