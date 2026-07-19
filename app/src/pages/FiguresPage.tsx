@@ -48,6 +48,16 @@ const sceneComponents = {
 export function FiguresPage() {
   const [sourceFilter, setSourceFilter] = useState('all');
   const [kindFilter, setKindFilter] = useState('all');
+  const [activeInteractions, setActiveInteractions] = useState<Set<string>>(new Set());
+
+  const toggleInteraction = (compName: string) => {
+    setActiveInteractions((prev) => {
+      const next = new Set(prev);
+      if (next.has(compName)) next.delete(compName);
+      else next.add(compName);
+      return next;
+    });
+  };
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -104,14 +114,40 @@ export function FiguresPage() {
       <div className="grid md:grid-cols-2 gap-8">
         {filtered.map((f) => {
           const loader = sceneComponents[f.component as keyof typeof sceneComponents];
+          const isR3f = f.kind === 'r3f';
+          const isInteractive = activeInteractions.has(f.component);
           return (
             <article key={f.component} className="glass-card rounded-xl p-5 flex flex-col justify-between group overflow-hidden">
               <div>
-                <div className="relative rounded-lg overflow-hidden border border-obsidian-3/45 bg-obsidian/30 shadow-inner">
+                <div className="relative rounded-lg overflow-hidden border border-obsidian-3/45 bg-obsidian/30 shadow-inner group/canvas">
+                  {isR3f && (
+                    <button
+                      type="button"
+                      onClick={() => toggleInteraction(f.component)}
+                      className={`absolute top-3 right-3 z-20 flex h-8 items-center gap-1.5 rounded-md px-2.5 font-mono text-[10px] font-bold uppercase tracking-wider border shadow-md transition-all duration-200 cursor-pointer ${
+                        isInteractive
+                          ? 'bg-amber border-amber text-obsidian hover:bg-gold'
+                          : 'bg-obsidian-2/80 border-obsidian-3/60 text-parchment-2 hover:text-amber hover:border-amber/40 opacity-0 group-hover/canvas:opacity-100 focus-visible:opacity-100'
+                      }`}
+                      title={isInteractive ? "Disable Orbit Controls" : "Enable Orbit Controls"}
+                    >
+                      {isInteractive ? (
+                        <>
+                          <span>Locked</span>
+                          <span className="text-[10px]">🔒</span>
+                        </>
+                      ) : (
+                        <>
+                          <span>Interact</span>
+                          <span className="text-[10px]">🌐</span>
+                        </>
+                      )}
+                    </button>
+                  )}
                   {loader && (
                     <DeferredScene
                       loader={loader}
-                      sceneProps={{ height: 'h-48' }}
+                      sceneProps={{ height: 'h-48', interactive: isInteractive }}
                       fallback={<div className="flex h-48 items-center justify-center px-5 text-center text-sm text-parchment-2">Loading figure: {f.title}</div>}
                     />
                   )}

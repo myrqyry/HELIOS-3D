@@ -31,7 +31,7 @@ export function Layout() {
           )}
         </main>
       </div>
-      <Footer />
+      {!isExhibitPage && <Footer />}
     </div>
   );
 }

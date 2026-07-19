@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { Suspense } from 'react';
 import { DocHero } from '../components/DocHero';
 import { TOC } from '../components/TOC';
+import { DocVisualSummary } from '../components/DocVisualSummary';
 import { getDoc } from '../lib/docs';
 
 function DocContent({ stage, slug }: { stage: string; slug: string }) {
@@ -28,6 +29,7 @@ function DocContent({ stage, slug }: { stage: string; slug: string }) {
         tags={doc.tags as Array<'DEMONSTRATED' | 'INFERRED' | 'PROPOSED' | 'SPECULATIVE'>}
         updated={new Date(doc.updated)}
       />
+      <DocVisualSummary slug={slug} stage={stage} />
       <TOC headings={[]} />
       <MDXContent />
       <footer className="mt-12 pt-4 border-t border-obsidian-3 text-xs text-parchment-2 font-mono">

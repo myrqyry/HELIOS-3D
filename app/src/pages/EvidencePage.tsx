@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import ClaimsTable, { type ClaimRow } from '../components/ClaimsTable';
 
-interface EvidenceGroup {
+export interface EvidenceGroup {
   label: ClaimRow['tag'];
   summary: string;
   sourceLabel: string;
@@ -10,7 +10,7 @@ interface EvidenceGroup {
   rows: ClaimRow[];
 }
 
-const groups: EvidenceGroup[] = [
+export const groups: EvidenceGroup[] = [
   {
     label: 'DEMONSTRATED',
     summary: 'Results reported in experiments, simulations, or established source material.',
