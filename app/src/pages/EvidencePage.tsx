@@ -29,6 +29,7 @@ export const groups: EvidenceGroup[] = [
       { claim: 'Excitons in van der Waals magnetic materials couple directly to magnetic order and magnons, enhancing magneto-optical readout.', tag: 'DEMONSTRATED', source: 'Pratap Chandra Adak et al.' },
       { claim: 'Colloidal metal nitride nanocrystals (GaN, TiN, NbN) can be synthesized in molten salts under controlled ammonia pressure.', tag: 'DEMONSTRATED', source: 'Ruiming Lin et al.' },
       { claim: 'Polymer-free transfer of 2D materials using muscovite mica crystals prevents contamination, creating atomically flat, clean interfaces.', tag: 'DEMONSTRATED', source: 'Makars Šiškins et al.' },
+      { claim: 'Cerebellum-inspired MoS₂ memtransistors mimic neural balance with excitatory/inhibitory modes to perform low-power anomaly detection.', tag: 'DEMONSTRATED', source: 'Min-A Kang et al.' },
     ],
   },
   {
