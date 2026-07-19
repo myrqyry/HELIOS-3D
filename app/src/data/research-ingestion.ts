@@ -606,6 +606,25 @@ const seedResearchRecords: ResearchRecord[] = [
       order: 21,
     },
   },
+  {
+    id: 'siskins-polymer-free-vdw-assembly',
+    title: 'Polymer-free van der Waals assembly of 2D material heterostructures using muscovite crystals',
+    source: 'Makars Šiškins et al.',
+    url: 'https://doi.org/10.1038/s41467-026-72554-x',
+    publishedAt: '2026-07-14',
+    stage: 'current',
+    tags: ['2d-heterostructures', 'polymer-free-transfer', 'muscovite', 'mica-transfer', 'topological-stacks', 'twistangles'],
+    summary: 'Demonstration of polymer-free transfer and assembly of 2D material heterostructures using muscovite mica crystals to achieve residue-free interfaces with high-precision twist angle control.',
+    evidenceLevel: 'DEMONSTRATED',
+    publicUse: 'timeline',
+    timeline: {
+      id: 'siskins-polymer-free-vdw-assembly',
+      year: 2026,
+      title: 'Polymer-free 2D transfer (Šiškins et al.)',
+      tag: 'DEMONSTRATED',
+      order: 22,
+    },
+  },
 ];
 
 export const researchRecords = loadResearchRecords(seedResearchRecords);

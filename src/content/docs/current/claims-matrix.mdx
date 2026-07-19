@@ -37,6 +37,7 @@ graph TD
         L12["One-shot holographic 3D printing<br>(SU-8 Group 2026)"]:::lit
         L13["Excitons in vdW magnetic semiconductors<br>(Adak 2026)"]:::lit
         L14["Molten-salt colloidal metal nitrides<br>(Lin 2026)"]:::lit
+        L15["Polymer-free vdW stacking via mica<br>(Šiškins 2026)"]:::lit
     end
 
     subgraph Simulation_Validation ["Lane 2: Simulation Validation (Executable Templates)"]
@@ -112,6 +113,7 @@ graph TD
 | One-shot holographic 3D printing of SU-8 polymer microstructures fuses shapes in 20 seconds with 6 µm resolution | `proposed-fabrication-path-and-control.mdx`, `literature-review.mdx` | SU-8 Holographic Team (Advanced Materials 2026) | Nanoscale lens mask and SU-8 substrate | Currently limited to extended 2D profiles without true 3D shape control | Compare aspect ratio and print times of TPP vs. holographic printing on active substrates |
 | Excitons in van der Waals magnetic materials couple directly to magnetic order and magnons, enhancing magneto-optical readout | `candidate-materials-and-mechanisms.mdx`, `literature-review.mdx` | Pratap Chandra Adak et al. (Nature Materials 2026) | Layered magnetic semiconductors (CrI₃, NiPS₃, CrSBr) | Weak optical coupling efficiency or low-temperature operational limit | Measure magneto-optical polarization rotation and exciton-magnon dynamics in stacked vdW devices |
 | Colloidal metal nitride nanocrystals (GaN, TiN, NbN) can be synthesized in molten salts under controlled ammonia pressure | `candidate-materials-and-mechanisms.mdx`, `candidate-discovery-pipeline.mdx`, `literature-review.mdx` | Ruiming Lin et al. (Nature 2026) | Molten-salt colloidal synthesis with ammonia pressure control | Scaling up batch production yields or maintaining size distribution | Verify nanoparticle size distribution and superconducting properties of NbN nanocrystals |
+| Polymer-free transfer of 2D materials using muscovite mica crystals prevents contamination, creating atomically flat, clean interfaces | `2d-stack-reliability-and-readout.mdx`, `literature-review.mdx` | Makars Šiškins et al. (Nature Communications 2026) | Polymer-free assembly using muscovite mica crystals | Delamination or mechanical transfer yield on curved/patterned substrates | Verify surface cleanliness and interface charge transport on transfer-tested stacks |
 | Landauer's erasure bound is the Delete-specific limit of a broader CRUD information-thermodynamic framework | `literature-review.mdx`, `defensive-framework.mdx` | Iizumi (Physica A 2026) | Noneequilibrium free-energy inequalities over physical memory states | Theoretical framework only; does not account for physical device preparation and dissipation | Keep if internal algebraic consistency is supported by machine-checked formalization |
 | Classical reversible logic can be proposed using coherent spin dynamics in semiconductor quantum-dot arrays | `literature-review.mdx`, `core-architecture.mdx` | Loss (arXiv:2607.06219v1, 2026) | Coherent spin dynamics in quantum-dot arrays with DC voltage pulses | Theoretical/simulation proposal; experimental verification of three-spin gate and error scaling needed | Promote after experimental demonstration of coherent three-spin classical gate |
 | Quantum reservoir performance links to microscopic energetic cost via Holevo memory/predictive capacities | `literature-review.mdx`, `core-architecture.mdx` | Ding & Qiu (arXiv:2607.02157v1, 2026) | Quantum many-body reservoir models out of equilibrium | Theoretical preprint; transfer to magnetic textures or 2D stacks is conceptual only | Promote when reservoir validation metrics are measured in physical hardware |
@@ -272,6 +274,16 @@ graph TD
 **HELIOS relevance:** Supports the development of printed superconducting interconnects (using $NbN$) and polymer-nanocomposite active/passive layers that can be embedded directly into 3D printed structural scaffolds.
 **Does not support:** Magnetic texture stabilization or direct magnon propagation.
 **Failure/blocker notes:** Nano-dispersion within photoresins must be monitored to prevent nanoparticle aggregation or scattering, and superconducting $NbN$ phase purity must be validated under post-print annealing conditions.
+
+### Polymer-free van der Waals assembly using muscovite crystals
+**Claim level:** Demonstrated experimentally
+**Subsystem:** 2D stack manufacturing, polymer-free transfer, muscovite crystals, interface contamination
+**Source:** Makars Šiškins et al., *Polymer-free van der Waals assembly of 2D material heterostructures using muscovite crystals*, *Nature Communications* (2026). DOI: `10.1038/s41467-026-72554-x`
+**Supported statement:** Using inorganic muscovite (mica) crystals as a transfer medium enables polymer-free, residue-free assembly of 2D material stacks (e.g. graphene, hBN) with atomically flat, clean interfaces and controlled twist angles.
+**HELIOS relevance:** Directly addresses interface contamination, charge leakage, and misalignment in stacked 2D devices, which are critical for preserving quantum/spintronic coherence and establishing reliable moiré interfaces.
+**Does not support:** Liquid phase chemical synthesis or 3D printing of metallic structures.
+**Failure/blocker notes:** Mechanical transfer yield, scalability of mechanical exfoliation, and transfer compatibility with highly curved or textured polymer substrates must be investigated.
+
 
 
 

@@ -28,6 +28,7 @@ export const groups: EvidenceGroup[] = [
       { claim: 'One-shot holographic 3D printing of SU-8 polymer microstructures fuses shapes in 20 seconds with 6 µm resolution.', tag: 'DEMONSTRATED', source: 'SU-8 Holographic Team' },
       { claim: 'Excitons in van der Waals magnetic materials couple directly to magnetic order and magnons, enhancing magneto-optical readout.', tag: 'DEMONSTRATED', source: 'Pratap Chandra Adak et al.' },
       { claim: 'Colloidal metal nitride nanocrystals (GaN, TiN, NbN) can be synthesized in molten salts under controlled ammonia pressure.', tag: 'DEMONSTRATED', source: 'Ruiming Lin et al.' },
+      { claim: 'Polymer-free transfer of 2D materials using muscovite mica crystals prevents contamination, creating atomically flat, clean interfaces.', tag: 'DEMONSTRATED', source: 'Makars Šiškins et al.' },
     ],
   },
   {
