@@ -55,6 +55,7 @@ export const groups: EvidenceGroup[] = [
       { claim: 'AlphaEvolve-driven computational lithography is proposed to resolve SU-8 holographic printing diffraction.', tag: 'PROPOSED', source: 'Google & Substrate' },
       { claim: 'Cerebellum-inspired MoS₂ memtransistors combined with synchronized SHNO arrays enable always-on neuromorphic anomaly detection.', tag: 'PROPOSED', source: 'Memtransistor Research Group' },
       { claim: 'On-device edge reasoning using Gated DeltaNet SLMs is proposed for real-time QPU self-correction.', tag: 'PROPOSED', source: 'Local SLM Engineering' },
+      { claim: 'Super-Moiré Interfacial DMI Stressor Films (IrMn/CoFeB/Pt S-SAF) are proposed to lock 3D hopfion binding energy (>50 k_B T) up to 400 K.', tag: 'PROPOSED', source: 'HELIOS-3D Theoretical Design Group' },
     ],
   },
 ];

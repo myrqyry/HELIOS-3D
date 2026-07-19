@@ -28,6 +28,7 @@ const accessibleRecordIds = new Set([
   'alphaevolve-quantum-lithography-discovery',
   'mos2-cerebellum-memtransistors-spintronics',
   'edge-slm-delta-net-qpu-self-correction',
+  'super-moire-dmi-hopfion-stabilizer',
   'adak-excitons-vdw-magnetism',
   'lin-colloidal-metal-nitrides',
   'siskins-polymer-free-vdw-assembly',
