@@ -568,6 +568,25 @@ const seedResearchRecords: ResearchRecord[] = [
       order: 19,
     },
   },
+  {
+    id: 'adak-excitons-vdw-magnetism',
+    title: 'Excitons in van der Waals magnetic materials',
+    source: 'Pratap Chandra Adak et al.',
+    url: 'https://doi.org/10.1038/s41563-026-02636-0',
+    publishedAt: '2026-07-14',
+    stage: 'current',
+    tags: ['excitons', 'van-der-waals-magnets', 'exciton-magnon-coupling', 'magneto-optics', 'polaritons', 'readout'],
+    summary: 'A review of excitonic phenomena in 2D vdW magnetic semiconductors (CrI₃, NiPS₃, CrSBr) detailing exciton-magnon coupling, magneto-optical readout, polaritons, and quantum transduction.',
+    evidenceLevel: 'DEMONSTRATED',
+    publicUse: 'timeline',
+    timeline: {
+      id: 'adak-excitons-vdw-magnetism',
+      year: 2026,
+      title: 'Excitons in vdW magnets (Adak et al.)',
+      tag: 'DEMONSTRATED',
+      order: 20,
+    },
+  },
 ];
 
 export const researchRecords = loadResearchRecords(seedResearchRecords);

@@ -28,6 +28,7 @@ const accessibleRecordIds = new Set([
   'alphaevolve-quantum-lithography-discovery',
   'mos2-cerebellum-memtransistors-spintronics',
   'edge-slm-delta-net-qpu-self-correction',
+  'adak-excitons-vdw-magnetism',
 ]);
 
 const recordSources: SourceRegistryEntry[] = researchRecords.map((record) => {

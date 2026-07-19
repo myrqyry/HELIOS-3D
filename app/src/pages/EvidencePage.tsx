@@ -26,6 +26,7 @@ export const groups: EvidenceGroup[] = [
       { claim: 'Dispersive spin sensing via RF-SEB and HMM state classification achieves 99.92% readout fidelity in 340 µs.', tag: 'DEMONSTRATED', source: 'Silicon MOS Group' },
       { claim: 'Mutual synchronization in ultra-large arrays of up to 105,000 Spin Hall nano-oscillators (SHNOs) achieves nanosecond phase-ordering dynamics.', tag: 'DEMONSTRATED', source: 'SHNO Research Team' },
       { claim: 'One-shot holographic 3D printing of SU-8 polymer microstructures fuses shapes in 20 seconds with 6 µm resolution.', tag: 'DEMONSTRATED', source: 'SU-8 Holographic Team' },
+      { claim: 'Excitons in van der Waals magnetic materials couple directly to magnetic order and magnons, enhancing magneto-optical readout.', tag: 'DEMONSTRATED', source: 'Pratap Chandra Adak et al.' },
     ],
   },
   {
