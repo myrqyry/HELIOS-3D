@@ -853,6 +853,25 @@ const seedResearchRecords: ResearchRecord[] = [
       order: 31,
     },
   },
+  {
+    id: 'inphinie-post-von-neumann-architecture',
+    title: 'Architecture Informatique Post-Von Neumann (Condensed Matter Physics)',
+    source: 'Inphinie (Lichen Universe)',
+    url: 'https://github.com/Inphinie/Architecture-informatique-Post-Von-Neumann',
+    publishedAt: '2026-01-08',
+    stage: 'current',
+    tags: ['post-von-neumann', 'condensed-matter', 'ising-frustration', 'time-crystals', 'skyrmionics', 'topological-logic'],
+    summary: 'A condensed matter physics post-Von Neumann architecture uniting geometric Ising frustration solvers, Discrete Time Crystal (DTC) memory synchronization, and skyrmion/hopfion topological logic gates.',
+    evidenceLevel: 'DEMONSTRATED',
+    publicUse: 'timeline',
+    timeline: {
+      id: 'inphinie-post-von-neumann-architecture',
+      year: 2026,
+      title: 'Condensed Matter Post-Von Neumann (Inphinie et al.)',
+      tag: 'DEMONSTRATED',
+      order: 32,
+    },
+  },
 ];
 
 export const researchRecords = loadResearchRecords(seedResearchRecords);

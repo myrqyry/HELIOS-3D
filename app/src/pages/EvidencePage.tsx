@@ -39,6 +39,7 @@ export const groups: EvidenceGroup[] = [
       { claim: 'Geometric Causal Information (GCI) and spatial incompatibility drive topological field folding and emergent physical structure in frustrated geometries.', tag: 'DEMONSTRATED', source: 'Inphinie (Lichen Geometry 2026)' },
       { claim: 'Frustrated free-energy landscape relaxation resolves Levinthal-type navigation paradoxes to accelerate state convergence in complex physical memory networks.', tag: 'DEMONSTRATED', source: 'Inphinie (Biophysique Frustration 2026)' },
       { claim: 'The Matter-Computer (Ordinateur-Matière) architecture unifies topological memory (Majorana/Skyrmions/Hopfions), Kuramoto synchronization, and Discrete Time Crystals.', tag: 'DEMONSTRATED', source: 'Inphinie (Ordinateur-Matière 2026)' },
+      { claim: 'Condensed matter Post-Von Neumann architecture unifies geometric Ising frustration solvers, Discrete Time Crystal (DTC) memory synchronization, and skyrmion/hopfion topological logic.', tag: 'DEMONSTRATED', source: 'Inphinie (Post-Von Neumann 2026)' },
     ],
   },
   {

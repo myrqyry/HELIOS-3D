@@ -43,6 +43,7 @@ const accessibleRecordIds = new Set([
   'inphinie-lichen-geometry',
   'inphinie-biophysique-frustration',
   'inphinie-ordinateur-matiere',
+  'inphinie-post-von-neumann-architecture',
 ]);
 
 const recordSources: SourceRegistryEntry[] = researchRecords.map((record) => {
