@@ -49,6 +49,7 @@ graph TD
         L24["Biophysique Frustration<br>(Inphinie 2026)"]:::lit
         L25["Ordinateur-Matière Architecture<br>(Inphinie 2026)"]:::lit
         L26["Condensed Matter Post-Von Neumann<br>(Inphinie 2026)"]:::lit
+        L27["Skyrmions3D Rational Map & ADHM<br>(Halcrow & Disney-Hogg 2026)"]:::lit
     end
 
     subgraph Simulation_Validation ["Lane 2: Simulation Validation (Executable Templates)"]
@@ -139,6 +140,7 @@ graph TD
 | Frustrated free-energy landscape relaxation resolves Levinthal-type navigation paradoxes to accelerate state convergence in complex physical memory networks | `candidate-materials-and-mechanisms.mdx`, `alternative-materials-and-methods.mdx`, `literature-review.mdx` | Inphinie (Biophysique Frustration 2026) | Frustrated Energy Landscape Relaxation | Metastable state traps in high-dimensional energy funnels | Measure state convergence times and fading memory capacity in Brownian reservoirs under thermal noise |
 | The Matter-Computer (Ordinateur-Matière) architecture unifies topological memory (Majorana/Skyrmions/Hopfions), Kuramoto synchronization, and Discrete Time Crystals | `alternative-materials-and-methods.mdx`, `literature-review.mdx` | Inphinie (Ordinateur-Matière 2026) | Matter-Computer Unified Architecture | Multi-subsystem integration complexity across spintronic, optoelectronic, and RF layers | Demonstrate co-integration of SHNO Kuramoto phase-ordering arrays with 3D hopfion memory harbors |
 | Condensed matter Post-Von Neumann architecture unifies geometric Ising frustration solvers, Discrete Time Crystal (DTC) memory synchronization, and skyrmion/hopfion topological logic | `candidate-materials-and-mechanisms.mdx`, `alternative-materials-and-methods.mdx`, `literature-review.mdx` | Inphinie (Post-Von Neumann 2026) | Condensed Matter Post-Von Neumann Computing | Multi-layer condensed matter integration requires synchronized RF and topological control | Demonstrate integrated Ising optimization and Discrete Time Crystal phase-locking in physical simulations |
+| Rational Map approximations and ADHM construction generate mathematically exact initial 3D skyrmion and hopfion field profiles with derivative stencil stability | `candidate-materials-and-mechanisms.mdx`, `alternative-materials-and-methods.mdx`, `literature-review.mdx` | Chris Halcrow & Disney-Hogg (Skyrmions3D.jl 2026) | Rational Map & ADHM 3D Field Initialization | Numerical finite grid discretization errors at small lattice constants | Validate 3D topological charge integration accuracy ($Q=1.000$) in Python test suite |
 | Super-Moiré Interfacial DMI Stressor Films (IrMn/CoFeB/Pt S-SAF) are proposed to lock 3D hopfion binding energy (>50 k_B T) up to 400 K | `candidate-materials-and-mechanisms.mdx`, `alternative-materials-and-methods.mdx`, `open-questions.mdx` | HELIOS-3D Theoretical Design Group (2026) | Chiral synthetic antiferromagnet (S-SAF) with strain moiré | Interfacial strain relaxation or pinhole defects in ultrathin IrMn layers | Measure temperature-dependent 3D DMI and hopfion decay rates up to 400 K in S-SAF test micro-harbors |
 | CTE-Graded Nanolaminates (ALD TiO₂/Al₂O₃) and nanocomposite photoresins (TiN/SiO₂) are proposed to suppress 3D scaffold delamination under thermal cycling | `candidate-materials-and-mechanisms.mdx`, `alternative-materials-and-methods.mdx`, `open-questions.mdx` | HELIOS-3D Theoretical Design Group (2026) | Low-temp ALD nanolaminate with TiN nanocomposite resin | Pinholes or interface trap states in ALD TiO₂/Al₂O₃ interlayers | Measure adhesion strength and CTE mismatch strain under 300K-375K thermal cycling |
 | Near-Field Spin-Galvanic Plasmonic Micro-Cavities (Si₃N₄/Au + 2D TMDs) are proposed to reduce GHz microwave readout power by >100x | `candidate-materials-and-mechanisms.mdx`, `alternative-materials-and-methods.mdx`, `open-questions.mdx` | HELIOS-3D Theoretical Design Group (2026) | Plasmonic Si₃N₄/Au nano-cavity with MoS₂/WSe₂ channel | Photo-carrier recombination lifetime or plasmonic propagation loss | Measure optical transduction efficiency and SNR under high-frequency GHz spin-wave precession |
@@ -401,6 +403,15 @@ graph TD
 **HELIOS relevance:** Informs Section 16 by providing condensed matter physics formulations for non-volatile topological logic and time-crystal phase locking.
 **Does not support:** Classical silicon CMOS transistor gate design.
 **Failure/blocker notes:** Requires co-integration of nanoscale artificial spin ice arrays with topological skyrmion tracks and sub-harmonic clock drivers.
+
+### Skyrmions3D Rational Map & ADHM 3D Skyrmion Calculation
+**Claim level:** Demonstrated theoretically
+**Subsystem:** skyrmions3d, rational-map-approximation, adhm-construction, derivative-stencils, topological-charge
+**Source:** Chris Halcrow & Disney-Hogg, *Skyrmions3D.jl* (GitHub DisneyHogg/Skyrmions3D.jl, 2026).
+**Supported statement:** Provides algebraic Rational Map approximations and ADHM constructions to initialize artifact-free 3D skyrmion/hopfion spin configurations with stabilized spatial derivative integration stencils.
+**HELIOS relevance:** Informs Python test suite (`tests/topological_charge_validator.py`) and provides exact initial 3D topological magnetic field formulations.
+**Does not support:** 2D-only flat Skyrmion models without z-axis topological winding.
+**Failure/blocker notes:** Discrete spatial grid resolution must be sufficiently fine to avoid grid-pinning errors during energy-flow relaxation.
 
 ### Super-Moiré Interfacial DMI Stressors for High-Temperature Hopfion Locking
 **Claim level:** Speculative / proposed

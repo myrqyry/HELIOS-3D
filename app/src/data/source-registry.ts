@@ -44,6 +44,7 @@ const accessibleRecordIds = new Set([
   'inphinie-biophysique-frustration',
   'inphinie-ordinateur-matiere',
   'inphinie-post-von-neumann-architecture',
+  'halcrow-skyrmions3d-julialab',
 ]);
 
 const recordSources: SourceRegistryEntry[] = researchRecords.map((record) => {

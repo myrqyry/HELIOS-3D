@@ -872,6 +872,25 @@ const seedResearchRecords: ResearchRecord[] = [
       order: 32,
     },
   },
+  {
+    id: 'halcrow-skyrmions3d-julialab',
+    title: 'Skyrmions3D.jl: Rational Map & ADHM 3D Skyrmion Numerical Tool',
+    source: 'Chris Halcrow & Disney-Hogg',
+    url: 'https://github.com/DisneyHogg/Skyrmions3D.jl',
+    publishedAt: '2026-02-01',
+    stage: 'current',
+    tags: ['skyrmions3d', 'rational-map-approximation', 'adhm-construction', 'gradient-flow', 'topological-charge-density'],
+    summary: 'A 3D skyrmion/hopfion calculation and visualization framework using Rational Map approximations, ADHM construction, derivative stencils, and gradient energy-flow relaxation.',
+    evidenceLevel: 'DEMONSTRATED',
+    publicUse: 'timeline',
+    timeline: {
+      id: 'halcrow-skyrmions3d-julialab',
+      year: 2026,
+      title: 'Skyrmions3D Rational Map & ADHM (Halcrow et al.)',
+      tag: 'DEMONSTRATED',
+      order: 33,
+    },
+  },
 ];
 
 export const researchRecords = loadResearchRecords(seedResearchRecords);
