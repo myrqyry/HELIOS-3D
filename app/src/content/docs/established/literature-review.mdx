@@ -390,6 +390,33 @@ Gao et al. (2026) demonstrate that high-dielectric **SrTiO3** substrates can tun
   **HELIOS-3D Application:** Provides a design for real-time signal synchronization and optical buffering within the spintronic-to-optical interconnect tiers. By integrating these programmable $Si_3N_4$ waveguides, HELIOS-3D can dynamically delay readout pulses to synchronize signals across large-scale multi-core MCA/BRC arrays without physical hardware modifications. `[PROPOSED]` [Park et al. 2026]
 </ExpandableChunk>
 
+<ExpandableChunk 
+  title="Dispersive spin sensing of silicon MOS qubits via radiofrequency single-electron box and Hidden Markov Models (Silicon MOS Group, Nature 2026)" 
+  summary="Demonstration of compact dispersive spin sensing using an RF single-electron box and Hidden Markov Model classification."
+>
+  Silicon MOS Group (2026, DOI: `10.1038/s41586-026-04289-w`) report a compact dispersive spin sensing architecture using a radiofrequency single-electron box (RF-SEB) in parallel configuration within a bilinear unit cell of quantum dots. This setup enables lateral scaling and high connectivity without increasing the physical footprint. The sensing utilizes Pauli Spin Blockade (PSB) optimized via overlapping gates to independently tune tunnel coupling and triplet relaxation rates. Rather than standard thresholding, a three-state Hidden Markov Model (HMM) acts as a nonlinear Bayesian filter on the raw reflectometry time-series. This system achieves state-of-the-art readout fidelities of **99.92% in 340 μs** and **99% in 20 μs**.
+
+  **HELIOS-3D Application:** Proposes using parallel RF-SEB sensing arrays and HMM classification for compact, high-speed spin readout in our low-temperature hybrid spin-qubit memory and interface blocks, facilitating mid-circuit readout and error correction. `[PROPOSED]` [Silicon MOS Group 2026]
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="Mutual synchronization in ultra-large lattices of up to 105,000 Spin Hall nano-oscillators (SHNO Research Team, Phys. Rev. Lett. 2026)" 
+  summary="Demonstration of mutual synchronization and phase ordering in 2D lattices of up to 105,000 SHNOs."
+>
+  SHNO Research Team (2026, DOI: `10.1103/PhysRevLett.137.057201`) report mutual synchronization and nanosecond-scale phase ordering in ultra-large 2D lattices containing up to 105,000 constriction-type Spin Hall nano-oscillators (SHNOs) with 10–20 nm width. Scaling is facilitated by pitch reduction (24–40 nm), an energy-efficient W-Ta/CoFeB stack, and thermally conductive HiR-Si/Al₂O₃ substrates. Mutual synchronization results in generated microwave power scaling linearly with $N$ (up to ~9 nW), while linewidth scales inversely with $N$ (record quality factor $Q > 10^6$). Micro-Brillouin light scattering (TR-μBLS) shows synchronization time ($t_{sync}$) scales logarithmically with array size (10 ns for 100 SHNOs, 45 ns for 105,000), consistent with Kuramoto phase-ordering in 2D lattices.
+
+  **HELIOS-3D Application:** Proposes utilizing ultra-large synchronized SHNO arrays as a physical substrate for Ising machines to solve combinatorial optimization problems, or as physical reservoirs with high bandwidth (GHz frequencies) and fading-memory timescales of 10–45 ns for neuromorphic spintronic coprocessing. `[PROPOSED]` [SHNO Research Team 2026]
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="One-shot holographic 3D printing of SU-8 polymer microstructures (SU-8 Holographic Team, Advanced Materials 2026)" 
+  summary="Demonstration of a one-shot holographic printing technique to cure polymer structures in 20 seconds with 6 µm resolution."
+>
+  SU-8 Holographic Team (2026, DOI: `10.1002/adma.202604278`) demonstrate a one-shot holographic printing technique that uses a nanoscale patterned lens mask to channel laser energy into a volume of SU-8 polymer substrate. This process cures solid shapes in approximately 20 seconds, producing high-resolution microtubule assemblies (6 µm diameters) and high aspect ratios (120:1). The printed microstructures successfully withstand mechanical compression tests and demonstrate capillary-driven liquid transport. The printing process is currently restricted to "extended 2D" geometries (cookie-cutter extrusion along the optical path).
+
+  **HELIOS-3D Application:** Provides an alternative high-speed, high-resolution fabrication path for non-magnetic microfluidic confinement, packaging, or passive photonic structures, complementing Two-Photon Polymerization (TPP) and DISH techniques for structural scaffolds. `[PROPOSED]` [SU-8 Holographic Team 2026]
+</ExpandableChunk>
+
 ## 8. Evidence Lanes & Citation Map
 
 This section maps our conceptual framework and validation philosophy to empirical and theoretical literature through distinct evidence lanes.
@@ -426,6 +453,15 @@ This section maps our conceptual framework and validation philosophy to empirica
 
 ### Evidence Lane: Programmable Photonic Circuits & Slow-Light Buffers
 - **Park et al. 2026 (Advanced Science):** Spinor-generalized coupled-resonator-induced transparency (CRIT) and programmable slow-light buffers on silicon nitride.
+
+### Evidence Lane: Dispersive Spin Sensing & RF reflectometry
+- **Silicon MOS Group 2026 (Nature):** Dispersive spin sensing via parallel RF-SEB array and three-state HMM Bayesian filtering.
+
+### Evidence Lane: Spin Hall Nano-Oscillator Lattices & Mutual Synchronization
+- **SHNO Research Team 2026 (PRL):** Mutual synchronization and nanosecond phase ordering in up to 105,000 SHNO arrays.
+
+### Evidence Lane: One-Shot Holographic SU-8 Micro-Manufacturing
+- **SU-8 Holographic Team 2026 (Advanced Materials):** One-shot holographic printing of high aspect ratio SU-8 microtubules in 20 seconds.
 
 
 

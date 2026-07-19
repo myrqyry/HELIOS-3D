@@ -515,6 +515,23 @@ For optical-spintronic coprocessors like HELIOS-3D, synchronizing the arrival ti
 - **Si₃N₄ Waveguide Integration:** 3D electromagnetic simulations verify the design's viability on a low-loss, stable silicon nitride ($Si_3N_4$) waveguide platform under realistic constraints (material loss, thermal crosstalk, backscattering).
 - **HELIOS-3D Application:** Proposes integrating these programmable $Si_3N_4$ delay lines and buffers within the optical routing layer. This provides real-time control over temporal delay and signal synchronization between MCA/BRC spintronic tiers and the optical interconnect bus. `[PROPOSED]` [Park et al. 2026]
 
+### 6.1.8 Dispersive Spin Sensing via Radiofrequency Single-Electron Box (RF-SEB) and Hidden Markov Models (HMM)
+
+For scalable qubit readout within CMOS-compatible or silicon metal-oxide-semiconductor (MOS) architectures, dispersive spin sensing offers a highly compact alternative to traditional single-electron transistors (SETs):
+- **Parallel RF-SEB Architecture:** An RF single-electron box (SEB) consisting of a single charge reservoir coupled to a quantum dot is integrated in a parallel row within a bilinear unit cell of quantum dots. This parallel layout allows for lateral scaling and increases qubit connectivity without compromising the sensor's sensitivity or increasing its physical footprint.
+- **Overlapping Gate Tunability:** System-level optimization relies on Pauli Spin Blockade (PSB). By adjusting the voltage of overlapping gates, researchers can independently control the tunnel couplings between quantum dots and the tunneling rates to the reservoir, optimizing triplet relaxation rates to maximize the signal-to-noise ratio.
+- **Hidden Markov Model (HMM) Classification:** Rather than using the simple time-averaged "threshold method" which confuses intermediate undecayed triplet states (such as $|T_0\rangle$), a three-state HMM ($|S\rangle, |T_0\rangle, |T_-\rangle$) utilizing a forward-backwards algorithm acts as a nonlinear Bayesian filter on the raw reflectometry time-series.
+- **Performance:** This combined approach achieves state-of-the-art readout fidelities of **99.92% in 340 μs** and **99% in 20 μs**.
+- **HELIOS-3D Application:** Proposes using parallel RF-SEB sensing arrays and HMM classification for compact, high-speed spin readout in our low-temperature hybrid spin-qubit memory and interface blocks, facilitating mid-circuit readout and error correction. `[PROPOSED]` [Silicon MOS Group 2026]
+
+### 6.1.9 Ultra-Large Spin Hall Nano-Oscillator (SHNO) Arrays for Neuromorphic Computing
+
+Spin Hall nano-oscillators (SHNOs) utilize spin-orbit torques to generate microwave signals and synchronize their phases through spin-wave-mediated interactions, serving as a highly scalable neuromorphic platform:
+- **Lattice Scale Breakthrough:** Recent work demonstrates nanosecond-scale phase ordering and mutual synchronization in ultra-large 2D lattices of up to **105,000 constriction-type SHNOs** (10–20 nm width). This scaling is achieved via pitch reduction (24–40 nm), an energy-efficient W-Ta/CoFeB stack, and thermally conductive HiR-Si/Al₂O₃ substrates.
+- **Linear Power & Coherence:** Mutual synchronization results in generated microwave output power scaling linearly with the number of oscillators ($N$) (up to ~9 nW), while the linewidth scales inversely with $N$, achieving a record quality factor ($Q$) exceeding $10^6$.
+- **Kuramoto-type Synchronization Dynamics:** Time-resolved micro-Brillouin light scattering (TR-μBLS) shows that the synchronization time ($t_{sync}$) decreases with higher currents and has a weak, logarithmic dependence on array size ($N$): ~10 ns for 100 SHNOs, scaling to ~45 ns for 105,000 SHNOs. This behavior is consistent with Kuramoto phase-ordering in 2D lattices via hierarchical domain growth.
+- **HELIOS-3D Application:** Proposes utilizing ultra-large synchronized SHNO arrays as a physical substrate for Ising machines to solve combinatorial optimization problems, or as physical reservoirs with high bandwidth (GHz frequencies) and fading-memory timescales of 10–45 ns for neuromorphic spintronic coprocessing. `[PROPOSED]` [SHNO Research Team 2026]
+
 ## 7. Recommended Minimum Viable Demonstrator Revision
 
 The current MVD sequence in `OPEN_QUESTIONS.md` should be interpreted more conservatively.

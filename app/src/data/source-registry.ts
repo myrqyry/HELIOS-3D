@@ -22,6 +22,9 @@ const accessibleRecordIds = new Set([
   'barrera-magnetic-flux-concentrators',
   'mustaf-kagome-superconductors',
   'park-programmable-crit-slow-light',
+  'rf-seb-dispersive-spin-sensing',
+  'shno-mutual-synchronization',
+  'su8-one-shot-holographic-printing',
 ]);
 
 const recordSources: SourceRegistryEntry[] = researchRecords.map((record) => {
