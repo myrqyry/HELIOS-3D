@@ -11,6 +11,21 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  build: {
+    chunkSizeWarningLimit: 1200,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('three') || id.includes('@react-three') || id.includes('three-mesh-bvh')) {
+              return 'three-vendor';
+            }
+            return 'vendor';
+          }
+        },
+      },
+    },
+  },
   test: {
     exclude: ['**/node_modules/**', '**/dist/**', '**/e2e/**'],
   },
