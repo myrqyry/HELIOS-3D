@@ -40,6 +40,7 @@ graph TD
         L15["Polymer-free vdW stacking via mica<br>(Šiškins 2026)"]:::lit
         L16["Cerebellar MoS₂ memtransistors<br>(Kang 2026)"]:::lit
         L17["AI ultra-strong magnets<br>(MAGNUMS / Kovnir 2026)"]:::lit
+        L18["AGF Post-Von Neumann stack<br>(Ouellette & Claude 2026)"]:::lit
     end
 
     subgraph Simulation_Validation ["Lane 2: Simulation Validation (Executable Templates)"]
@@ -121,6 +122,7 @@ graph TD
 | Polymer-free transfer of 2D materials using muscovite mica crystals prevents contamination, creating atomically flat, clean interfaces | `2d-stack-reliability-and-readout.mdx`, `literature-review.mdx` | Makars Šiškins et al. (Nature Communications 2026) | Polymer-free assembly using muscovite mica crystals | Delamination or mechanical transfer yield on curved/patterned substrates | Verify surface cleanliness and interface charge transport on transfer-tested stacks |
 | Cerebellum-inspired MoS₂ memtransistors mimic neural balance with excitatory/inhibitory modes to perform low-power anomaly detection | `alternative-materials-and-methods.mdx`, `literature-review.mdx` | Min-A Kang et al. (Nature Communications 2026) | Asymmetric transistor with overlapping Al₂O₃ dielectric | Interfacial charge trapping or high operational voltage switching | Measure anomaly detection accuracy and power limits under continuous ECG sweep tests |
 | AI-driven high-throughput screening and synthesis (MAGNUMS / ARPA-E MAGNITO) accelerates discovery of rare-earth-free ultra-strong permanent magnets | `candidate-materials-and-mechanisms.mdx`, `candidate-discovery-pipeline.mdx`, `literature-review.mdx` | Kirill Kovnir et al. (Ames Lab / ARPA-E 2026) | Physics-informed ML with molten-salt synthesis | Thermal demagnetization or phase stability under high magnetic anisotropy | Measure saturation magnetization and anisotropy field of screened permanent magnet candidates |
+| Full-stack post-Von Neumann architecture (AGF) combines Clifford algebra, hyperdimensional memory (HDC), self-organizing logic (SOLG), and discrete time crystals (DTC) | `alternative-materials-and-methods.mdx`, `literature-review.mdx` | Bryan Ouellette & Claude (AGF 2026) | Self-Organizing Logic Gates with Discrete Time Crystals | Theoretical whitepaper only; FPGA/hardware validation planned for 2027-2029 | Validate SOLG instanton relaxation and DTC phase locking in physical spintronic simulations |
 | Super-Moiré Interfacial DMI Stressor Films (IrMn/CoFeB/Pt S-SAF) are proposed to lock 3D hopfion binding energy (>50 k_B T) up to 400 K | `candidate-materials-and-mechanisms.mdx`, `alternative-materials-and-methods.mdx`, `open-questions.mdx` | HELIOS-3D Theoretical Design Group (2026) | Chiral synthetic antiferromagnet (S-SAF) with strain moiré | Interfacial strain relaxation or pinhole defects in ultrathin IrMn layers | Measure temperature-dependent 3D DMI and hopfion decay rates up to 400 K in S-SAF test micro-harbors |
 | CTE-Graded Nanolaminates (ALD TiO₂/Al₂O₃) and nanocomposite photoresins (TiN/SiO₂) are proposed to suppress 3D scaffold delamination under thermal cycling | `candidate-materials-and-mechanisms.mdx`, `alternative-materials-and-methods.mdx`, `open-questions.mdx` | HELIOS-3D Theoretical Design Group (2026) | Low-temp ALD nanolaminate with TiN nanocomposite resin | Pinholes or interface trap states in ALD TiO₂/Al₂O₃ interlayers | Measure adhesion strength and CTE mismatch strain under 300K-375K thermal cycling |
 | Near-Field Spin-Galvanic Plasmonic Micro-Cavities (Si₃N₄/Au + 2D TMDs) are proposed to reduce GHz microwave readout power by >100x | `candidate-materials-and-mechanisms.mdx`, `alternative-materials-and-methods.mdx`, `open-questions.mdx` | HELIOS-3D Theoretical Design Group (2026) | Plasmonic Si₃N₄/Au nano-cavity with MoS₂/WSe₂ channel | Photo-carrier recombination lifetime or plasmonic propagation loss | Measure optical transduction efficiency and SNR under high-frequency GHz spin-wave precession |
@@ -302,6 +304,15 @@ graph TD
 **HELIOS relevance:** Informs the design of high-coercivity magnetic pinning layers and bias magnet structures required to stabilize synthetic antiferromagnets (SAFs) and topological magnetic textures.
 **Does not support:** Direct fabrication of 2D van der Waals flakes or low-power neuromorphic memtransistor logic.
 **Failure/blocker notes:** High magnetic anisotropy phases identified by AI must maintain thermal phase stability and resist demagnetization during operational temperature cycles.
+
+### Architecture Informatique Géométrique-Fréquentielle (AGF Post-Von Neumann)
+**Claim level:** Demonstrated theoretically
+**Subsystem:** post-von-neumann architecture, clifford algebra, self-organizing logic (SOLG), discrete time crystals (DTC), hyperdimensional computing (HDC/VSA)
+**Source:** Bryan Ouellette & Claude (Anthropic), *Architecture Informatique Géométrique-Fréquentielle (AGF)* (GitHub Inphinie/AGF, 2026).
+**Supported statement:** Replaces Von Neumann computing with a full-stack architecture based on Clifford geometric algebra, thermodynamic Self-Organizing Logic Gates (SOLG), Discrete Time Crystal (DTC) clockless synchronization, Vector Symbolic Architecture (VSA/HDC) memory, and content-addressed AST execution without text parsing.
+**HELIOS relevance:** Establishes the mathematical framework connecting synchronized SHNO phase-ordering arrays to thermodynamic logic relaxation (SOLG) and sub-harmonic clockless synchronization (DTC).
+**Does not support:** Physical fabrication recipes or liquid/vacuum chemical processing.
+**Failure/blocker notes:** Theoretical whitepaper specification; hardware and FPGA execution validation scheduled for 2027-2029 phase.
 
 ### Super-Moiré Interfacial DMI Stressors for High-Temperature Hopfion Locking
 **Claim level:** Speculative / proposed

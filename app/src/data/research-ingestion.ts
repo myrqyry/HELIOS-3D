@@ -701,6 +701,25 @@ const seedResearchRecords: ResearchRecord[] = [
       order: 23,
     },
   },
+  {
+    id: 'ouellette-agf-post-von-neumann',
+    title: 'Architecture Informatique Géométrique-Fréquentielle (AGF)',
+    source: 'Bryan Ouellette & Claude (Anthropic)',
+    url: 'https://github.com/Inphinie/AGF',
+    publishedAt: '2026-01-15',
+    stage: 'current',
+    tags: ['post-von-neumann', 'clifford-algebra', 'thermodynamic-computing', 'memcomputing', 'time-crystals', 'vector-symbolic-architecture'],
+    summary: 'A full-stack post-Von Neumann computing architecture specification combining Clifford geometric algebra, hyperdimensional computing (HDC/VSA), thermodynamic self-organizing logic gates (SOLG), discrete time crystals (DTC), and content-addressed AST code without text parsing.',
+    evidenceLevel: 'DEMONSTRATED',
+    publicUse: 'timeline',
+    timeline: {
+      id: 'ouellette-agf-post-von-neumann',
+      year: 2026,
+      title: 'AGF Post-Von Neumann Architecture (Ouellette et al.)',
+      tag: 'DEMONSTRATED',
+      order: 24,
+    },
+  },
 ];
 
 export const researchRecords = loadResearchRecords(seedResearchRecords);

@@ -35,6 +35,7 @@ const accessibleRecordIds = new Set([
   'lin-colloidal-metal-nitrides',
   'siskins-polymer-free-vdw-assembly',
   'kovnir-ai-magnito-magnets',
+  'ouellette-agf-post-von-neumann',
 ]);
 
 const recordSources: SourceRegistryEntry[] = researchRecords.map((record) => {

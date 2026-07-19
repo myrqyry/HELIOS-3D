@@ -31,6 +31,7 @@ export const groups: EvidenceGroup[] = [
       { claim: 'Polymer-free transfer of 2D materials using muscovite mica crystals prevents contamination, creating atomically flat, clean interfaces.', tag: 'DEMONSTRATED', source: 'Makars Šiškins et al.' },
       { claim: 'Cerebellum-inspired MoS₂ memtransistors mimic neural balance with excitatory/inhibitory modes to perform low-power anomaly detection.', tag: 'DEMONSTRATED', source: 'Min-A Kang et al.' },
       { claim: 'AI-driven high-throughput screening and synthesis (MAGNUMS / ARPA-E MAGNITO) accelerates discovery of rare-earth-free ultra-strong permanent magnets.', tag: 'DEMONSTRATED', source: 'Kirill Kovnir et al.' },
+      { claim: 'A full-stack post-Von Neumann computing architecture (AGF) combines Clifford algebra, hyperdimensional memory (HDC), self-organizing logic (SOLG), and discrete time crystals (DTC).', tag: 'DEMONSTRATED', source: 'Bryan Ouellette & Claude (AGF 2026)' },
     ],
   },
   {
