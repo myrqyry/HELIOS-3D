@@ -39,6 +39,7 @@ graph TD
         L14["Molten-salt colloidal metal nitrides<br>(Lin 2026)"]:::lit
         L15["Polymer-free vdW stacking via mica<br>(Šiškins 2026)"]:::lit
         L16["Cerebellar MoS₂ memtransistors<br>(Kang 2026)"]:::lit
+        L17["AI ultra-strong magnets<br>(MAGNUMS / Kovnir 2026)"]:::lit
     end
 
     subgraph Simulation_Validation ["Lane 2: Simulation Validation (Executable Templates)"]
@@ -116,6 +117,7 @@ graph TD
 | Colloidal metal nitride nanocrystals (GaN, TiN, NbN) can be synthesized in molten salts under controlled ammonia pressure | `candidate-materials-and-mechanisms.mdx`, `candidate-discovery-pipeline.mdx`, `literature-review.mdx` | Ruiming Lin et al. (Nature 2026) | Molten-salt colloidal synthesis with ammonia pressure control | Scaling up batch production yields or maintaining size distribution | Verify nanoparticle size distribution and superconducting properties of NbN nanocrystals |
 | Polymer-free transfer of 2D materials using muscovite mica crystals prevents contamination, creating atomically flat, clean interfaces | `2d-stack-reliability-and-readout.mdx`, `literature-review.mdx` | Makars Šiškins et al. (Nature Communications 2026) | Polymer-free assembly using muscovite mica crystals | Delamination or mechanical transfer yield on curved/patterned substrates | Verify surface cleanliness and interface charge transport on transfer-tested stacks |
 | Cerebellum-inspired MoS₂ memtransistors mimic neural balance with excitatory/inhibitory modes to perform low-power anomaly detection | `alternative-materials-and-methods.mdx`, `literature-review.mdx` | Min-A Kang et al. (Nature Communications 2026) | Asymmetric transistor with overlapping Al₂O₃ dielectric | Interfacial charge trapping or high operational voltage switching | Measure anomaly detection accuracy and power limits under continuous ECG sweep tests |
+| AI-driven high-throughput screening and synthesis (MAGNUMS / ARPA-E MAGNITO) accelerates discovery of rare-earth-free ultra-strong permanent magnets | `candidate-materials-and-mechanisms.mdx`, `candidate-discovery-pipeline.mdx`, `literature-review.mdx` | Kirill Kovnir et al. (Ames Lab / ARPA-E 2026) | Physics-informed ML with molten-salt synthesis | Thermal demagnetization or phase stability under high magnetic anisotropy | Measure saturation magnetization and anisotropy field of screened permanent magnet candidates |
 | Landauer's erasure bound is the Delete-specific limit of a broader CRUD information-thermodynamic framework | `literature-review.mdx`, `defensive-framework.mdx` | Iizumi (Physica A 2026) | Noneequilibrium free-energy inequalities over physical memory states | Theoretical framework only; does not account for physical device preparation and dissipation | Keep if internal algebraic consistency is supported by machine-checked formalization |
 | Classical reversible logic can be proposed using coherent spin dynamics in semiconductor quantum-dot arrays | `literature-review.mdx`, `core-architecture.mdx` | Loss (arXiv:2607.06219v1, 2026) | Coherent spin dynamics in quantum-dot arrays with DC voltage pulses | Theoretical/simulation proposal; experimental verification of three-spin gate and error scaling needed | Promote after experimental demonstration of coherent three-spin classical gate |
 | Quantum reservoir performance links to microscopic energetic cost via Holevo memory/predictive capacities | `literature-review.mdx`, `core-architecture.mdx` | Ding & Qiu (arXiv:2607.02157v1, 2026) | Quantum many-body reservoir models out of equilibrium | Theoretical preprint; transfer to magnetic textures or 2D stacks is conceptual only | Promote when reservoir validation metrics are measured in physical hardware |
@@ -285,6 +287,16 @@ graph TD
 **HELIOS relevance:** Directly addresses interface contamination, charge leakage, and misalignment in stacked 2D devices, which are critical for preserving quantum/spintronic coherence and establishing reliable moiré interfaces.
 **Does not support:** Liquid phase chemical synthesis or 3D printing of metallic structures.
 **Failure/blocker notes:** Mechanical transfer yield, scalability of mechanical exfoliation, and transfer compatibility with highly curved or textured polymer substrates must be investigated.
+
+### AI-driven ultra-strong permanent magnet discovery (MAGNUMS)
+**Claim level:** Demonstrated experimentally
+**Subsystem:** material discovery, AI screening, permanent magnets, rare-earth-lean materials, ARPA-E MAGNITO
+**Source:** Kirill Kovnir et al. (Ames Laboratory / ARPA-E MAGNUMS project, 2026).
+**Supported statement:** Physics-informed machine learning combined with genetic algorithms, density functional theory, and rapid lab synthesis accelerates the discovery of ultra-strong permanent magnets outperforming $Nd_2Fe_{14}B$.
+**HELIOS relevance:** Informs the design of high-coercivity magnetic pinning layers and bias magnet structures required to stabilize synthetic antiferromagnets (SAFs) and topological magnetic textures.
+**Does not support:** Direct fabrication of 2D van der Waals flakes or low-power neuromorphic memtransistor logic.
+**Failure/blocker notes:** High magnetic anisotropy phases identified by AI must maintain thermal phase stability and resist demagnetization during operational temperature cycles.
+
 
 
 

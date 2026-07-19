@@ -31,6 +31,7 @@ const accessibleRecordIds = new Set([
   'adak-excitons-vdw-magnetism',
   'lin-colloidal-metal-nitrides',
   'siskins-polymer-free-vdw-assembly',
+  'kovnir-ai-magnito-magnets',
 ]);
 
 const recordSources: SourceRegistryEntry[] = researchRecords.map((record) => {

@@ -625,6 +625,25 @@ const seedResearchRecords: ResearchRecord[] = [
       order: 22,
     },
   },
+  {
+    id: 'kovnir-ai-magnito-magnets',
+    title: 'Machine-learning Assisted Generation of Novel Ultra-strong Magnets via Synthesis (MAGNUMS)',
+    source: 'Kirill Kovnir et al. (Ames Lab / ARPA-E)',
+    url: 'https://www.thebrighterside.news/post/scientists-use-ai-to-search-for-the-next-generation-of-ultra-powerful-magnets/',
+    publishedAt: '2026-07-14',
+    stage: 'current',
+    tags: ['ai-materials-discovery', 'permanent-magnets', 'rare-earth-free', 'magnetic-materials', 'ames-lab', 'arpa-e-magnito'],
+    summary: 'AI-driven high-throughput screening and synthesis pipeline (MAGNUMS project under ARPA-E MAGNITO) accelerating discovery of ultra-strong permanent magnets outperforming Nd-Fe-B.',
+    evidenceLevel: 'DEMONSTRATED',
+    publicUse: 'timeline',
+    timeline: {
+      id: 'kovnir-ai-magnito-magnets',
+      year: 2026,
+      title: 'AI Ultra-Strong Magnets (Kovnir et al.)',
+      tag: 'DEMONSTRATED',
+      order: 23,
+    },
+  },
 ];
 
 export const researchRecords = loadResearchRecords(seedResearchRecords);

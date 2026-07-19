@@ -30,6 +30,7 @@ export const groups: EvidenceGroup[] = [
       { claim: 'Colloidal metal nitride nanocrystals (GaN, TiN, NbN) can be synthesized in molten salts under controlled ammonia pressure.', tag: 'DEMONSTRATED', source: 'Ruiming Lin et al.' },
       { claim: 'Polymer-free transfer of 2D materials using muscovite mica crystals prevents contamination, creating atomically flat, clean interfaces.', tag: 'DEMONSTRATED', source: 'Makars Šiškins et al.' },
       { claim: 'Cerebellum-inspired MoS₂ memtransistors mimic neural balance with excitatory/inhibitory modes to perform low-power anomaly detection.', tag: 'DEMONSTRATED', source: 'Min-A Kang et al.' },
+      { claim: 'AI-driven high-throughput screening and synthesis (MAGNUMS / ARPA-E MAGNITO) accelerates discovery of rare-earth-free ultra-strong permanent magnets.', tag: 'DEMONSTRATED', source: 'Kirill Kovnir et al.' },
     ],
   },
   {
