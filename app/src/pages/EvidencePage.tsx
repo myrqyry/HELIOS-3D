@@ -22,6 +22,7 @@ export const groups: EvidenceGroup[] = [
       { claim: 'Antiferroelectricity coexists with switchable polarization in K₃[Nb₃O₆|(BO₃)₂] hybrid domain walls.', tag: 'DEMONSTRATED', source: 'Ushakov et al.' },
       { claim: 'Deterministic large-area fabrication of high-crystallinity oxide moiré superlattices is demonstrated in NaNbO₃.', tag: 'DEMONSTRATED', source: 'Ghanbari et al.' },
       { claim: 'High-field PEEM magnetic imaging up to 150 mT is demonstrated using micro-scale flux concentrators.', tag: 'DEMONSTRATED', source: 'Barrera et al.' },
+      { claim: 'Machine-learning-guided discovery and synthesis is demonstrated for kagome superconductors YRu₃B₂ and LuRu₃B₂.', tag: 'DEMONSTRATED', source: 'Mustaf et al.' },
     ],
   },
   {

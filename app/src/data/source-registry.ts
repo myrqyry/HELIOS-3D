@@ -20,6 +20,7 @@ const accessibleRecordIds = new Set([
   'catalan-antiferroelectric-perspective',
   'ghanbari-oxide-moire-superlattices',
   'barrera-magnetic-flux-concentrators',
+  'mustaf-kagome-superconductors',
 ]);
 
 const recordSources: SourceRegistryEntry[] = researchRecords.map((record) => {

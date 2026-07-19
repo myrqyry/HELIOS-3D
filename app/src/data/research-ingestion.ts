@@ -416,6 +416,25 @@ const seedResearchRecords: ResearchRecord[] = [
       order: 11,
     },
   },
+  {
+    id: 'mustaf-kagome-superconductors',
+    title: 'Machine-learning-guided discovery of kagome superconductors YRu₃B₂ and LuRu₃B₂',
+    source: 'Mustaf et al.',
+    url: 'https://doi.org/10.1103/lpqj-7hyg',
+    publishedAt: '2026-06-29',
+    stage: 'established',
+    tags: ['machine-learning', 'superconductors', 'kagome-lattice', 'flat-bands', 'materials-discovery'],
+    summary: 'Machine-learning-guided identification and subsequent experimental synthesis and confirmation of new kagome lattice superconductors YRu₃B₂ and LuRu₃B₂ featuring flat bands.',
+    evidenceLevel: 'DEMONSTRATED',
+    publicUse: 'timeline',
+    timeline: {
+      id: 'mustaf-kagome-superconductors',
+      year: 2026,
+      title: 'Kagome flat-band superconductors YRu3B2 / LuRu3B2 (Mustaf)',
+      tag: 'DEMONSTRATED',
+      order: 12,
+    },
+  },
 ];
 
 export const researchRecords = loadResearchRecords(seedResearchRecords);

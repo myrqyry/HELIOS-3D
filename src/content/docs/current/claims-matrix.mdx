@@ -4,9 +4,9 @@ summary: "This file tracks the highest-impact HELIOS-3D claims, where they appea
 stage: current
 tags: []
 figures: []
-updated: 2026-07-18
+updated: 2026-07-19
 ---
-import ClaimsTable from '../../../components/ClaimsTable.astro';
+import ClaimsTable from '../../../components/ClaimsTable';
 
 # Claims Matrix
 
@@ -30,6 +30,7 @@ graph TD
         L5["K₃[Nb₃O₆|(BO₃)₂] hybrid domain walls<br>(Ushakov 2026)"]:::lit
         L6["Large-area oxide moire superlattices<br>in NaNbO₃ (Ghanbari 2026)"]:::lit
         L7["High-field PEEM imaging using<br>micro-MFCs (Barrera 2026)"]:::lit
+        L8["Kagome superconductors YRu₃B₂ / LuRu₃B₂<br>(Mustaf 2026)"]:::lit
     end
 
     subgraph Simulation_Validation ["Lane 2: Simulation Validation (Executable Templates)"]
@@ -98,7 +99,8 @@ graph TD
 | Bio-inspired B-ONN local learning rules eliminate global backpropagation reciprocal path constraints and learn smooth phase profiles robust to SOT alignment/noise perturbations | `core-architecture.mdx`, `literature-review.mdx` | Li et al. (Light: Science & Applications 2026) | Layer-wise target propagation with trainable error convolution kernels ($E$) | Suboptimal convergence in systems with very high degrees of freedom compared to global optimization | Compare classification accuracy of traditional backprop vs. B-ONN local learning on a 9-layer diffractive network stack with phase noise |
 | Silicon-based T-center spin-photonic qubits provide a native telecom-band interface (1326 nm ZPL) and host a three-qubit register with long spin coherence times | `alternative-materials-and-methods.mdx`, `literature-review.mdx` | Islam et al. (Light: Science & Applications 2026) | Monolithic silicon-on-insulator (SOI) integration with nanophotonic cavities to achieve Purcell enhancement | Low Debye-Waller factor (~3-5% ZPL fraction) reduces extraction efficiency | Measure on-chip collection efficiency and spin coherence times of a waveguide-integrated single T-center cavity at 1.2 K |
 | Dual-view Bessel two-photon projection microscopy (dv-B2PM) achieves 100 Hz whole-volume 3D imaging with sub-micron spatial resolution | `literature-review.mdx`, `proposed-fabrication-path-and-control.mdx` | Xu et al. (Light: Science & Applications 2026) | Simultaneous recording of two orthogonal projections using a dual-objective Bessel light-sheet optical system | Scattering and resolution degradation in deep tissue/thick materials limits depth penetration | Compare 3D reconstruction accuracy and acquisition speed of point-scanning 2PM vs. dv-B2PM on active 3D spintronic tracks |
-| Landauer's erasure bound is the Delete-specific limit of a broader CRUD information-thermodynamic framework | `literature-review.mdx`, `defensive-framework.mdx` | Iizumi (Physica A 2026) | Nonequilibrium free-energy inequalities over physical memory states | Theoretical framework only; does not account for physical device preparation and dissipation | Keep if internal algebraic consistency is supported by machine-checked formalization |
+| Machine-learning-guided discovery and synthesis is demonstrated for kagome superconductors YRu₃B₂ and LuRu₃B₂ | `candidate-materials-and-mechanisms.mdx`, `candidate-discovery-pipeline.mdx` | Mustaf et al. (Physical Review Research 2026) | Kagome lattice flat bands | Synthesis scalability or material impurity issues | Demote if superconductivity is found to be driven by non-kagome impurity phases |
+| Landauer's erasure bound is the Delete-specific limit of a broader CRUD information-thermodynamic framework | `literature-review.mdx`, `defensive-framework.mdx` | Iizumi (Physica A 2026) | Noneequilibrium free-energy inequalities over physical memory states | Theoretical framework only; does not account for physical device preparation and dissipation | Keep if internal algebraic consistency is supported by machine-checked formalization |
 | Classical reversible logic can be proposed using coherent spin dynamics in semiconductor quantum-dot arrays | `literature-review.mdx`, `core-architecture.mdx` | Loss (arXiv:2607.06219v1, 2026) | Coherent spin dynamics in quantum-dot arrays with DC voltage pulses | Theoretical/simulation proposal; experimental verification of three-spin gate and error scaling needed | Promote after experimental demonstration of coherent three-spin classical gate |
 | Quantum reservoir performance links to microscopic energetic cost via Holevo memory/predictive capacities | `literature-review.mdx`, `core-architecture.mdx` | Ding & Qiu (arXiv:2607.02157v1, 2026) | Quantum many-body reservoir models out of equilibrium | Theoretical preprint; transfer to magnetic textures or 2D stacks is conceptual only | Promote when reservoir validation metrics are measured in physical hardware |
 | Antiferroelectricity and switchable polarization can coexist in K₃[Nb₃O₆|(BO₃)₂] | `candidate-materials-and-mechanisms.mdx`, `literature-review.mdx` | Ushakov et al. (Nature Nanotechnology 2026) | Noncollinear antipolar structure with slight octahedral tilt | Complete dipoles cancellation in all directions | Demote if structural symmetry analysis rules out net polarization |
@@ -165,3 +167,12 @@ graph TD
 **HELIOS relevance:** Enables the characterization of hard/semi-hard magnetic layers and high-bias topological spin textures (like hopfions and skyrmions) that require fields exceeding the traditional 30 mT PEEM limit. Integrating micro-MFCs directly onto test substrates allows for in-situ observation of field-dependent transitions.
 **Does not support:** 3D volumetric printing, direct hopfion electrical readout, or sub-Landauer compute core operations.
 **Failure/blocker notes:** Requires precise integration of the micro-scale MFC geometry directly around or under the spintronic test structures. Fabrication misalignment or sample-concentrator magnetic coupling could perturb the local spin states being imaged.
+
+### Machine-learning-guided discovery of kagome superconductors
+**Claim level:** Demonstrated experimentally
+**Subsystem:** material discovery, candidate screening, flat-band systems, kagome lattices
+**Source:** Mustaf et al., *Machine-learning-guided discovery of kagome superconductors YRu₃B₂ and LuRu₃B₂*, *Physical Review Research* (2026). DOI: `10.1103/lpqj-7hyg`
+**Supported statement:** Machine learning can be used to prescreen billions of elemental combinations, which, followed by targeted calculations and synthesis, can successfully identify and confirm new kagome lattice superconductors ($YRu_3B_2$ and $LuRu_3B_2$) featuring flat bands.
+**HELIOS relevance:** Validates the machine-learning-guided candidate discovery pipeline. Flat-band kagome materials offer stable physical systems to investigate topological transport, correlation effects, and electron-spin dynamics for spintronic device designs.
+**Does not support:** 3D hopfion stabilization, skyrmion/hopfion reservoir computing specifically, or full HELIOS-3D integration.
+**Failure/blocker notes:** Finding viable superconductors is computationally heavy; and even if theoretical screening succeeds, synthesis remains a complex chemical combination process. Real-world devices require verifying that the superconducting properties persist in thin-film configurations.

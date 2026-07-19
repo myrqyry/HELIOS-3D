@@ -4,7 +4,7 @@ summary: "Interactive evidence mapping and literature analysis for HELIOS-3D."
 stage: established
 tags: ["DEMONSTRATED", "INFERRED", "PROPOSED"]
 figures: []
-updated: 2026-07-18
+updated: 2026-07-19
 ---
 import LiteratureTimeline from '../../../components/charts/LiteratureTimeline.tsx';
 import { ExpandableChunk, TermTooltip, MetricPopover } from '../../../components/ui';
@@ -372,6 +372,15 @@ Gao et al. (2026) demonstrate that high-dielectric **SrTiO3** substrates can tun
   **HELIOS-3D Application:** Provides a method for in-field characterization of hopfions, skyrmions, and domain walls under high bias. By integrating micro-scale MFCs onto our characterization templates, we can monitor the evolution of magnetic textures under strong local driving fields (up to 150 mT) using high-resolution XMCD-PEEM. This enables the direct verification of topological switching thresholds and phase transitions in semi-hard/hard spintronic heterostructures. `[PROPOSED]` [Barrera et al. 2026]
 </ExpandableChunk>
 
+<ExpandableChunk 
+  title="Machine-learning-guided discovery of kagome superconductors YRu₃B₂ and LuRu₃B₂ (Mustaf et al., Physical Review Research 2026)" 
+  summary="Demonstration of machine learning to accelerate candidate screening, identifying YRu₃B₂ and LuRu₃B₂ as kagome lattice flat-band superconductors."
+>
+  Mustaf et al. (*Physical Review Research* 2026, DOI: `10.1103/lpqj-7hyg`) present a machine-learning-based prescreening workflow to search for superconductivity across a practically infinite phase space of elemental combinations. By screening candidates with a unique ML algorithm followed by targeted calculations, they successfully identified and subsequently synthesized two new kagome lattice superconductors, $YRu_3B_2$ and $LuRu_3B_2$. Experimental testing at Rice University confirmed that their superconductivity is driven by flat bands in a hexagonal Japanese basket-weaving (kagome) lattice pattern.
+
+  **HELIOS-3D Application:** Validates the machine-learning-guided candidate discovery pipeline. The flat bands in these kagome lattices can serve as clean models for investigating correlation effects, topological transport, and electron-spin dynamics, helping us screen and demote candidate materials systematically. `[DEMONSTRATED]` [Mustaf et al. 2026]
+</ExpandableChunk>
+
 ## 8. Evidence Lanes & Citation Map
 
 This section maps our conceptual framework and validation philosophy to empirical and theoretical literature through distinct evidence lanes.
@@ -402,6 +411,9 @@ This section maps our conceptual framework and validation philosophy to empirica
 
 ### Evidence Lane: High-Field Nanoscale Magnetic Characterization
 - **Barrera et al. 2026 (Small):** Flower-like magnetic flux concentrators (MFCs) for high-field (150 mT) XMCD-PEEM imaging of spintronic materials.
+
+### Evidence Lane: Machine-Learning-Guided Materials Discovery
+- **Mustaf et al. 2026 (Physical Review Research):** ML-guided discovery, screening, synthesis, and characterization of flat-band kagome superconductors $YRu_3B_2$ and $LuRu_3B_2$.
 
 
 
