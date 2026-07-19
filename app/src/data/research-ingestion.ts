@@ -587,6 +587,25 @@ const seedResearchRecords: ResearchRecord[] = [
       order: 20,
     },
   },
+  {
+    id: 'lin-colloidal-metal-nitrides',
+    title: 'Ammonia pressure controls colloidal metal nitride synthesis in molten salts',
+    source: 'Ruiming Lin et al.',
+    url: 'https://doi.org/10.1038/s41586-026-10801-3',
+    publishedAt: '2026-07-15',
+    stage: 'current',
+    tags: ['nanocrystals', 'metal-nitrides', 'molten-salts', 'superconductors', 'gallium-nitride', 'niobium-nitride'],
+    summary: 'Demonstration of molten-salt colloidal synthesis of metal nitride nanocrystals (GaN, TiN, NbN) by optimizing temperature and ammonia pressure to dynamically control metal-nitrogen bond exchange.',
+    evidenceLevel: 'DEMONSTRATED',
+    publicUse: 'timeline',
+    timeline: {
+      id: 'lin-colloidal-metal-nitrides',
+      year: 2026,
+      title: 'Colloidal metal nitrides (Lin et al.)',
+      tag: 'DEMONSTRATED',
+      order: 21,
+    },
+  },
 ];
 
 export const researchRecords = loadResearchRecords(seedResearchRecords);

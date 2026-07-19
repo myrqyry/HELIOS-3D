@@ -29,6 +29,7 @@ const accessibleRecordIds = new Set([
   'mos2-cerebellum-memtransistors-spintronics',
   'edge-slm-delta-net-qpu-self-correction',
   'adak-excitons-vdw-magnetism',
+  'lin-colloidal-metal-nitrides',
 ]);
 
 const recordSources: SourceRegistryEntry[] = researchRecords.map((record) => {

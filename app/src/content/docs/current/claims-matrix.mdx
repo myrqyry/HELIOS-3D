@@ -36,6 +36,7 @@ graph TD
         L11["Ultra-large SHNO mutual synchronization<br>(SHNO Group 2026)"]:::lit
         L12["One-shot holographic 3D printing<br>(SU-8 Group 2026)"]:::lit
         L13["Excitons in vdW magnetic semiconductors<br>(Adak 2026)"]:::lit
+        L14["Molten-salt colloidal metal nitrides<br>(Lin 2026)"]:::lit
     end
 
     subgraph Simulation_Validation ["Lane 2: Simulation Validation (Executable Templates)"]
@@ -110,6 +111,7 @@ graph TD
 | Mutual synchronization in ultra-large SHNO arrays achieves nanosecond-scale phase ordering with Q > 10⁶ | `alternative-materials-and-methods.mdx`, `literature-review.mdx` | SHNO Research Team (PRL 2026) | Kuramoto-type phase ordering in W-Ta/CoFeB arrays | Thermal dissipation limit or phase mismatch in large networks | Verify microwave output power scaling and linewidth narrowing in SHNO lattices |
 | One-shot holographic 3D printing of SU-8 polymer microstructures fuses shapes in 20 seconds with 6 µm resolution | `proposed-fabrication-path-and-control.mdx`, `literature-review.mdx` | SU-8 Holographic Team (Advanced Materials 2026) | Nanoscale lens mask and SU-8 substrate | Currently limited to extended 2D profiles without true 3D shape control | Compare aspect ratio and print times of TPP vs. holographic printing on active substrates |
 | Excitons in van der Waals magnetic materials couple directly to magnetic order and magnons, enhancing magneto-optical readout | `candidate-materials-and-mechanisms.mdx`, `literature-review.mdx` | Pratap Chandra Adak et al. (Nature Materials 2026) | Layered magnetic semiconductors (CrI₃, NiPS₃, CrSBr) | Weak optical coupling efficiency or low-temperature operational limit | Measure magneto-optical polarization rotation and exciton-magnon dynamics in stacked vdW devices |
+| Colloidal metal nitride nanocrystals (GaN, TiN, NbN) can be synthesized in molten salts under controlled ammonia pressure | `candidate-materials-and-mechanisms.mdx`, `candidate-discovery-pipeline.mdx`, `literature-review.mdx` | Ruiming Lin et al. (Nature 2026) | Molten-salt colloidal synthesis with ammonia pressure control | Scaling up batch production yields or maintaining size distribution | Verify nanoparticle size distribution and superconducting properties of NbN nanocrystals |
 | Landauer's erasure bound is the Delete-specific limit of a broader CRUD information-thermodynamic framework | `literature-review.mdx`, `defensive-framework.mdx` | Iizumi (Physica A 2026) | Noneequilibrium free-energy inequalities over physical memory states | Theoretical framework only; does not account for physical device preparation and dissipation | Keep if internal algebraic consistency is supported by machine-checked formalization |
 | Classical reversible logic can be proposed using coherent spin dynamics in semiconductor quantum-dot arrays | `literature-review.mdx`, `core-architecture.mdx` | Loss (arXiv:2607.06219v1, 2026) | Coherent spin dynamics in quantum-dot arrays with DC voltage pulses | Theoretical/simulation proposal; experimental verification of three-spin gate and error scaling needed | Promote after experimental demonstration of coherent three-spin classical gate |
 | Quantum reservoir performance links to microscopic energetic cost via Holevo memory/predictive capacities | `literature-review.mdx`, `core-architecture.mdx` | Ding & Qiu (arXiv:2607.02157v1, 2026) | Quantum many-body reservoir models out of equilibrium | Theoretical preprint; transfer to magnetic textures or 2D stacks is conceptual only | Promote when reservoir validation metrics are measured in physical hardware |
@@ -261,5 +263,15 @@ graph TD
 **HELIOS relevance:** Validates direct light-matter coupling in 2D magnetic vdW layers. This supports the development of non-destructive optical state readout channels and optical control interfaces for 3D spintronic active stacks.
 **Does not support:** Room-temperature skyrmion/hopfion writing without magnetic fields, or 3D holographic polymer printing.
 **Failure/blocker notes:** Currently limited to cryogenic or specific low-temperature regimes, and material degradation/surface defects in vdW flakes can disrupt optical coherence.
+
+### Colloidal metal nitride nanocrystals
+**Claim level:** Demonstrated experimentally
+**Subsystem:** colloidal synthesis, metal nitrides, polymer nanocomposites, superconductors
+**Source:** Ruiming Lin et al., *Ammonia pressure controls colloidal metal nitride synthesis in molten salts*, *Nature* (2026). DOI: `10.1038/s41586-026-10801-3`
+**Supported statement:** Colloidal metal nitride nanocrystals ($GaN$, $TiN$, $NbN$) can be synthesized in molten salt solvents by optimizing temperature and ammonia ($NH_3$) pressure, enabling strong covalent metal-nitrogen bonds to dynamically detach and reassociate.
+**HELIOS relevance:** Supports the development of printed superconducting interconnects (using $NbN$) and polymer-nanocomposite active/passive layers that can be embedded directly into 3D printed structural scaffolds.
+**Does not support:** Magnetic texture stabilization or direct magnon propagation.
+**Failure/blocker notes:** Nano-dispersion within photoresins must be monitored to prevent nanoparticle aggregation or scattering, and superconducting $NbN$ phase purity must be validated under post-print annealing conditions.
+
 
 
