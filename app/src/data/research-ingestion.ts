@@ -435,6 +435,25 @@ const seedResearchRecords: ResearchRecord[] = [
       order: 12,
     },
   },
+  {
+    id: 'park-programmable-crit-slow-light',
+    title: 'Fully Programmable Slow Light Based on a Spinor Representation of Generalized Coupled‐Resonator‐Induced Transparency',
+    source: 'Park et al.',
+    url: 'https://doi.org/10.1002/advs.76378',
+    publishedAt: '2026-06-30',
+    stage: 'current',
+    tags: ['photonic-integrated-circuits', 'slow-light', 'optical-buffers', 'coupled-resonator-induced-transparency', 'spinor-representation'],
+    summary: 'A new design principle for programmable photonic integrated circuits on silicon nitride, treating bright/dark optical states as a single spinor degree of freedom with two loop couplers for real-time control of light speed and shape.',
+    evidenceLevel: 'INFERRED',
+    publicUse: 'timeline',
+    timeline: {
+      id: 'park-programmable-crit-slow-light',
+      year: 2026,
+      title: 'Programmable slow-light PICs (Park)',
+      tag: 'INFERRED',
+      order: 13,
+    },
+  },
 ];
 
 export const researchRecords = loadResearchRecords(seedResearchRecords);

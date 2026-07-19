@@ -33,6 +33,7 @@ export const groups: EvidenceGroup[] = [
     rows: [
       { claim: 'A planar-first, electrically read multilayer stack is the minimum credible validation path.', tag: 'INFERRED', source: 'Current demonstrator memo' },
       { claim: 'TOHE could provide a measurable experimental readout channel for a hopfion’s transverse orbital response.', tag: 'INFERRED', source: 'Literature-to-experiment mapping' },
+      { claim: 'Programmable slow-light PICs enable real-time control of optical signal speed and shape on silicon nitride.', tag: 'INFERRED', source: 'Park et al.' },
     ],
   },
   {

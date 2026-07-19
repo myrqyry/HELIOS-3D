@@ -4,7 +4,7 @@ summary: "This memo evaluates lower-risk alternatives that preserve the HELIOS-3
 stage: current
 tags: []
 figures: []
-updated: 2026-06-03
+updated: 2026-07-19
 ---
 # HELIOS-3D: Alternative Materials and Methods Decision Memo
 
@@ -506,6 +506,14 @@ While hBN $V_B^-$ vacancies offer planar 2D compatibility, they still require sp
 *   **Native Telecom Emission:** The T center exhibits a zero-phonon line (ZPL) doublet at ~1326 nm (telecom O-band), matching standard optical fibers and silicon waveguides without requiring lossy quantum frequency conversion.
 *   **Multi-Qubit Spin Register:** The neutral T center hosts an electron spin ($S=1/2$) coupled to a ¹H nuclear spin ($I=1/2$) and a nearby ²⁹Si nuclear spin ($I=1/2$), providing a long-lived three-qubit quantum memory ($T_2 \approx 0.41$ ms for electron, $T_{2,H} \approx 112$ ms for ¹H at 1.2 K) that can be initialized and read out optically.
 *   **Purcell-Enhanced Nanophotonics:** Integrating T centers into silicon nanophotonic cavities (e.g., photonic crystals or nanobeams) can yield a >10× enhancement of ZPL emission and >10% on-chip collection efficiency, enabling scalable on-chip spin-photon interfaces. `[PROPOSED]` [Islam et al. 2026]
+
+### 6.1.7 Programmable Silicon Nitride ($Si_3N_4$) Photonic Integrated Circuits for Slow-Light Buffering
+
+For optical-spintronic coprocessors like HELIOS-3D, synchronizing the arrival times of spin-photon readout pulses and delaying signals is crucial for multi-core array alignment. Seungkyun Park et al. (*Advanced Science* 2026, DOI: `10.1002/advs.76378`) present a programmable slow-light photonic integrated circuit platform that resolves the inflexibility of conventional fixed-delay structures:
+- **Spinor Representation of CRIT:** By treating bright and dark modes in coupled-resonator-induced transparency (CRIT) as a single spinor-like degree of freedom and incorporating two controllable loop couplers, the design allows the speed and shape of optical pulses to be dynamically controlled in real time.
+- **On-Demand Slow Light:** The platform enables real-time adjustments of signal delay times and passband bandwidths without requiring additional specialized frequency-conversion components.
+- **Si₃N₄ Waveguide Integration:** 3D electromagnetic simulations verify the design's viability on a low-loss, stable silicon nitride ($Si_3N_4$) waveguide platform under realistic constraints (material loss, thermal crosstalk, backscattering).
+- **HELIOS-3D Application:** Proposes integrating these programmable $Si_3N_4$ delay lines and buffers within the optical routing layer. This provides real-time control over temporal delay and signal synchronization between MCA/BRC spintronic tiers and the optical interconnect bus. `[PROPOSED]` [Park et al. 2026]
 
 ## 7. Recommended Minimum Viable Demonstrator Revision
 

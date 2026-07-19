@@ -21,6 +21,7 @@ const accessibleRecordIds = new Set([
   'ghanbari-oxide-moire-superlattices',
   'barrera-magnetic-flux-concentrators',
   'mustaf-kagome-superconductors',
+  'park-programmable-crit-slow-light',
 ]);
 
 const recordSources: SourceRegistryEntry[] = researchRecords.map((record) => {
