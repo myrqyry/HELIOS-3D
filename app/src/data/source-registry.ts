@@ -30,6 +30,7 @@ const accessibleRecordIds = new Set([
   'edge-slm-delta-net-qpu-self-correction',
   'super-moire-dmi-hopfion-stabilizer',
   'cte-graded-nanolaminate-scaffold-buffer',
+  'plasmonic-spin-galvanic-optoelectronic-readout',
   'adak-excitons-vdw-magnetism',
   'lin-colloidal-metal-nitrides',
   'siskins-polymer-free-vdw-assembly',

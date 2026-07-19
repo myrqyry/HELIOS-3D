@@ -57,6 +57,7 @@ export const groups: EvidenceGroup[] = [
       { claim: 'On-device edge reasoning using Gated DeltaNet SLMs is proposed for real-time QPU self-correction.', tag: 'PROPOSED', source: 'Local SLM Engineering' },
       { claim: 'Super-Moiré Interfacial DMI Stressor Films (IrMn/CoFeB/Pt S-SAF) are proposed to lock 3D hopfion binding energy (>50 k_B T) up to 400 K.', tag: 'PROPOSED', source: 'HELIOS-3D Theoretical Design Group' },
       { claim: 'CTE-Graded Nanolaminates (ALD TiO₂/Al₂O₃) and nanocomposite photoresins (TiN/SiO₂) are proposed to suppress 3D scaffold delamination under thermal cycling.', tag: 'PROPOSED', source: 'HELIOS-3D Theoretical Design Group' },
+      { claim: 'Near-Field Spin-Galvanic Plasmonic Micro-Cavities (Si₃N₄/Au + 2D TMDs) are proposed to reduce GHz microwave readout power by >100x.', tag: 'PROPOSED', source: 'HELIOS-3D Theoretical Design Group' },
     ],
   },
 ];
