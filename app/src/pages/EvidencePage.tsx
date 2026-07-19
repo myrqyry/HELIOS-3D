@@ -36,6 +36,9 @@ export const groups: EvidenceGroup[] = [
       { claim: 'Unified theory of programmable matter (IPF) utilizes artificial spin ice (ASI) and topological defects for reconfigurable physical memory and emergent computation.', tag: 'DEMONSTRATED', source: 'Inphinie (IPF 2026)' },
       { claim: 'Advanced twistronics and Moiré superlattices enable magic-angle flat-band spin localization and chiral spin-orbit coupling in 2D heterostructures.', tag: 'DEMONSTRATED', source: 'Inphinie (Twistronique 2026)' },
       { claim: 'Biomimetic MemComputing architecture (LSP-1) utilizes Davydov soliton solitary waves and Grotthuss proton hopping along Kagome networks for near-reversible energy transport.', tag: 'DEMONSTRATED', source: 'Inphinie (LSP-1 2026)' },
+      { claim: 'Geometric Causal Information (GCI) and spatial incompatibility drive topological field folding and emergent physical structure in frustrated geometries.', tag: 'DEMONSTRATED', source: 'Inphinie (Lichen Geometry 2026)' },
+      { claim: 'Frustrated free-energy landscape relaxation resolves Levinthal-type navigation paradoxes to accelerate state convergence in complex physical memory networks.', tag: 'DEMONSTRATED', source: 'Inphinie (Biophysique Frustration 2026)' },
+      { claim: 'The Matter-Computer (Ordinateur-Matière) architecture unifies topological memory (Majorana/Skyrmions/Hopfions), Kuramoto synchronization, and Discrete Time Crystals.', tag: 'DEMONSTRATED', source: 'Inphinie (Ordinateur-Matière 2026)' },
     ],
   },
   {

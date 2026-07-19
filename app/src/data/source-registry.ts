@@ -40,6 +40,9 @@ const accessibleRecordIds = new Set([
   'inphinie-ipf-programmable-matter',
   'inphinie-twistronique',
   'inphinie-lsp1-thermodynamic-sailing',
+  'inphinie-lichen-geometry',
+  'inphinie-biophysique-frustration',
+  'inphinie-ordinateur-matiere',
 ]);
 
 const recordSources: SourceRegistryEntry[] = researchRecords.map((record) => {
