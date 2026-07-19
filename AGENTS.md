@@ -74,3 +74,26 @@ then the nearest nested instruction file.
 - `src/components/r3f/` is the old Astro Three.js client-hydration area; keep
   heavy scene work in `app/src/components/r3f/` for the new app.
 - `app/src/components/r3f/` has its own AGENTS.md with exhibit/scene patterns.
+
+## Theoretical Research Ingestion & Scaffold Sync Protocol
+
+When ingesting external theoretical research or GitHub inspiration repositories (e.g., Inphinie / Lichen Universe framework repos):
+
+1. **Research Ingestion Ledger & Source Registry:**
+   - Add a seed record to `app/src/data/research-ingestion.ts` with attribution, tags, summary, and `publicUse: 'timeline'`.
+   - Register the new ID in `accessibleRecordIds` inside `app/src/data/source-registry.ts`.
+   - Add a demonstrated/inferred claim row in `app/src/pages/EvidencePage.tsx`.
+
+2. **Literature & Claims Matrix Integration:**
+   - Add an `ExpandableChunk` Literature Card and an Evidence Lane item in `app/src/content/docs/established/literature-review.mdx`.
+   - Assign sequential Mermaid nodes (`L18`, `L19`, `L20`, etc.) in the Literature subgraph of `app/src/content/docs/current/claims-matrix.mdx`.
+   - Add a row to the Claims Matrix table matching the 6-column format: `| Claim description | File references | Source | Subsystem | Failure notes | Promotion criteria |`.
+   - Append a detailed claim write-up under `### [Title]` in `claims-matrix.mdx`.
+
+3. **Double-Scaffold Sync Requirement:**
+   - After editing any `.mdx` documentation in `app/src/content/docs/`, immediately execute `cp app/src/content/docs/... src/content/docs/...` to keep the legacy and active Vite app content in 100% lockstep.
+
+4. **Verification Suite:**
+   - Always run the full verification battery after ingestion:
+     `pnpm --dir app test run && make check-claims && make test && make validate-erc && pnpm --dir app build`
+
