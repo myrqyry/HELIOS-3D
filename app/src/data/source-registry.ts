@@ -29,6 +29,7 @@ const accessibleRecordIds = new Set([
   'mos2-cerebellum-memtransistors-spintronics',
   'edge-slm-delta-net-qpu-self-correction',
   'super-moire-dmi-hopfion-stabilizer',
+  'cte-graded-nanolaminate-scaffold-buffer',
   'adak-excitons-vdw-magnetism',
   'lin-colloidal-metal-nitrides',
   'siskins-polymer-free-vdw-assembly',

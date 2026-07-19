@@ -62,6 +62,7 @@ graph TD
         H3["Zero-bias BRC reservoir computation<br>running on ambient heat"]:::spec
         H4["TOHE electrical readout and<br>sub-GHz breathing mode spectroscopy"]:::spec
         H5["Super-Moiré DMI Stressors<br>(S-SAF 3D Hopfion Locking)"]:::spec
+        H6["CTE-Graded Nanolaminates<br>(Scaffold Delamination Lock)"]:::spec
     end
 
     %% Connect lanes logically to show progression
@@ -120,6 +121,7 @@ graph TD
 | Cerebellum-inspired MoS₂ memtransistors mimic neural balance with excitatory/inhibitory modes to perform low-power anomaly detection | `alternative-materials-and-methods.mdx`, `literature-review.mdx` | Min-A Kang et al. (Nature Communications 2026) | Asymmetric transistor with overlapping Al₂O₃ dielectric | Interfacial charge trapping or high operational voltage switching | Measure anomaly detection accuracy and power limits under continuous ECG sweep tests |
 | AI-driven high-throughput screening and synthesis (MAGNUMS / ARPA-E MAGNITO) accelerates discovery of rare-earth-free ultra-strong permanent magnets | `candidate-materials-and-mechanisms.mdx`, `candidate-discovery-pipeline.mdx`, `literature-review.mdx` | Kirill Kovnir et al. (Ames Lab / ARPA-E 2026) | Physics-informed ML with molten-salt synthesis | Thermal demagnetization or phase stability under high magnetic anisotropy | Measure saturation magnetization and anisotropy field of screened permanent magnet candidates |
 | Super-Moiré Interfacial DMI Stressor Films (IrMn/CoFeB/Pt S-SAF) are proposed to lock 3D hopfion binding energy (>50 k_B T) up to 400 K | `candidate-materials-and-mechanisms.mdx`, `alternative-materials-and-methods.mdx`, `open-questions.mdx` | HELIOS-3D Theoretical Design Group (2026) | Chiral synthetic antiferromagnet (S-SAF) with strain moiré | Interfacial strain relaxation or pinhole defects in ultrathin IrMn layers | Measure temperature-dependent 3D DMI and hopfion decay rates up to 400 K in S-SAF test micro-harbors |
+| CTE-Graded Nanolaminates (ALD TiO₂/Al₂O₃) and nanocomposite photoresins (TiN/SiO₂) are proposed to suppress 3D scaffold delamination under thermal cycling | `candidate-materials-and-mechanisms.mdx`, `alternative-materials-and-methods.mdx`, `open-questions.mdx` | HELIOS-3D Theoretical Design Group (2026) | Low-temp ALD nanolaminate with TiN nanocomposite resin | Pinholes or interface trap states in ALD TiO₂/Al₂O₃ interlayers | Measure adhesion strength and CTE mismatch strain under 300K-375K thermal cycling |
 | Landauer's erasure bound is the Delete-specific limit of a broader CRUD information-thermodynamic framework | `literature-review.mdx`, `defensive-framework.mdx` | Iizumi (Physica A 2026) | Noneequilibrium free-energy inequalities over physical memory states | Theoretical framework only; does not account for physical device preparation and dissipation | Keep if internal algebraic consistency is supported by machine-checked formalization |
 | Classical reversible logic can be proposed using coherent spin dynamics in semiconductor quantum-dot arrays | `literature-review.mdx`, `core-architecture.mdx` | Loss (arXiv:2607.06219v1, 2026) | Coherent spin dynamics in quantum-dot arrays with DC voltage pulses | Theoretical/simulation proposal; experimental verification of three-spin gate and error scaling needed | Promote after experimental demonstration of coherent three-spin classical gate |
 | Quantum reservoir performance links to microscopic energetic cost via Holevo memory/predictive capacities | `literature-review.mdx`, `core-architecture.mdx` | Ding & Qiu (arXiv:2607.02157v1, 2026) | Quantum many-body reservoir models out of equilibrium | Theoretical preprint; transfer to magnetic textures or 2D stacks is conceptual only | Promote when reservoir validation metrics are measured in physical hardware |
@@ -307,6 +309,16 @@ graph TD
 **HELIOS relevance:** Directly addresses Data Center Stability and high-temperature thermal decay of 3D hopfion textures without requiring external magnetic bias fields.
 **Does not support:** Room-temperature 3D holographic polymer printing or direct optoelectronic logic conversion.
 **Failure/blocker notes:** Interfacial strain relaxation over thermal cycling and pinhole defects in ultrathin $IrMn$ layers could cause local DMI degradation and texture drift.
+
+### CTE-Graded Nanolaminates and Nanocomposite Resins for Scaffold Strain Relief
+**Claim level:** Speculative / proposed
+**Subsystem:** 3D scaffold integration, thermal expansion mismatch, ALD buffer layers, nanocomposite photoresins
+**Source:** HELIOS-3D Theoretical Design Group, *CTE-Graded Nanolaminates and Nanocomposite Resins for Strain-Relieved 3D Scaffold Integration* (2026).
+**Supported statement:** Combining inorganic nanocomposite photoresins ($TiN$/$SiO_2$) with conformal low-temp ALD $TiO_2/Al_2O_3$ elastic gradient interlayers suppresses peak interfacial shear stress by $>85\%$, preventing 3D scaffold delamination under 300K-375K thermal cycling.
+**HELIOS relevance:** Solves Vulnerability #1 (scaffold delamination and film cracking), enabling long-term thermal reliability for 3D integrated spintronic circuits.
+**Does not support:** Direct room-temperature skyrmion/hopfion writing or microwave signal amplification.
+**Failure/blocker notes:** High loading of $TiN$ or $SiO_2$ nanoparticles in photoresins must be optimized to prevent light scattering during TPP/holographic 3D lithography.
+
 
 
 

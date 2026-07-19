@@ -56,6 +56,7 @@ export const groups: EvidenceGroup[] = [
       { claim: 'Cerebellum-inspired MoS₂ memtransistors combined with synchronized SHNO arrays enable always-on neuromorphic anomaly detection.', tag: 'PROPOSED', source: 'Memtransistor Research Group' },
       { claim: 'On-device edge reasoning using Gated DeltaNet SLMs is proposed for real-time QPU self-correction.', tag: 'PROPOSED', source: 'Local SLM Engineering' },
       { claim: 'Super-Moiré Interfacial DMI Stressor Films (IrMn/CoFeB/Pt S-SAF) are proposed to lock 3D hopfion binding energy (>50 k_B T) up to 400 K.', tag: 'PROPOSED', source: 'HELIOS-3D Theoretical Design Group' },
+      { claim: 'CTE-Graded Nanolaminates (ALD TiO₂/Al₂O₃) and nanocomposite photoresins (TiN/SiO₂) are proposed to suppress 3D scaffold delamination under thermal cycling.', tag: 'PROPOSED', source: 'HELIOS-3D Theoretical Design Group' },
     ],
   },
 ];
