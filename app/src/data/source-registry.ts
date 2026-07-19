@@ -25,6 +25,9 @@ const accessibleRecordIds = new Set([
   'rf-seb-dispersive-spin-sensing',
   'shno-mutual-synchronization',
   'su8-one-shot-holographic-printing',
+  'alphaevolve-quantum-lithography-discovery',
+  'mos2-cerebellum-memtransistors-spintronics',
+  'edge-slm-delta-net-qpu-self-correction',
 ]);
 
 const recordSources: SourceRegistryEntry[] = researchRecords.map((record) => {

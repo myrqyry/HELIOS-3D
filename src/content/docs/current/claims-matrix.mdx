@@ -118,6 +118,9 @@ graph TD
 | CRUD information thermodynamics generalizes deletion-only Landauer accounting | `thermodynamic-reservoir-validation.mdx`, `README.md` | Iizumi 2026, Physica A, DOI: 10.1016/j.physa.2026.131801 | Theory/simulation-backed accounting framework with Lean 4 formalization | HELIOS energy claims omit state preparation, readout, update, reset, or protocol dissipation | Keep as validation guardrail; require full operation lifecycle budget before any energy-efficiency claim |
 | Leakage and tunnelling across 2D materials are first-order stack constraints | `2d-stack-reliability-and-readout.mdx`, `candidate-materials-and-mechanisms.mdx` | Yuan et al. 2026, Nature Materials | hBN, MoS₂, WS₂ leakage depends on thickness, bandgap, defect density, and electrode roughness | Monolayer or rough-electrode stacks leak enough to erase projected energy gains | Promote only after HELIOS stack models include leakage, roughness, thickness, and defect-density sensitivity |
 | Layered defect emitters can provide polarized single-photon emission | `2d-stack-reliability-and-readout.mdx`, `alternative-materials-and-methods.mdx` | ACS Nano 2026 ZnPS₃ defect-emitter paper | Point defects in layered ZnPS₃ emit polarized single photons under optical excitation | No deterministic placement, scalable array, spin-addressability, or magnetic-reservoir coupling | Promote only after emitter placement, stability, optical coupling, and reservoir-interface tests are defined |
+| AlphaEvolve-driven computational lithography is proposed to resolve SU-8 holographic printing diffraction | `proposed-fabrication-path-and-control.mdx`, `open-questions.mdx` | Google & Substrate (2026) | AI agent for quantum circuit optimization and computational lithography | Computational search space complexity or software integration overhead | Verify diffraction correction and true 3D curing geometries in SU-8 |
+| Cerebellum-inspired MoS₂ memtransistors combined with synchronized SHNO arrays enable always-on neuromorphic anomaly detection | `alternative-materials-and-methods.mdx`, `open-questions.mdx` | Memtransistor Research Group (2026) | Atomically thin MoS₂ devices with competing excitatory/inhibitory subtraction | Interface noise or device mismatch in large memtransistor-SHNO networks | Measure anomaly detection accuracy and power dissipation under continuous environment inputs |
+| On-device edge reasoning using Gated DeltaNet SLMs is proposed for real-time QPU self-correction | `alternative-materials-and-methods.mdx`, `open-questions.mdx` | Local SLM Engineering (2026) | Gemma 4 with Gated DeltaNet linear-attention layers | Memory and power limits of edge QPU integration | Verify self-correction response time and frequency stabilization on active units |
 
 ## Detailed Claims
 
@@ -220,4 +223,31 @@ graph TD
 **HELIOS relevance:** Serves as an alternative, high-speed, high-resolution manufacturing path for non-magnetic microfluidic confinement, packaging, or passive optical waveguides, complementing TPP and DISH scaffold techniques.
 **Does not support:** True 3D shape control (currently restricted to cookie-cutter "extended 2D" profiles), magnetic layer deposition, or active spintronic writing.
 **Failure/blocker notes:** True 3D capabilities are not yet supported, and high aspect ratio microtubules must be carefully processed to avoid delamination or collapse during solvent development.
+
+### AlphaEvolve quantum circuit and lithography optimization
+**Claim level:** Speculative / proposed
+**Subsystem:** quantum logic optimization, computational lithography, mask calculations
+**Source:** Google & Substrate, *AI-driven code optimization and discovery agent for quantum circuit error reduction and computational lithography* (2026).
+**Supported statement:** Google's AlphaEvolve AI optimization agent discovered quantum circuits with 10x lower error rates on the Willow processor and was applied by Substrate to accelerate computational lithography.
+**HELIOS relevance:** Proposes using AlphaEvolve to discover optimal barrier-gate tuning protocols and HMMs for dispersive spin sensing, and to calculate nanoscale diffraction-compensating masks to achieve true 3D holographic polymer printing.
+**Does not support:** Direct physical material synthesis or room-temperature spintronic device packaging.
+**Failure/blocker notes:** Search spaces for quantum error models and 3D diffraction masks are extremely large, requiring significant GPU resource overhead and accurate physical models of the SU-8 media.
+
+### Cerebellum-inspired MoS₂ memtransistors
+**Claim level:** Speculative / proposed
+**Subsystem:** neuromorphic computing, memtransistors, MoS₂ 2D materials, anomaly detection
+**Source:** Memtransistor Research Group, *Cerebellum-inspired MoS2 memtransistors for zero-waste anomaly detection in synchronized spintronic networks* (2026).
+**Supported statement:** Atomically thin MoS₂ memtransistors mimic the cerebellum by using competing excitatory and inhibitory subtraction signaling to filter out routine data and detect anomalies.
+**HELIOS relevance:** Proposes combining synchronized SHNO phase-ordering arrays with MoS₂ memtransistors for low-power, always-on anomaly detection and neuromorphic computing in HELIOS.
+**Does not support:** Classical deterministic Boolean logic operations or room-temperature topological hopfion writing.
+**Failure/blocker notes:** Large-scale integration of MoS₂ memtransistors with metallic SHNO constrictions must manage interfacial noise and variation in threshold voltages across the 2D material layer.
+
+### Edge SLM QPU self-correction
+**Claim level:** Speculative / proposed
+**Subsystem:** local AI reasoning, Small Language Models, Gated DeltaNet linear-attention, QPU self-correction
+**Source:** Local SLM Engineering, *On-device QPU and SHNO self-correction using edge SLMs and linear-attention architectures* (2026).
+**Supported statement:** Highly compressed local SLMs (e.g., Gemma 4) with linear-attention layers (e.g., Gated DeltaNet) maintaining fixed recurrent states can perform complex reasoning and code execution on edge hardware.
+**HELIOS relevance:** Proposes embedding localized SLMs directly onto QPU cells or SHNO arrays for real-time, on-chip frequency self-correction and state parsing without cloud latency.
+**Does not support:** Volumetric printing or magnetic thin-film deposition.
+**Failure/blocker notes:** Edge processors face severe memory footprint and power dissipation constraints, requiring aggressive SLM quantization and optimization.
 

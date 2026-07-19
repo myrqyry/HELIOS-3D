@@ -523,6 +523,7 @@ For scalable qubit readout within CMOS-compatible or silicon metal-oxide-semicon
 - **Hidden Markov Model (HMM) Classification:** Rather than using the simple time-averaged "threshold method" which confuses intermediate undecayed triplet states (such as $|T_0\rangle$), a three-state HMM ($|S\rangle, |T_0\rangle, |T_-\rangle$) utilizing a forward-backwards algorithm acts as a nonlinear Bayesian filter on the raw reflectometry time-series.
 - **Performance:** This combined approach achieves state-of-the-art readout fidelities of **99.92% in 340 μs** and **99% in 20 μs**.
 - **HELIOS-3D Application:** Proposes using parallel RF-SEB sensing arrays and HMM classification for compact, high-speed spin readout in our low-temperature hybrid spin-qubit memory and interface blocks, facilitating mid-circuit readout and error correction. `[PROPOSED]` [Silicon MOS Group 2026]
+- **On-Device Edge reasoning Integration:** Proposes embedding highly compressed localized Small Language Models (e.g. Gemma 4) with linear-attention layers (e.g. Gated DeltaNet) maintaining a fixed-size recurrent state directly onto QPU cells. This allows these physical computing platforms to self-correct, tune frequencies, and parse HMM states locally without classical cloud-based post-processing. `[PROPOSED]`
 
 ### 6.1.9 Ultra-Large Spin Hall Nano-Oscillator (SHNO) Arrays for Neuromorphic Computing
 
@@ -531,6 +532,7 @@ Spin Hall nano-oscillators (SHNOs) utilize spin-orbit torques to generate microw
 - **Linear Power & Coherence:** Mutual synchronization results in generated microwave output power scaling linearly with the number of oscillators ($N$) (up to ~9 nW), while the linewidth scales inversely with $N$, achieving a record quality factor ($Q$) exceeding $10^6$.
 - **Kuramoto-type Synchronization Dynamics:** Time-resolved micro-Brillouin light scattering (TR-μBLS) shows that the synchronization time ($t_{sync}$) decreases with higher currents and has a weak, logarithmic dependence on array size ($N$): ~10 ns for 100 SHNOs, scaling to ~45 ns for 105,000 SHNOs. This behavior is consistent with Kuramoto phase-ordering in 2D lattices via hierarchical domain growth.
 - **HELIOS-3D Application:** Proposes utilizing ultra-large synchronized SHNO arrays as a physical substrate for Ising machines to solve combinatorial optimization problems, or as physical reservoirs with high bandwidth (GHz frequencies) and fading-memory timescales of 10–45 ns for neuromorphic spintronic coprocessing. `[PROPOSED]` [SHNO Research Team 2026]
+- **MoS₂ Cerebellum Memtransistor Merger:** Proposes combining SHNO phase-ordering arrays with MoS₂-based cerebellum-mimicking memtransistors (which utilize competing excitatory/inhibitory subtraction signaling to filter out routine data and detect anomalies). This enables ultra-low-power, always-on reservoir/Ising processing for autonomous robotics and real-time security. `[PROPOSED]`
 
 ## 7. Recommended Minimum Viable Demonstrator Revision
 

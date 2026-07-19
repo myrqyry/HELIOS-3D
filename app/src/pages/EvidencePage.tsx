@@ -47,6 +47,9 @@ export const groups: EvidenceGroup[] = [
     rows: [
       { claim: 'A Brownian reservoir could transform perturbed magnetic states into useful learned patterns.', tag: 'PROPOSED', source: 'HELIOS-3D architecture' },
       { claim: 'Frequency-domain or optical sensing could convert a magnetic state into a system-level signal.', tag: 'PROPOSED', source: 'Readout branches' },
+      { claim: 'AlphaEvolve-driven computational lithography is proposed to resolve SU-8 holographic printing diffraction.', tag: 'PROPOSED', source: 'Google & Substrate' },
+      { claim: 'Cerebellum-inspired MoS₂ memtransistors combined with synchronized SHNO arrays enable always-on neuromorphic anomaly detection.', tag: 'PROPOSED', source: 'Memtransistor Research Group' },
+      { claim: 'On-device edge reasoning using Gated DeltaNet SLMs is proposed for real-time QPU self-correction.', tag: 'PROPOSED', source: 'Local SLM Engineering' },
     ],
   },
 ];
