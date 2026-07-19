@@ -19,6 +19,9 @@ const groups: EvidenceGroup[] = [
     rows: [
       { claim: 'Hopfion stability in a EuS/Bi₂Se₃/EuS system anchors the phase-1 demonstrator.', tag: 'DEMONSTRATED', source: 'Katmis et al.' },
       { claim: 'TOHE is demonstrated in simulation as an electronic hallmark for 3D hopfions.', tag: 'DEMONSTRATED', source: 'Göbel & Lounis' },
+      { claim: 'Antiferroelectricity coexists with switchable polarization in K₃[Nb₃O₆|(BO₃)₂] hybrid domain walls.', tag: 'DEMONSTRATED', source: 'Ushakov et al.' },
+      { claim: 'Deterministic large-area fabrication of high-crystallinity oxide moiré superlattices is demonstrated in NaNbO₃.', tag: 'DEMONSTRATED', source: 'Ghanbari et al.' },
+      { claim: 'High-field PEEM magnetic imaging up to 150 mT is demonstrated using micro-scale flux concentrators.', tag: 'DEMONSTRATED', source: 'Barrera et al.' },
     ],
   },
   {

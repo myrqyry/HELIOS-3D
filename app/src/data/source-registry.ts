@@ -12,7 +12,15 @@ export interface SourceRegistryEntry {
   notes: string;
 }
 
-const accessibleRecordIds = new Set(['iea-ai-energy-crisis', 'iizumi-crud-accounting', 'ding-qiu-reservoir-thermodynamics']);
+const accessibleRecordIds = new Set([
+  'iea-ai-energy-crisis',
+  'iizumi-crud-accounting',
+  'ding-qiu-reservoir-thermodynamics',
+  'ushakov-hybrid-domain-walls',
+  'catalan-antiferroelectric-perspective',
+  'ghanbari-oxide-moire-superlattices',
+  'barrera-magnetic-flux-concentrators',
+]);
 
 const recordSources: SourceRegistryEntry[] = researchRecords.map((record) => {
   const status: SourceVerificationStatus = !record.url

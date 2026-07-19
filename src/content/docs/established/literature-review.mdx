@@ -4,7 +4,7 @@ summary: "Interactive evidence mapping and literature analysis for HELIOS-3D."
 stage: established
 tags: ["DEMONSTRATED", "INFERRED", "PROPOSED"]
 figures: []
-updated: 2026-06-07
+updated: 2026-07-18
 ---
 import LiteratureTimeline from '../../../components/charts/LiteratureTimeline.tsx';
 import { ExpandableChunk, TermTooltip, MetricPopover } from '../../../components/ui';
@@ -336,6 +336,42 @@ Gao et al. (2026) demonstrate that high-dielectric **SrTiO3** substrates can tun
   **HELIOS-3D Application:** Informs the selection of spin-to-photon readouts for quantum sensing and interconnects. Rather than relying on diamond NV centers that operate in the visible spectrum and require complex quantum frequency conversion to interface with standard fiber buses, HELIOS-3D proposes integrating silicon-based T centers. By utilizing their native telecom O-band zero-phonon line and long spin-coherence multi-qubit register, we can implement high-fidelity spin-photon interfaces directly within a monolithic, CMOS-compatible silicon photonics platform. `[PROPOSED]` [Islam et al. 2026]
 </ExpandableChunk>
 
+<ExpandableChunk 
+  title="Hybrid Antiferroelectric–Ferroelectric Domain Walls in Noncollinear Antipolar Oxides (Ushakov et al., Nature Nanotechnology 2026)" 
+  summary="Demonstration of coexisting antiferroelectricity and switchable polarization in K₃[Nb₃O₆|(BO₃)₂] hybrid domain walls."
+>
+  Ushakov et al. (*Nature Nanotechnology* 2026, DOI: `10.1038/s41565-026-02139-8`) demonstrate that antiferroelectricity and switchable polarization can coexist in a single material, specifically the noncollinear antipolar oxide $K_3[Nb_3O_6|(BO_3)_2]$. The alternating up-down arrangement of dipoles does not completely cancel out due to a slight structural tilt of the niobium ($Nb$) octahedra, resulting in a net polar state that remains electrically switchable. The authors observe that the domains are separated by highly extended, extremely thin boundaries (domain walls) that possess unique hybrid properties exhibiting both ferroelectric and antiferroelectric characteristics.
+
+  **HELIOS-3D Application:** In Phase 1 and 2 boundary engineering, these hybrid domain walls could be utilized to construct extremely thin, electrically switchable barriers to isolate topological magnetic textures or route currents. The switchable local polarization offers a new pathway for gating or SOT modulation at low power. `[DEMONSTRATED]` [Ushakov et al. 2026]
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="A Modern Perspective on Antiferroelectrics (Catalan et al., Nature Materials 2026)" 
+  summary="A perspective re-evaluating the definitions and potential polar states of antiferroelectric materials."
+>
+  Catalan et al. (*Nature Materials* 2026, DOI: `10.1038/s41563-026-02483-z`) present a modern perspective on antiferroelectric materials, arguing that the traditional definition requiring strict collinear up-down cancellation of dipoles is overly restrictive. They suggest that a much broader class of materials displaying complex arrangements (including tilts, waves, and spirals) should be considered under the antiferroelectric banner. These non-classical antipolar configurations can break symmetry to support coexisting polar states, enabling switchable macroscopic polarization in materials previously classified as nonpolar.
+
+  **HELIOS-3D Application:** Broadens the candidate landscape for functional interfaces and gating layers. By moving beyond classical collinear antiferroelectrics to materials with waves, spirals, or tilted dipoles, HELIOS-3D can leverage switchable local polarizations to modulate moiré potentials and control skyrmion/hopfion drift with reduced external bias. `[PROPOSED]` [Catalan et al. 2026]
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="Deterministic Fabrication of Large-Area, High-Crystallinity Oxide Moiré Superlattices (Ghanbari et al., ACS Nano 2026)" 
+  summary="Demonstration of a deterministic scale-up technique for oxide twistronics using NaNbO₃ membranes and visual markers."
+>
+  Ghanbari et al. (*ACS Nano* 2026, DOI: `10.1021/acsnano.6c04794`) demonstrate a practical pathway for scaling up oxide-based twistronics using crystalline sodium niobate ($NaNbO_3$) membranes. Unlike traditional 2D materials bound by weak van der Waals forces, these oxide layers are connected by strong interlayer chemical bonds. The researchers create visual markers along the perimeter of the membranes using photolithography to monitor and precisely align the relative twist angle. Following alignment, a material-specific thermal annealing process establishes strong chemical bonds. Synchrotron X-ray diffraction reveals that the strong interlayer bonding creates a gradual rotation of the atomic lattice at the interface and alters the phase structure of the material.
+
+  **HELIOS-3D Application:** Provides a scalable, robust fabrication method for twist-engineered oxide templates. Precise twist angle control allows the design of large-area moiré potential wells with strong interlayer coupling. This enables the engineering of local phase structures and potential barrier depths for skyrmion/hopfion containment and transport gating without relying on delicate van der Waals stacking. `[DEMONSTRATED]` [Ghanbari et al. 2026]
+</ExpandableChunk>
+
+<ExpandableChunk 
+  title="Extending Field Limits in Nanoscale Magnetic Imaging With Metamaterial-Inspired Magnetic Flux Concentrators (Barrera et al., Small 2026)" 
+  summary="Demonstration of flower-like magnetic flux concentrators (MFCs) to enable high-field (150 mT) PEEM imaging of magnetic domains."
+>
+  Barrera et al. (*Small* 2026, DOI: `10.1002/smll.202600073`) present a metamaterial-inspired micro-scale magnetic flux concentrator (MFC) to overcome the field limitations of photoemission electron microscopy (PEEM). While traditional PEEM imaging is restricted to weak magnetic fields (< 30 mT) due to the Lorentz deflection of emitted photoelectrons, the researchers design a "flower-like" geometry with multiple ferromagnetic petals. This geometry concentrates and amplifies an applied magnetic field by a factor of 5 (and potentially up to 30) within a highly confined micrometer-scale gap where the sample is integrated. The extreme confinement of the field ensures that emitted photoelectrons experience minimal deflection, allowing high-resolution X-ray magnetic circular dichroism (XMCD-PEEM) imaging under local fields up to 150 mT. The technique was demonstrated on biological magnetosome chains and fossil samples, and is applicable to spintronic devices, artificial spin ice, and 2D van der Waals magnets.
+
+  **HELIOS-3D Application:** Provides a method for in-field characterization of hopfions, skyrmions, and domain walls under high bias. By integrating micro-scale MFCs onto our characterization templates, we can monitor the evolution of magnetic textures under strong local driving fields (up to 150 mT) using high-resolution XMCD-PEEM. This enables the direct verification of topological switching thresholds and phase transitions in semi-hard/hard spintronic heterostructures. `[PROPOSED]` [Barrera et al. 2026]
+</ExpandableChunk>
+
 ## 8. Evidence Lanes & Citation Map
 
 This section maps our conceptual framework and validation philosophy to empirical and theoretical literature through distinct evidence lanes.
@@ -356,6 +392,16 @@ This section maps our conceptual framework and validation philosophy to empirica
 - **Iizumi 2026 (Physica A):** CRUD operation-level information thermodynamics.
 - **Loss 2026 (arXiv):** Classical reversible computation using quantum-coherent spin dynamics.
 - **Liu et al. 2026 (PRX / APS Viewpoint):** Synchronization and correlation-only collective dynamics in quantum oscillators.
+
+### Evidence Lane: Switchable Antiferroelectricity and Polar Domain Walls
+- **Ushakov et al. 2026 (Nature Nanotechnology):** Coexistence of antiferroelectricity and switchable polarization in $K_3[Nb_3O_6|(BO_3)_2]$ hybrid domain walls.
+- **Catalan et al. 2026 (Nature Materials):** Modern perspective on antiferroelectrics and noncollinear structures.
+
+### Evidence Lane: Large-Scale Oxide Twistronics and Moiré Superlattices
+- **Ghanbari et al. 2026 (ACS Nano):** Deterministic fabrication of large-area moiré superlattices using crystalline NaNbO₃ membranes and thermal annealing.
+
+### Evidence Lane: High-Field Nanoscale Magnetic Characterization
+- **Barrera et al. 2026 (Small):** Flower-like magnetic flux concentrators (MFCs) for high-field (150 mT) XMCD-PEEM imaging of spintronic materials.
 
 
 
