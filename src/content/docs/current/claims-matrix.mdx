@@ -51,6 +51,7 @@ graph TD
         L26["Condensed Matter Post-Von Neumann<br>(Inphinie 2026)"]:::lit
         L27["Skyrmions3D Rational Map & ADHM<br>(Halcrow & Disney-Hogg 2026)"]:::lit
         L28["Bulk Embedded FeSe Thermoelectrics<br>(Science Tokyo 2026)"]:::lit
+        L29["Graded Phononic Metamaterials<br>(ETH Zurich 2026)"]:::lit
     end
 
     subgraph Simulation_Validation ["Lane 2: Simulation Validation (Executable Templates)"]
@@ -143,6 +144,7 @@ graph TD
 | Condensed matter Post-Von Neumann architecture unifies geometric Ising frustration solvers, Discrete Time Crystal (DTC) memory synchronization, and skyrmion/hopfion topological logic | `candidate-materials-and-mechanisms.mdx`, `alternative-materials-and-methods.mdx`, `literature-review.mdx` | Inphinie (Post-Von Neumann 2026) | Condensed Matter Post-Von Neumann Computing | Multi-layer condensed matter integration requires synchronized RF and topological control | Demonstrate integrated Ising optimization and Discrete Time Crystal phase-locking in physical simulations |
 | Rational Map approximations and ADHM construction generate mathematically exact initial 3D skyrmion and hopfion field profiles with derivative stencil stability | `candidate-materials-and-mechanisms.mdx`, `alternative-materials-and-methods.mdx`, `literature-review.mdx` | Chris Halcrow & Disney-Hogg (Skyrmions3D.jl 2026) | Rational Map & ADHM 3D Field Initialization | Numerical finite grid discretization errors at small lattice constants | Validate 3D topological charge integration accuracy ($Q=1.000$) in Python test suite |
 | Bulk 3D crystal-embedded 2D FeSe layers with iron vacancies suppress thermal conductivity to ~0.2 W/(m K) via phonon scattering while preserving high 2D electrical transport | `candidate-materials-and-mechanisms.mdx`, `alternative-materials-and-methods.mdx`, `literature-review.mdx` | Prof. Takayoshi Katase et al. (Science Tokyo 2026) | Bulk Embedded 2D FeSe Thermoelectrics | Thallium toxicity requires hermetic encapsulations | Measure thermal conductivity and Seebeck coefficient across micro-patterned FeSe interlayers |
+| Spatially graded micro-patterned unit cells in silicon membranes guide mechanical vibrations along custom routes, suppressing radial wave scattering | `candidate-materials-and-mechanisms.mdx`, `alternative-materials-and-methods.mdx`, `literature-review.mdx` | Prof. Dennis Kochmann et al. (ETH Zurich 2026) | Spatially Graded Phononic Metamaterials | Photolithographic resolution limits at sub-micron unit-cell scales | Measure acoustic wave routing efficiency and kinetic isolation around 3D hopfion harbors |
 | Super-Moiré Interfacial DMI Stressor Films (IrMn/CoFeB/Pt S-SAF) are proposed to lock 3D hopfion binding energy (>50 k_B T) up to 400 K | `candidate-materials-and-mechanisms.mdx`, `alternative-materials-and-methods.mdx`, `open-questions.mdx` | HELIOS-3D Theoretical Design Group (2026) | Chiral synthetic antiferromagnet (S-SAF) with strain moiré | Interfacial strain relaxation or pinhole defects in ultrathin IrMn layers | Measure temperature-dependent 3D DMI and hopfion decay rates up to 400 K in S-SAF test micro-harbors |
 | CTE-Graded Nanolaminates (ALD TiO₂/Al₂O₃) and nanocomposite photoresins (TiN/SiO₂) are proposed to suppress 3D scaffold delamination under thermal cycling | `candidate-materials-and-mechanisms.mdx`, `alternative-materials-and-methods.mdx`, `open-questions.mdx` | HELIOS-3D Theoretical Design Group (2026) | Low-temp ALD nanolaminate with TiN nanocomposite resin | Pinholes or interface trap states in ALD TiO₂/Al₂O₃ interlayers | Measure adhesion strength and CTE mismatch strain under 300K-375K thermal cycling |
 | Near-Field Spin-Galvanic Plasmonic Micro-Cavities (Si₃N₄/Au + 2D TMDs) are proposed to reduce GHz microwave readout power by >100x | `candidate-materials-and-mechanisms.mdx`, `alternative-materials-and-methods.mdx`, `open-questions.mdx` | HELIOS-3D Theoretical Design Group (2026) | Plasmonic Si₃N₄/Au nano-cavity with MoS₂/WSe₂ channel | Photo-carrier recombination lifetime or plasmonic propagation loss | Measure optical transduction efficiency and SNR under high-frequency GHz spin-wave precession |
@@ -423,6 +425,15 @@ graph TD
 **HELIOS relevance:** Solves Vulnerability #1 (scaffold thermal delamination under GHz Joule heating) and enables Seebeck thermoelectric waste-heat recycling for SHNO DC bias power loops.
 **Does not support:** Toxic-element-free mass deployment without hermetic encapsulation.
 **Failure/blocker notes:** Thallium content requires strict toxic containment interlayers; real-world industrial temperature cycling stability must be verified.
+
+### Spatially Graded Phononic Metamaterials
+**Claim level:** Demonstrated experimentally
+**Subsystem:** phononic-metamaterial, graded-unit-cells, acoustic-waveguides, vibration-routing, mechanical-energy-harvesting
+**Source:** Prof. Dennis Kochmann et al. (ETH Zurich), *New metamaterial guides vibrations along predefined paths* (ETH Zurich News / D-MAVT, 2026).
+**Supported statement:** Demonstrates that micro-patterning silicon membranes with spatially graded star-shaped unit-cell geometries routes mechanical waves along custom paths without radial wave scattering.
+**HELIOS relevance:** Channels kinetic shock and acoustic noise away from sensitive sub-100nm 3D hopfion harbors toward mechanical/piezoelectric energy harvesting nodes on the 3D DISH scaffold.
+**Does not support:** Un-patterned bulk silicon wafers without micro-etched unit cell arrays.
+**Failure/blocker notes:** Requires precise electron-beam or photolithographic resolution for nanoscale phononic unit-cell etching.
 
 ### Super-Moiré Interfacial DMI Stressors for High-Temperature Hopfion Locking
 **Claim level:** Speculative / proposed

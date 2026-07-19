@@ -910,6 +910,25 @@ const seedResearchRecords: ResearchRecord[] = [
       order: 34,
     },
   },
+  {
+    id: 'kochmann-eth-phononic-metamaterial-2026',
+    title: 'Spatially Graded Phononic Metamaterial Membrane',
+    source: 'Prof. Dennis Kochmann et al. (ETH Zurich)',
+    url: 'https://ethz.ch/en/news-and-events/eth-news/news/2026/05/new-metamaterial-guides-vibrations-along-predefined-paths.html',
+    publishedAt: '2026-05-28',
+    stage: 'current',
+    tags: ['phononic-metamaterial', 'graded-unit-cells', 'acoustic-waveguides', 'vibration-routing', 'mechanical-energy-harvesting'],
+    summary: 'A micro-patterned silicon membrane with spatially graded star-shaped unit cells that direct mechanical vibrations along predefined paths without radial scattering.',
+    evidenceLevel: 'DEMONSTRATED',
+    publicUse: 'timeline',
+    timeline: {
+      id: 'kochmann-eth-phononic-metamaterial-2026',
+      year: 2026,
+      title: 'Graded Phononic Metamaterials (ETH Zurich et al.)',
+      tag: 'DEMONSTRATED',
+      order: 35,
+    },
+  },
 ];
 
 export const researchRecords = loadResearchRecords(seedResearchRecords);
