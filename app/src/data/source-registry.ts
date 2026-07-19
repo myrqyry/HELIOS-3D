@@ -45,6 +45,7 @@ const accessibleRecordIds = new Set([
   'inphinie-ordinateur-matiere',
   'inphinie-post-von-neumann-architecture',
   'halcrow-skyrmions3d-julialab',
+  'katase-science-tokyo-thermoelectric-2026',
 ]);
 
 const recordSources: SourceRegistryEntry[] = researchRecords.map((record) => {

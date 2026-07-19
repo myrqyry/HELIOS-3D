@@ -552,6 +552,15 @@ Gao et al. (2026) demonstrate that high-dielectric **SrTiO3** substrates can tun
   **HELIOS-3D Application:** Informs Python validation stencils in `tests/topological_charge_validator.py` and provides mathematically exact initial 3D hopfion/skyrmion field formulas without numerical transients. `[DEMONSTRATED]` [Halcrow et al. 2026]
 </ExpandableChunk>
 
+<ExpandableChunk 
+  title="Bulk-Embedded 2D FeSe Thermoelectric Crystal (Science Tokyo / Katase et al. 2026)" 
+  summary="Imperfect bulk layered crystal (TlFe1.6Se2) embedding 2D FeSe layers with iron vacancies to suppress thermal conductivity (0.2 W/mK)."
+>
+  Takayoshi Katase et al. (*Journal of Materials Chemistry A*, 2026) report a 3D bulk layered crystal ($TlFe_{1.6}Se_2$) embedding atomically thin iron selenide ($FeSe$) monolayer structures with deliberate iron vacancies. The iron vacancies break crystal lattice symmetry and disrupt phonon propagation, reducing thermal conductivity down to $\kappa \approx 0.2 \text{ W/(m}\cdot\text{K)}$ at $180^\circ\text{C}$ while preserving high 2D electrical transport.
+
+  **HELIOS-3D Application:** Informs Section 14 thermal barrier design for protecting 3D DISH scaffolds against GHz microwave Joule heat, and enables Seebeck thermoelectric harvesting of waste heat into DC bias power for SHNO arrays. `[DEMONSTRATED]` [Katase et al. 2026]
+</ExpandableChunk>
+
 
 
 
@@ -647,6 +656,10 @@ This section maps our conceptual framework and validation philosophy to empirica
 
 ### Evidence Lane: Rational Map & ADHM 3D Skyrmion Calculation
 - **Halcrow & Disney-Hogg 2026 (Skyrmions3D.jl):** 3D skyrmion/hopfion calculation using Rational Map approximations, ADHM constructions, stabilized derivative stencils, and gradient energy-flow relaxation.
+
+### Evidence Lane: Bulk-Embedded 2D Layer Thermoelectrics & Phonon Scattering
+- **Katase et al. 2026 (Science Tokyo):** $TlFe_{1.6}Se_2$ crystal embedding 2D $FeSe$ atomic layers with iron vacancies to suppress thermal conductivity ($\kappa \approx 0.2\text{ W/(m}\cdot\text{K)}$) via phonon scattering while retaining 2D electrical transport.
+
 
 
 

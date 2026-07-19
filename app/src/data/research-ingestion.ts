@@ -891,6 +891,25 @@ const seedResearchRecords: ResearchRecord[] = [
       order: 33,
     },
   },
+  {
+    id: 'katase-science-tokyo-thermoelectric-2026',
+    title: 'Bulk-Embedded 2D FeSe Layered Thermoelectric Crystal',
+    source: 'Prof. Takayoshi Katase et al. (Institute of Science Tokyo)',
+    url: 'https://interestingengineering.com/innovation/solid-crystal-convert-heat-into-electricity',
+    publishedAt: '2026-07-19',
+    stage: 'current',
+    tags: ['thermoelectric', 'fese-atomic-layers', 'iron-vacancies', 'phonon-scattering', 'low-thermal-conductivity', 'waste-heat-harvesting'],
+    summary: 'A 3D bulk layered crystal (TlFe1.6Se2) embedding atomically thin FeSe layers with iron vacancies that disrupt phonon conduction to achieve low thermal conductivity (0.2 W/mK) while preserving high 2D electrical transport.',
+    evidenceLevel: 'DEMONSTRATED',
+    publicUse: 'timeline',
+    timeline: {
+      id: 'katase-science-tokyo-thermoelectric-2026',
+      year: 2026,
+      title: 'Bulk Embedded FeSe Thermoelectrics (Science Tokyo et al.)',
+      tag: 'DEMONSTRATED',
+      order: 34,
+    },
+  },
 ];
 
 export const researchRecords = loadResearchRecords(seedResearchRecords);

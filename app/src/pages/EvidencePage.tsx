@@ -41,6 +41,7 @@ export const groups: EvidenceGroup[] = [
       { claim: 'The Matter-Computer (Ordinateur-Matière) architecture unifies topological memory (Majorana/Skyrmions/Hopfions), Kuramoto synchronization, and Discrete Time Crystals.', tag: 'DEMONSTRATED', source: 'Inphinie (Ordinateur-Matière 2026)' },
       { claim: 'Condensed matter Post-Von Neumann architecture unifies geometric Ising frustration solvers, Discrete Time Crystal (DTC) memory synchronization, and skyrmion/hopfion topological logic.', tag: 'DEMONSTRATED', source: 'Inphinie (Post-Von Neumann 2026)' },
       { claim: 'Rational Map approximations and ADHM construction generate mathematically exact initial 3D skyrmion and hopfion field profiles with derivative stencil stability.', tag: 'DEMONSTRATED', source: 'Chris Halcrow & Disney-Hogg (Skyrmions3D.jl 2026)' },
+      { claim: 'Bulk 3D crystal-embedded atomically thin FeSe layers with iron vacancies achieve ultra-low thermal conductivity (0.2 W/mK) via phonon scattering while preserving 2D electrical transport.', tag: 'DEMONSTRATED', source: 'Prof. Takayoshi Katase et al. (Institute of Science Tokyo 2026)' },
     ],
   },
   {
