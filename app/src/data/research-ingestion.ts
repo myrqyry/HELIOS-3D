@@ -720,6 +720,25 @@ const seedResearchRecords: ResearchRecord[] = [
       order: 24,
     },
   },
+  {
+    id: 'inphinie-frustro-voltaic-storage',
+    title: 'Frustro-Voltaic Storage (FVS): Multi-Scale Geometric Frustration Energy Architecture',
+    source: 'Inphinie (Lichen Universe)',
+    url: 'https://github.com/Inphinie/Frustro-Voltaic-Storage',
+    publishedAt: '2026-01-20',
+    stage: 'current',
+    tags: ['geometric-frustration', 'kagome-lattice', 'quantum-spin-liquids', 'ionic-twistronics', 'auxetic-metamaterials', 'scaffold-mechanics'],
+    summary: 'A multi-scale geometric frustration architecture exploiting Kagome lattices/Quantum Spin Liquids (QSL) for uninhibited transport, moiré ionic twistronics, and auxetic metamaterial casings (Negative Poisson Ratio) to absorb volumetric strain.',
+    evidenceLevel: 'DEMONSTRATED',
+    publicUse: 'timeline',
+    timeline: {
+      id: 'inphinie-frustro-voltaic-storage',
+      year: 2026,
+      title: 'Frustro-Voltaic Architecture (Inphinie et al.)',
+      tag: 'DEMONSTRATED',
+      order: 25,
+    },
+  },
 ];
 
 export const researchRecords = loadResearchRecords(seedResearchRecords);

@@ -32,6 +32,7 @@ export const groups: EvidenceGroup[] = [
       { claim: 'Cerebellum-inspired MoS₂ memtransistors mimic neural balance with excitatory/inhibitory modes to perform low-power anomaly detection.', tag: 'DEMONSTRATED', source: 'Min-A Kang et al.' },
       { claim: 'AI-driven high-throughput screening and synthesis (MAGNUMS / ARPA-E MAGNITO) accelerates discovery of rare-earth-free ultra-strong permanent magnets.', tag: 'DEMONSTRATED', source: 'Kirill Kovnir et al.' },
       { claim: 'A full-stack post-Von Neumann computing architecture (AGF) combines Clifford algebra, hyperdimensional memory (HDC), self-organizing logic (SOLG), and discrete time crystals (DTC).', tag: 'DEMONSTRATED', source: 'Bryan Ouellette & Claude (AGF 2026)' },
+      { claim: 'Multi-scale geometric frustration architecture (FVS) exploits Kagome quantum spin liquids, ionic twistronics, and auxetic metamaterial casings to prevent strain degradation.', tag: 'DEMONSTRATED', source: 'Inphinie (FVS 2026)' },
     ],
   },
   {
