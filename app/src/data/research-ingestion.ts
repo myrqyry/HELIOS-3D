@@ -948,6 +948,197 @@ const seedResearchRecords: ResearchRecord[] = [
       order: 36,
     },
   },
+  {
+    id: 'physorg-room-temp-multiferroic-2026',
+    title: 'Room-Temperature 2D Multiferroics via Interlayer Self-Doping',
+    source: 'Phys.org',
+    url: 'https://phys.org/news/2026-07-physicists-room-temperature-quantum-material.html',
+    publishedAt: '2026-06-24',
+    stage: 'current',
+    tags: ['room-temperature-multiferroics', 'interlayer-self-doping', 'magnetoelectric-coupling', 'electric-field-switching', 'zero-joule-heat-writing'],
+    summary: 'Demonstrates room-temperature 2D multiferroicity via interlayer self-doping in van der Waals heterostructures, enabling pure electric-field control of magnetic states without high current densities.',
+    evidenceLevel: 'DEMONSTRATED',
+    publicUse: 'timeline',
+    timeline: {
+      id: 'physorg-room-temp-multiferroic-2026',
+      year: 2026,
+      title: 'Room-Temp 2D Multiferroics (Phys.org et al.)',
+      tag: 'DEMONSTRATED',
+      order: 37,
+    },
+  },
+  {
+    id: 'uccs-magnon-bec-coherence-2026',
+    title: 'Spontaneous Macroscopic Magnon Coherence at Room Temperature',
+    source: 'UCCS / RPTU Kaiserslautern-Landau / Fraunhofer-ITWM, Nature Physics (July 2026)',
+    url: 'https://phys.org/news/2026-07-spontaneous-magnon-coherence-room-temperature.pdf',
+    publishedAt: '2026-07-01',
+    stage: 'current',
+    tags: [
+      'magnon-bec',
+      'room-temperature-coherence',
+      'spontaneous-symmetry-breaking',
+      'macroscopic-quantum-state',
+      'phase-resolved-microwave-spectroscopy',
+      'spin-wave-condensate',
+      'shno-kuramoto-phase-reference',
+    ],
+    summary:
+      'First direct experimental observation of spontaneous macroscopic phase coherence in a room-temperature magnon Bose–Einstein condensate (BEC). ' +
+      'Phase-resolved microwave spectroscopy showed that a dense magnon gas driven far from equilibrium spontaneously develops a well-defined macroscopic quantum phase not inherited from the external excitation source — confirming spontaneous symmetry breaking in a solid-state spin system. ' +
+      'Published in Nature Physics by teams from UCCS, RPTU Kaiserslautern-Landau, and Fraunhofer-ITWM. ' +
+      'HELIOS relevance: provides the first experimentally confirmed room-temperature spin-wave coherent phase reference, enabling the SHNO Kuramoto array to lock to a magnon BEC ground state rather than a classical microwave oscillator, and independently corroborates the QuVET phonon-magnon coherence result (L30). ' +
+      'The spontaneous phase ordering mechanism also suggests that 3D hopfion harbors can be seeded from magnon condensate vortex cores, reducing nucleation energy barriers.',
+    evidenceLevel: 'DEMONSTRATED',
+    publicUse: 'timeline',
+    timeline: {
+      id: 'uccs-magnon-bec-coherence-2026',
+      year: 2026,
+      title: 'Spontaneous Magnon BEC Coherence — Room Temp (UCCS / Nature Physics 2026)',
+      tag: 'DEMONSTRATED',
+      order: 38,
+    },
+  },
+  {
+    id: 'sato-larh3b2-borophene-2026',
+    title: 'Stable Borophene via LaRh₃B₂ Surface Exposure: Electronic Nematic State & Van Hove Singularity',
+    source: 'Takafumi Sato et al. (Tohoku University WPI-AIMR), Science Advances (July 2026)',
+    url: 'https://phys.org/news/2026-07-scientists-stable-boron-graphene-uncover.pdf',
+    publishedAt: '2026-07-02',
+    stage: 'current',
+    tags: [
+      'borophene',
+      'larh3b2',
+      'electronic-nematic',
+      'van-hove-singularity',
+      'honeycomb-boron',
+      'symmetry-breaking',
+      'magnon-coupling',
+      'flat-band-dos',
+      '2d-material-stability',
+    ],
+    summary:
+      'Tohoku University researchers (Sato et al., Science Advances, July 2026) synthesise a stable two-dimensional borophene analogue by exposing the honeycomb boron layers at the surface of the three-dimensional LaRh₃B₂ crystal, bypassing the synthesis instability of free-standing borophene. ' +
+      'ARPES and STM reveal two key features: (1) an electronic nematic state in which electrons spontaneously break the crystal six-fold symmetry and align directionally — analogous to a liquid crystal — and (2) a van Hove singularity (strongly elevated density of states) at the Fermi level that amplifies electron–electron and electron–boson interactions. ' +
+      'HELIOS relevance: (a) Van Hove singularity at E_F boosts electron-magnon coupling strength, directly reinforcing the magnon BEC coherence layer (L32) and the QuVET phonon-magnon channel (L30); (b) Electronic nematic directional order provides a candidate mechanism for anisotropic Kuramoto synchronization coupling in SHNO arrays; (c) LaRh₃B₂ non-toxic metallic character makes it a candidate routing-channel interlayer for the 5-layer wafer stack as a lighter alternative to the TlFe₁.₆Se₂ thermoelectric shield.',
+    evidenceLevel: 'DEMONSTRATED',
+    publicUse: 'timeline',
+    timeline: {
+      id: 'sato-larh3b2-borophene-2026',
+      year: 2026,
+      title: 'Stable Borophene (LaRh₃B₂) — Nematic State & Van Hove Singularity (Tohoku 2026)',
+      tag: 'DEMONSTRATED',
+      order: 39,
+    },
+  },
+  {
+    id: 'su-lindner-active-brownian-states-2023',
+    title: 'Four Distinct States of Motion in Active Brownian Particles Under Bias and Friction',
+    source: 'Meng Su & Benjamin Lindner, The European Physical Journal E (EPJ E, 2023)',
+    url: 'https://phys.org/news/2023-05-brownian-particles-distinct-states-motion.pdf',
+    publishedAt: '2023-05-01',
+    stage: 'established',
+    tags: [
+      'active-brownian-particles',
+      'stochastic-dynamics',
+      'locked-state',
+      'running-state',
+      'switching-states',
+      'noise-robust-attractors',
+      'brownian-reservoir-computer',
+      'dynamical-bifurcation',
+      'reservoir-computing',
+    ],
+    summary:
+      'Su & Lindner (EPJ E, 2023) demonstrate that self-propelled active Brownian particles under competing bias and friction forces exhibit four topologically distinct dynamical states: ' +
+      'a locked state (confinement), a driving/running state (persistent motion), and two switching states (locked↔running and running↔running). ' +
+      'Crucially, random thermal noise shifts average speeds but does not destroy the identity or topology of these four states — they persist as robust attractors across noise levels. ' +
+      'HELIOS relevance: provides rigorous theoretical grounding for the HELIOS-3D Brownian Reservoir Computer (BRC) simulation nodes S3/S4. ' +
+      'The four-state classification directly maps to hopfion dynamical modes in topographic harbor wells under spin-torque bias: ' +
+      '(1) locked = confined 3D hopfion texture below threshold torque; (2) running = driven hopfion propagation; (3/4) switching = stochastic toggling between confinement and propagation regimes used for reservoir encoding. ' +
+      'Noise-robustness of state identity supports the BRC ensemble noise-averaging claim (S4) and promotes BRC reservoir state classification from phenomenological to theoretically grounded.',
+    evidenceLevel: 'DEMONSTRATED',
+    publicUse: 'timeline',
+    timeline: {
+      id: 'su-lindner-active-brownian-states-2023',
+      year: 2023,
+      title: 'Four Brownian Attractor States — BRC Theoretical Grounding (Su & Lindner, EPJ E 2023)',
+      tag: 'DEMONSTRATED',
+      order: 40,
+    },
+  },
+  {
+    id: 'scitokyo-q-director-helimagnet-2026',
+    title: 'Reversible Electric-Current Control of Helix Propagation Direction in Cubic Chiral Magnet Co₈.₅Zn₈.₅Mn₃',
+    source: 'Institute of Science Tokyo, Communications Materials (July 2026)',
+    url: 'https://phys.org/news/2026-07-route-electrically-helimagnetic.pdf',
+    publishedAt: '2026-07-01',
+    stage: 'current',
+    tags: [
+      'helimagnet',
+      'q-director',
+      'chiral-magnet',
+      'current-control',
+      'dmi',
+      'helix-propagation',
+      'bistable-write',
+      'co-zn-mn',
+      'spintronics',
+      'topological-texture-writing',
+    ],
+    summary:
+      'Institute of Science Tokyo (Communications Materials, July 2026) demonstrates reversible reorientation of the helix propagation vector (q-director) in the cubic chiral magnet Co₈.₅Zn₈.₅Mn₃ by reversing electric current polarity under an applied magnetic field. ' +
+      'The current-driven switching achieves a 90° rotation of the q-director and is fully reversible: flipping current polarity restores the original propagation axis. ' +
+      'HELIOS relevance: (1) Provides the first experimentally demonstrated current-addressable, bistable helix axis write mechanism in a cubic chiral magnet — the same crystal class (B20-type) that hosts skyrmion lattices and whose 3D extension hosts hopfions. ' +
+      '(2) Current-polarity-reversible 90° q-rotation maps directly onto a two-state write encoding compatible with the Spin-ConfSeq compiler layer (C2). ' +
+      '(3) Directly validates current-tunable DMI axis steering for the S-SAF Super-Moiré stressor layer (H5) in L3 chiral harbors. ' +
+      '(4) Institute of Science Tokyo alignment with the existing L2 thermoelectric shield paper (L28, Katase et al.) confirms institutional synthesis feasibility. ' +
+      'Corroborated by MnAu₂ chirality control results (Phys. Rev. Research 2026) showing current-direction-dependent chirality from multidomain states.',
+    evidenceLevel: 'DEMONSTRATED',
+    publicUse: 'timeline',
+    timeline: {
+      id: 'scitokyo-q-director-helimagnet-2026',
+      year: 2026,
+      title: 'Current-Reversible q-Director in Co₈.₅Zn₈.₅Mn₃ Chiral Magnet (Sci. Tokyo 2026)',
+      tag: 'DEMONSTRATED',
+      order: 41,
+    },
+  },
+  {
+    id: 'tud-twist-ultrathin-magnet-retention-2026',
+    title: 'Twist-Angle-Controlled Field-Free Magnetization Retention in Ultrathin Magnetic Monolayers',
+    source: 'TU Darmstadt (international team), Nature Communications (July 2026)',
+    url: 'https://phys.org/news/2026-07-ultrathin-magnet-retains-magnetization-field.pdf',
+    publishedAt: '2026-07-01',
+    stage: 'current',
+    tags: [
+      'ultrathin-magnet',
+      'twist-angle',
+      'moiré-engineering',
+      'field-free-retention',
+      'magnetization-retention',
+      '2d-monolayer',
+      'memory-stability',
+      'chiral-harbor',
+      'post-write-retention',
+    ],
+    summary:
+      'TU Darmstadt-led international team (Nature Communications, July 2026) demonstrates that the magnetic properties of ultrathin atomic monolayers can be precisely tuned by introducing a slight twist between two layers. ' +
+      'The key result: the material retains its magnetization state even after external magnetic fields are changed — field-free retention after write. ' +
+      'HELIOS relevance: (1) Directly addresses the write-then-hold gap in the L3 chiral harbor design: the q-director result (L35) showed current-addressable bistable helix writing but required an applied field during the write pulse; this twist-controlled layer provides the post-write retention mechanism without a continuous external bias. ' +
+      '(2) Twist angle is already a design knob in the Super-Moiré S-SAF stressor (H5); this result confirms experimentally that the same moiré engineering framework controls magnetization retention — a key durability metric for spintronic memory. ' +
+      '(3) Field-free retention is required for energy-efficient zero-standby-power operation of L3 3D hopfion harbors; this eliminates the holding-field power overhead from the architecture. ' +
+      '(4) Part of the moiré engineering cluster (connects to L21 Twistronique / Inphinie, L29 ETH phononic graded metamaterials) — extending moiré control from phonons and electronic structure to direct magnetization retention.',
+    evidenceLevel: 'DEMONSTRATED',
+    publicUse: 'timeline',
+    timeline: {
+      id: 'tud-twist-ultrathin-magnet-retention-2026',
+      year: 2026,
+      title: 'Twist-Controlled Field-Free Magnetization Retention — Ultrathin Layers (TU Darmstadt 2026)',
+      tag: 'DEMONSTRATED',
+      order: 42,
+    },
+  },
 ];
 
 export const researchRecords = loadResearchRecords(seedResearchRecords);

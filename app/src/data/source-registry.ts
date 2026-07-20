@@ -48,6 +48,12 @@ const accessibleRecordIds = new Set([
   'katase-science-tokyo-thermoelectric-2026',
   'kochmann-eth-phononic-metamaterial-2026',
   'quvet-physorg-quantum-vibronics-2026',
+  'physorg-room-temp-multiferroic-2026',
+  'uccs-magnon-bec-coherence-2026',
+  'sato-larh3b2-borophene-2026',
+  'su-lindner-active-brownian-states-2023',
+  'scitokyo-q-director-helimagnet-2026',
+  'tud-twist-ultrathin-magnet-retention-2026',
 ]);
 
 const recordSources: SourceRegistryEntry[] = researchRecords.map((record) => {
