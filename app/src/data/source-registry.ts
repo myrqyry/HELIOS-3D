@@ -57,6 +57,10 @@ const accessibleRecordIds = new Set([
   'demming-molecular-ratchets-2026',
   'you-magana-loaiza-quantum-metacrystals-2026',
   'yumigeta-mutlu-agnr-gamma-irradiation-2026',
+  'fujisawa-okada-cete3-frustration-2026',
+  'ngirmang-lin-quantum-pic-simulation-2026',
+  'fu-ichibha-nnqmc-pseudopotential-2026',
+  'chun-kwak-qd-solvent-engineering-2026',
 ]);
 
 const recordSources: SourceRegistryEntry[] = researchRecords.map((record) => {

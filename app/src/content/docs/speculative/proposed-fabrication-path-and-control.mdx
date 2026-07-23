@@ -159,3 +159,11 @@ exposure times, narrow viewing geometry, difficult reproduction, and demanding
 readout conditions. HELIOS-3D must avoid the same failure pattern by specifying
 the readout, rewrite, stability, and integration path as tightly as the optical
 write mechanism itself.
+
+### 3.6 Inverse ML Multi-Solvent Deposition & 1D Anderson Localization Routing
+
+To resolve liquid-phase functionalization defects and 1D transport limits across complex 3D DISH/SU-8 polymer scaffolds, HELIOS-3D incorporates data-driven solvent engineering and GNR localization routing:
+
+* **Inverse ML Multi-Solvent Blend Optimization:** Solution-phase coating of colloidal quantum dots, magnetic nanodisks, or 2D flakes onto 3D scaffold surfaces suffers from non-uniform packing and pinholes. Following Chun, Kwak et al. (*Rep. Prog. Phys.* 2026), an inverse machine learning platform maps solvent physical parameters (vapor pressure, viscosity, dielectric constant) to AFM film morphology, predicting optimal multi-solvent mixtures that double film efficiency ($2\times$) and extend operational stability $40\times$.
+* **1D Anderson Localization Safety Interconnects:** Interconnect channels utilizing quasi-1D 9-atom armchair graphene nanoribbons (9-AGNR, ~1 nm) (Yumigeta & Mutlu et al., *ACS AMI* 2026) exploit edge-disorder-induced **1D Anderson localization** under environmental exposure. The extreme, predictable shift in 1D electrical conductivity is utilized to implement radiation-triggered safety switches and environmental degradation sensors inside extreme-environment HELIOS coprocessors. `[DEMONSTRATED]`
+

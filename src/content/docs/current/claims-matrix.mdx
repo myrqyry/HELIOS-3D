@@ -62,6 +62,10 @@ graph TD
         L37["Molecular Ratchets & CRN Thermodynamics<br>(Demming / Chem. World 2026)"]:::lit
         L38["Quantum Statistical Plasmonic Metacrystals<br>(You & Magaña-Loaiza, Nature 2026)"]:::lit
         L39["9-AGNR Transistors & Anderson Localization<br>(Yumigeta & Mutlu, ACS AMI 2026)"]:::lit
+        L40["CeTe₃ Frustrated Electronic Switching<br>(Fujisawa & Okada, Nat. Commun. 2026)"]:::lit
+        L41["Quantum Plasma PIC Simulator<br>(Ngirmang & Lin, Comput. Phys. Commun. 2026)"]:::lit
+        L42["NNQMC Pseudo-Hamiltonian Scalability<br>(Fu & Ichibha, Nat. Comput. Sci. 2026)"]:::lit
+        L43["Inverse ML QD Solvent Engineering<br>(Chun & Kwak, Rep. Prog. Phys. 2026)"]:::lit
     end
 
     subgraph Simulation_Validation ["Lane 2: Simulation Validation (Executable Templates)"]
@@ -181,6 +185,14 @@ graph TD
 | Chemically fuelled molecular ratchets transduce non-equilibrium energy into directional rotation, gel contraction, and active transport, while chemical reaction network theory quantifies energy transduction efficiency and pathway selection costs | `literature-review.mdx`, `core-architecture.mdx` | Demming (Chemistry World 2026) | Chemically fuelled ratchets, CRN thermodynamics, energy transduction, active transport, BRC dissipation | Non-equilibrium fuel exhaustion or uncoupled dissipative side-reactions | Validate gel contraction strain coupling in 3D polymer scaffolds and map CRN entropy budgets in BRC micromagnetic solvers |
 | Quantum statistical plasmonic metacrystals exhibit allowed and forbidden quantum statistical bands, selectively transmitting or filtering multiphoton fields according to their degree of second-order coherence g²(0) at room temperature | `literature-review.mdx`, `2d-stack-reliability-and-readout.mdx` | Chenglong You, Omar S. Magaña-Loaiza et al. (Nature 2026) | Plasmonic metacrystals, quantum statistics, coherence bands, room-temperature quantum materials, Fock states | Spatial overlap of meta-atom emission in paraxial far field degrades statistical band contrast | Measure g²(0) transmission spectrum vs. meta-atom size/pitch and verify Fock state preservation in optoelectronic readout tracks |
 | Nine-atom-wide armchair graphene nanoribbon (9-AGNR) transistors exhibit predictable 1D Anderson localization under gamma irradiation due to edge disorder, enabling radiation sensing and extreme-environment monitoring | `literature-review.mdx`, `2d-stack-reliability-and-readout.mdx` | Kentaro Yumigeta, Zafer Mutlu et al. (ACS Appl. Mater. Interfaces 2026) | Graphene nanoribbons, 9-AGNR, 1D Anderson localization, edge disorder, radiation sensing | Severe edge scattering degrades carrier mobility below device threshold | Measure conductance shift vs. gamma dose in 1D nanoribbon channels and test radiation-hardened routing layers |
+| Small applied magnetic fields switch the 2D van der Waals semimetal CeTe₃ between competing frustrated electronic ground states (striped vs. checkerboard charge patterns) by reorganizing underlying double-q antiferromagnetic spin structures coupled to mobile conduction electrons | `literature-review.mdx`, `candidate-materials-and-mechanisms.mdx` | Yuita Fujisawa, Yoshinori Okada et al. (Nature Communications 2026) | CeTe₃, 2D van der Waals semimetal, electronic frustration, double-q magnetic order, charge-density-wave, phase switching | High-temperature thermal fluctuations erase double-q magnetic order and electronic pattern bistability | Measure magnetic field switching thresholds and temperature bounds for striped-to-checkerboard conduction channels in CeTe₃ flakes |
+| Particle-in-Cell (PIC) simulation tools extended with four quantum physics modules enable multi-scale modeling of light-matter interactions, plasmonics, and band-structure dispersion in metals, semiconductors, and 2D materials | `literature-review.mdx`, `simulation-validation-suite.mdx` | Gregory K. Ngirmang, Wu Lin et al. (Computer Physics Communications 2026) | Particle-in-Cell, quantum plasma, light-matter interactions, plasmonics, multi-scale simulation, digital twin | PIC macro-particle discretization noise at sub-nanometer scale | Benchmark quantum PIC solvers against FDTD/DFT for plasmonic near-field coupling and 2D optoelectronic readout tracks |
+| Combining Neural Network Quantum Monte Carlo (NNQMC) with Bayesian localization of pseudo-Hamiltonians reduces core-electron computational costs, enabling accurate ab initio electronic structure calculations of large-scale material systems | `literature-review.mdx`, `simulation-validation-suite.mdx` | Weizhong Fu, Tom Ichibha et al. (Nature Computational Science 2026) | Neural network Quantum Monte Carlo, NNQMC, local pseudopotentials, Bayesian localization, ab initio materials simulation | Pseudo-Hamiltonian localization error in ultra-heavy element core regions | Validate NNQMC pseudopotential ground-state energy against full-CI and benchmark exchange coupling parameters for 2D heterostructures |
+| Inverse machine learning platform predicts optimal multi-solvent mixtures based on solvent physical properties and AFM surface morphology, enabling dense, uniform quantum dot film deposition that doubles efficiency and extends operational lifetime 40-fold | `literature-review.mdx`, `proposed-fabrication-path-and-control.mdx` | Beomsoo Chun, Jaehoon Lim, Jeonghun Kwak et al. (Reports on Progress in Physics 2026) | Quantum dots, solvent engineering, machine learning, inverse process design, nanoparticle packing, solution processing | Phase separation in complex solvent mixtures during rapid spin coating | Measure AFM packing density and pinhole defect rate vs. predicted multi-solvent parameters across 3D scaffold functional layers |
+
+
+
+
 
 
 
@@ -547,6 +559,50 @@ graph TD
 **HELIOS relevance:** Informs 1D interconnect defect sensitivity and extreme-environment hardening. Provides empirical transport scaling for 1D edge-state charge/spin transport degradation versus topological protection in narrow 2D/1D stack interconnects, and establishes 9-AGNR channels as radiation-hardened or radiation-sensing interconnect layers for extreme-environment HELIOS deployments.
 **Does not support:** Direct 3D magnetic hopfion stabilization or sub-10 ps magnetic switching.
 **Failure/blocker notes:** Uncontrolled atmospheric oxidation or severe structural edge damage can cause irreversible carrier localization and complete channel pinch-off.
+
+### Frustrated electronic state switching in 2D van der Waals CeTe3
+**Claim level:** Demonstrated experimentally
+**Subsystem:** 2D van der Waals materials, electronic frustration, charge-density waves, double-q magnetic order, antiferromagnetic semimetals, spintronic phase switching
+**Source:** Yuita Fujisawa, Yoshinori Okada, Ryutaro Okuma et al., *Versatile electronic phases enabled by intertwined multiple frustrations in an antiferromagnetic two-dimensional semimetal*, *Nature Communications* (July 2026). DOI: `10.1038/s41467-026-75048-y` & *Physical Review B* (2026). DOI: `10.1103/m9lb-4vhx`
+**Supported statement:** Small magnetic fields reorganize the electronic ground state of the layered 2D van der Waals semimetal $\text{CeTe}_3$, switching the spatial distribution of mobile conduction electrons in tellurium ($Te$) square nets between **striped** and **checkerboard** charge density wave patterns. Atomic-resolution STM and neutron scattering reveal that this electronic switching is driven by an underlying double-$q$ antiferromagnetic spin order among localized cerium ($Ce$) $4f$ moments whose periodicity matches the electronic stripe period.
+**HELIOS relevance:** Demonstrates magnetic-field-controlled electronic state selection in frustrated 2D van der Waals semimetals. Validates low-field or spin-torque toggling between distinct conduction channels (striped vs. checkerboard charge pathways) in 2D material layers, providing empirical backing for Inphinie's geometric frustration framework (L19, L20) and 2D moiré twistronic memory channels.
+**Does not support:** Direct 3D hopfion stabilization in metallic spin valves.
+**Failure/blocker notes:** The double-$q$ magnetic order and associated charge density wave switching require low-temperature operation in current bulk/flake samples; room-temperature extension requires strain or moiré engineering.
+
+### Quantum plasma particle-in-cell simulation framework
+**Claim level:** Demonstrated theoretically & computationally
+**Subsystem:** Particle-in-Cell (PIC) simulations, quantum plasmas, light-matter interactions, plasmonic metals, multi-scale simulation, digital twin
+**Source:** Gregory K. Ngirmang, Wu Lin et al., *Particle-in-cell simulations of quantum plasmas*, *Computer Physics Communications* (July 2026). DOI: `10.1016/j.cpc.2026.110305`
+**Supported statement:** Particle-in-Cell (PIC) electromagnetic simulation platforms extended with four condensed-matter quantum physics modules—(1) quantum momentum initialization (Fermi-Dirac distribution), (2) quantum material boundary conditions, (3) dispersive bound particle dynamics (Lorentz-Drude models), and (4) band-structure dispersion (parabolic and linear Dirac bands)—bridge device-level electrodynamics with microscopic quantum electron transport across plasmonic metals, UV silicon nanostructures, and 2D graphene.
+**HELIOS relevance:** Provides the multi-scale quantum electromagnetic simulation framework required for modeling light-matter interactions, plasmonic coupling, and non-linear electron dynamics across hybrid 3D DISH/SU-8 scaffolds and 2D optoelectronic readout tracks. Connects macro-scale Maxwell field propagation with micro-scale quantum band dynamics.
+**Does not support:** Direct atomistic DFT calculation of 3D DZYALOSHINSKII-MORIYA interaction constants without micromagnetic coupling.
+**Failure/blocker notes:** PIC macro-particle discretization noise requires high particle-per-cell counts at nanometer grid resolutions, increasing memory consumption during full 3D device simulations.
+
+### Neural network quantum Monte Carlo with local pseudo-Hamiltonians
+**Claim level:** Demonstrated theoretically & computationally
+**Subsystem:** Neural network Quantum Monte Carlo, NNQMC, local pseudopotentials, pseudo-Hamiltonian localization, ab initio materials simulation, electronic structure
+**Source:** Weizhong Fu, Ryunosuke Fujimaru, Tom Ichibha et al., *Empowering neural network-based quantum Monte Carlo with local pseudopotentials*, *Nature Computational Science* (July 2026). DOI: `10.1038/s43588-026-01008-7`
+**Supported statement:** Combining Neural Network Quantum Monte Carlo (NNQMC) ansatz architectures with **Bayesian localization of pseudo-Hamiltonians** (local pseudopotentials) eliminates high-noise core-electron energy evaluation costs while maintaining chemical-accuracy kinetic and potential energy evaluation in valence regions. This overcomes the severe computational scaling bottleneck of traditional all-electron NNQMC, extending high-precision ab initio electronic structure calculations to large-scale material systems, complex chemical reaction networks, and solid-state heterostructures.
+**HELIOS relevance:** Accelerates ab initio calculation of electronic ground states, interlayer exchange couplings, and DMI energy landscapes across 2D van der Waals heterostructures and magnetic interfacial layers. Directly enhances the S1-S4 simulation validation suite by supplying scalable, highly accurate NNQMC material parameters without requiring excessive supercomputing allocation.
+**Does not support:** Real-time macro-scale micromagnetic dynamics at microsecond timescales (requires GPU-accelerated micromagnetic solvers like MuMax3).
+**Failure/blocker notes:** Pseudopotential approximations must be carefully validated for heavy elements with strong spin-orbit coupling.
+
+### Machine-learning-enabled solvent engineering for quantum dot packing
+**Claim level:** Demonstrated experimentally
+**Subsystem:** solution processing, quantum dots, solvent engineering, machine learning inverse design, nanoparticle packing, scaffold functionalization
+**Source:** Beomsoo Chun, Jaehoon Lim, Jeonghun Kwak et al., *Machine-learning-enabled solvent engineering for uniform quantum dot packing in efficient and stable quantum-dot light-emitting diodes*, *Reports on Progress in Physics* (July 15, 2026). DOI: `10.1088/1361-6633/ae8470`
+**Supported statement:** An inverse machine learning model trained on solvent physical properties (vapor pressure, viscosity, density, dielectric constant) and atomic force microscopy (AFM) surface morphology data accurately predicts multi-solvent mixture compositions for uniform, dense, brick-like quantum dot (QD) thin film deposition. Solution-processed QLED devices fabricated with AI-engineered multi-solvent blends achieve a **$2\times$ efficiency enhancement** and a **$>40\times$ operational lifetime extension** compared to single-solvent controls.
+**HELIOS relevance:** Solves non-uniform nanoparticle packing and pinhole defects during solution-phase coating of colloidal quantum dots, magnetic nanoparticles, or 2D flakes onto 3D DISH/SU-8 scaffolds. Establishes data-driven inverse solvent optimization protocols to ensure uniform functional layer deposition across complex 3D micro-architectures.
+**Does not support:** Deterministic single-particle positioning without self-assembly.
+**Failure/blocker notes:** Multi-solvent evaporation kinetics during rapid spin-coating or spray-coating must be strictly controlled to prevent micro-phase separation.
+
+
+
+
+
+
+
+
 
 
 

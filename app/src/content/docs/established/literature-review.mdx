@@ -633,6 +633,50 @@ Gao et al. (2026) demonstrate that high-dielectric **SrTiO3** substrates can tun
   **HELIOS-3D Application:** Informs 1D interconnect defect sensitivity and extreme-environment hardening. Understanding how 1D Anderson localization scales with edge disorder provides empirical grounding for charge/spin transport degradation versus topological protection in narrow 2D/1D stack interconnects, while establishing 9-AGNR channels as radiation-hardened or radiation-sensing interconnect layers for extreme-environment HELIOS deployments. `[DEMONSTRATED]` [Yumigeta & Mutlu et al., ACS AMI 2026]
 </ExpandableChunk>
 
+<ExpandableChunk
+  title="Versatile Electronic Phases via Intertwined Frustrations in 2D Semimetal CeTe₃ (Yuita Fujisawa, Yoshinori Okada et al., Nature Communications 2026)"
+  summary="Demonstration of magnetic-field-controlled switching between competing frustrated electronic states (striped vs. checkerboard) in 2D van der Waals semimetal CeTe₃."
+>
+  Yuita Fujisawa, Yoshinori Okada, Ryutaro Okuma et al. (*Nature Communications* & *Physical Review B*, July 2026, DOI: `10.1038/s41467-026-75048-y`, `10.1103/m9lb-4vhx`) report that small magnetic fields induce drastic electronic state reorganization in the layered 2D van der Waals semimetal $\text{CeTe}_3$. In $\text{CeTe}_3$, highly mobile conduction electrons in the tellurium ($Te$) square nets coexist with localized $4f$ magnetic moments on cerium ($Ce$) sites. Due to electronic frustration, the system hosts multiple nearly degenerate low-energy electronic arrangements. Atomic-scale STM mapping reveals a **striped** charge-density-wave pattern at zero field, which transforms into a **checkerboard** electronic pattern upon applying a small magnetic field. Complementary neutron scattering (Okuma et al., *PRB* 2026) reveals that this electronic switching is driven by an intricate double-$q$ antiferromagnetic spin order whose periodicity directly matches the electronic stripe period.
+
+  **HELIOS-3D Application:** Provides experimental proof of magnetic-field-controlled electronic phase switching in 2D van der Waals materials. This validates the feasibility of using low magnetic fields or spin-orbit torques to toggle between multi-state electronic/spintronic channels (striped vs. checkerboard conduction pathways) in frustrated 2D heterostructures, complementing Inphinie's geometric frustration framework (L19, L20) and 2D moiré twistronic memory channels. `[DEMONSTRATED]` [Fujisawa & Okada et al., Nat. Commun. 2026]
+</ExpandableChunk>
+
+<ExpandableChunk
+  title="Particle-in-Cell Simulations of Quantum Plasmas (Gregory K. Ngirmang, Wu Lin et al., Computer Physics Communications 2026)"
+  summary="Extension of Particle-in-Cell (PIC) simulation tools with four condensed-matter quantum modules to enable multi-scale modeling of light-matter interactions in metals, semiconductors, and 2D materials."
+>
+  Gregory K. Ngirmang, Wu Lin et al. (*Computer Physics Communications*, July 2026, DOI: `10.1016/j.cpc.2026.110305`) develop a multi-scale computational framework extending open-source Particle-in-Cell (PIC) plasma simulation codes to condensed-matter and quantum material systems. Traditional PIC models solve Maxwell-Newton equations for classical plasmas but cannot emulate quantum electron dynamics. The authors introduce four specialized quantum physics modules: (1) **quantum momentum initialization** (Fermi-Dirac statistics), (2) **quantum material boundary conditions**, (3) **dispersive bound particle dynamics** (Lorentz-Drude models), and (4) **band-structure dispersion** (parabolic and linear Dirac bands). This combined framework bridges device-scale electromagnetic field propagation with microscopic quantum electron dynamics in plasmonic metals, UV silicon nanostructures, and 2D graphene.
+
+  **HELIOS-3D Application:** Provides the multi-scale quantum electromagnetic simulation framework for validating light-matter interactions, plasmonic coupling, and non-linear electron dynamics across hybrid 3D DISH/SU-8 scaffolds and 2D optoelectronic readout tracks. Retains macro-scale Maxwell field resolution while embedding micro-scale quantum band dispersion, bridging S1/S2 micromagnetic solvers with optical readout tracks. `[DEMONSTRATED]` [Ngirmang & Lin et al., CPC 2026]
+</ExpandableChunk>
+
+<ExpandableChunk
+  title="Empowering Neural Network Quantum Monte Carlo with Local Pseudopotentials (Weizhong Fu, Tom Ichibha et al., Nature Computational Science 2026)"
+  summary="Combining Neural Network Quantum Monte Carlo (NNQMC) with Bayesian localization of pseudo-Hamiltonians to drastically reduce core-electron computational costs in ab initio material simulations."
+>
+  Weizhong Fu, Ryunosuke Fujimaru, Tom Ichibha et al. (*Nature Computational Science*, July 2026, DOI: `10.1038/s43588-026-01008-7`) present a computational breakthrough integrating Neural Network Quantum Monte Carlo (NNQMC) with a novel **Bayesian localization of pseudo-Hamiltonians** (local pseudopotentials) technique. While NNQMC delivers high-accuracy electronic structure predictions, its steep computational cost previously restricted its application to small molecular systems. By localizing the pseudo-Hamiltonian evaluation for core electrons, the authors eliminate high-noise core regions while preserving high kinetic and potential energy accuracy in valence regions. This accelerates NNQMC calculations by orders of magnitude, making high-precision ab initio quantum simulations feasible for large-scale material systems, complex chemical reaction networks, and solid-state heterostructures.
+
+  **HELIOS-3D Application:** Provides high-precision, low-cost ab initio electronic structure and exchange interaction calculations for complex 2D van der Waals heterostructures and magnetic interfacial layers. Grounds the computational materials discovery pipeline (S1-S4 simulation suite) with accurate pseudopotential-accelerated NNQMC ground state energy calculations without supercomputer scaling bottlenecks. `[DEMONSTRATED]` [Fu & Ichibha et al., Nat. Comput. Sci. 2026]
+</ExpandableChunk>
+
+<ExpandableChunk
+  title="Machine-Learning-Enabled Solvent Engineering for Uniform Quantum Dot Packing (Beomsoo Chun, Jaehoon Lim, Jeonghun Kwak et al., Reports on Progress in Physics 2026)"
+  summary="Inverse AI process-design platform predicting multi-solvent mixtures for uniform quantum dot film deposition, doubling efficiency and extending operational lifetime 40-fold."
+>
+  Beomsoo Chun, Jaehoon Lim, Jeonghun Kwak et al. (*Reports on Progress in Physics*, July 2026, DOI: `10.1088/1361-6633/ae8470`) report an inverse machine learning platform for data-driven solvent engineering in solution-processed quantum dot (QD) thin films. The authors train machine learning models on solvent physical properties (vapor pressure, viscosity, density, dielectric constant) coupled with atomic force microscopy (AFM) surface morphology data from representative single-solvent depositions. The AI model inversely predicts optimal multi-solvent property combinations that produce dense, brick-like, uniform QD packing. Fabricated QLED devices using the AI-predicted multi-solvent blend demonstrate a **$2\times$ efficiency increase** and a **$>40\times$ operational lifetime extension** over single-solvent controls.
+
+  **HELIOS-3D Application:** Establishes data-driven inverse solvent engineering protocols for uniform solution-phase deposition of colloidal quantum dots, magnetic nanoparticles, and 2D flake suspensions across 3D DISH/SU-8 scaffold surfaces. Solves non-uniform nanoparticle packing and pinhole defects in liquid-processed functional layers, directly improving interfacial reliability in hybrid 3D scaffold-readout architectures. `[DEMONSTRATED]` [Chun & Kwak et al., Rep. Prog. Phys. 2026]
+</ExpandableChunk>
+
+
+
+
+
+
+
+
+
 
 
 
@@ -767,6 +811,22 @@ This section maps our conceptual framework and validation philosophy to empirica
 
 ### Evidence Lane: 1D Graphene Nanoribbons & Radiation-Induced Anderson Localization
 - **Yumigeta & Mutlu et al. 2026 (ACS AMI):** Quasi-1D 9-atom armchair graphene nanoribbon (9-AGNR, ~1 nm) FETs undergo 1D Anderson localization from gamma-radiation-induced edge disorder. Strong 1D quantum confinement amplifies disorder sensitivity, providing predictable electrical conductivity shifts for radiation sensing and extreme-environment monitoring. Grounds 1D interconnect transport limits and radiation-hardened routing layers.
+
+### Evidence Lane: 2D Electronic Frustration & Magnetic Field Phase Switching
+- **Fujisawa & Okada et al. 2026 (Nature Communications / PRB):** Small magnetic fields switch 2D van der Waals semimetal $\text{CeTe}_3$ between competing frustrated electronic ground states (striped vs. checkerboard charge density patterns). Reorganization of double-$q$ antiferromagnetic spin order coupled to mobile Te electrons provides direct magnetic-field selection of electronic phases. Grounds magnetic-field-tunable electronic state switching in frustrated 2D channels.
+
+### Evidence Lane: Multi-Scale Quantum Plasma Particle-in-Cell (PIC) Modeling
+- **Ngirmang & Lin et al. 2026 (Computer Physics Communications):** Four condensed-matter quantum modules (momentum initialization, material boundaries, dispersive bound particles, band dispersion) extend open-source PIC plasma codes to model light-matter interactions in plasmonic metals, semiconductors, and 2D graphene. Bridges macro-scale electromagnetic wave propagation with micro-scale quantum electron dynamics for digital twins of quantum photonic devices.
+
+### Evidence Lane: Neural Network Quantum Monte Carlo & Pseudo-Hamiltonian Scalability
+- **Fu & Ichibha et al. 2026 (Nature Computational Science):** Integrates Bayesian localization of pseudo-Hamiltonians (local pseudopotentials) into Neural Network Quantum Monte Carlo (NNQMC), eliminating core-electron computational noise. Accelerates ab initio electronic structure calculations to enable high-precision material simulations of large-scale 2D heterostructures and complex chemical reaction networks at low computational cost.
+
+### Evidence Lane: Inverse ML Solvent Engineering for Solution-Processed Nanoparticle Assemblies
+- **Chun & Kwak et al. 2026 (Reports on Progress in Physics):** Inverse machine learning platform correlates solvent physical parameters (vapor pressure, viscosity, dielectric constant) with AFM surface morphology, predicting multi-solvent mixtures for dense, uniform quantum dot film deposition. Doubles device efficiency and extends operational lifetime 40-fold. Grounds liquid-phase deposition optimization for 3D scaffold nanoparticle coating.
+
+
+
+
 
 
 

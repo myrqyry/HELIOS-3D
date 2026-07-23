@@ -580,3 +580,12 @@ The strongest defensible version of HELIOS-3D is not a direct 3D-vdW fabrication
 4. Keep $Fe_3GaTe_2$ as a long-range candidate, not as the immediate fabrication anchor.
 
 That revision preserves the project's scientific ambition while removing the least-supported integration claims from the critical path.
+
+## 9. 3-Tier Multiscale Quantum Digital Twin Pipeline
+
+To model physical phenomena spanning atomic electron correlations to device-scale electromagnetic wave propagation, HELIOS-3D formalizes a **3-tier multiscale computational simulation pipeline**:
+
+1. **Tier 1 — Ab Initio Electronic Structure (NNQMC):** Following Fu, Ichibha et al. (*Nat. Comput. Sci.* 2026), Bayesian localization of pseudo-Hamiltonians (local pseudopotentials) is integrated into Neural Network Quantum Monte Carlo (NNQMC). This eliminates core-electron computational noise, providing chemical-accuracy exchange parameters ($J_{ij}$), Dzyaloshinskii-Moriya interaction (DMI) vectors, and magnetic anisotropy constants for complex 2D van der Waals heterostructures at low computational cost.
+2. **Tier 2 — Topological Micromagnetics (MuMax3 / OOMMF):** Tier 1 parameters feed directly into GPU-accelerated micromagnetic solvers (S1/S2 templates) to simulate 3D hopfion, skyrmion, and SHNO Kuramoto phase-locking dynamics across scaffold geometries.
+3. **Tier 3 — Device-Scale Quantum Electrodynamics (Quantum PIC):** Following Ngirmang, Lin et al. (*Comput. Phys. Commun.* 2026), an extended Particle-in-Cell (PIC) platform incorporating four condensed-matter quantum modules (Fermi-Dirac momentum initialization, quantum material boundaries, Lorentz-Drude dispersive bound particles, and Dirac/parabolic band dispersion) simulates macro-scale electromagnetic propagation and near-field plasmonic readout coupling across 2D optoelectronic tracks. `[DEMONSTRATED]`
+
