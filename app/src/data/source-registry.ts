@@ -54,6 +54,9 @@ const accessibleRecordIds = new Set([
   'su-lindner-active-brownian-states-2023',
   'scitokyo-q-director-helimagnet-2026',
   'tud-twist-ultrathin-magnet-retention-2026',
+  'demming-molecular-ratchets-2026',
+  'you-magana-loaiza-quantum-metacrystals-2026',
+  'yumigeta-mutlu-agnr-gamma-irradiation-2026',
 ]);
 
 const recordSources: SourceRegistryEntry[] = researchRecords.map((record) => {

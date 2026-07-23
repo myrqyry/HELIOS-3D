@@ -59,6 +59,9 @@ graph TD
         L34["Four Brownian Attractor States<br>BRC Grounding (Su & Lindner 2023)"]:::lit
         L35["Current-Reversible q-Director<br>Co₈.₅Zn₈.₅Mn₃ (Sci. Tokyo 2026)"]:::lit
         L36["Twist-Controlled Field-Free<br>Magnetization Retention (TU Darmstadt 2026)"]:::lit
+        L37["Molecular Ratchets & CRN Thermodynamics<br>(Demming / Chem. World 2026)"]:::lit
+        L38["Quantum Statistical Plasmonic Metacrystals<br>(You & Magaña-Loaiza, Nature 2026)"]:::lit
+        L39["9-AGNR Transistors & Anderson Localization<br>(Yumigeta & Mutlu, ACS AMI 2026)"]:::lit
     end
 
     subgraph Simulation_Validation ["Lane 2: Simulation Validation (Executable Templates)"]
@@ -175,6 +178,12 @@ graph TD
 | AlphaEvolve-driven computational lithography is proposed to resolve SU-8 holographic printing diffraction | `proposed-fabrication-path-and-control.mdx`, `open-questions.mdx` | Google & Substrate (2026) | AI agent for quantum circuit optimization and computational lithography | Computational search space complexity or software integration overhead | Verify diffraction correction and true 3D curing geometries in SU-8 |
 | Cerebellum-inspired MoS₂ memtransistors combined with synchronized SHNO arrays enable always-on neuromorphic anomaly detection | `alternative-materials-and-methods.mdx`, `open-questions.mdx` | Memtransistor Research Group (2026) | Atomically thin MoS₂ devices with competing excitatory/inhibitory subtraction | Interface noise or device mismatch in large memtransistor-SHNO networks | Measure anomaly detection accuracy and power dissipation under continuous environment inputs |
 | On-device edge reasoning using Gated DeltaNet SLMs is proposed for real-time QPU self-correction | `alternative-materials-and-methods.mdx`, `open-questions.mdx` | Local SLM Engineering (2026) | Gemma 4 with Gated DeltaNet linear-attention layers | Memory and power limits of edge QPU integration | Verify self-correction response time and frequency stabilization on active units |
+| Chemically fuelled molecular ratchets transduce non-equilibrium energy into directional rotation, gel contraction, and active transport, while chemical reaction network theory quantifies energy transduction efficiency and pathway selection costs | `literature-review.mdx`, `core-architecture.mdx` | Demming (Chemistry World 2026) | Chemically fuelled ratchets, CRN thermodynamics, energy transduction, active transport, BRC dissipation | Non-equilibrium fuel exhaustion or uncoupled dissipative side-reactions | Validate gel contraction strain coupling in 3D polymer scaffolds and map CRN entropy budgets in BRC micromagnetic solvers |
+| Quantum statistical plasmonic metacrystals exhibit allowed and forbidden quantum statistical bands, selectively transmitting or filtering multiphoton fields according to their degree of second-order coherence g²(0) at room temperature | `literature-review.mdx`, `2d-stack-reliability-and-readout.mdx` | Chenglong You, Omar S. Magaña-Loaiza et al. (Nature 2026) | Plasmonic metacrystals, quantum statistics, coherence bands, room-temperature quantum materials, Fock states | Spatial overlap of meta-atom emission in paraxial far field degrades statistical band contrast | Measure g²(0) transmission spectrum vs. meta-atom size/pitch and verify Fock state preservation in optoelectronic readout tracks |
+| Nine-atom-wide armchair graphene nanoribbon (9-AGNR) transistors exhibit predictable 1D Anderson localization under gamma irradiation due to edge disorder, enabling radiation sensing and extreme-environment monitoring | `literature-review.mdx`, `2d-stack-reliability-and-readout.mdx` | Kentaro Yumigeta, Zafer Mutlu et al. (ACS Appl. Mater. Interfaces 2026) | Graphene nanoribbons, 9-AGNR, 1D Anderson localization, edge disorder, radiation sensing | Severe edge scattering degrades carrier mobility below device threshold | Measure conductance shift vs. gamma dose in 1D nanoribbon channels and test radiation-hardened routing layers |
+
+
+
 
 ## Detailed Claims
 
@@ -511,6 +520,37 @@ graph TD
 **HELIOS relevance:** (1) Directly resolves the write-then-hold gap exposed by the q-director result (L35): L35 writes a bistable helix state under applied field, but L36 provides field-free retention of the written state via twist-angle-controlled magnetic anisotropy enhancement. Together they constitute a complete current-write / field-free-hold cycle for L3 chiral harbors. (2) Twist angle is already a primary design knob in the Super-Moiré S-SAF stressor (H5); this result empirically validates that the same engineering framework governs magnetization retention, strengthening H5 from proposed to experimentally corroborated. (3) Field-free retention eliminates the holding-field power overhead from L3 harbor idle-state operation, directly enabling zero-standby-power spintronic memory. (4) Extends the moiré-engineering cluster (L21, L29) to include direct magnetization retention control.
 **Does not support:** Atomically precise twist-angle control at sub-10 nm harbor feature sizes; compatibility with 3D holographic polymer scaffold deposition chemistry.
 **Failure/blocker notes:** Monolayer-scale fabrication must be shown compatible with S-SAF multilayer deposition workflows; retention lifetime under device-relevant thermal cycling (300–375 K) has not yet been characterized at harbor geometry scales.
+
+### Molecular ratchets and chemical reaction network thermodynamics
+**Claim level:** Demonstrated experimentally & theoretically
+**Subsystem:** non-equilibrium thermodynamics, molecular ratchets, chemical reaction networks, energy transduction, active transport, Brownian reservoir computing
+**Source:** Anna Demming, *Molecular ratchets: unlocking the chemistry of biological motion*, *Chemistry World* (July 20, 2026).
+**Supported statement:** Chemically fuelled synthetic molecular ratchets (Borsley, Leigh 2022-2025) achieve autonomous $360^\circ$ directional rotation about covalent single bonds using carbodiimide fuels, transduce chemical free energy into mechanical work to contract polymer gels (artificial muscles) by 30%, and drive active transport across liquid membranes to generate chemical gradients (Ragazzon, Borsley 2024). Open chemical reaction network (CRN) thermodynamics (Esposito 2022-2026) and stoichiometric network expansion (Smith, Gagrani 2024-2026) quantify energy transduction efficiency, pathway switching ("changing gears"), and the energetic costs of pathway selectivity and blocking alternative reactions.
+**HELIOS relevance:** (1) Provides biomimetic nanoscale mechanical actuation and active transport mechanisms for 3D polymer scaffolds (DISH/SU-8); (2) Open CRN stochastic thermodynamics and pathway selection costs establish the theoretical energy limits and non-equilibrium entropy dissipation budgets for Brownian Reservoir Computing (BRC) and magnetic texture relaxation channels.
+**Does not support:** Direct room-temperature 3D magnetic hopfion stabilization without magnetic multilayers.
+**Failure/blocker notes:** Artificial molecular ratchets currently operate at lower energetic efficiency than biological motor proteins (~90% in yeast fermentation); chemical fuel-to-waste buildup must be managed in continuous-operation microfluidic channels.
+
+### Quantum statistical plasmonic metacrystals and room-temperature coherence bands
+**Claim level:** Demonstrated experimentally
+**Subsystem:** plasmonic metacrystals, quantum statistics, second-order coherence g²(0), coherence-band filtering, room-temperature quantum materials, many-body quantum photonics
+**Source:** Chenglong You, Riley B. Dawkins, Jannatul Ferdous, Mohammed Mehedi Hasan, Aadi Singh, Ziang Zhuang, Addison Wilberg, Ian Baum, Benjamin Bertoni, Mingyuan Hong & Omar S. Magaña-Loaiza, *Quantum statistical plasmonic metacrystals*, *Nature* (2026). DOI: `10.1038/s41586-026-10782-3`
+**Supported statement:** Meta-atom nanoantenna arrays ($200 \times 400\text{ nm}$ gold antennas on $110\text{-nm}$ Au film, $1\text{ }\mu\text{m}$ pitch) form allowed and forbidden quantum statistical bands that selectively transmit or filter multiphoton fields based on their second-order coherence $g^{(2)}(0)$. Light within allowed bands ($g^{(2)}(0) = 1, 2, 3$) propagates without distortion, whereas fields in forbidden bands ($g^{(2)}(0)=1.25$ or $2.15$) are suppressed and thermalized to the nearest allowed state ($1.50$ and $2.58$). Meta-atom geometry sets allowed $g^{(2)}(0)$ values, while relative orientation and meta-atom count control statistical bandwidth. Fock-state probabilities ($|n=1\rangle, |n=3\rangle, |n=5\rangle, |n=7\rangle$) remain constant across crystal depth despite plasmonic losses.
+**HELIOS relevance:** Provides room-temperature quantum state filtering and optical coherence control for hybrid photonic-spintronic stacks and 3D DISH/SU-8 scaffolds. Enables optical state cleaning for non-destructive magneto-optical readout and optical control interfaces without cryogenic cooling.
+**Does not support:** 3D magnetic hopfion stabilization in metallic spin-valve stacks.
+**Failure/blocker notes:** Statistical band formation is confined to the paraxial near-field region (crystal depth); far-field spatial mode overlap causes modal mixing and increases $g^{(2)}(0)$ for incoherent inputs.
+
+### Armchair graphene nanoribbons and 1D Anderson localization
+**Claim level:** Demonstrated experimentally
+**Subsystem:** graphene nanoribbons, 9-AGNR, 1D Anderson localization, edge disorder, radiation sensing, extreme-environment electronics
+**Source:** Kentaro Yumigeta, Muhammed Yusufoglu, John G. Federice, Elena T. Hughes, Ahmet Mert Degirmenci, Jon T. Njardarson, Kelly Simmons-Potter, Barrett G. Potter & Zafer Mutlu, *Electrical and Structural Response of Nine-Atom-Wide Armchair Graphene Nanoribbon Transistors to Gamma Irradiation*, *ACS Applied Materials & Interfaces* (April 20, 2026). DOI: `10.1021/acsami.6c02516`
+**Supported statement:** Atomically narrow ($\sim 1\text{ nm}$) 9-atom armchair graphene nanoribbon (9-AGNR) field-effect transistors undergo **1D Anderson localization** when exposed to gamma irradiation in air. Reactive atmospheric molecules modify the ribbon edges, creating edge disorder that induces quantum interference of charge carrier wavefunctions, trapping electrons and producing a deterministic, highly sensitive reduction in electrical conductivity. The 1D quantum confinement of 9-AGNRs dramatically scales up disorder sensitivity compared to 2D graphene or wider nanoribbons/CNTs.
+**HELIOS relevance:** Informs 1D interconnect defect sensitivity and extreme-environment hardening. Provides empirical transport scaling for 1D edge-state charge/spin transport degradation versus topological protection in narrow 2D/1D stack interconnects, and establishes 9-AGNR channels as radiation-hardened or radiation-sensing interconnect layers for extreme-environment HELIOS deployments.
+**Does not support:** Direct 3D magnetic hopfion stabilization or sub-10 ps magnetic switching.
+**Failure/blocker notes:** Uncontrolled atmospheric oxidation or severe structural edge damage can cause irreversible carrier localization and complete channel pinch-off.
+
+
+
+
 
 ### Super-Moiré Interfacial DMI Stressors for High-Temperature Hopfion Locking
 **Claim level:** Speculative / proposed
