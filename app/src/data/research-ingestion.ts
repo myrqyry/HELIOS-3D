@@ -1336,6 +1336,62 @@ const seedResearchRecords: ResearchRecord[] = [
       order: 49,
     },
   },
+  {
+    id: 'barbieri-demoulin-vlasov-stochastic-2026',
+    title: 'Collisionless stationary states of a stratified plasma in an expanding magnetic tube with stochastic heating',
+    source: 'Luca Barbieri, Pascal Démoulin, and Daniel Verscharen (arXiv:2607.21313v1, July 2026)',
+    url: 'https://arxiv.org/abs/2607.21313',
+    publishedAt: '2026-07-24',
+    stage: 'established',
+    tags: [
+      'vlasov-kinetics',
+      'expanding-magnetic-flux-tubes',
+      'stochastic-heating',
+      'loss-cone-anisotropy',
+      'magnetic-moment-conservation',
+      'coarse-grained-kinetics',
+      'stellar-coronae',
+    ],
+    summary:
+      'Derives exact analytical Vlasov solutions for collisionless stratified plasma in expanding magnetic flux tubes with stochastic heating, establishing loss-cone anisotropy hierarchy (T_perp <= T <= T_b <= T_parallel) and non-monotonic parallel temperature scaling.',
+    evidenceLevel: 'DEMONSTRATED',
+    publicUse: 'timeline',
+    timeline: {
+      id: 'barbieri-demoulin-vlasov-stochastic-2026',
+      year: 2026,
+      title: 'Collisionless Vlasov Plasma Kinetics (Barbieri, Démoulin, & Verscharen 2026)',
+      tag: 'DEMONSTRATED',
+      order: 50,
+    },
+  },
+  {
+    id: 'basak-biswas-moffatt-fractal-2026',
+    title: 'Fractal Scaling of Moffatt Vortices in Triangular Cavity Flow',
+    source: 'Rathindra Nath Basak, Sougata Biswas, and Jiten C. Kalita (arXiv:2607.20976v1, July 2026)',
+    url: 'https://arxiv.org/abs/2607.20976',
+    publishedAt: '2026-07-23',
+    stage: 'established',
+    tags: [
+      'fractal-scaling',
+      'moffatt-vortices',
+      'area-perimeter-method',
+      'self-similarity',
+      'triangular-cavity-flow',
+      'vorticity-distribution',
+      'corner-flows',
+    ],
+    summary:
+      'Quantifies self-similar Moffatt corner vortex cascades using the area-perimeter method, proving that nested eddies possess non-integer fractal dimensions between 1 and 2 and deriving a generalized grid-independent scaling law D(n).',
+    evidenceLevel: 'DEMONSTRATED',
+    publicUse: 'timeline',
+    timeline: {
+      id: 'basak-biswas-moffatt-fractal-2026',
+      year: 2026,
+      title: 'Fractal Scaling of Moffatt Vortices (Basak, Biswas, & Kalita 2026)',
+      tag: 'DEMONSTRATED',
+      order: 51,
+    },
+  },
 ];
 
 export const researchRecords = loadResearchRecords(seedResearchRecords);

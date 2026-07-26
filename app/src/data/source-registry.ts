@@ -61,6 +61,8 @@ const accessibleRecordIds = new Set([
   'ngirmang-lin-quantum-pic-simulation-2026',
   'fu-ichibha-nnqmc-pseudopotential-2026',
   'chun-kwak-qd-solvent-engineering-2026',
+  'barbieri-demoulin-vlasov-stochastic-2026',
+  'basak-biswas-moffatt-fractal-2026',
 ]);
 
 const recordSources: SourceRegistryEntry[] = researchRecords.map((record) => {

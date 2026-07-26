@@ -66,6 +66,8 @@ graph TD
         L41["Quantum Plasma PIC Simulator<br>(Ngirmang & Lin, Comput. Phys. Commun. 2026)"]:::lit
         L42["NNQMC Pseudo-Hamiltonian Scalability<br>(Fu & Ichibha, Nat. Comput. Sci. 2026)"]:::lit
         L43["Inverse ML QD Solvent Engineering<br>(Chun & Kwak, Rep. Prog. Phys. 2026)"]:::lit
+        L44["Collisionless Vlasov Plasma Kinetics<br>(Barbieri et al., arXiv:2607.21313 2026)"]:::lit
+        L45["Fractal Scaling of Moffatt Vortices<br>(Basak et al., arXiv:2607.20976 2026)"]:::lit
     end
 
     subgraph Simulation_Validation ["Lane 2: Simulation Validation (Executable Templates)"]
@@ -189,15 +191,28 @@ graph TD
 | Particle-in-Cell (PIC) simulation tools extended with four quantum physics modules enable multi-scale modeling of light-matter interactions, plasmonics, and band-structure dispersion in metals, semiconductors, and 2D materials | `literature-review.mdx`, `simulation-validation-suite.mdx` | Gregory K. Ngirmang, Wu Lin et al. (Computer Physics Communications 2026) | Particle-in-Cell, quantum plasma, light-matter interactions, plasmonics, multi-scale simulation, digital twin | PIC macro-particle discretization noise at sub-nanometer scale | Benchmark quantum PIC solvers against FDTD/DFT for plasmonic near-field coupling and 2D optoelectronic readout tracks |
 | Combining Neural Network Quantum Monte Carlo (NNQMC) with Bayesian localization of pseudo-Hamiltonians reduces core-electron computational costs, enabling accurate ab initio electronic structure calculations of large-scale material systems | `literature-review.mdx`, `simulation-validation-suite.mdx` | Weizhong Fu, Tom Ichibha et al. (Nature Computational Science 2026) | Neural network Quantum Monte Carlo, NNQMC, local pseudopotentials, Bayesian localization, ab initio materials simulation | Pseudo-Hamiltonian localization error in ultra-heavy element core regions | Validate NNQMC pseudopotential ground-state energy against full-CI and benchmark exchange coupling parameters for 2D heterostructures |
 | Inverse machine learning platform predicts optimal multi-solvent mixtures based on solvent physical properties and AFM surface morphology, enabling dense, uniform quantum dot film deposition that doubles efficiency and extends operational lifetime 40-fold | `literature-review.mdx`, `proposed-fabrication-path-and-control.mdx` | Beomsoo Chun, Jaehoon Lim, Jeonghun Kwak et al. (Reports on Progress in Physics 2026) | Quantum dots, solvent engineering, machine learning, inverse process design, nanoparticle packing, solution processing | Phase separation in complex solvent mixtures during rapid spin coating | Measure AFM packing density and pinhole defect rate vs. predicted multi-solvent parameters across 3D scaffold functional layers |
-
-
-
-
-
-
-
+| Exact analytical Vlasov kinetic solutions derive loss-cone anisotropy hierarchy ($T_{\perp} \le T \le T_b \le T_{\parallel}$), non-monotonic parallel temperature scaling, and temporal coarse-graining for stochastic boundary heating | `literature-review.mdx`, `core-architecture.mdx` | Luca Barbieri, Pascal Démoulin, and Daniel Verscharen (arXiv:2607.21313, 2026) | Vlasov plasma kinetics, expanding magnetic fields, loss-cone anisotropy, stochastic heating, BRC state modeling | Non-equilibrium wave-particle instabilities or pitch-angle scattering relax loss cone | Validate BRC reservoir node stationary state distributions under stochastic voltage pulses and model magnon loss cones in tapered 3D scaffolds |
+| Area-perimeter fractal dimension scaling ($D \in (1, 2)$) quantifies multi-scale Moffatt corner vortex cascades, deriving a grid-independent scaling law D(n) and proving self-similarity across enclosure geometries | `literature-review.mdx`, `core-architecture.mdx` | Rathindra Nath Basak, Sougata Biswas, and Jiten C. Kalita (arXiv:2607.20976, 2026) | Fractal scaling, Moffatt vortices, area-perimeter method, self-similarity, BRC feature extraction, corner pinning | High Reynolds number inertial turbulence breaks discrete scale invariance | Apply area-perimeter fractal dimension D = 2 log(P)/log(A) as a scale-invariant feature extractor for BRC reservoir states and 3D scaffold corner pinning |
 
 ## Detailed Claims
+
+### Fractal Scaling of Moffatt Vortices in Triangular Cavity Flow
+**Claim level:** Demonstrated / Inferred
+**Subsystem:** Area-perimeter method, fractal scaling, Moffatt vortices, BRC topological feature extraction, corner pinning
+**Source:** Rathindra Nath Basak, Sougata Biswas, and Jiten C. Kalita (arXiv:2607.20976v1, July 2026).
+**Supported statement:** Corner vortex cascades in viscous cavity flows exhibit non-integer fractal perimeter dimensions $D \in (1, 2)$, increasing systematically ($D_1 \approx 1.23 \rightarrow D_7 \approx 1.78$) with spatial confinement, and follow a generalized grid-independent scaling law $D(n) \approx 2 \frac{\log P_1 - (n-1)\log 2}{\log A_1 - 2(n-1)\log 2}$.
+**HELIOS relevance:** Provides a coordinate-invariant, scale-invariant area-perimeter fractal dimension metric ($D = 2 \frac{\log P}{\log A}$) for extracting topological feature vectors from 3D spin textures and BRC reservoir states, while modeling nested spin-vortex reflection cascades near 3D scaffold corner junctions.
+**Does not support:** Unbounded micro-vortex cascades at high Reynolds numbers ($\text{Re} \gg 1000$).
+**Failure/blocker notes:** Coarse computational grids without sufficient element density near corners fail to resolve higher-order fractal dimensions ($n \ge 4$).
+
+### Collisionless Vlasov Plasma Kinetics in Expanding Magnetic Flux Tubes with Stochastic Heating
+**Claim level:** Demonstrated / Inferred
+**Subsystem:** Vlasov plasma kinetics, expanding magnetic geometries, loss-cone anisotropy, stochastic coarse-graining, BRC state space modeling
+**Source:** Luca Barbieri, Pascal Démoulin, and Daniel Verscharen (arXiv:2607.21313v1, July 2026).
+**Supported statement:** Exact analytical Vlasov kinetics in expanding magnetic flux tubes establish a universal loss-cone temperature hierarchy ($T_\perp \le T \le T_b \le T_\parallel$) and non-monotonic parallel temperature peak scaling ($z_{\text{max}} \propto d^{p/(p+1)} H^{1/(p+1)}$), while temporal coarse-graining proves that gravitational/potential filtering selects high-energy populations during intermittent stochastic heating.
+**HELIOS relevance:** Establishes a rigorous kinetic phase-space framework for analytical BRC core state modeling under stochastic voltage/current drive and magnonic loss-cone phase space filtering in tapered 3D spintronic scaffolds.
+**Does not support:** Direct solid-state spin switching or lithographic 3D printing.
+**Failure/blocker notes:** Pitch-angle scattering or non-equilibrium kinetic instabilities may relax velocity space anisotropy and repopulate the loss cone.
 
 ### From erasure to CRUD: unified information-thermodynamic accounting
 **Claim level:** Theory / framework / simulation-supported

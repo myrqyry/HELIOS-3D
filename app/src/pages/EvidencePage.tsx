@@ -68,6 +68,8 @@ export const groups: EvidenceGroup[] = [
       { claim: 'A planar-first, electrically read multilayer stack is the minimum credible validation path.', tag: 'INFERRED', source: 'Current demonstrator memo' },
       { claim: 'TOHE could provide a measurable experimental readout channel for a hopfion’s transverse orbital response.', tag: 'INFERRED', source: 'Literature-to-experiment mapping' },
       { claim: 'Programmable slow-light PICs enable real-time control of optical signal speed and shape on silicon nitride.', tag: 'INFERRED', source: 'Park et al.' },
+      { claim: 'Analytical Vlasov kinetic coarse-graining and loss-cone phase-space filtering in expanding magnetic fields provide a baseline framework for BRC reservoir node state distributions and magnonic transport in tapered 3D spintronic scaffolds.', tag: 'INFERRED', source: 'Luca Barbieri, Pascal Démoulin, and Daniel Verscharen (arXiv:2607.21313, 2026)' },
+      { claim: 'Area-perimeter fractal perimeter dimension scaling (D in (1, 2)) provides a coordinate-invariant feature extraction metric for BRC reservoir state representations and nested corner-pinning dynamics in 3D spintronic scaffolds.', tag: 'INFERRED', source: 'Rathindra Nath Basak, Sougata Biswas, and Jiten C. Kalita (arXiv:2607.20976, 2026)' },
     ],
   },
   {

@@ -16,14 +16,38 @@ The following analysis contextualizes the HELIOS-3D research hypothesis against 
 
 ### 📊 Comparative Scaling Potential (Conceptual)
 
-| Feature | Intel Loihi 2 / Hala Point-class | IBM NorthPole | HELIOS-3D (Hypothesis) | Status |
+| Dimension | Intel Loihi 2 / Hala Point-class | IBM NorthPole | HELIOS-3D (Hypothesis) | Status |
 | :--- | :--- | :--- | :--- | :--- |
-| **Mechanism** | 4nm CMOS Spiking | 12nm Near-Memory SRAM Inference Accelerator | Topological Magnonics | `[SPECULATIVE]` |
-| **Thermodynamics** | Joule-constrained | Joule-constrained | Heat-scavenging | `[SPECULATIVE]` |
-| **Efficiency Target** | pJ range | ~pJ/op (measured, 288-card prototype) | fJ range aspiration | `[SPECULATIVE]` |
-| **Power Scaling** | Active cooling req. | Active cooling req. | Thermally assisted | `[SPECULATIVE]` |
+| **Mechanism** | 4nm CMOS Spiking | 12nm Near-Memory SRAM | Topological Magnonics | `[SPECULATIVE]` |
+| **Spatial Scaling** | 2D Planar ($\mathcal{O}(1/L^2)$) | 2D Planar ($\mathcal{O}(1/L^2)$) | 3D Volumetric ($\mathcal{O}(1/L^3)$) | `[PROPOSED]` |
+| **Thermodynamics** | Joule-constrained ($C V^2$) | Joule-constrained ($C V^2$) | Sub-Landauer ($k_B T \ln 2$) | `[SPECULATIVE]` |
+| **Efficiency Target** | pJ range | ~pJ/op (288-card prototype) | fJ range aspiration | `[SPECULATIVE]` |
+| **Array Coherence** | Digital clock tree | SRAM global interconnect | Phase-locking ($P \propto N, \Delta f \propto 1/N$) | `[INFERRED]` |
+| **Solver Complexity** | Matrix-Vector Multiplications | Matrix-Vector Multiplications | Tensor-Basis ODE ($\mathcal{O}(1)$ dynamic surrogate) | `[PROPOSED]` |
+| **Power Scaling** | Active cooling required | Active cooling required | Thermally assisted / noise-driven | `[SPECULATIVE]` |
 
 *Mechanism is demonstrated only for related standalone physical experiments, not for the full HELIOS-3D system.*
+
+### 📐 Multidimensional Scaling Laws Analysis
+
+Understanding the scaling bottlenecks of conventional computing and the theoretical advantages of topological spintronics requires evaluating four complementary scaling dimensions:
+
+1. **Spatial & Volumetric Scaling ($\mathcal{O}(1/L^3)$ vs $\mathcal{O}(1/L^2)$)**:
+   * Charge-based silicon is constrained to planar 2D lithography where interconnect RC delays and static leakage dominate as feature size $L \rightarrow 0$.
+   * HELIOS-3D proposes a transition from 2D planar skyrmions to 3D hopfion loops, scaling information density volumetrically ($\mathcal{O}(1/L^3)$) to maximize compute throughput per unit of manufactured substrate. `[PROPOSED]`
+
+2. **Thermodynamic & Energetic Scaling ($k_B T \ln 2$ Bounds)**:
+   * Traditional logic dissipates energy through Joule heating proportional to charge movement ($E \propto C V^2$).
+   * The Brownian Reservoir Computing (BRC) core operates near the **Landauer limit** ($E_{\text{min}} = k_B T \ln 2$), treating ambient thermal fluctuations ($D \propto k_B T$) as computational assistance rather than an error margin. `[SPECULATIVE]`
+
+3. **Array Synchronization & Coherence Scaling**:
+   * In ultra-large Spin Hall Nano-Oscillator (SHNO) networks (up to 105,000 nodes), mutual phase-locking demonstrates:
+     $$\text{Microwave Power} \propto N, \quad \text{Linewidth} \Delta f \propto \frac{1}{N}, \quad t_{\text{sync}} \propto \ln N$$
+   * This permits large spatial scaling without suffering exponential coherence degradation. `[DEMONSTRATED]`
+
+4. **Physics-Informed ML Surrogate Solver Scaling**:
+   * Direct micromagnetic grid integration (LLGS / MuMax3 / OOMMF) scales as $\mathcal{O}(N_{\text{mesh}}^3 \Delta t^{-1})$.
+   * Embedding Tensor Basis Neural Network (TBNN) closures directly into coupled ordinary differential equation (ODE) systems reduces dynamic trajectory evaluation to $\mathcal{O}(1)$ relative to spatial mesh density. `[PROPOSED]`
 
 ### ⚠️ Aspiration vs. Demonstration
 While standalone spintronic components have demonstrated low switching energy in isolated laboratory conditions, achieving those metrics in a volumetric, multi-core integrated system remains an unverified research goal. Any projected improvements depend on the exact material stack, readout path, and thermal regime.

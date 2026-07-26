@@ -669,6 +669,28 @@ Gao et al. (2026) demonstrate that high-dielectric **SrTiO3** substrates can tun
   **HELIOS-3D Application:** Establishes data-driven inverse solvent engineering protocols for uniform solution-phase deposition of colloidal quantum dots, magnetic nanoparticles, and 2D flake suspensions across 3D DISH/SU-8 scaffold surfaces. Solves non-uniform nanoparticle packing and pinhole defects in liquid-processed functional layers, directly improving interfacial reliability in hybrid 3D scaffold-readout architectures. `[DEMONSTRATED]` [Chun & Kwak et al., Rep. Prog. Phys. 2026]
 </ExpandableChunk>
 
+<ExpandableChunk
+  title="Collisionless Vlasov Plasma Kinetics in Expanding Magnetic Flux Tubes with Stochastic Heating (Luca Barbieri, Pascal Démoulin, and Daniel Verscharen, arXiv:2607.21313, 2026)"
+  summary="Fully analytical Vlasov kinetic solution deriving loss-cone anisotropy hierarchy (T_perp ≤ T ≤ T_b ≤ T_parallel), non-monotonic parallel temperature scaling, and temporal coarse-graining for stochastic heating."
+>
+  Luca Barbieri, Pascal Démoulin, and Daniel Verscharen (*arXiv:2607.21313v1*, July 2026) derive exact analytical Vlasov kinetic solutions for collisionless stratified plasma confined in expanding magnetic flux tubes subject to gravity, self-electrostatic Pannekoek–Rosseland potential fields, adiabatic magnetic moment conservation ($\mu = m v_\perp^2 / 2 B(z)$), and stochastic boundary heating. The authors prove that the interplay between expanding magnetic field geometry $B(z)$ and potential gradients generates a velocity-space loss cone, yielding a universal kinetic temperature hierarchy:
+  $$T_\perp(z) \le T(z) \le T_b \le T_\parallel(z)$$
+  The competition between magnetic moment conservation (which focuses kinetic energy into $v_\parallel$) and gravitational filtering produces a non-monotonic peak in parallel temperature whose spatial location and amplitude follow analytical power-law scaling ($z_{\text{max}} \propto d^{p/(p+1)} H^{1/(p+1)}$). Furthermore, temporal coarse-graining of short, intense stochastic heating events ($\tau, t_w \ll t_{\text{relaxation}}$) yields stationary multi-temperature phase space distribution functions where gravitational filtering isolates high-energy tails and magnetic flux tube expansion amplifies directional temperature anisotropy.
+
+  **HELIOS-3D Application:** Provides an exact kinetic phase-space framework for modeling non-equilibrium energy distributions in Brownian Reservoir Computing (BRC) cores under stochastic pulse drives, bypassing expensive stochastic Langevin-LLGS simulations. Additionally, the paper's adiabatic invariant loss-cone formalism models magnonic phase-space filtering ($\mu_{\text{mag}} = E_{\text{mag}}/\omega$) and directional thermal magnon accumulation ($T_{\text{mag},\parallel} > T_{\text{mag},\perp}$) inside tapered 3D spintronic scaffolds. `[DEMONSTRATED]` [Barbieri, Démoulin, & Verscharen, arXiv:2607.21313 2026]
+</ExpandableChunk>
+
+<ExpandableChunk
+  title="Fractal Scaling of Moffatt Vortices in Cavity Flows (Rathindra Nath Basak, Sougata Biswas, and Jiten C. Kalita, arXiv:2607.20976, 2026)"
+  summary="Quantifying nested Moffatt corner vortex cascades using the area-perimeter method, deriving non-integer fractal dimensions D in (1, 2) and a generalized grid-independent scaling formula D(n)."
+>
+  Rathindra Nath Basak, Sougata Biswas, and Jiten C. Kalita (*arXiv:2607.20976v1*, July 2026) investigate the formation, geometric quantification, and fractal self-similarity of corner vortices (Moffatt eddies) in slow viscous incompressible cavity flows. Using high-resolution pressure-based Navier-Stokes solvers, the authors analyze the nested vortex cascade across triangular and square enclosures, verifying Moffatt's theoretical size ($r_{n+1}/r_n \approx 0.49$) and stream function intensity ($\psi_{n+1}/\psi_n \approx 0.0012$) reduction ratios. Applying Lovejoy's area–perimeter method ($P = k A^{D/2}$), they prove that successive eddies exhibit non-integer fractal perimeter dimensions $D \in (1, 2)$, increasing systematically from macroscopic primary vortices ($D_1 \approx 1.23$) to microscopic corner apex eddies ($D_7 \approx 1.78$) as spatial confinement narrows. The authors derive a generalized, grid-independent scaling law for the $n$-th vortex dimension:
+  $$D(n) \approx 2 \left[ \frac{\log P_1 - (n-1)\log 2}{\log A_1 - 2(n-1)\log 2} \right]$$
+  where $P_1$ and $A_1$ are the grid-normalized perimeter and area of the primary vortex.
+
+  **HELIOS-3D Application:** Establishes an area-perimeter fractal dimension extraction methodology ($D = 2 \frac{\log P}{\log A}$) for quantifying the multi-scale topological complexity of 3D spin textures, demagnetization field contours, and Brownian Reservoir Computing (BRC) core state fluctuations. Additionally, the paper's grid-spacing normalization factor ($\Delta = 412/m$) ensures resolution-invariant extraction of domain wall roughness, and the cascade scaling formula $D(n)$ models nested spin-vortex / demagnetization reflection cascades near 3D TPP/DISH scaffold corner junctions. `[DEMONSTRATED]` [Basak, Biswas, & Kalita, arXiv:2607.20976 2026]
+</ExpandableChunk>
+
 
 
 
