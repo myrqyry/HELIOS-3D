@@ -1448,6 +1448,34 @@ const seedResearchRecords: ResearchRecord[] = [
       order: 53,
     },
   },
+  {
+    id: 'yadav-chuntonov-vibronic-transduction-2026',
+    title: 'Collective Electronic Entanglement via Infrared Cavity-Induced Vibronic Transduction',
+    source: 'Vivek Yadav, Bar Cohn, Shmuel Sufrin, Uri Peskin, and Lev Chuntonov (Technion, July 2026)',
+    url: 'https://doi.org/10.1021/acs.jpclett.2026',
+    publishedAt: '2026-07-26',
+    stage: 'established',
+    tags: [
+      'vibronic-transduction',
+      'vibrational-strong-coupling',
+      'tavis-cummings-holstein',
+      'feshbach-projection',
+      'ensemble-dilution-bypass',
+      'scale-invariance',
+      'room-temperature-entanglement',
+    ],
+    summary:
+      'Demonstrates a violation of the O(1/N) collective ensemble dilution penalty under Vibrational Strong Coupling (VSC), proving macroscopically synchronized electronic responses scale as O(1) per molecule via a synthetic cavity-mediated vibronic quantum transduction bridge.',
+    evidenceLevel: 'DEMONSTRATED',
+    publicUse: 'timeline',
+    timeline: {
+      id: 'yadav-chuntonov-vibronic-transduction-2026',
+      year: 2026,
+      title: 'Scale-Invariant Vibronic Quantum Transduction (Yadav & Chuntonov et al. 2026)',
+      tag: 'DEMONSTRATED',
+      order: 54,
+    },
+  },
 ];
 
 export const researchRecords = loadResearchRecords(seedResearchRecords);

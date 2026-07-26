@@ -65,6 +65,7 @@ const accessibleRecordIds = new Set([
   'basak-biswas-moffatt-fractal-2026',
   'zhou-liang-incoherent-milnor-2026',
   'mizrachi-raveh-storm-rdma-2026',
+  'yadav-chuntonov-vibronic-transduction-2026',
 ]);
 
 const recordSources: SourceRegistryEntry[] = researchRecords.map((record) => {

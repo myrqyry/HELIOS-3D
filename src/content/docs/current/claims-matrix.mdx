@@ -70,6 +70,7 @@ graph TD
         L45["Fractal Scaling of Moffatt Vortices<br>(Basak et al., arXiv:2607.20976 2026)"]:::lit
         L46["Incoherent Milnor Polynomials & Topological Light<br>(Zhou & Liang, Nat. Commun. 2026)"]:::lit
         L47["STORM Lock-Free RDMA Transport<br>(Mizrachi et al., arXiv:2607.20639 2026)"]:::lit
+        L48["Vibronic Transduction & O(1) Scale Invariance<br>(Yadav & Chuntonov, Technion 2026)"]:::lit
     end
 
     subgraph Simulation_Validation ["Lane 2: Simulation Validation (Executable Templates)"]
@@ -197,8 +198,18 @@ graph TD
 | Area-perimeter fractal dimension scaling ($D \in (1, 2)$) quantifies multi-scale Moffatt corner vortex cascades, deriving a grid-independent scaling law D(n) and proving self-similarity across enclosure geometries | `literature-review.mdx`, `core-architecture.mdx` | Rathindra Nath Basak, Sougata Biswas, and Jiten C. Kalita (arXiv:2607.20976, 2026) | Fractal scaling, Moffatt vortices, area-perimeter method, self-similarity, BRC feature extraction, corner pinning | High Reynolds number inertial turbulence breaks discrete scale invariance | Apply area-perimeter fractal dimension D = 2 log(P)/log(A) as a scale-invariant feature extractor for BRC reservoir states and 3D scaffold corner pinning |
 | Incoherent Milnor polynomials $F(\mathbf{R}_1, \mathbf{R}_2)$ embed 3D Hopf links ($\sigma_1^{+2}$) and trefoil knots ($\sigma_1^{+3}$) into coherence singularities ($\mu = 0$) with independent statistical intensity control, achieving high-capacity dual optical encoding ($l \approx 2.8 \times 10^{12}$) | `literature-review.mdx`, `proposed-fabrication-path-and-control.mdx` | Ao Zhou, Dong Xu, Yaning Zhou, Peng Li, Zhigang Chen, Chunhao Liang et al. (Nat. Commun. / arXiv 2026) | Incoherent topological light, Milnor polynomial, coherence singularities, DISH holography, optical braid encoding | Dense coherence singularity trajectories become sensitive to high phase noise | Apply Incoherent Milnor polynomials to DISH 3D scaffold printing and dual-payload optoelectronic readout (braid key + intensity) |
 | Lock-free single-producer single-consumer (SPSC) ring-buffer Handlers and direct one-sided RDMA transfers eliminate cross-sender contention and MPI progress overhead, sustaining >97% weak-scaling and >88% strong-scaling efficiency across 13,440 cores | `literature-review.mdx`, `simulation-validation-suite.mdx` | Maor Mizrachi, Barak Raveh, and Elad Steinberg (arXiv:2607.20639, 2026) | RDMA particle transport, lock-free SPSC ring buffer, libfabric/OFI, BRC parallel transport, Monte Carlo scaling | OS page pinning constraints restrict dynamic memory swap eviction | Adopt STORM's lock-free SPSC Handlers and one-sided RDMA protocols for multi-node BRC reservoir core simulations and micromagnetic magnon solvers |
+| Synthetic cavity-mediated vibronic quantum transduction couples localized electronic landscapes to delocalized cavity fields under Vibrational Strong Coupling (VSC), achieving macroscopically synchronized O(1) scale-invariant electronic responses that bypass the O(1/N) ensemble dilution penalty | `literature-review.mdx`, `2d-stack-reliability-and-readout.mdx` | Vivek Yadav, Bar Cohn, Shmuel Sufrin, Uri Peskin, and Lev Chuntonov (Technion, 2026) | Vibronic quantum transduction, Vibrational Strong Coupling, Tavis-Cummings-Holstein, Feshbach projection, ensemble dilution bypass, scale invariance | Severe vibrational dephasing if temperature exceeds room-temperature VSC bounds | Apply synthetic vibronic quantum transduction to large-scale BRC reservoir cores and optoelectronic readout tracks |
 
 ## Detailed Claims
+
+### Scale-Invariant Vibronic Quantum Transduction in Cavity-Coupled Ensembles
+**Claim level:** Demonstrated / Inferred
+**Subsystem:** Vibronic quantum transduction, Vibrational Strong Coupling (VSC), Tavis-Cummings-Holstein Hamiltonian, Feshbach projection, BRC node readout
+**Source:** Vivek Yadav, Bar Cohn, Shmuel Sufrin, Uri Peskin, and Lev Chuntonov (*Technion - Israel Institute of Technology*, July 2026).
+**Supported statement:** Synthetic cavity-mediated vibronic quantum transduction generates macroscopically synchronized electronic responses that scale as $\mathcal{O}(1)$ per molecule under Vibrational Strong Coupling (VSC), completely bypassing the conventional $\mathcal{O}(1/N)$ ensemble dilution penalty via collective Rabi enhancement ($g_{\text{tot}} = \sqrt{N} g_m$).
+**HELIOS relevance:** Solves the ensemble scaling dilemma in large-scale Brownian Reservoir Computing (BRC) cores and STNO/SHNO arrays ($N \sim 10^5 \text{ to } 10^9$), enabling scale-invariant $\mathcal{O}(1)$ signal extraction per node without signal decay.
+**Does not support:** Uncoupled molecular systems lacking cavity field hybridization.
+**Failure/blocker notes:** Off-resonant laser driving power or extreme thermal line broadening destroys the coherent vibronic phase-lock.
 
 ### STORM: RDMA-Based Monte Carlo Transport for Distributed-Memory Simulations
 **Claim level:** Demonstrated / Inferred

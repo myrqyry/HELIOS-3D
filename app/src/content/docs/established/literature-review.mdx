@@ -709,6 +709,15 @@ Gao et al. (2026) demonstrate that high-dielectric **SrTiO3** substrates can tun
   **HELIOS-3D Application:** Establishes a high-performance parallel communication architecture for distributed BRC (Brownian Reservoir Computing) cores and multi-node spintronic particle / magnon simulations. By adopting STORM's lock-free SPSC ring-buffer Handlers and one-sided RDMA transfer protocols, HELIOS-3D micromagnetic particle solvers can eliminate cross-sender contention and receiver polling bottlenecks, enabling linear scaling across large GPU/HPC clusters. `[DEMONSTRATED]` [Mizrachi, Raveh, & Steinberg, arXiv:2607.20639 2026]
 </ExpandableChunk>
 
+<ExpandableChunk
+  title="Collective Electronic Entanglement via Infrared Cavity-Induced Vibronic Transduction (Vivek Yadav, Bar Cohn, Shmuel Sufrin, Uri Peskin, Lev Chuntonov, Technion 2026)"
+  summary="Bypassing the O(1/N) ensemble dilution penalty under Vibrational Strong Coupling (VSC), proving macroscopically synchronized O(1) electronic responses via a synthetic vibronic bridge."
+>
+  Vivek Yadav, Bar Cohn, Shmuel Sufrin, Uri Peskin, and Lev Chuntonov (*Technion - Israel Institute of Technology*, July 2026) report the discovery of a scale-invariant vibronic quantum transduction mechanism that overcomes the fundamental $\mathcal{O}(1/N)$ ensemble dilution bottleneck in collective strong coupling. When an ensemble of $N \sim 10^9$ molecules couples to a delocalized cavity mode under Vibrational Strong Coupling (VSC), conventional theory dictates that localized molecular responses scale as $\mathcal{O}(1/N)$, causing polaritonic participation to vanish per molecule. Using 4th-order nonlinear Fluorescence-Encoded Infrared (FE-IR) action spectroscopy, the authors demonstrate that macroscopically synchronized electronic responses scale as **$\mathcal{O}(1)$ per molecule**, completely independent of ensemble size $N$. Applying small polaron transformation and Feshbach projection operator formalism to the Tavis-Cummings-Holstein (TCH) Hamiltonian, they prove that collective Rabi enhancement ($g_{\text{tot}} = \sqrt{N} g_m$) cancels the $1/\sqrt{N}$ state projection weight, creating a synthetic vibronic bridge between nuclear vibrations and electronic excited states.
+
+  **HELIOS-3D Application:** Solves the ensemble scaling dilemma in large-scale Brownian Reservoir Computing (BRC) cores and spin-torque nano-oscillator (STNO/SHNO) arrays ($N \sim 10^5 \text{ to } 10^9$). By coupling localized spin-wave or vibrational nodes to delocalized cavity/waveguide modes and driving them with pre-resonant optical/spintronic pulses, HELIOS-3D optoelectronic readout interfaces can achieve scale-invariant $\mathcal{O}(1)$ signal extraction per node without ensemble dilution penalties. `[DEMONSTRATED]` [Yadav & Chuntonov et al., Technion 2026]
+</ExpandableChunk>
+
 
 
 
