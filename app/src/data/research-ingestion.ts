@@ -1392,6 +1392,62 @@ const seedResearchRecords: ResearchRecord[] = [
       order: 51,
     },
   },
+  {
+    id: 'zhou-liang-incoherent-milnor-2026',
+    title: 'General framework for incoherent topological structured light and optical information encoding',
+    source: 'Ao Zhou, Dong Xu, Yaning Zhou, Peng Li, Zhigang Chen, Chunhao Liang et al. (Nat. Commun. / arXiv 2026)',
+    url: 'https://doi.org/10.1038/s41467-026-72774-1',
+    publishedAt: '2026-07-26',
+    stage: 'established',
+    tags: [
+      'incoherent-topological-light',
+      'milnor-polynomial',
+      'coherence-singularities',
+      'hopf-links',
+      'trefoil-knots',
+      'artin-braid-group',
+      'dish-holography',
+    ],
+    summary:
+      'Introduces the Incoherent Milnor Polynomial framework for real-space incoherent topological structured light, embedding Hopf links and trefoil knots into coherence singularities while proving topological configuration and statistical coherence intensity act as dual independent degrees of freedom.',
+    evidenceLevel: 'DEMONSTRATED',
+    publicUse: 'timeline',
+    timeline: {
+      id: 'zhou-liang-incoherent-milnor-2026',
+      year: 2026,
+      title: 'Incoherent Milnor Polynomial Topological Light (Zhou & Liang 2026)',
+      tag: 'DEMONSTRATED',
+      order: 52,
+    },
+  },
+  {
+    id: 'mizrachi-raveh-storm-rdma-2026',
+    title: 'STORM: RDMA-based Monte Carlo Transport Scheme for Distributed-Memory Particle Simulations',
+    source: 'Maor Mizrachi, Barak Raveh, and Elad Steinberg (arXiv:2607.20639v1, July 2026)',
+    url: 'https://arxiv.org/abs/2607.20639',
+    publishedAt: '2026-07-22',
+    stage: 'established',
+    tags: [
+      'rdma-transport',
+      'one-sided-communication',
+      'lock-free-spsc-ring-buffer',
+      'monte-carlo-transport',
+      'libfabric-ofi',
+      'parallel-scaling',
+      'distributed-memory',
+    ],
+    summary:
+      'Presents STORM, an open-source library for distributed Monte Carlo transport utilizing lock-free single-producer single-consumer (SPSC) ring-buffer Handlers and one-sided RDMA operations (libfabric/OFI) to sustain >97% weak scaling and >88% strong scaling across 13,440 cores.',
+    evidenceLevel: 'DEMONSTRATED',
+    publicUse: 'timeline',
+    timeline: {
+      id: 'mizrachi-raveh-storm-rdma-2026',
+      year: 2026,
+      title: 'STORM Lock-Free RDMA Particle Transport (Mizrachi, Raveh, & Steinberg 2026)',
+      tag: 'DEMONSTRATED',
+      order: 53,
+    },
+  },
 ];
 
 export const researchRecords = loadResearchRecords(seedResearchRecords);

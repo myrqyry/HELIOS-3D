@@ -68,6 +68,8 @@ graph TD
         L43["Inverse ML QD Solvent Engineering<br>(Chun & Kwak, Rep. Prog. Phys. 2026)"]:::lit
         L44["Collisionless Vlasov Plasma Kinetics<br>(Barbieri et al., arXiv:2607.21313 2026)"]:::lit
         L45["Fractal Scaling of Moffatt Vortices<br>(Basak et al., arXiv:2607.20976 2026)"]:::lit
+        L46["Incoherent Milnor Polynomials & Topological Light<br>(Zhou & Liang, Nat. Commun. 2026)"]:::lit
+        L47["STORM Lock-Free RDMA Transport<br>(Mizrachi et al., arXiv:2607.20639 2026)"]:::lit
     end
 
     subgraph Simulation_Validation ["Lane 2: Simulation Validation (Executable Templates)"]
@@ -193,8 +195,28 @@ graph TD
 | Inverse machine learning platform predicts optimal multi-solvent mixtures based on solvent physical properties and AFM surface morphology, enabling dense, uniform quantum dot film deposition that doubles efficiency and extends operational lifetime 40-fold | `literature-review.mdx`, `proposed-fabrication-path-and-control.mdx` | Beomsoo Chun, Jaehoon Lim, Jeonghun Kwak et al. (Reports on Progress in Physics 2026) | Quantum dots, solvent engineering, machine learning, inverse process design, nanoparticle packing, solution processing | Phase separation in complex solvent mixtures during rapid spin coating | Measure AFM packing density and pinhole defect rate vs. predicted multi-solvent parameters across 3D scaffold functional layers |
 | Exact analytical Vlasov kinetic solutions derive loss-cone anisotropy hierarchy ($T_{\perp} \le T \le T_b \le T_{\parallel}$), non-monotonic parallel temperature scaling, and temporal coarse-graining for stochastic boundary heating | `literature-review.mdx`, `core-architecture.mdx` | Luca Barbieri, Pascal Démoulin, and Daniel Verscharen (arXiv:2607.21313, 2026) | Vlasov plasma kinetics, expanding magnetic fields, loss-cone anisotropy, stochastic heating, BRC state modeling | Non-equilibrium wave-particle instabilities or pitch-angle scattering relax loss cone | Validate BRC reservoir node stationary state distributions under stochastic voltage pulses and model magnon loss cones in tapered 3D scaffolds |
 | Area-perimeter fractal dimension scaling ($D \in (1, 2)$) quantifies multi-scale Moffatt corner vortex cascades, deriving a grid-independent scaling law D(n) and proving self-similarity across enclosure geometries | `literature-review.mdx`, `core-architecture.mdx` | Rathindra Nath Basak, Sougata Biswas, and Jiten C. Kalita (arXiv:2607.20976, 2026) | Fractal scaling, Moffatt vortices, area-perimeter method, self-similarity, BRC feature extraction, corner pinning | High Reynolds number inertial turbulence breaks discrete scale invariance | Apply area-perimeter fractal dimension D = 2 log(P)/log(A) as a scale-invariant feature extractor for BRC reservoir states and 3D scaffold corner pinning |
+| Incoherent Milnor polynomials $F(\mathbf{R}_1, \mathbf{R}_2)$ embed 3D Hopf links ($\sigma_1^{+2}$) and trefoil knots ($\sigma_1^{+3}$) into coherence singularities ($\mu = 0$) with independent statistical intensity control, achieving high-capacity dual optical encoding ($l \approx 2.8 \times 10^{12}$) | `literature-review.mdx`, `proposed-fabrication-path-and-control.mdx` | Ao Zhou, Dong Xu, Yaning Zhou, Peng Li, Zhigang Chen, Chunhao Liang et al. (Nat. Commun. / arXiv 2026) | Incoherent topological light, Milnor polynomial, coherence singularities, DISH holography, optical braid encoding | Dense coherence singularity trajectories become sensitive to high phase noise | Apply Incoherent Milnor polynomials to DISH 3D scaffold printing and dual-payload optoelectronic readout (braid key + intensity) |
+| Lock-free single-producer single-consumer (SPSC) ring-buffer Handlers and direct one-sided RDMA transfers eliminate cross-sender contention and MPI progress overhead, sustaining >97% weak-scaling and >88% strong-scaling efficiency across 13,440 cores | `literature-review.mdx`, `simulation-validation-suite.mdx` | Maor Mizrachi, Barak Raveh, and Elad Steinberg (arXiv:2607.20639, 2026) | RDMA particle transport, lock-free SPSC ring buffer, libfabric/OFI, BRC parallel transport, Monte Carlo scaling | OS page pinning constraints restrict dynamic memory swap eviction | Adopt STORM's lock-free SPSC Handlers and one-sided RDMA protocols for multi-node BRC reservoir core simulations and micromagnetic magnon solvers |
 
 ## Detailed Claims
+
+### STORM: RDMA-Based Monte Carlo Transport for Distributed-Memory Simulations
+**Claim level:** Demonstrated / Inferred
+**Subsystem:** RDMA transport, lock-free SPSC ring buffer, libfabric/OFI, BRC parallel transport, distributed Monte Carlo
+**Source:** Maor Mizrachi, Barak Raveh, and Elad Steinberg (arXiv:2607.20639v1, July 2026).
+**Supported statement:** STORM replaces two-sided MPI matched-receive semantics with direct one-sided RDMA operations (`fi_write`, `fi_fetch_atomic` via `libfabric`/OFI) and per-pair SPSC ring-buffer Handlers, sustaining >97% weak scaling and >88% strong scaling across 13,440 cores while reducing MPI progress overhead by $6.1\times$.
+**HELIOS relevance:** Eliminates cross-sender lock contention and receiver CPU polling overhead in multi-node Brownian Reservoir Computing (BRC) cores and micromagnetic magnon solvers, enabling linear parallel scaling across large GPU/HPC clusters.
+**Does not support:** Non-networked single-node embedded microcontrollers.
+**Failure/blocker notes:** Memory page pinning required for RDMA-registered buffers prevents memory swap eviction during peak particle counts.
+
+### Incoherent Milnor Polynomial Framework for Incoherent Topological Structured Light
+**Claim level:** Demonstrated / Inferred
+**Subsystem:** Incoherent Milnor polynomials, real-space optical topology, coherence singularities, DISH holographic lithography, Spin-ConfSeq compiler readout
+**Source:** Ao Zhou, Dong Xu, Yaning Zhou, Peng Li, Zhigang Chen, Chunhao Liang et al. (*Nature Communications* / *arXiv*, July 2026, DOI: `10.1038/s41467-026-72774-1`).
+**Supported statement:** Incoherent Milnor Polynomials $F(\mathbf{R}_1, \mathbf{R}_2)$ construct real-space 3D topological knots and links embedded into zero-coherence singularities ($\mu(\mathbf{r}_1, \mathbf{r}_2) = 0$), establishing topological configuration (braid key $p_h(u)$) and far-field statistical intensity as independent, jointly programmable degrees of freedom.
+**HELIOS relevance:** Solves speckle interference degradation in DISH 3D scaffold printing by decoupling intensity profiles from topological nodal lines, and establishes a dual-degree-of-freedom optical/spintronic readout scheme (topological braid key + statistical coherence payload) for Spin-ConfSeq compiler outputs.
+**Does not support:** Solid-state spin transport without optical/optoelectronic conversion interfaces.
+**Failure/blocker notes:** Reconstructing dense coherence singularity lines in high-order knots ($n \ge 4$ strands) requires high-resolution detector arrays and precise interference alignment.
 
 ### Fractal Scaling of Moffatt Vortices in Triangular Cavity Flow
 **Claim level:** Demonstrated / Inferred

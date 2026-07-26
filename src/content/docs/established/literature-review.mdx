@@ -691,6 +691,24 @@ Gao et al. (2026) demonstrate that high-dielectric **SrTiO3** substrates can tun
   **HELIOS-3D Application:** Establishes an area-perimeter fractal dimension extraction methodology ($D = 2 \frac{\log P}{\log A}$) for quantifying the multi-scale topological complexity of 3D spin textures, demagnetization field contours, and Brownian Reservoir Computing (BRC) core state fluctuations. Additionally, the paper's grid-spacing normalization factor ($\Delta = 412/m$) ensures resolution-invariant extraction of domain wall roughness, and the cascade scaling formula $D(n)$ models nested spin-vortex / demagnetization reflection cascades near 3D TPP/DISH scaffold corner junctions. `[DEMONSTRATED]` [Basak, Biswas, & Kalita, arXiv:2607.20976 2026]
 </ExpandableChunk>
 
+<ExpandableChunk
+  title="Incoherent Milnor Polynomial Framework for Incoherent Topological Structured Light (Ao Zhou, Dong Xu, Yaning Zhou, Peng Li, Zhigang Chen, Chunhao Liang et al., Nat. Commun. / arXiv 2026)"
+  summary="Formulating the Incoherent Milnor Polynomial F(R1, R2) to embed 3D real-space Hopf links and trefoil knots into coherence singularities (mu = 0) with independent statistical intensity control."
+>
+  Ao Zhou, Dong Xu, Yaning Zhou, Peng Li, Zhigang Chen, Chunhao Liang et al. (*Nature Communications* / *arXiv*, July 2026, DOI: `10.1038/s41467-026-72774-1`) introduce the **Incoherent Milnor Polynomial** framework $F(\mathbf{R}_1, \mathbf{R}_2)$ for constructing and controlling real-space Incoherent Topological Structured Light (ITSL). Unlike coherent topological light where phase or polarization singularities mandate zero intensity, ITSL embeds 3D topological vortex knots (trefoil knots $\sigma_1^{+3}$ and Hopf links $\sigma_1^{+2}$) into **coherence singularities** ($\mu(\mathbf{r}_1, \mathbf{r}_2) = 0$), where spatial coherence vanishes while the surrounding light field remains bright. The authors prove that the topological configuration (braid word $p_h(u)$) and far-field statistical coherence intensity act as two independent, jointly programmable degrees of freedom. They demonstrate a Rubik's-cube optical encryption architecture scaling capacity exponentially ($l = 6^{16} \approx 2.8 \times 10^{12}$) with high noise immunity.
+
+  **HELIOS-3D Application:** Provides the theoretical framework for DISH (Digital Incoherent Synthesis of Holographic light fields) one-shot 3D scaffold printing and optoelectronic readout. By decoupling spatial intensity distributions from topological nodal lines, Incoherent Milnor Polynomials enable writing 3D topological scaffolds (SU-8) without speckle degradation, while providing dual-payload optical/spintronic encoding (topological braid key + statistical intensity) for Spin-ConfSeq compiler readouts. `[DEMONSTRATED]` [Zhou & Liang et al., Nat. Commun. 2026]
+</ExpandableChunk>
+
+<ExpandableChunk
+  title="STORM: RDMA-Based Monte Carlo Transport for Distributed-Memory Simulations (Maor Mizrachi, Barak Raveh, and Elad Steinberg, arXiv:2607.20639, 2026)"
+  summary="Open-source STORM library providing lock-free SPSC ring-buffer Handlers and one-sided RDMA transfers, sustaining >97% weak-scaling efficiency across 13,440 cores."
+>
+  Maor Mizrachi, Barak Raveh, and Elad Steinberg (*arXiv:2607.20639v1*, July 2026) present **STORM** (Scalable Transport via One-sided Remote Memory), an open-source, mesh-independent communication layer for distributed-memory Monte Carlo particle transport. In unstructured parallel meshes, standard two-sided MPI matched-receive interfaces introduce severe progress polling overhead that bottlenecks scaling beyond $10^4$ cores. STORM replaces two-sided MPI with direct **Remote Direct Memory Access (RDMA)** operations (`fi_write`, `fi_read`, `fi_fetch_atomic` via `libfabric`/OFI), utilizing a dedicated single-producer single-consumer (SPSC) ring-buffer Handler per rank-pair. This design guarantees lock-free, data-race-free transfer paths without receiver CPU involvement. On 13,440 cores (Leonardo supercomputer), STORM sustains **>97% weak-scaling** and **>88% strong-scaling efficiency**, reducing MPI progress overhead by $6.1\times$ and achieving $1.41\times$ wall-clock speedup over two-sided MPI baselines.
+
+  **HELIOS-3D Application:** Establishes a high-performance parallel communication architecture for distributed BRC (Brownian Reservoir Computing) cores and multi-node spintronic particle / magnon simulations. By adopting STORM's lock-free SPSC ring-buffer Handlers and one-sided RDMA transfer protocols, HELIOS-3D micromagnetic particle solvers can eliminate cross-sender contention and receiver polling bottlenecks, enabling linear scaling across large GPU/HPC clusters. `[DEMONSTRATED]` [Mizrachi, Raveh, & Steinberg, arXiv:2607.20639 2026]
+</ExpandableChunk>
+
 
 
 

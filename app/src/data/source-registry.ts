@@ -63,6 +63,8 @@ const accessibleRecordIds = new Set([
   'chun-kwak-qd-solvent-engineering-2026',
   'barbieri-demoulin-vlasov-stochastic-2026',
   'basak-biswas-moffatt-fractal-2026',
+  'zhou-liang-incoherent-milnor-2026',
+  'mizrachi-raveh-storm-rdma-2026',
 ]);
 
 const recordSources: SourceRegistryEntry[] = researchRecords.map((record) => {
