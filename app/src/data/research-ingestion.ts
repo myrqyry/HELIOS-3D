@@ -1559,6 +1559,34 @@ const seedResearchRecords: ResearchRecord[] = [
       order: 57,
     },
   },
+  {
+    id: 'binnie-fang-vector-ptycho-hopf-2026',
+    title: '3D Imaging of Complex Skyrmion and Hopf Topologies in an Extended Sample',
+    source: 'I. Binnie, H. Fang et al. (STROBE NSF Center, JILA, UC Berkeley, ALS LBNL, UCLA, UCSD, 2026)',
+    url: 'https://arxiv.org/abs/2607.18900',
+    publishedAt: '2026-07-20',
+    stage: 'established',
+    tags: [
+      'vector-ptycho-tomography',
+      'soft-x-ray',
+      '3d-magnetic-spin-textures',
+      'fe-gd-multilayers',
+      'barrel-skyrmion-tubes',
+      'twisted-helicity',
+      'fractional-hopfions',
+    ],
+    summary:
+      'Reconstructs extended 3D magnetic spin textures over >0.4 µm³ volumes at 8 nm voxel resolution via soft X-ray vector ptycho-tomography without priors, revealing 24 barrel-shaped skyrmion tubes with depth-dependent wall widths (23–40 nm), twisted helicity (±155° to ±30°), and fractional Hopf index H ≈ ±0.3.',
+    evidenceLevel: 'DEMONSTRATED',
+    publicUse: 'timeline',
+    timeline: {
+      id: 'binnie-fang-vector-ptycho-hopf-2026',
+      year: 2026,
+      title: '3D Vector Ptycho-Tomography of Skyrmions & Hopfions (Binnie & Fang et al. 2026)',
+      tag: 'DEMONSTRATED',
+      order: 58,
+    },
+  },
 ];
 
 export const researchRecords = loadResearchRecords(seedResearchRecords);

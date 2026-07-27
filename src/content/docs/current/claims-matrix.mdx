@@ -74,6 +74,7 @@ graph TD
         L49["FPGA-Accelerated Quantum Autoencoders<br>(Ge & Gonski et al., arXiv:2607.20302 2026)"]:::lit
         L50["Full-Field Optical Knot Mode Sorter<br>(Jaouni et al., arXiv 2026)"]:::lit
         L51["Photonic OAM Flux in Gauged Hopf Lattices<br>(Aaron Michael Kinder, arXiv 2026)"]:::lit
+        L52["3D Vector Ptycho-Tomography of Skyrmions<br>(Binnie & Fang et al., 2026)"]:::lit
     end
 
     subgraph Simulation_Validation ["Lane 2: Simulation Validation (Executable Templates)"]
@@ -205,6 +206,7 @@ graph TD
 | FPGA-emulated Quantum Autoencoders (QAE) leveraging quantum mutual information register bisection and fixed-point quantization (`ap_fixed<14, 3>`) achieve sub-microsecond (0.47 us) real-time anomaly detection triggers for edge execution | `literature-review.mdx`, `2d-stack-reliability-and-readout.mdx` | Ivan Ge, Sagar Addepalli, Abhilasha Dave, and Julia Gonski (Stanford & SLAC, arXiv:2607.20302, 2026) | Quantum Autoencoder, QML FPGA synthesis, quantum mutual information, trash-wire z-score, real-time trigger | Quantization bit-widths below W=14 cause overflow in fixed-point accumulation | Deploy FPGA-emulated QAE anomaly triggers for real-time BRC reservoir state monitoring and Spin-ConfSeq compiler edge readout |
 | Full-field phase-mask mode sorting achieves >93% distinguishability for 3D optical knot alphabets under environmental perturbations | `literature-review.mdx`, `proposed-fabrication-path-and-control.mdx` | Jaouni et al. (arXiv:2606.23438 2026) | Full-field optical mode sorting, DISH holography, Spin-ConfSeq readout, Milnor polynomials | High spatial mode overlap between high-order knots reduces channel efficiency | Verify phase-mask synthesis for DISH photonic hopfion write/read channels in optical simulations |
 | Photonic LG OAM flux coupling to gauged Hopf lattices demonstrates mean twist survival $S \approx 0.150$ at critical $\lambda t = 2$, holonomy-gap sign change across $\kappa_\star \approx 0.8513$, and golden-angle OAM mode correlations as photonic analogs to relativistic twisted fermion beams | `literature-review.mdx`, `gauged_hopf_oam_flux.py` | Aaron Michael Kinder (arXiv:2607.16520v1, July 2026) | Photonic OAM flux, gauged Hopf lattice, flux flywheels, relativistic fermion analogs, golden-angle mode packing | Strong gauge damping $\kappa \gg 1.0$ overwhelms topological twist retention | Verify multi-$\ell$ OAM flux deposition and holonomy-gap nulling in Python analysis module `analysis/gauged_hopf_oam_flux.py` |
+| Full-field soft X-ray vector ptycho-tomography at 707 eV reconstructs 3D dipole-stabilized skyrmion tubes (>0.4 µm³ volume, 8 nm resolution), revealing depth-dependent domain wall widths (23–40 nm), twisted surface-to-bulk helicities (±155° to ±30°), and fractional Hopf index H ≈ ±0.3 | `literature-review.mdx`, `vector_ptycho_hopf_reconstruction.py` | I. Binnie, H. Fang et al. (STROBE NSF, UC Berkeley, ALS LBNL, July 2026) | Soft X-ray ptycho-tomography, Fe/Gd multilayers, RESIRE-V vector tomography, Fourier-space Coulomb gauge | Phase retrieval convergence errors or structural distortion during FIB milling | Verify depth-dependent helicity twist and fractional Hopf index calculations in Python analysis module `analysis/vector_ptycho_hopf_reconstruction.py` |
 
 ## Detailed Claims
 
@@ -716,10 +718,14 @@ graph TD
 **Does not support:** Direct electronic spin-half Dirac wave equations in photonic media.
 **Failure/blocker notes:** Over-damping ($\kappa \gg 1.0$) or insufficient pump parameter ($\lambda t < 1.0$) suppresses flywheel twist accumulation below topological residual levels.
 
-
-
-
-
+### 3D Vector Ptycho-Tomography of Extended Skyrmions & Fractional Hopfions
+**Claim level:** Demonstrated experimentally
+**Subsystem:** Soft X-ray vector ptycho-tomography, Fe/Gd multilayers, 3D magnetic spin textures, barrel skyrmion tubes, twisted helicity, fractional hopfions
+**Source:** I. Binnie, H. Fang et al. (*STROBE NSF Science & Technology Center, JILA, UC Berkeley, ALS LBNL, UCLA, UCSD*, July 2026).
+**Supported statement:** Model-free, full-field 3D vector ptycho-tomography at the $\text{Fe } L_3$-edge ($707\text{ eV}$) reconstructs extended 3D magnetic spin textures over $>0.4\,\mu\text{m}^3$ volume ($2.4\,\mu\text{m} \times 2.4\,\mu\text{m} \times 640\text{ nm}$) at $8\text{ nm}$ voxel resolution, proving $24$ barrel-shaped skyrmion tubes with depth-dependent domain wall widths ($23\text{ to }40\text{ nm}$), surface-to-bulk twisted helicities ($\pm 155^\circ$ to $\pm 30^\circ$), and fractional Hopf index $H \approx \pm 0.3$.
+**HELIOS relevance:** Provides model-free experimental verification of 3D hybrid Néel-Bloch-Néel twisted skyrmion tubes and fractional hopfion states in magnetic thin-film multilayers without external magnetic bias fields. Establishes empirical benchmarks for micromagnetic solvers and 3D spintronic device architectures.
+**Does not support:** Real-time dynamic magnetization switching during sub-nanosecond pulse excitation.
+**Failure/blocker notes:** Beam energy drift ($>1\text{ eV}$) or angular misalignment during tilt series introduces artificial topological defects that require absorption correction and iterative registration refinement.
 
 
 
