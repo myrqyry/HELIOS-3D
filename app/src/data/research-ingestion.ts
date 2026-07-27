@@ -1531,6 +1531,34 @@ const seedResearchRecords: ResearchRecord[] = [
       order: 56,
     },
   },
+  {
+    id: 'kinder-gauged-hopf-oam-flux-2026',
+    title: 'Photonic OAM Flux in Gauged Hopf Lattices',
+    source: 'Aaron Michael Kinder (arXiv:2607.16520v1, July 2026)',
+    url: 'https://arxiv.org/abs/2607.16520',
+    publishedAt: '2026-07-17',
+    stage: 'established',
+    tags: [
+      'topological-photonics',
+      'oam-flux',
+      'gauged-hopf-lattice',
+      'flux-flywheels',
+      'relativistic-fermion-analogs',
+      'golden-angle-correlations',
+      'survival-probability',
+    ],
+    summary:
+      'Couples Laguerre–Gaussian twisted photon packets to a gauged Hopf lattice with discrete flux flywheels, demonstrating persistent core features, mean survival ≈ 0.150 at critical λt = 2, and golden-angle OAM mode correlations as photonic analogs to non-diffractive relativistic twisted fermion cores.',
+    evidenceLevel: 'DEMONSTRATED',
+    publicUse: 'timeline',
+    timeline: {
+      id: 'kinder-gauged-hopf-oam-flux-2026',
+      year: 2026,
+      title: 'Photonic OAM Flux in Gauged Hopf Lattices (Kinder 2026)',
+      tag: 'DEMONSTRATED',
+      order: 57,
+    },
+  },
 ];
 
 export const researchRecords = loadResearchRecords(seedResearchRecords);
