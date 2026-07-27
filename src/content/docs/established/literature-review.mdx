@@ -718,6 +718,15 @@ Gao et al. (2026) demonstrate that high-dielectric **SrTiO3** substrates can tun
   **HELIOS-3D Application:** Solves the ensemble scaling dilemma in large-scale Brownian Reservoir Computing (BRC) cores and spin-torque nano-oscillator (STNO/SHNO) arrays ($N \sim 10^5 \text{ to } 10^9$). By coupling localized spin-wave or vibrational nodes to delocalized cavity/waveguide modes and driving them with pre-resonant optical/spintronic pulses, HELIOS-3D optoelectronic readout interfaces can achieve scale-invariant $\mathcal{O}(1)$ signal extraction per node without ensemble dilution penalties. `[DEMONSTRATED]` [Yadav & Chuntonov et al., Technion 2026]
 </ExpandableChunk>
 
+<ExpandableChunk
+  title="Classical Hardware Acceleration of Quantum Autoencoders for Real-Time Anomaly Detection (Ivan Ge, Sagar Addepalli, Abhilasha Dave, Julia Gonski, Stanford & SLAC 2026)"
+  summary="Emulating gate-based Quantum Autoencoders (QAE) on FPGAs (Alveo U200) with fixed-point quantization (ap_fixed<14,3>), achieving 0.47 us sub-microsecond anomaly detection triggers."
+>
+  Ivan Ge, Sagar Addepalli, Abhilasha Dave, and Julia Gonski (*Stanford University & SLAC National Accelerator Laboratory*, arXiv:2607.20302v1, July 2026) demonstrate real-time quantum autoencoder (QAE) model emulation synthesized on classical FPGAs (AMD Xilinx Alveo U200) for sub-microsecond anomaly detection triggers. To overcome the exponential state-vector memory explosion of 19-qubit event registers ($2^{19}$ amplitudes), the authors decompose particle inputs into particle-type sub-blocks and bisect jet registers using **Quantum Mutual Information (QMI)**, reducing the maximum entangled state vector to two 5-qubit (32-amplitude) registers. Using fixed-point quantization (`ap_fixed<14, 3>`) and trash-wire excitation z-score anomaly metrics, the QAE achieves **0.47 $\mu$s inference latency**—fitting within a single FPGA Super Logic Region (SLR) with only 23 trainable quantum parameters, outperforming classical VAEs (6.1 $\mu$s latency, 717 parameters).
+
+  **HELIOS-3D Application:** Establishes a sub-microsecond ($\le 0.5\,\mu\text{s}$) edge QML inference pipeline for HELIOS-3D's Spin-ConfSeq compiler and 3D BRC reservoir monitoring. By quantizing QAE feature circuits and deploying them on FPGA/ASIC hardware accelerators, HELIOS-3D real-time control units can detect out-of-distribution spin-texture states and reservoir anomalies at 40 MHz line rates without off-loading latency penalties. `[DEMONSTRATED]` [Ge & Gonski et al., arXiv:2607.20302 2026]
+</ExpandableChunk>
+
 
 
 

@@ -71,6 +71,7 @@ graph TD
         L46["Incoherent Milnor Polynomials & Topological Light<br>(Zhou & Liang, Nat. Commun. 2026)"]:::lit
         L47["STORM Lock-Free RDMA Transport<br>(Mizrachi et al., arXiv:2607.20639 2026)"]:::lit
         L48["Vibronic Transduction & O(1) Scale Invariance<br>(Yadav & Chuntonov, Technion 2026)"]:::lit
+        L49["FPGA-Accelerated Quantum Autoencoders<br>(Ge & Gonski et al., arXiv:2607.20302 2026)"]:::lit
     end
 
     subgraph Simulation_Validation ["Lane 2: Simulation Validation (Executable Templates)"]
@@ -199,8 +200,18 @@ graph TD
 | Incoherent Milnor polynomials $F(\mathbf{R}_1, \mathbf{R}_2)$ embed 3D Hopf links ($\sigma_1^{+2}$) and trefoil knots ($\sigma_1^{+3}$) into coherence singularities ($\mu = 0$) with independent statistical intensity control, achieving high-capacity dual optical encoding ($l \approx 2.8 \times 10^{12}$) | `literature-review.mdx`, `proposed-fabrication-path-and-control.mdx` | Ao Zhou, Dong Xu, Yaning Zhou, Peng Li, Zhigang Chen, Chunhao Liang et al. (Nat. Commun. / arXiv 2026) | Incoherent topological light, Milnor polynomial, coherence singularities, DISH holography, optical braid encoding | Dense coherence singularity trajectories become sensitive to high phase noise | Apply Incoherent Milnor polynomials to DISH 3D scaffold printing and dual-payload optoelectronic readout (braid key + intensity) |
 | Lock-free single-producer single-consumer (SPSC) ring-buffer Handlers and direct one-sided RDMA transfers eliminate cross-sender contention and MPI progress overhead, sustaining >97% weak-scaling and >88% strong-scaling efficiency across 13,440 cores | `literature-review.mdx`, `simulation-validation-suite.mdx` | Maor Mizrachi, Barak Raveh, and Elad Steinberg (arXiv:2607.20639, 2026) | RDMA particle transport, lock-free SPSC ring buffer, libfabric/OFI, BRC parallel transport, Monte Carlo scaling | OS page pinning constraints restrict dynamic memory swap eviction | Adopt STORM's lock-free SPSC Handlers and one-sided RDMA protocols for multi-node BRC reservoir core simulations and micromagnetic magnon solvers |
 | Synthetic cavity-mediated vibronic quantum transduction couples localized electronic landscapes to delocalized cavity fields under Vibrational Strong Coupling (VSC), achieving macroscopically synchronized O(1) scale-invariant electronic responses that bypass the O(1/N) ensemble dilution penalty | `literature-review.mdx`, `2d-stack-reliability-and-readout.mdx` | Vivek Yadav, Bar Cohn, Shmuel Sufrin, Uri Peskin, and Lev Chuntonov (Technion, 2026) | Vibronic quantum transduction, Vibrational Strong Coupling, Tavis-Cummings-Holstein, Feshbach projection, ensemble dilution bypass, scale invariance | Severe vibrational dephasing if temperature exceeds room-temperature VSC bounds | Apply synthetic vibronic quantum transduction to large-scale BRC reservoir cores and optoelectronic readout tracks |
+| FPGA-emulated Quantum Autoencoders (QAE) leveraging quantum mutual information register bisection and fixed-point quantization (`ap_fixed<14, 3>`) achieve sub-microsecond (0.47 us) real-time anomaly detection triggers for edge execution | `literature-review.mdx`, `2d-stack-reliability-and-readout.mdx` | Ivan Ge, Sagar Addepalli, Abhilasha Dave, and Julia Gonski (Stanford & SLAC, arXiv:2607.20302, 2026) | Quantum Autoencoder, QML FPGA synthesis, quantum mutual information, trash-wire z-score, real-time trigger | Quantization bit-widths below W=14 cause overflow in fixed-point accumulation | Deploy FPGA-emulated QAE anomaly triggers for real-time BRC reservoir state monitoring and Spin-ConfSeq compiler edge readout |
 
 ## Detailed Claims
+
+### FPGA-Accelerated Quantum Autoencoders for Real-Time Anomaly Detection
+**Claim level:** Demonstrated / Inferred
+**Subsystem:** Quantum Autoencoders (QAE), QML FPGA synthesis, quantum mutual information bisection, trash-wire z-score, Spin-ConfSeq edge trigger
+**Source:** Ivan Ge, Sagar Addepalli, Abhilasha Dave, and Julia Gonski (*Stanford University & SLAC National Accelerator Laboratory*, arXiv:2607.20302v1, July 2026).
+**Supported statement:** Quantum Autoencoders (QAE) decomposed by Quantum Mutual Information (QMI) into 5-qubit sub-blocks and quantized to `ap_fixed<14, 3>` achieve 0.47 $\mu$s real-time FPGA inference latency within 1 SLR, using only 23 trainable quantum parameters.
+**HELIOS relevance:** Provides a sub-microsecond ($\le 0.5\,\mu\text{s}$) edge QML inference trigger for Spin-ConfSeq compiler execution and 3D BRC reservoir anomaly monitoring at 40 MHz line rates.
+**Does not support:** Massively parallel batch processing on high-latency cloud GPUs.
+**Failure/blocker notes:** Fixed-point bit-widths below $W=14$ cause register accumulation overflow and degrade high-rejection anomaly tail sensitivity.
 
 ### Scale-Invariant Vibronic Quantum Transduction in Cavity-Coupled Ensembles
 **Claim level:** Demonstrated / Inferred

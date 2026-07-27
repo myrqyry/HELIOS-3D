@@ -1476,6 +1476,34 @@ const seedResearchRecords: ResearchRecord[] = [
       order: 54,
     },
   },
+  {
+    id: 'ge-gonski-quantum-autoencoder-fpga-2026',
+    title: 'Classical Hardware Acceleration of Quantum Autoencoders for Real-Time Anomaly Detection in Collider Experiments',
+    source: 'Ivan Ge, Sagar Addepalli, Abhilasha Dave, and Julia Gonski (Stanford & SLAC, arXiv:2607.20302v1, July 2026)',
+    url: 'https://arxiv.org/abs/2607.20302',
+    publishedAt: '2026-07-22',
+    stage: 'established',
+    tags: [
+      'quantum-autoencoder',
+      'qml-fpga-synthesis',
+      'sub-microsecond-latency',
+      'quantum-mutual-information',
+      'trash-wire-z-score',
+      'real-time-anomaly-detection',
+      'tiny-ml',
+    ],
+    summary:
+      'Demonstrates real-time quantum autoencoder (QAE) emulation on classical FPGAs (Alveo U200) utilizing quantum mutual information register bisection and fixed-point quantization (ap_fixed<14, 3>) to achieve sub-microsecond (0.47 us) anomaly detection with 23 quantum parameters.',
+    evidenceLevel: 'DEMONSTRATED',
+    publicUse: 'timeline',
+    timeline: {
+      id: 'ge-gonski-quantum-autoencoder-fpga-2026',
+      year: 2026,
+      title: 'FPGA Quantum Autoencoder Anomaly Trigger (Ge & Gonski et al. 2026)',
+      tag: 'DEMONSTRATED',
+      order: 55,
+    },
+  },
 ];
 
 export const researchRecords = loadResearchRecords(seedResearchRecords);
