@@ -72,6 +72,7 @@ graph TD
         L47["STORM Lock-Free RDMA Transport<br>(Mizrachi et al., arXiv:2607.20639 2026)"]:::lit
         L48["Vibronic Transduction & O(1) Scale Invariance<br>(Yadav & Chuntonov, Technion 2026)"]:::lit
         L49["FPGA-Accelerated Quantum Autoencoders<br>(Ge & Gonski et al., arXiv:2607.20302 2026)"]:::lit
+        L50["Full-Field Optical Knot Mode Sorter<br>(Jaouni et al., arXiv 2026)"]:::lit
     end
 
     subgraph Simulation_Validation ["Lane 2: Simulation Validation (Executable Templates)"]
@@ -201,6 +202,7 @@ graph TD
 | Lock-free single-producer single-consumer (SPSC) ring-buffer Handlers and direct one-sided RDMA transfers eliminate cross-sender contention and MPI progress overhead, sustaining >97% weak-scaling and >88% strong-scaling efficiency across 13,440 cores | `literature-review.mdx`, `simulation-validation-suite.mdx` | Maor Mizrachi, Barak Raveh, and Elad Steinberg (arXiv:2607.20639, 2026) | RDMA particle transport, lock-free SPSC ring buffer, libfabric/OFI, BRC parallel transport, Monte Carlo scaling | OS page pinning constraints restrict dynamic memory swap eviction | Adopt STORM's lock-free SPSC Handlers and one-sided RDMA protocols for multi-node BRC reservoir core simulations and micromagnetic magnon solvers |
 | Synthetic cavity-mediated vibronic quantum transduction couples localized electronic landscapes to delocalized cavity fields under Vibrational Strong Coupling (VSC), achieving macroscopically synchronized O(1) scale-invariant electronic responses that bypass the O(1/N) ensemble dilution penalty | `literature-review.mdx`, `2d-stack-reliability-and-readout.mdx` | Vivek Yadav, Bar Cohn, Shmuel Sufrin, Uri Peskin, and Lev Chuntonov (Technion, 2026) | Vibronic quantum transduction, Vibrational Strong Coupling, Tavis-Cummings-Holstein, Feshbach projection, ensemble dilution bypass, scale invariance | Severe vibrational dephasing if temperature exceeds room-temperature VSC bounds | Apply synthetic vibronic quantum transduction to large-scale BRC reservoir cores and optoelectronic readout tracks |
 | FPGA-emulated Quantum Autoencoders (QAE) leveraging quantum mutual information register bisection and fixed-point quantization (`ap_fixed<14, 3>`) achieve sub-microsecond (0.47 us) real-time anomaly detection triggers for edge execution | `literature-review.mdx`, `2d-stack-reliability-and-readout.mdx` | Ivan Ge, Sagar Addepalli, Abhilasha Dave, and Julia Gonski (Stanford & SLAC, arXiv:2607.20302, 2026) | Quantum Autoencoder, QML FPGA synthesis, quantum mutual information, trash-wire z-score, real-time trigger | Quantization bit-widths below W=14 cause overflow in fixed-point accumulation | Deploy FPGA-emulated QAE anomaly triggers for real-time BRC reservoir state monitoring and Spin-ConfSeq compiler edge readout |
+| Full-field phase-mask mode sorting achieves >93% distinguishability for 3D optical knot alphabets under environmental perturbations | `literature-review.mdx`, `proposed-fabrication-path-and-control.mdx` | Jaouni et al. (arXiv:2606.23438 2026) | Full-field optical mode sorting, DISH holography, Spin-ConfSeq readout, Milnor polynomials | High spatial mode overlap between high-order knots reduces channel efficiency | Verify phase-mask synthesis for DISH photonic hopfion write/read channels in optical simulations |
 
 ## Detailed Claims
 
@@ -693,6 +695,15 @@ graph TD
 **HELIOS relevance:** Solves Vulnerability #3 (microwave readout power and latency bottleneck), preserving the ultra-low-power efficiency of the spintronic core.
 **Does not support:** 3D polymer printing or thermal strain relief.
 **Failure/blocker notes:** Photocarrier recombination lifetimes and optical coupling losses in plasmonic nano-cavities must be minimized to maintain high SNR at low optical power levels.
+
+### Full-Field Mode Sorting for 3D Optical Knots
+**Claim level:** Demonstrated / Inferred
+**Subsystem:** Full-field optical mode sorting, phase-only diffractive elements, DISH holography, Spin-ConfSeq optical readout, Milnor polynomials
+**Source:** Tareq Jaouni, Roohollah Ghobadi, and Ebrahim Karimi (*University of Ottawa & Chapman University*, arXiv:2606.23438v1, June 2026).
+**Supported statement:** Full-field optical mode sorters employing one or two phase-only modulation planes and determinant distinguishability metrics ($V_p = |\det(p)|$) sort 3D optical knots (Hopf link, trefoil, quinquefoil) into predefined spatial channels with $93\%$ sorting ability for $d=3$ alphabets and $>95\%$ for $d=2$.
+**HELIOS relevance:** Establishes a full-field diffractive phase-mask sorting and readout architecture for DISH optical prescriptions and Spin-ConfSeq compiler outputs, enabling low-crosstalk optical state classification for high-dimensional topological light fields.
+**Does not support:** Solid-state spin switching without optical or optoelectronic interfaces.
+**Failure/blocker notes:** High spatial overlap between non-orthogonal knot fields causes channel efficiency penalties ($13\%$ for $d=3$) that require multi-plane phase optimization.
 
 
 

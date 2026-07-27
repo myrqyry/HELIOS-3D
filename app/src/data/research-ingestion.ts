@@ -1504,6 +1504,33 @@ const seedResearchRecords: ResearchRecord[] = [
       order: 55,
     },
   },
+  {
+    id: 'jaouni-ghobadi-knot-sorter-2026',
+    title: 'Full-Field Mode Sorter for Optical Knots',
+    source: 'Tareq Jaouni, Roohollah Ghobadi, & Ebrahim Karimi (arXiv:2606.23438, June 2026)',
+    url: 'https://arxiv.org/abs/2606.23438',
+    publishedAt: '2026-06-22',
+    stage: 'established',
+    tags: [
+      'optical-knots',
+      'mode-sorter',
+      'topological-light',
+      'full-field-phase-mask',
+      'milnor-polynomials',
+      'high-dimensional-qkd',
+    ],
+    summary:
+      'Demonstrates a full-field optical mode sorter for 3D topological light field alphabets (Hopf link, trefoil, cinquefoil) using phase-only elements, achieving 93% sorting ability and low crosstalk under environmental perturbations.',
+    evidenceLevel: 'DEMONSTRATED',
+    publicUse: 'timeline',
+    timeline: {
+      id: 'jaouni-ghobadi-knot-sorter-2026',
+      year: 2026,
+      title: 'Full-Field Optical Knot Sorter (Jaouni et al. 2026)',
+      tag: 'DEMONSTRATED',
+      order: 56,
+    },
+  },
 ];
 
 export const researchRecords = loadResearchRecords(seedResearchRecords);

@@ -58,6 +58,7 @@ export const groups: EvidenceGroup[] = [
       { claim: 'Integrating Bayesian localization of pseudo-Hamiltonians (local pseudopotentials) into Neural Network Quantum Monte Carlo (NNQMC) reduces core-electron computation costs, enabling high-precision ab initio electronic structure calculations of large-scale material systems.', tag: 'DEMONSTRATED', source: 'Weizhong Fu, Tom Ichibha et al., Nature Computational Science (2026)' },
       { claim: 'Inverse machine learning platform predicts optimal multi-solvent mixtures based on solvent physical properties and AFM surface morphology, enabling dense, uniform quantum dot film deposition that doubles efficiency and extends operational lifetime 40-fold.', tag: 'DEMONSTRATED', source: 'Beomsoo Chun, Jaehoon Lim, Jeonghun Kwak et al., Reports on Progress in Physics (2026)' },
       { claim: 'Incoherent Milnor polynomials F(R1, R2) embed 3D Hopf links (sigma_1^+2) and trefoil knots (sigma_1^+3) into coherence singularities (mu = 0) with independent statistical intensity control, achieving high-capacity dual optical encoding (l ≈ 2.8e12).', tag: 'DEMONSTRATED', source: 'Ao Zhou, Dong Xu, Yaning Zhou, Peng Li, Zhigang Chen, Chunhao Liang et al. (Nat. Commun. / arXiv 2026)' },
+      { claim: 'Full-field mode sorting using optimized phase-only elements achieves >93% distinguishability for 3D optical knot alphabets (Hopf link, trefoil, cinquefoil) under environmental perturbations.', tag: 'DEMONSTRATED', source: 'Tareq Jaouni, Roohollah Ghobadi, & Ebrahim Karimi (arXiv:2606.23438, 2026)' },
     ],
   },
   {

@@ -67,6 +67,7 @@ const accessibleRecordIds = new Set([
   'mizrachi-raveh-storm-rdma-2026',
   'yadav-chuntonov-vibronic-transduction-2026',
   'ge-gonski-quantum-autoencoder-fpga-2026',
+  'jaouni-ghobadi-knot-sorter-2026',
 ]);
 
 const recordSources: SourceRegistryEntry[] = researchRecords.map((record) => {

@@ -94,6 +94,15 @@ Wang et al., *Sub-second volumetric 3D printing by synthesis of holographic ligh
 **In Situ Integration:** DISH's single-side illumination enables printing directly onto **fixed surfaces** without sample rotation, supporting the "Planar-First" hybrid pipeline.
 </ExpandableChunk>
 
+<ExpandableChunk
+  title="Full-Field Mode Sorter for Optical Knots (Jaouni et al., arXiv 2026)"
+  summary="Full-field mode sorting of 3D optical knot alphabets using optimized phase-only elements with >93% distinguishability."
+>
+  Tareq Jaouni, Roohollah Ghobadi, and Ebrahim Karimi (*arXiv:2606.23438v1*, June 2026) demonstrate a full-field optical mode sorter for 3D topologically structured light (optical knots) using one or two optimized phase-only modulation planes. Operating on Gaussian-weighted Milnor polynomial light fields ($d=2, 3$ alphabets containing Hopf links, trefoils, and cinquefoils), the phase masks are optimized via a genetic algorithm directly from output channel intensity distributions. To overcome non-orthogonality and modal overlap, the optimization objective integrates a balanced sorting contrast $C_b(\alpha)$, secret-key-rate communication penalty $R_d(e_b)$, and determinant distinguishability factor $V_p = |\det(p)|^\gamma$ to prevent linear dependence between output channels. The two-plane architecture achieves $93\%$ sorting ability ($13\%$ efficiency) for a 3-knot alphabet and $>95\%$ ($25\%\text{--}35\%$ efficiency) for 2-knot combinations, maintaining robust distinguishability under beam rotations, transverse translations, Zernike wavefront aberrations, and turbulent underwater channel models.
+
+  **HELIOS-3D Application:** Provides a full-field diffractive phase-mask sorting and readout pipeline for DISH (Digital Incoherent Synthesis of Holographic light fields) and Spin-ConfSeq optical knot compilers. By mapping 3D knotted light fields directly to discrete spatial output regions without requiring mode-specific interferometers, Jaouni et al.'s fitness metric ($F = C_b R_d V_p^\gamma$) and full-field phase transformations enable low-crosstalk optical state classification for high-dimensional topological spintronic and photonic coprocessing. `[DEMONSTRATED]` [Jaouni et al., arXiv:2606.23438 2026]
+</ExpandableChunk>
+
 <ExpandableChunk 
   title="Flexible-Rigid Transition (Y-zipper)" 
   summary="Rapid and reversible assembly of 3D scaffolds."
@@ -881,6 +890,9 @@ This section maps our conceptual framework and validation philosophy to empirica
 
 ### Evidence Lane: Inverse ML Solvent Engineering for Solution-Processed Nanoparticle Assemblies
 - **Chun & Kwak et al. 2026 (Reports on Progress in Physics):** Inverse machine learning platform correlates solvent physical parameters (vapor pressure, viscosity, dielectric constant) with AFM surface morphology, predicting multi-solvent mixtures for dense, uniform quantum dot film deposition. Doubles device efficiency and extends operational lifetime 40-fold. Grounds liquid-phase deposition optimization for 3D scaffold nanoparticle coating.
+
+### Evidence Lane: Full-Field Topological Light & Optical Knot Mode Sorting
+- **Jaouni et al. 2026 (arXiv:2606.23438):** Full-field mode sorter for 3D optical knots (Hopf link, trefoil, cinquefoil) using phase-only elements and determinant distinguishability optimization.
 
 
 
