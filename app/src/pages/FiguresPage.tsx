@@ -23,6 +23,7 @@ const figures: FigureData[] = [
   { title: 'Performance Floor', kind: 'chart', source: 'data-driven', component: 'PerformanceFloor', description: 'Write speed and energy density benchmarks for candidate systems.' },
   { title: 'Readout Signal', kind: 'r3f', source: 'stylized', component: 'ReadoutScene', description: 'Conceptual mapping from one magnetic state to one electrical or optical signal.' },
   { title: 'Scale Transition', kind: 'r3f', source: 'stylized', component: 'ScaleTransitionScene', description: 'Repeated magnetic knots staged from a single knot to a three-dimensional array.' },
+  { title: 'Incoherent Milnor Polynomial', kind: 'r3f', source: 'data-driven', component: 'IncoherentMilnorScene', description: 'Incoherent Topological Structured Light (ITSL) with 3D zero-coherence knot lines and dual payload encryption.' },
 ];
 
 const allSources = Array.from(new Set(figures.map((f) => f.source)));
@@ -43,6 +44,7 @@ const sceneComponents = {
   PerformanceFloor: () => import('../components/charts/PerformanceFloor'),
   ReadoutScene: () => import('../components/r3f/ReadoutScene'),
   ScaleTransitionScene: () => import('../components/r3f/ScaleTransitionScene'),
+  IncoherentMilnorScene: () => import('../components/r3f/IncoherentMilnorScene'),
 } satisfies Record<string, DeferredSceneLoader<FigureSceneProps>>;
 
 export function FiguresPage() {

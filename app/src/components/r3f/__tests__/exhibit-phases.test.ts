@@ -3,6 +3,7 @@ import { getReservoirPhase } from '../BrownianReservoirScene';
 import { getStabilizerPhase } from '../DmiStabilizerScene';
 import { getReadoutPhase } from '../ReadoutScene';
 import { getScalePhase } from '../ScaleTransitionScene';
+import { getIncoherentMilnorPhase } from '../IncoherentMilnorScene';
 
 describe('getReservoirPhase', () => {
   it.each([
@@ -61,3 +62,19 @@ describe('getScalePhase', () => {
     expect(getScalePhase(progress)).toBe(phase);
   });
 });
+
+describe('getIncoherentMilnorPhase', () => {
+  it.each([
+    [-1, 'coherence_singularities'],
+    [0, 'coherence_singularities'],
+    [0.34, 'coherence_singularities'],
+    [0.35, 'statistical_coherence'],
+    [0.69, 'statistical_coherence'],
+    [0.7, 'dual_encryption'],
+    [1, 'dual_encryption'],
+    [2, 'dual_encryption'],
+  ])('maps progress %s to %s', (progress, phase) => {
+    expect(getIncoherentMilnorPhase(progress)).toBe(phase);
+  });
+});
+

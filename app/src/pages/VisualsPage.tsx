@@ -9,6 +9,7 @@ const visuals = [
   { title: 'Stabilization', text: 'Competing directions resolve into a coherent twist.', loader: () => import('../components/r3f/DmiStabilizerScene') },
   { title: 'Readout', text: 'One magnetic state becomes one simple candidate signal.', loader: () => import('../components/r3f/ReadoutScene') },
   { title: 'Scaling', text: 'The same knot repeats from a cell to a three-dimensional array.', loader: () => import('../components/r3f/ScaleTransitionScene') },
+  { title: 'Incoherent Milnor light', text: 'Topological knots embedded in zero-coherence singularities (μ = 0) with dual optical encoding.', loader: () => import('../components/r3f/IncoherentMilnorScene') },
 ];
 
 export function VisualsPage() {
