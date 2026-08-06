@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" role="img" aria-labelledby="title desc">
+  <title id="title">HELIOS-3D research pipeline</title>
+  <desc id="desc">A research pipeline from semantic signal through a topological compiler and three-dimensional magnetic state to energy-aware readout, with proposed MCA and BRC cores and fabrication markers DISH, TPP, and ALD.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07111F"/>
+      <stop offset="1" stop-color="#101D31"/>
+    </linearGradient>
+    <linearGradient id="signal" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#55D6FF" stop-opacity=".2"/>
+      <stop offset=".5" stop-color="#55D6FF"/>
+      <stop offset="1" stop-color="#E778FF"/>
+    </linearGradient>
+    <linearGradient id="knot" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#55D6FF"/>
+      <stop offset="1" stop-color="#E778FF"/>
+    </linearGradient>
+    <filter id="soft-glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .sans { font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+      .label { fill: #F3F0E8; font-size: 16px; font-weight: 650; letter-spacing: .02em; }
+      .meta { fill: #8FA3B8; font-size: 11px; letter-spacing: .08em; }
+      .small { fill: #8FA3B8; font-size: 12px; }
+      .panel { fill: #0B1728; stroke: #29415A; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="400" rx="20" fill="url(#bg)"/>
+  <path d="M0 332 C150 280 240 365 380 318 S640 278 770 330 S1010 355 1200 292" fill="none" stroke="#17324A" stroke-width="1"/>
+  <path d="M0 348 C150 296 240 381 380 334 S640 294 770 346 S1010 371 1200 308" fill="none" stroke="#17324A" stroke-width="1"/>
+
+  <text x="48" y="58" class="sans" fill="#F3F0E8" font-size="30" font-weight="750" letter-spacing=".03em">HELIOS-3D</text>
+  <text x="49" y="82" class="mono meta">RESEARCH NOTEBOOK / TOPOLOGICAL COMPUTING</text>
+  <text x="49" y="112" class="sans" fill="#F3F0E8" font-size="15">Tracing a proposed path from semantic information to energy-aware magnetic readout.</text>
+
+  <path d="M128 205 C205 151 258 253 329 201 S465 150 538 204 S674 253 746 201 S882 150 954 204 S1055 238 1090 204" fill="none" stroke="url(#signal)" stroke-width="2" filter="url(#soft-glow)"/>
+  <path d="M128 205 C205 259 258 157 329 209 S465 260 538 206 S674 157 746 209 S882 260 954 206 S1055 173 1090 206" fill="none" stroke="#55D6FF" stroke-opacity=".28" stroke-width="1"/>
+  <circle cx="128" cy="205" r="5" fill="#55D6FF"/>
+  <circle cx="1090" cy="205" r="5" fill="#E778FF"/>
+
+  <g class="panel">
+    <rect x="48" y="148" width="190" height="110" rx="12"/>
+    <rect x="270" y="148" width="190" height="110" rx="12"/>
+    <rect x="492" y="148" width="190" height="110" rx="12"/>
+    <rect x="714" y="148" width="190" height="110" rx="12"/>
+  </g>
+  <g class="sans">
+    <text x="68" y="177" class="mono meta">01 / INPUT</text>
+    <text x="68" y="204" class="label">Semantic signal</text>
+    <text x="68" y="228" class="small">Meaning becomes a state</text>
+    <text x="290" y="177" class="mono meta">02 / MAP</text>
+    <text x="290" y="204" class="label">Topological compiler</text>
+    <text x="290" y="228" class="small">Coordinates to 3D tensors</text>
+    <text x="512" y="177" class="mono meta">03 / STATE</text>
+    <text x="512" y="204" class="label">3D magnetic state</text>
+    <text x="512" y="228" class="small">MCA + BRC [PROPOSED]</text>
+    <text x="734" y="177" class="mono meta">04 / READ</text>
+    <text x="734" y="204" class="label">Energy-aware readout</text>
+    <text x="734" y="228" class="small">Account for the full cycle</text>
+  </g>
+
+  <g transform="translate(956 150)">
+    <ellipse cx="72" cy="52" rx="58" ry="30" fill="none" stroke="url(#knot)" stroke-width="2" transform="rotate(-22 72 52)"/>
+    <ellipse cx="72" cy="52" rx="58" ry="30" fill="none" stroke="#55D6FF" stroke-opacity=".55" stroke-width="2" transform="rotate(38 72 52)"/>
+    <ellipse cx="72" cy="52" rx="58" ry="30" fill="none" stroke="#E778FF" stroke-opacity=".55" stroke-width="2" transform="rotate(98 72 52)"/>
+    <circle cx="72" cy="52" r="5" fill="#F3F0E8" filter="url(#soft-glow)"/>
+    <text x="72" y="108" text-anchor="middle" class="mono meta">FIELD / KNOT STATE</text>
+  </g>
+
+  <line x1="48" y1="298" x2="1152" y2="298" stroke="#29415A"/>
+  <text x="48" y="326" class="mono meta">FABRICATION PATH</text>
+  <text x="48" y="350" class="sans label" font-size="14">DISH</text>
+  <text x="97" y="350" class="small">→</text>
+  <text x="117" y="350" class="sans label" font-size="14">TPP</text>
+  <text x="161" y="350" class="small">→</text>
+  <text x="181" y="350" class="sans label" font-size="14">ALD</text>
+  <text x="224" y="350" class="small">proposed process markers</text>
+
+  <g transform="translate(744 318)" class="mono">
+    <circle cx="7" cy="7" r="4" fill="#55D6FF"/><text x="18" y="11" class="small">ESTABLISHED / DEMONSTRATED</text>
+    <circle cx="182" cy="7" r="4" fill="#E778FF"/><text x="193" y="11" class="small">INFERRED / PROPOSED</text>
+    <circle cx="337" cy="7" r="4" fill="#8FA3B8"/><text x="348" y="11" class="small">SPECULATIVE</text>
+  </g>
+  <text x="744" y="350" class="small">A public scaffold, not a fabricated or validated chip.</text>
+</svg>
