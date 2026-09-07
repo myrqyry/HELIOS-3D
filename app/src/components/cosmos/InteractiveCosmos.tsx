@@ -4,26 +4,21 @@ import { CosmosStage } from './CosmosStage';
 import { LayerControlHUD } from './LayerControlHUD';
 import { DomainNavigatorBar } from './DomainNavigatorBar';
 import { MechanismInspector } from './MechanismInspector';
-import { GuidedTourModal } from './GuidedTourModal';
-import { DOMAINS, type CognitiveLayer } from '../../data/layeredKnowledge';
+import { GuidedTourModal, TOUR_STEPS } from './GuidedTourModal';
+import { DOMAINS, PIPELINE_STEPS, type CognitiveLayer } from '../../data/layeredKnowledge';
 import { soundManager } from '../../services/audioSynthesizer';
 import { usePrefersReducedMotion, isMotionEnabled } from '../../hooks/usePrefersReducedMotion';
 
 // Causal sequence linking the six physical subsystems into one coherent machine
-export const PIPELINE_STEPS = [
-  { id: 'material_stack', title: '02. Interfacial Stack', action: 'Spin-Orbit Torque Injection' },
-  { id: 'hopfion', title: '01. Hopfion Soliton', action: 'Topological Memory State Switched' },
-  { id: 'reservoir', title: '03. Brownian Reservoir', action: 'Thermal Wavefront Non-Linear Mixing' },
-  { id: 'tohe_readout', title: '04. TOHE Readout', action: 'Transverse Orbital Hall Deflection' },
-  { id: 'moire_scaling', title: '05. Moiré Superlattice', action: '3D Interlayer Phase Locking' },
-  { id: 'milnor_optical', title: '06. Optical Diagnostics', action: 'Milnor Singularity Emission' },
-];
+export { PIPELINE_STEPS };
 
 interface InteractiveCosmosProps {
   initialLayer?: CognitiveLayer;
   initialDomainId?: string | null;
   heightClass?: string;
   onViewExecutiveReport?: () => void;
+  viewMode?: '3d' | 'briefing';
+  onSelectViewMode?: (mode: '3d' | 'briefing') => void;
 }
 
 export function InteractiveCosmos({
@@ -31,6 +26,8 @@ export function InteractiveCosmos({
   initialDomainId = null,
   heightClass = 'h-[calc(100vh-60px)]',
   onViewExecutiveReport,
+  viewMode = '3d',
+  onSelectViewMode,
 }: InteractiveCosmosProps) {
   const prefersReducedMotion = usePrefersReducedMotion();
   const [layer, setLayer] = useState<CognitiveLayer>(initialLayer);
@@ -203,7 +200,11 @@ export function InteractiveCosmos({
         isInspectorOpen={isInspectorOpen}
         onToggleInspector={() => setIsInspectorOpen((open) => !open)}
         onStartTour={() => {
+          const firstStep = TOUR_STEPS[0];
           setTourStep(0);
+          handleSelectDomain(firstStep.domainId);
+          handleSelectLayer(firstStep.layer);
+          setIsInspectorOpen(false);
           setIsTourOpen(true);
         }}
         autoRotate={autoRotate}
@@ -213,6 +214,8 @@ export function InteractiveCosmos({
         zenMode={zenMode}
         onToggleZenMode={() => setZenMode((z) => !z)}
         onViewExecutiveReport={onViewExecutiveReport}
+        viewMode={viewMode}
+        onSelectViewMode={onSelectViewMode}
       />
 
       {/* Bottom Subsystem Navigator Dock (Hidden in Zen Mode) */}

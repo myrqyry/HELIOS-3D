@@ -81,39 +81,27 @@ export function HomePage() {
         />
       </Helmet>
 
-      {/* Floating View Mode Switcher (Cosmos 3D vs Executive Briefing) */}
-      <div className="absolute right-4 top-3 z-30 flex items-center gap-1 rounded-full border border-obsidian-3 bg-obsidian/90 p-1 backdrop-blur-md shadow-xl">
-        <button
-          type="button"
-          onClick={() => setViewMode('3d')}
-          className={`flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold transition-all ${
-            viewMode === '3d'
-              ? 'bg-amber text-obsidian shadow-sm'
-              : 'text-parchment-2 hover:text-parchment hover:bg-obsidian-2'
-          }`}
-        >
-          <Sparkles className="h-3.5 w-3.5" />
-          <span>3D Cosmos</span>
-        </button>
-        <button
-          type="button"
-          onClick={() => setViewMode('briefing')}
-          className={`flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold transition-all ${
-            viewMode === 'briefing'
-              ? 'bg-amber text-obsidian shadow-sm'
-              : 'text-parchment-2 hover:text-parchment hover:bg-obsidian-2'
-          }`}
-        >
-          <FileText className="h-3.5 w-3.5" />
-          <span>Executive Briefing</span>
-        </button>
-      </div>
+      {/* Floating View Mode Switcher for Executive Briefing view */}
+      {viewMode === 'briefing' && (
+        <div className="fixed right-4 top-3 z-30 flex items-center gap-1 rounded-full border border-obsidian-3 bg-obsidian/90 p-1 backdrop-blur-md shadow-xl">
+          <button
+            type="button"
+            onClick={() => setViewMode('3d')}
+            className="flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold bg-amber text-obsidian shadow-sm hover:bg-amber-light transition-all"
+          >
+            <Sparkles className="h-3.5 w-3.5" />
+            <span>Return to 3D Cosmos</span>
+          </button>
+        </div>
+      )}
 
       {/* VIEW MODE 1: FLAGSHIP INTERACTIVE 3D LAYERED LEARNING COSMOS */}
       {viewMode === '3d' && (
         <div className="relative w-full h-[calc(100vh-64px)]">
           <InteractiveCosmos
             heightClass="h-full"
+            viewMode={viewMode}
+            onSelectViewMode={(mode) => setViewMode(mode)}
             onViewExecutiveReport={() => setViewMode('briefing')}
           />
         </div>

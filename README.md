@@ -9,7 +9,8 @@
 [![Docs](https://img.shields.io/badge/docs-helios--3d.vercel.app-blue?style=flat-square)](https://helios-3d.vercel.app/)
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-live-green?style=flat-square)](https://myrqyry.github.io/HELIOS-3D/)
 [![Python](https://img.shields.io/badge/Python-3.12+-yellow?style=flat-square&logo=python)](https://www.python.org/)
-[![Astro](https://img.shields.io/badge/Astro-MDX-orange?style=flat-square&logo=astro)](https://astro.build/)
+[![Vite](https://img.shields.io/badge/Vite-React%2019-646CFF?style=flat-square&logo=vite)](https://vitejs.dev/)
+[![Three.js](https://img.shields.io/badge/Three.js-R3F-black?style=flat-square&logo=three.js)](https://threejs.org/)
 [![License](https://img.shields.io/badge/License-MIT-gray?style=flat-square)](./LICENSE)
 
 </div>

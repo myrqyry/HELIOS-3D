@@ -1,9 +1,14 @@
+import type { ReactNode } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { Header } from './Header';
 import { Sidebar } from './Sidebar';
 import { Footer } from './Footer';
 
-export function Layout() {
+interface LayoutProps {
+  children?: ReactNode;
+}
+
+export function Layout({ children }: LayoutProps = {}) {
   const { pathname } = useLocation();
   const isExhibitPage = pathname === '/' || pathname === '/explore';
   const showSidebar = !isExhibitPage;
@@ -20,14 +25,16 @@ export function Layout() {
       <div className={`flex-1 ${showSidebar ? 'flex' : ''}`}>
         {showSidebar && <Sidebar />}
         <main id="main-content" className="flex-1 min-w-0">
-          {isExhibitPage ? (
-            <div className="w-full exhibit-main">
-              <Outlet />
-            </div>
-          ) : (
-            <article className="mx-auto max-w-3xl px-6 py-12 prose-custom">
-              <Outlet />
-            </article>
+          {children ?? (
+            isExhibitPage ? (
+              <div className="w-full exhibit-main">
+                <Outlet />
+              </div>
+            ) : (
+              <article className="mx-auto max-w-3xl px-6 py-12 prose-custom">
+                <Outlet />
+              </article>
+            )
           )}
         </main>
       </div>

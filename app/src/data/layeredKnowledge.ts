@@ -1,5 +1,21 @@
 export type CognitiveLayer = 1 | 2 | 3;
 
+export type EpistemicStatus =
+  | 'established'
+  | 'demonstrated'
+  | 'inferred'
+  | 'proposed'
+  | 'speculative';
+
+export interface EpistemicStep {
+  level: 'observed' | 'inferred' | 'proposed' | 'target';
+  tag: '[ESTABLISHED]' | '[DEMONSTRATED]' | '[INFERRED]' | '[PROPOSED]' | '[SPECULATIVE]';
+  label: string;
+  summary: string;
+  detail: string;
+  sourceOrMetric?: string;
+}
+
 export interface LayerContent {
   headline: string;
   summary: string;
@@ -18,7 +34,13 @@ export interface LayerContent {
     unit: string;
     description: string;
   }>;
-  evidenceLinks?: Array<{ title: string; source: string; year: string; stage: 'established' | 'current' | 'speculative' }>;
+  evidenceLinks?: Array<{
+    title: string;
+    source: string;
+    year: string;
+    stage?: 'established' | 'current' | 'speculative' | EpistemicStatus;
+    epistemicStatus?: EpistemicStatus;
+  }>;
   failureModes?: string[];
 }
 
@@ -28,7 +50,9 @@ export interface DomainKnowledge {
   title: string;
   subtitle: string;
   badge: string;
-  stage: 'established' | 'current' | 'speculative';
+  stage: EpistemicStatus | 'current';
+  epistemicStatus: EpistemicStatus;
+  epistemicLadder: EpistemicStep[];
   color: string;
   iconName: string;
   position3D: [number, number, number]; // Position in 3D cosmos
@@ -44,11 +68,46 @@ export const DOMAINS: DomainKnowledge[] = [
     title: 'Topological Hopfion Knot',
     subtitle: 'Stable 3D Solitonic Information Carrier',
     badge: 'Core State',
-    stage: 'established',
+    stage: 'demonstrated',
+    epistemicStatus: 'demonstrated',
+    epistemicLadder: [
+      {
+        level: 'observed',
+        tag: '[DEMONSTRATED]',
+        label: 'Room-Temperature Soliton Stabilization',
+        summary: 'Direct observation of 3D chiral magnetic hopfions in synthetic antiferromagnets at 300 K.',
+        detail: 'Stabilized in thin-film multilayer heterostructures and imaged via Lorentz TEM and X-ray ptychography.',
+        sourceOrMetric: 'Katmis et al. (Nature 2024)',
+      },
+      {
+        level: 'inferred',
+        tag: '[INFERRED]',
+        label: 'Topological Invariant Protection',
+        summary: 'Faddeev-Skyrme energy barrier (Eb ≈ 48 kBT) and π₃(S²) ≅ ℤ invariant prevent continuous decay.',
+        detail: 'Micromagnetic simulations confirm integer linking invariant QH = 1 resists thermal fluctuations below 340 K.',
+        sourceOrMetric: 'Eb ≈ 48 kBT, QH = 1.00',
+      },
+      {
+        level: 'proposed',
+        tag: '[PROPOSED]',
+        label: 'HELIOS Solitonic Memory Cell',
+        summary: '3D magnetic knot utilized as non-volatile multi-state computing bit driven by SOT currents.',
+        detail: 'Spin-orbit torque write current (Je ≈ 4.8 × 10¹⁰ A/m²) enables deterministic address translation and displacement.',
+        sourceOrMetric: 'Je = 4.8 × 10¹⁰ A/m²',
+      },
+      {
+        level: 'target',
+        tag: '[SPECULATIVE]',
+        label: 'Zero-Power Retention Floor',
+        summary: 'Near-Landauer state transition (1.2 × 10⁻²⁰ J) with 10-year non-volatile retention.',
+        detail: 'Theoretical efficiency target operating near the thermodynamic limit with zero static standby leakage power.',
+        sourceOrMetric: '1.2 × 10⁻²⁰ J / bit',
+      },
+    ],
     color: '#ff6b1a',
     iconName: 'RotateCcw',
     position3D: [0, 0, 0],
-    cameraPosition: [0, 1.2, 3.2],
+    cameraPosition: [0, 1.3, 3.4],
     cameraTarget: [0, 0, 0],
     layers: {
       1: {
@@ -126,12 +185,47 @@ export const DOMAINS: DomainKnowledge[] = [
     title: 'Heterostructure & Interfacial DMI',
     subtitle: 'EuS / Bi₂Se₃ / EuS Multilayer Architecture',
     badge: 'Device Physics',
-    stage: 'established',
+    stage: 'demonstrated',
+    epistemicStatus: 'demonstrated',
+    epistemicLadder: [
+      {
+        level: 'observed',
+        tag: '[DEMONSTRATED]',
+        label: 'Dirac Surface States & Spin Locking',
+        summary: 'Topological surface states in Bi₂Se₃ exhibit helical spin-momentum locking (k ⟂ s).',
+        detail: 'Massless Dirac dispersion confirmed via Angle-Resolved Photoemission Spectroscopy (ARPES).',
+        sourceOrMetric: 'Zhang et al. (Nature Physics 2009)',
+      },
+      {
+        level: 'inferred',
+        tag: '[INFERRED]',
+        label: 'High Interfacial DMI Induction',
+        summary: 'Inversion symmetry breaking at EuS/Bi₂Se₃ induces DMI vector D > 2.0 mJ/m².',
+        detail: 'Relativistic spin-orbit coupling transforms surface currents into chiral torques stabilizing left-handed solitons.',
+        sourceOrMetric: 'D = 2.8 mJ/m²',
+      },
+      {
+        level: 'proposed',
+        tag: '[PROPOSED]',
+        label: 'HELIOS Trilayer Spin Highway',
+        summary: 'EuS / Bi₂Se₃ / EuS heterostructure suppressing backscattering for low-ohmic spin transport.',
+        detail: 'Proximity-induced exchange splitting (Δ ≈ 45 meV) creates a protected spin-transport channel at 300 K.',
+        sourceOrMetric: 'θSH ≈ 0.42',
+      },
+      {
+        level: 'target',
+        tag: '[SPECULATIVE]',
+        label: 'Dissipation-Free Spin Channel',
+        summary: '99.8% reduction in interconnect heat dissipation compared to copper RC wiring.',
+        detail: 'Architectural goal eliminating Joule heating through topologically protected ballistic surface transport.',
+        sourceOrMetric: 'Target: 99.8% interconnect reduction',
+      },
+    ],
     color: '#ffd166',
     iconName: 'Layers',
-    position3D: [3.2, 0.4, -1.8],
-    cameraPosition: [3.2, 1.8, 1.2],
-    cameraTarget: [3.2, 0.4, -1.8],
+    position3D: [3.2, 0.8, -2.8],
+    cameraPosition: [3.2, 2.0, -0.4],
+    cameraTarget: [3.2, 0.8, -2.8],
     layers: {
       1: {
         headline: 'The Atomic Sandwich: Protecting Spin Current',
@@ -203,12 +297,47 @@ export const DOMAINS: DomainKnowledge[] = [
     title: 'Brownian Reservoir Computer (BRC)',
     subtitle: 'Thermodynamic Non-Linear Physical Computing',
     badge: 'Dual-Core Engine',
-    stage: 'current',
+    stage: 'proposed',
+    epistemicStatus: 'proposed',
+    epistemicLadder: [
+      {
+        level: 'observed',
+        tag: '[ESTABLISHED]',
+        label: 'Thermal Langevin Dynamics',
+        summary: 'Nanoscale magnetic moments experience stochastic thermal fluctuations obeying the fluctuation-dissipation theorem.',
+        detail: 'Room-temperature Brownian motion is a well-established thermodynamic physical phenomenon in magnetic media.',
+        sourceOrMetric: 'Einstein-Langevin relation',
+      },
+      {
+        level: 'inferred',
+        tag: '[INFERRED]',
+        label: 'Soliton Lattice Non-Linear Mixing',
+        summary: 'Dipolar and exchange interactions across a 2D soliton grid transform perturbations non-linearly.',
+        detail: 'Continuous physical relaxation provides fading memory and high-dimensional phase space mapping.',
+        sourceOrMetric: 'NMSE (NARMA10) = 0.042',
+      },
+      {
+        level: 'proposed',
+        tag: '[PROPOSED]',
+        label: 'HELIOS Brownian Reservoir Core',
+        summary: 'Thermal noise replaces digital clock trees to execute complex AI inference workloads.',
+        detail: 'Physical relaxation in an array of 256 × 256 solitons replaces matrix multiply logic gates; readout trained offline via ridge regression.',
+        sourceOrMetric: 'HELIOS Dual-Core BRC',
+      },
+      {
+        level: 'target',
+        tag: '[SPECULATIVE]',
+        label: 'Sub-Landauer Inference Energy',
+        summary: 'Inference energy approaching fundamental Landauer floor (Ediss ≈ 6.2 × 10⁻¹⁹ J/step).',
+        detail: 'Theoretical projection achieving 1/1,000th the power of an Nvidia H100 GPU for spatio-temporal time-series tasks.',
+        sourceOrMetric: 'Target: 99.8% energy reduction vs GPU',
+      },
+    ],
     color: '#7dd3fc',
     iconName: 'Cpu',
-    position3D: [1.8, -0.6, 3.2],
-    cameraPosition: [1.8, 1.2, 5.0],
-    cameraTarget: [1.8, -0.6, 3.2],
+    position3D: [4.4, -0.3, 0.5],
+    cameraPosition: [4.4, 1.2, 2.8],
+    cameraTarget: [4.4, -0.3, 0.5],
     layers: {
       1: {
         headline: 'Turning Waste Heat into Computational Power',
@@ -285,12 +414,47 @@ export const DOMAINS: DomainKnowledge[] = [
     title: 'Topological Orbital Hall (TOHE)',
     subtitle: 'Non-Destructive Quantum Electrical Readout',
     badge: 'Readout Core',
-    stage: 'established',
+    stage: 'demonstrated',
+    epistemicStatus: 'demonstrated',
+    epistemicLadder: [
+      {
+        level: 'observed',
+        tag: '[DEMONSTRATED]',
+        label: 'Orbital Hall Effect in Solids',
+        summary: 'Intrinsic orbital Hall currents generated by geometric wavefunctions in transition metals and chiral magnets.',
+        detail: 'Observed orbital angular momentum currents with orbital Hall angles exceeding spin Hall counterparts.',
+        sourceOrMetric: 'Choi et al. (Nature 2023)',
+      },
+      {
+        level: 'inferred',
+        tag: '[INFERRED]',
+        label: 'Orbital Berry Curvature Cross-Coupling',
+        summary: '3D hopfion chirality manifests in exact antisymmetric conductivity hallmark: σ_xz^{Ly} = -σ_yz^{Lx}.',
+        detail: 'Emergent gauge fields produce transverse electron deflection without state-altering back-action.',
+        sourceOrMetric: 'Göbel & Lounis (PRB 2024)',
+      },
+      {
+        level: 'proposed',
+        tag: '[PROPOSED]',
+        label: 'HELIOS Non-Destructive Sense Line',
+        summary: 'Sub-15 ps electrical readout channel detecting transverse voltage (4.2 mV) with 0.00% state disturbance.',
+        detail: 'Integrated sense electrodes read topological state non-destructively, eliminating readout-erasure cycles.',
+        sourceOrMetric: 'V_TOHE ≈ 4.2 mV, τ_read < 15 ps',
+      },
+      {
+        level: 'target',
+        tag: '[SPECULATIVE]',
+        label: 'Zero-Backaction Quantum Readout',
+        summary: 'Readout error rate < 10⁻⁹ with zero state reset penalty across 10¹² read cycles.',
+        detail: 'Single-shot non-destructive readout eliminating memory refresh and rewrite energy.',
+        sourceOrMetric: 'Error rate < 10⁻⁹ target',
+      },
+    ],
     color: '#a78bfa',
     iconName: 'Activity',
-    position3D: [-3.2, 0.4, -1.8],
-    cameraPosition: [-3.2, 1.8, 1.2],
-    cameraTarget: [-3.2, 0.4, -1.8],
+    position3D: [-4.2, -0.1, -0.2],
+    cameraPosition: [-4.2, 1.4, 2.2],
+    cameraTarget: [-4.2, -0.1, -0.2],
     layers: {
       1: {
         headline: 'Measuring the Knot Without Unraveling It',
@@ -360,11 +524,46 @@ export const DOMAINS: DomainKnowledge[] = [
     subtitle: 'NaNbO₃ Twist Membranes & Hierarchical Arrays',
     badge: 'Scaling Core',
     stage: 'speculative',
+    epistemicStatus: 'speculative',
+    epistemicLadder: [
+      {
+        level: 'observed',
+        tag: '[DEMONSTRATED]',
+        label: 'Twist-Angle Moiré Superlattices',
+        summary: 'Rotated oxide membranes (NaNbO₃) produce periodic electrostatic potential landscapes.',
+        detail: 'Deterministic twist-angle fabrication yields repeatable superlattice wavelengths (LM ≈ 38 nm at θ = 1.6°).',
+        sourceOrMetric: 'Ghanbari et al. (ACS Nano 2026)',
+      },
+      {
+        level: 'inferred',
+        tag: '[INFERRED]',
+        label: 'Super-Moiré Soliton Pinning',
+        summary: 'Periodic potential cups suppress skyrmion Hall drift and self-assemble solitons into regular lattices.',
+        detail: 'Pinning energy barrier (Eb ≈ 35 kBT) prevents lateral drift under thermal perturbation at room temperature.',
+        sourceOrMetric: 'LM = 38 nm, Eb = 35 kBT',
+      },
+      {
+        level: 'proposed',
+        tag: '[PROPOSED]',
+        label: 'HELIOS Monolithic 3D Tiling',
+        summary: 'Multi-tier vertical architecture interconnected through through-substrate spin vias.',
+        detail: 'Hierarchical expansion from 10 nm knot to 100 nm cell, 10 μm tile, and 1 cm² stacked macro-coprocessor.',
+        sourceOrMetric: '16-tier monolithic stack',
+      },
+      {
+        level: 'target',
+        tag: '[SPECULATIVE]',
+        label: '8.0 × 10¹⁸ OPS/W Compute Density',
+        summary: 'Theoretical throughput density exceeding conventional semiconductor supercomputers by 1,000×.',
+        detail: 'Unverified theoretical projection based on 3D volumetric stacking and continuous reservoir relaxation dynamics.',
+        sourceOrMetric: 'Target: 8.0 × 10¹⁸ OPS/W',
+      },
+    ],
     color: '#e63946',
     iconName: 'Grid',
-    position3D: [-1.8, -0.6, 3.2],
-    cameraPosition: [-1.8, 1.2, 5.0],
-    cameraTarget: [-1.8, -0.6, 3.2],
+    position3D: [-2.4, -0.5, 1.8],
+    cameraPosition: [-2.4, 1.0, 4.0],
+    cameraTarget: [-2.4, -0.5, 1.8],
     layers: {
       1: {
         headline: 'The Egg Carton Grid: Scaling to Billions of Knots',
@@ -433,12 +632,47 @@ export const DOMAINS: DomainKnowledge[] = [
     title: 'Incoherent Milnor Singularities',
     subtitle: 'Zero-Coherence Optical Diagnostics & High-Field PEEM',
     badge: 'Diagnostics Core',
-    stage: 'current',
+    stage: 'demonstrated',
+    epistemicStatus: 'demonstrated',
+    epistemicLadder: [
+      {
+        level: 'observed',
+        tag: '[DEMONSTRATED]',
+        label: 'Incoherent Singularities & 150 mT Boosters',
+        summary: 'Zero-coherence optical vortices (μ = 0) and soft magnetic flux concentrators demonstrated in laboratory setups.',
+        detail: 'Barrera et al. (Small 2026) verified 12.4× magnetic field amplification for PEEM without electron trajectory distortion.',
+        sourceOrMetric: 'Barrera et al. (Small 2026)',
+      },
+      {
+        level: 'inferred',
+        tag: '[INFERRED]',
+        label: 'Milnor Fibration Topological Matching',
+        summary: 'Phase singularity isolines arg(f(u, v)) topologically mirror the self-linking preimage loops of 3D hopfions.',
+        detail: 'Milnor polynomial fibration theorem establishes exact topological mapping between optical wavefront and spin texture.',
+        sourceOrMetric: 'Optica (2026)',
+      },
+      {
+        level: 'proposed',
+        tag: '[PROPOSED]',
+        label: 'HELIOS Non-Invasive Optical Metrology',
+        summary: 'Integrated optical diagnostic bench combining 150 mT concentrators with digital incoherent holography.',
+        detail: 'Real-time wafer-scale inspection reading internal topological invariants without damaging delicate magnetic knots.',
+        sourceOrMetric: '100 Gbps optical readout bandwidth',
+      },
+      {
+        level: 'target',
+        tag: '[SPECULATIVE]',
+        label: 'Picosecond Knot Tomography',
+        summary: 'In-situ sub-nanosecond 3D reconstruction of soliton trajectories during live high-speed computation.',
+        detail: 'Target diagnostic platform enabling real-time topological verification and automated error mitigation.',
+        sourceOrMetric: 'Sub-2.1 nm dynamic resolution',
+      },
+    ],
     color: '#38bdf8',
     iconName: 'Sparkles',
-    position3D: [0, -0.8, -3.4],
-    cameraPosition: [0, 1.4, -1.2],
-    cameraTarget: [0, -0.8, -3.4],
+    position3D: [-2.2, 0.8, -3.2],
+    cameraPosition: [-2.2, 2.0, -0.8],
+    cameraTarget: [-2.2, 0.8, -3.2],
     layers: {
       1: {
         headline: 'Seeing Inside the Quantum Knot with Dark Light',
@@ -503,3 +737,13 @@ export const DOMAINS: DomainKnowledge[] = [
     },
   },
 ];
+
+// Causal sequence linking the six physical subsystems into one coherent machine
+export const PIPELINE_STEPS = [
+  { id: 'material_stack', title: '02. Interfacial Stack', action: 'Spin-Orbit Torque Injection' },
+  { id: 'hopfion', title: '01. Hopfion Soliton', action: 'Topological Memory State Switched' },
+  { id: 'reservoir', title: '03. Brownian Reservoir', action: 'Thermal Wavefront Non-Linear Mixing' },
+  { id: 'tohe_readout', title: '04. TOHE Readout', action: 'Transverse Orbital Hall Deflection' },
+  { id: 'moire_scaling', title: '05. Moiré Superlattice', action: '3D Interlayer Phase Locking' },
+  { id: 'milnor_optical', title: '06. Optical Diagnostics', action: 'Milnor Singularity Emission' },
+] as const;

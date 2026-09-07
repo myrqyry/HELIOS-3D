@@ -1,4 +1,4 @@
-import { useRef, useMemo } from 'react';
+import { useRef, useMemo, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Billboard, Text, Instances, Instance, Line } from '@react-three/drei';
 import * as THREE from 'three';
@@ -11,6 +11,7 @@ interface SubsystemProps {
   params?: Record<string, number>;
   onNodeClick?: () => void;
   pulseTrigger?: number;
+  isDimmed?: boolean;
 }
 
 /**
@@ -20,10 +21,12 @@ interface SubsystemProps {
  * - Layer 2: Néel/Bloch vector spin arrows and DMI chiral stabilization
  * - Layer 3: Hopf fibration linking loops and Faddeev-Skyrme energy contours
  */
-export function Hopfion3D({ layer, isFocused, paused, params = {}, pulseTrigger = 0 }: SubsystemProps) {
+export function Hopfion3D({ layer, isFocused = false, paused, params = {}, pulseTrigger = 0, isDimmed = false }: SubsystemProps) {
   const groupRef = useRef<THREE.Group>(null);
   const coreRef = useRef<THREE.Mesh>(null);
   const pulseScale = useRef(1);
+  const scaleRef = useRef(isFocused ? 1.0 : 0.74);
+  const lastPulseTrigger = useRef(pulseTrigger);
 
   const dmi = params.dmi ?? 2.4;
   const anisotropy = params.anisotropy ?? 0.85;
@@ -84,13 +87,18 @@ export function Hopfion3D({ layer, isFocused, paused, params = {}, pulseTrigger 
   useFrame((_, delta) => {
     if (paused) return;
     const speed = 0.4 + current * 0.08;
+    const targetScale = isFocused ? 1.0 : 0.74;
+    scaleRef.current = THREE.MathUtils.lerp(scaleRef.current, targetScale, delta * 4);
+
     if (groupRef.current) {
+      groupRef.current.scale.setScalar(scaleRef.current);
       groupRef.current.rotation.y += delta * speed;
       groupRef.current.rotation.x = Math.sin(Date.now() * 0.001) * 0.15;
     }
 
-    // Handle pulse trigger animation
-    if (pulseTrigger > 0) {
+    // Handle pulse trigger animation (edge-detected on change)
+    if (pulseTrigger !== lastPulseTrigger.current) {
+      lastPulseTrigger.current = pulseTrigger;
       pulseScale.current = 1.35;
     }
     pulseScale.current = THREE.MathUtils.lerp(pulseScale.current, 1, delta * 6);
@@ -127,7 +135,7 @@ export function Hopfion3D({ layer, isFocused, paused, params = {}, pulseTrigger 
         <meshStandardMaterial
           color={layer === 1 ? '#ff6b1a' : layer === 2 ? '#ff9e3b' : '#ffb627'}
           emissive="#ff6b1a"
-          emissiveIntensity={layer === 1 ? 0.7 : 0.4}
+          emissiveIntensity={isFocused ? (layer === 1 ? 0.9 : 0.6) : isDimmed ? 0.15 : 0.45}
           roughness={0.2}
           metalness={0.8}
           wireframe={layer === 3}
@@ -135,8 +143,8 @@ export function Hopfion3D({ layer, isFocused, paused, params = {}, pulseTrigger 
         />
       </mesh>
 
-      {/* Outer translucent energy envelope in Layer 1 */}
-      {layer === 1 && (
+      {/* Outer translucent energy envelope in Layer 1 (only when focused to prevent macro clutter) */}
+      {layer === 1 && isFocused && (
         <mesh scale={1.18}>
           <torusKnotGeometry args={[0.85, 0.28, 64, 16, 2, 3]} />
           <meshStandardMaterial color="#ffd166" transparent opacity={0.18} wireframe />
@@ -203,6 +211,7 @@ export function Skyrmion3D({ layer, paused, params = {}, pulseTrigger = 0 }: Sub
   const groupRef = useRef<THREE.Group>(null);
   const coreRef = useRef<THREE.Mesh>(null);
   const pulseScale = useRef(1);
+  const lastPulseTrigger = useRef(pulseTrigger);
 
   const chirality = (params.chirality ?? 0) === 1 ? 'bloch' : 'neel';
   const tubeHeight = 1.6;
@@ -287,7 +296,8 @@ export function Skyrmion3D({ layer, paused, params = {}, pulseTrigger = 0 }: Sub
     if (groupRef.current) {
       groupRef.current.rotation.y += delta * 0.3;
     }
-    if (pulseTrigger > 0) {
+    if (pulseTrigger !== lastPulseTrigger.current) {
+      lastPulseTrigger.current = pulseTrigger;
       pulseScale.current = 1.3;
     }
     pulseScale.current = THREE.MathUtils.lerp(pulseScale.current, 1, delta * 6);
@@ -417,19 +427,24 @@ export function Skyrmion3D({ layer, paused, params = {}, pulseTrigger = 0 }: Sub
  * - Layer 2: Exploded interface with spin-momentum locking vectors (k ⟂ s)
  * - Layer 3: 3D Dirac cone energy dispersion and Rashba-Edelstein spin vectors
  */
-export function MaterialStack3D({ layer, paused, params = {} }: SubsystemProps) {
+export function MaterialStack3D({ layer, isFocused = false, paused, params = {}, isDimmed = false }: SubsystemProps) {
   const groupRef = useRef<THREE.Group>(null);
   const diracRef = useRef<THREE.Group>(null);
+  const scaleRef = useRef(isFocused ? 1.0 : 0.76);
 
   const tiThickness = params.ti_thickness ?? 8;
-  const explodedY = layer >= 2 ? 0.75 : 0.45;
+  const explodedY = isFocused ? (layer >= 2 ? 0.75 : 0.45) : 0.26;
 
   useFrame((_, delta) => {
     if (paused) return;
+    const targetScale = isFocused ? 1.0 : 0.76;
+    scaleRef.current = THREE.MathUtils.lerp(scaleRef.current, targetScale, delta * 4);
+
     if (groupRef.current) {
+      groupRef.current.scale.setScalar(scaleRef.current);
       groupRef.current.rotation.y += delta * 0.2;
     }
-    if (diracRef.current && layer === 3) {
+    if (diracRef.current && layer === 3 && isFocused) {
       diracRef.current.rotation.y -= delta * 0.5;
     }
   });
@@ -440,13 +455,20 @@ export function MaterialStack3D({ layer, paused, params = {} }: SubsystemProps) 
       <group position={[0, explodedY, 0]}>
         <mesh>
           <boxGeometry args={[2.0, 0.25, 2.0]} />
-          <meshStandardMaterial color="#ff6b1a" emissive="#ff6b1a" emissiveIntensity={0.3} roughness={0.3} />
+          <meshStandardMaterial
+            color="#ff6b1a"
+            emissive="#ff6b1a"
+            emissiveIntensity={isFocused ? 0.4 : isDimmed ? 0.08 : 0.25}
+            roughness={0.3}
+          />
         </mesh>
-        <Billboard position={[1.2, 0, 0]}>
-          <Text fontSize={0.13} color="#f4e8d8" anchorX="left">
-            {'EuS (Top Insulator)'}
-          </Text>
-        </Billboard>
+        {isFocused && (
+          <Billboard position={[1.2, 0, 0]}>
+            <Text fontSize={0.13} color="#f4e8d8" anchorX="left">
+              {'EuS (Top Insulator)'}
+            </Text>
+          </Billboard>
+        )}
       </group>
 
       {/* Middle Bi2Se3 (Topological Insulator with Dirac Surface State) */}
@@ -456,19 +478,21 @@ export function MaterialStack3D({ layer, paused, params = {} }: SubsystemProps) 
           <meshStandardMaterial
             color="#7dd3fc"
             emissive="#38bdf8"
-            emissiveIntensity={0.5}
+            emissiveIntensity={isFocused ? 0.6 : isDimmed ? 0.12 : 0.35}
             transparent
             opacity={layer === 3 ? 0.45 : 0.85}
           />
         </mesh>
-        <Billboard position={[1.2, 0, 0]}>
-          <Text fontSize={0.13} color="#7dd3fc" anchorX="left">
-            {'Bi₂Se₃ (Dirac Channel)'}
-          </Text>
-        </Billboard>
+        {isFocused && (
+          <Billboard position={[1.2, 0, 0]}>
+            <Text fontSize={0.13} color="#7dd3fc" anchorX="left">
+              {'Bi₂Se₃ (Dirac Channel)'}
+            </Text>
+          </Billboard>
+        )}
 
-        {/* Spin-Momentum Locking Arrows (Layer 2 & 3) */}
-        {layer >= 2 && (
+        {/* Spin-Momentum Locking Arrows (Layer 2 & 3, only when focused or layer >= 2) */}
+        {layer >= 2 && isFocused && (
           <group position={[0, 0.25, 0]}>
             {[-0.6, 0, 0.6].map((x, idx) => (
               <group key={idx} position={[x, 0, 0]}>
@@ -492,13 +516,20 @@ export function MaterialStack3D({ layer, paused, params = {} }: SubsystemProps) 
       <group position={[0, -explodedY, 0]}>
         <mesh>
           <boxGeometry args={[2.0, 0.25, 2.0]} />
-          <meshStandardMaterial color="#ff6b1a" emissive="#ff6b1a" emissiveIntensity={0.3} roughness={0.3} />
+          <meshStandardMaterial
+            color="#ff6b1a"
+            emissive="#ff6b1a"
+            emissiveIntensity={isFocused ? 0.4 : isDimmed ? 0.08 : 0.25}
+            roughness={0.3}
+          />
         </mesh>
-        <Billboard position={[1.2, 0, 0]}>
-          <Text fontSize={0.13} color="#f4e8d8" anchorX="left">
-            {'EuS (Bottom Insulator)'}
-          </Text>
-        </Billboard>
+        {isFocused && (
+          <Billboard position={[1.2, 0, 0]}>
+            <Text fontSize={0.13} color="#f4e8d8" anchorX="left">
+              {'EuS (Bottom Insulator)'}
+            </Text>
+          </Billboard>
+        )}
       </group>
 
       {/* Layer 3: 3D Dirac Cones at the Interface */}
@@ -532,10 +563,11 @@ export function MaterialStack3D({ layer, paused, params = {} }: SubsystemProps) 
  * - Layer 2: 2D coupled lattice of magnetic solitons with thermal jitter
  * - Layer 3: Echo-state dynamics with readout weights W_out and Landauer bound
  */
-export function ReservoirLattice3D({ layer, paused, params = {}, pulseTrigger = 0 }: SubsystemProps) {
+export function ReservoirLattice3D({ layer, isFocused = false, paused, params = {}, pulseTrigger = 0, isDimmed = false }: SubsystemProps) {
   const groupRef = useRef<THREE.Group>(null);
   const temp = params.temperature ?? 295;
   const pulseWave = useRef(0);
+  const lastPulseTrigger = useRef(pulseTrigger);
 
   // Generate 5x5 array of reservoir nodes
   const nodes = useMemo(() => {
@@ -558,7 +590,8 @@ export function ReservoirLattice3D({ layer, paused, params = {}, pulseTrigger = 
       groupRef.current.rotation.y += delta * 0.15;
     }
 
-    if (pulseTrigger > 0) {
+    if (pulseTrigger !== lastPulseTrigger.current) {
+      lastPulseTrigger.current = pulseTrigger;
       pulseWave.current = 1;
     }
     if (pulseWave.current > 0) {
@@ -582,7 +615,7 @@ export function ReservoirLattice3D({ layer, paused, params = {}, pulseTrigger = 
         <meshStandardMaterial
           color={layer === 1 ? '#7dd3fc' : '#ffb627'}
           emissive={layer === 1 ? '#38bdf8' : '#ff6b1a'}
-          emissiveIntensity={1.2 + pulseWave.current * 2}
+          emissiveIntensity={isFocused ? (1.5 + pulseWave.current * 2) : isDimmed ? 0.35 : (0.9 + pulseWave.current * 1.5)}
         />
         {nodes.map((node, i) => {
           const time = Date.now() * 0.003;
@@ -651,9 +684,16 @@ export function ReservoirLattice3D({ layer, paused, params = {}, pulseTrigger = 
  * - Layer 2: 3D chiral soliton moving through trilayer channel with lateral deflection
  * - Layer 3: Hallmark tensor sigma_xz^{Ly} = -sigma_yz^{Lx} and Berry curvature
  */
-export function ToheReadout3D({ layer, paused, params = {} }: SubsystemProps) {
+export function ToheReadout3D({
+  layer,
+  isFocused = false,
+  paused,
+  params = {},
+  isDimmed = false,
+}: SubsystemProps) {
   const groupRef = useRef<THREE.Group>(null);
   const solitonRef = useRef<THREE.Mesh>(null);
+  const solitonGlowRef = useRef<THREE.Mesh>(null);
 
   useFrame((_, delta) => {
     if (paused) return;
@@ -661,31 +701,130 @@ export function ToheReadout3D({ layer, paused, params = {} }: SubsystemProps) {
       groupRef.current.rotation.y += delta * 0.25;
     }
     if (solitonRef.current) {
-      solitonRef.current.position.x = Math.sin(Date.now() * 0.0015) * 0.7;
+      const xPos = Math.sin(Date.now() * 0.0015) * 0.75;
+      solitonRef.current.position.x = xPos;
+      if (solitonGlowRef.current) {
+        solitonGlowRef.current.position.x = xPos;
+      }
     }
   });
 
+  const plateBaseColor = isFocused ? '#1b1725' : '#14111c';
+  const rimColor = isFocused ? '#c4b5fd' : '#a78bfa';
+
   return (
     <group ref={groupRef}>
-      {/* Readout Channel Waveguide */}
-      <mesh position={[0, -0.15, 0]}>
-        <boxGeometry args={[2.6, 0.1, 1.2]} />
-        <meshStandardMaterial color="#2a201a" roughness={0.4} />
+      {/* 0. Drop Shadow / Elevation Base Plate (separates from backdrop) */}
+      <mesh position={[0, -0.21, 0]}>
+        <boxGeometry args={[2.74, 0.025, 1.38]} />
+        <meshStandardMaterial color="#0c0a12" roughness={0.9} />
       </mesh>
 
-      {/* Moving 3D Soliton */}
+      {/* 1. Main Readout Channel Waveguide Slab */}
+      <mesh position={[0, -0.14, 0]}>
+        <boxGeometry args={[2.68, 0.11, 1.32]} />
+        <meshStandardMaterial
+          color={plateBaseColor}
+          roughness={0.28}
+          metalness={0.78}
+        />
+      </mesh>
+
+      {/* 2. Recessed Optical/Electrical Soliton Travel Channel */}
+      <mesh position={[0, -0.082, 0]}>
+        <boxGeometry args={[2.52, 0.008, 0.54]} />
+        <meshStandardMaterial
+          color="#292138"
+          roughness={0.16}
+          metalness={0.9}
+        />
+      </mesh>
+
+      {/* 3. Outer Illuminated Perimeter Trim (Rim/Edge highlight) */}
+      <Line
+        points={[
+          [-1.34, -0.082, -0.66],
+          [1.34, -0.082, -0.66],
+          [1.34, -0.082, 0.66],
+          [-1.34, -0.082, 0.66],
+          [-1.34, -0.082, -0.66],
+        ]}
+        color={rimColor}
+        lineWidth={isFocused ? 2.4 : 1.6}
+        transparent
+        opacity={isFocused ? 0.95 : isDimmed ? 0.35 : 0.75}
+      />
+
+      {/* 4. Soliton Channel Guide Rail Lines */}
+      <Line
+        points={[[-1.26, -0.078, -0.27], [1.26, -0.078, -0.27]]}
+        color="#7dd3fc"
+        lineWidth={1.2}
+        transparent
+        opacity={isFocused ? 0.7 : isDimmed ? 0.2 : 0.45}
+      />
+      <Line
+        points={[[-1.26, -0.078, 0.27], [1.26, -0.078, 0.27]]}
+        color="#7dd3fc"
+        lineWidth={1.2}
+        transparent
+        opacity={isFocused ? 0.7 : isDimmed ? 0.2 : 0.45}
+      />
+
+      {/* 5. Terminal Gold Contact Electrodes at both ends */}
+      <mesh position={[-1.3, -0.075, 0]}>
+        <boxGeometry args={[0.08, 0.04, 1.26]} />
+        <meshStandardMaterial
+          color="#ffb627"
+          emissive="#ffb627"
+          emissiveIntensity={isFocused ? 0.85 : isDimmed ? 0.25 : 0.55}
+          metalness={0.92}
+          roughness={0.18}
+        />
+      </mesh>
+      <mesh position={[1.3, -0.075, 0]}>
+        <boxGeometry args={[0.08, 0.04, 1.26]} />
+        <meshStandardMaterial
+          color="#ffb627"
+          emissive="#ffb627"
+          emissiveIntensity={isFocused ? 0.85 : isDimmed ? 0.25 : 0.55}
+          metalness={0.92}
+          roughness={0.18}
+        />
+      </mesh>
+
+      {/* 6. Dynamic Projected Soliton Glow onto Waveguide Surface */}
+      <mesh ref={solitonGlowRef} position={[0, -0.076, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+        <circleGeometry args={[0.34, 24]} />
+        <meshBasicMaterial
+          color="#ff6b1a"
+          transparent
+          opacity={isFocused ? 0.5 : isDimmed ? 0.15 : 0.32}
+          side={THREE.DoubleSide}
+        />
+      </mesh>
+
+      {/* 7. Moving 3D Soliton Torus */}
       <mesh ref={solitonRef} position={[0, 0.15, 0]}>
         <torusGeometry args={[0.25, 0.08, 16, 32]} />
-        <meshStandardMaterial color="#ff6b1a" emissive="#ff6b1a" emissiveIntensity={1.2} />
+        <meshStandardMaterial
+          color="#ff6b1a"
+          emissive="#ff6b1a"
+          emissiveIntensity={isFocused ? 1.6 : isDimmed ? 0.45 : 1.15}
+        />
       </mesh>
 
-      {/* Deflected Orbital Currents (Layer 2 & 3) */}
+      {/* 8. Deflected Orbital Currents (Layer 2 & 3) */}
       <group>
         {/* Left deflected beam (+y) */}
         <group position={[0.7, 0.25, 0.45]}>
           <mesh rotation={[0, 0, -Math.PI / 4]}>
             <coneGeometry args={[0.06, 0.2, 12]} />
-            <meshStandardMaterial color="#7dd3fc" emissive="#38bdf8" emissiveIntensity={1.5} />
+            <meshStandardMaterial
+              color="#7dd3fc"
+              emissive="#38bdf8"
+              emissiveIntensity={isFocused ? 1.6 : isDimmed ? 0.4 : 1.1}
+            />
           </mesh>
           <Billboard position={[0, 0.25, 0]}>
             <Text fontSize={0.12} color="#7dd3fc">
@@ -698,7 +837,11 @@ export function ToheReadout3D({ layer, paused, params = {} }: SubsystemProps) {
         <group position={[-0.7, 0.25, -0.45]}>
           <mesh rotation={[0, 0, (3 * Math.PI) / 4]}>
             <coneGeometry args={[0.06, 0.2, 12]} />
-            <meshStandardMaterial color="#ffb627" emissive="#ff6b1a" emissiveIntensity={1.5} />
+            <meshStandardMaterial
+              color="#ffb627"
+              emissive="#ff6b1a"
+              emissiveIntensity={isFocused ? 1.6 : isDimmed ? 0.4 : 1.1}
+            />
           </mesh>
           <Billboard position={[0, 0.25, 0]}>
             <Text fontSize={0.12} color="#ffb627">
@@ -727,9 +870,17 @@ export function ToheReadout3D({ layer, paused, params = {} }: SubsystemProps) {
  * - Layer 2: Twisted membranes with dynamic twist angle theta slider
  * - Layer 3: Super-moiré potential landscape and 3D vertical stacked tiers
  */
-export function MoireScaling3D({ layer, paused, params = {} }: SubsystemProps) {
+export function MoireScaling3D({
+  layer,
+  isFocused = false,
+  paused,
+  params = {},
+  isDimmed = false,
+}: SubsystemProps) {
   const groupRef = useRef<THREE.Group>(null);
   const topLayerRef = useRef<THREE.Group>(null);
+  const bottomGridRef = useRef<THREE.GridHelper>(null);
+  const topGridRef = useRef<THREE.GridHelper>(null);
   const twistAngleDeg = params.twist_angle ?? 1.6;
 
   useFrame((_, delta) => {
@@ -743,6 +894,27 @@ export function MoireScaling3D({ layer, paused, params = {} }: SubsystemProps) {
     }
   });
 
+  // Dynamically control grid line transparency and opacity for selective focus
+  useEffect(() => {
+    const baseOpacity = isFocused ? 0.75 : isDimmed ? 0.12 : 0.32;
+    if (bottomGridRef.current) {
+      const mat = bottomGridRef.current.material as THREE.LineBasicMaterial;
+      if (mat) {
+        mat.transparent = true;
+        mat.opacity = baseOpacity;
+        mat.depthWrite = false;
+      }
+    }
+    if (topGridRef.current) {
+      const mat = topGridRef.current.material as THREE.LineBasicMaterial;
+      if (mat) {
+        mat.transparent = true;
+        mat.opacity = baseOpacity * 0.9;
+        mat.depthWrite = false;
+      }
+    }
+  }, [isFocused, isDimmed]);
+
   return (
     <group ref={groupRef}>
       {/* Bottom NaNbO3 Membrane */}
@@ -751,16 +923,16 @@ export function MoireScaling3D({ layer, paused, params = {} }: SubsystemProps) {
           <boxGeometry args={[2.2, 0.08, 2.2]} />
           <meshStandardMaterial color="#2a201a" roughness={0.3} />
         </mesh>
-        <gridHelper args={[2.2, 14, '#ff6b1a', '#4a3d30']} position={[0, 0.05, 0]} />
+        <gridHelper ref={bottomGridRef} args={[2.2, 14, '#ff6b1a', '#4a3d30']} position={[0, 0.05, 0]} />
       </group>
 
       {/* Top Twisted NaNbO3 Membrane */}
       <group ref={topLayerRef} position={[0, 0.2, 0]}>
         <mesh>
           <boxGeometry args={[2.2, 0.08, 2.2]} />
-          <meshStandardMaterial color="#3a2f26" transparent opacity={0.65} />
+          <meshStandardMaterial color="#3a2f26" transparent opacity={isFocused ? 0.7 : isDimmed ? 0.25 : 0.5} />
         </mesh>
-        <gridHelper args={[2.2, 14, '#7dd3fc', '#38bdf8']} position={[0, 0.05, 0]} />
+        <gridHelper ref={topGridRef} args={[2.2, 14, '#7dd3fc', '#38bdf8']} position={[0, 0.05, 0]} />
       </group>
 
       {/* Pinned Soliton Nodes in Moiré Wells */}
@@ -768,7 +940,11 @@ export function MoireScaling3D({ layer, paused, params = {} }: SubsystemProps) {
         [-0.6, 0, 0.6].map((z) => (
           <mesh key={`${x}-${z}`} position={[x, 0, z]}>
             <sphereGeometry args={[0.07, 12, 12]} />
-            <meshStandardMaterial color="#ffd166" emissive="#ff6b1a" emissiveIntensity={0.8} />
+            <meshStandardMaterial
+              color="#ffd166"
+              emissive="#ff6b1a"
+              emissiveIntensity={isFocused ? 1.0 : isDimmed ? 0.18 : 0.6}
+            />
           </mesh>
         ))
       )}
@@ -800,7 +976,13 @@ export function MoireScaling3D({ layer, paused, params = {} }: SubsystemProps) {
  * - Layer 2: Zero-coherence ring (mu=0) with 8-petal soft flux concentrator (150 mT)
  * - Layer 3: Milnor fibration foliation arg(f(u,v)) and PEEM electron trajectories
  */
-export function MilnorOptical3D({ layer, paused, params = {} }: SubsystemProps) {
+export function MilnorOptical3D({
+  layer,
+  isFocused = false,
+  paused,
+  params = {},
+  isDimmed = false,
+}: SubsystemProps) {
   const groupRef = useRef<THREE.Group>(null);
   const fluxField = params.flux_field ?? 150;
 
@@ -820,7 +1002,7 @@ export function MilnorOptical3D({ layer, paused, params = {} }: SubsystemProps) 
         <meshStandardMaterial
           color="#38bdf8"
           emissive="#38bdf8"
-          emissiveIntensity={1.4}
+          emissiveIntensity={isFocused ? 1.6 : isDimmed ? 0.35 : 1.1}
           wireframe={layer === 3}
         />
       </mesh>
@@ -834,7 +1016,11 @@ export function MilnorOptical3D({ layer, paused, params = {} }: SubsystemProps) 
           return (
             <mesh key={i} position={[px, 0, pz]} rotation={[0, -angle, 0]}>
               <coneGeometry args={[0.15, 0.5, 8]} />
-              <meshStandardMaterial color="#ff6b1a" emissive="#ff6b1a" emissiveIntensity={0.6} />
+              <meshStandardMaterial
+                color="#ff6b1a"
+                emissive="#ff6b1a"
+                emissiveIntensity={isFocused ? 0.85 : isDimmed ? 0.2 : 0.5}
+              />
             </mesh>
           );
         })}

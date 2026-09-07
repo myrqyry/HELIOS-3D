@@ -2,7 +2,7 @@ import { useRef, useMemo, useEffect } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls, Stars, Billboard, Text, Line } from '@react-three/drei';
 import * as THREE from 'three';
-import { DOMAINS, type CognitiveLayer, type DomainKnowledge } from '../../data/layeredKnowledge';
+import { DOMAINS, PIPELINE_STEPS, type CognitiveLayer, type DomainKnowledge } from '../../data/layeredKnowledge';
 import {
   Hopfion3D,
   MaterialStack3D,
@@ -112,7 +112,7 @@ function CameraRig({
 
     // Macro System Overview
     return {
-      targetPos: new THREE.Vector3(0, 4.6, 8.2),
+      targetPos: new THREE.Vector3(0, 5.2, 9.6),
       targetLookAt: new THREE.Vector3(0, 0, 0),
       stateKey: key,
     };
@@ -197,13 +197,13 @@ function CentralCoprocessorWafer({
     <group position={[0, -1.8, 0]}>
       {/* Silicon Substrate Hexagonal Motherboard: Stationary Foundation */}
       <mesh position={[0, -0.06, 0]}>
-        <cylinderGeometry args={[5.2, 5.4, 0.12, 6]} />
+        <cylinderGeometry args={[5.8, 6.1, 0.12, 6]} />
         <meshStandardMaterial color="#161310" roughness={0.4} metalness={0.75} />
       </mesh>
 
       {/* Hexagonal Outer Gold Conduit Ring */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.01, 0]}>
-        <ringGeometry args={[4.7, 4.9, 6]} />
+        <ringGeometry args={[5.2, 5.45, 6]} />
         <meshStandardMaterial
           ref={outerGoldRef}
           color="#ffb627"
@@ -215,7 +215,7 @@ function CentralCoprocessorWafer({
 
       {/* Hexagonal Intermediate Amber Bus Ring */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.01, 0]}>
-        <ringGeometry args={[2.7, 2.85, 6]} />
+        <ringGeometry args={[3.2, 3.4, 6]} />
         <meshStandardMaterial
           ref={intermediateAmberRef}
           color="#ff6b1a"
@@ -227,7 +227,7 @@ function CentralCoprocessorWafer({
 
       {/* Hexagonal Circuit Wireframe Grid Pattern across wafer surface */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.015, 0]}>
-        <ringGeometry args={[0.6, 4.5, 24]} />
+        <ringGeometry args={[0.6, 5.1, 24]} />
         <meshStandardMaterial
           ref={circuitGridRef}
           color="#ffd166"
@@ -322,6 +322,8 @@ function InterconnectBuses({
     });
   }, []);
 
+  const isAnyFocused = Boolean(activeDomainId);
+
   // Polyline point interpolator: progress t in [0, 1]
   const interpolatePolyline = (pts: [number, number, number][], t: number): [number, number, number] => {
     const clamped = Math.max(0, Math.min(1, t));
@@ -356,7 +358,8 @@ function InterconnectBuses({
 
     // Active causal pipeline signal packet
     if (activeSignalPacketRef.current && isSignalActive) {
-      const activeLine = lines[signalStage % lines.length];
+      const activeStepId = PIPELINE_STEPS[signalStage % PIPELINE_STEPS.length]?.id;
+      const activeLine = lines.find((line) => line.id === activeStepId);
       if (activeLine) {
         const stageProgress = (t * 2.4) % 1;
         const pos = interpolatePolyline(activeLine.points, stageProgress);
@@ -373,15 +376,16 @@ function InterconnectBuses({
       {/* Bus Polylines */}
       {lines.map((l) => {
         const isActive = activeDomainId === l.id;
-        const isCurrentSignalLine = isSignalActive && lines[signalStage % lines.length]?.id === l.id;
+        const activeStepId = PIPELINE_STEPS[signalStage % PIPELINE_STEPS.length]?.id;
+        const isCurrentSignalLine = isSignalActive && l.id === activeStepId;
         return (
           <group key={l.id}>
             <Line
               points={l.points}
               color={isCurrentSignalLine ? '#ffffff' : l.color}
-              lineWidth={isCurrentSignalLine ? 4.5 : isActive ? 3.5 : 1.5}
+              lineWidth={isCurrentSignalLine ? 4.5 : isActive ? 3.5 : 1.8}
               transparent
-              opacity={isCurrentSignalLine ? 1.0 : isActive ? 0.9 : 0.35}
+              opacity={isCurrentSignalLine ? 1.0 : isActive ? 0.95 : isAnyFocused ? 0.15 : 0.65}
             />
             {/* Ambient Energy Packet per bus */}
             <mesh
@@ -479,6 +483,7 @@ function SubsystemIsland({
             isFocused={isFocused}
             paused={paused}
             params={params}
+            pulseTrigger={pulseTrigger}
             onNodeClick={onSelect}
           />
         );
@@ -500,6 +505,7 @@ function SubsystemIsland({
             isFocused={isFocused}
             paused={paused}
             params={params}
+            pulseTrigger={pulseTrigger}
             onNodeClick={onSelect}
           />
         );
@@ -510,6 +516,7 @@ function SubsystemIsland({
             isFocused={isFocused}
             paused={paused}
             params={params}
+            pulseTrigger={pulseTrigger}
             onNodeClick={onSelect}
           />
         );
@@ -520,6 +527,7 @@ function SubsystemIsland({
             isFocused={isFocused}
             paused={paused}
             params={params}
+            pulseTrigger={pulseTrigger}
             onNodeClick={onSelect}
           />
         );
@@ -552,60 +560,88 @@ function SubsystemIsland({
       <mesh position={[0, -0.65, 0]} rotation={[-Math.PI / 2, 0, 0]}>
         <ringGeometry args={[1.2, 1.35, 32]} />
         <meshStandardMaterial
-          color={isFocused ? domain.color : isSignalActive ? '#ffd166' : isAnyFocused ? '#2a221b' : '#4a3d30'}
-          emissive={isFocused ? domain.color : isSignalActive ? '#ffb627' : isAnyFocused ? '#15100c' : '#1a1410'}
-          emissiveIntensity={isFocused ? 1.8 : isSignalActive ? 1.5 : isAnyFocused ? 0.1 : 0.25}
+          color={isFocused ? domain.color : isSignalActive ? '#ffd166' : isAnyFocused ? '#2a221b' : domain.color}
+          emissive={isFocused ? domain.color : isSignalActive ? '#ffb627' : isAnyFocused ? '#15100c' : domain.color}
+          emissiveIntensity={isFocused ? 1.8 : isSignalActive ? 1.5 : isAnyFocused ? 0.08 : 0.45}
           side={THREE.DoubleSide}
         />
       </mesh>
 
-      {/* Floating Holographic Beacon Header */}
-      {/* In LOD state (when another system is focused), hide the heavy text to avoid viewport collision */}
-      <group position={[0, 1.55, 0]}>
-        <Billboard>
-          {(!isAnyFocused || isFocused) ? (
-            <>
-              <mesh ref={beaconRef} position={[-0.8, 0, 0]}>
-                <octahedronGeometry args={[isFocused ? 0.11 : 0.08]} />
-                <meshStandardMaterial
+      {/* Holographic Leader Line & Floating Label Badge outside the geometry */}
+      {(!isAnyFocused || isFocused) ? (
+        <group>
+          {/* Vertical Leader Line from model top to badge */}
+          <Line
+            points={[
+              [0, 1.15, 0],
+              [0, 1.98, 0],
+            ]}
+            color={domain.color}
+            lineWidth={isFocused ? 2.2 : 1.2}
+            transparent
+            opacity={isFocused ? 0.9 : 0.45}
+          />
+          {/* Small anchor dot at model surface */}
+          <mesh position={[0, 1.15, 0]}>
+            <sphereGeometry args={[0.035, 12, 12]} />
+            <meshBasicMaterial color={domain.color} transparent opacity={isFocused ? 0.95 : 0.6} />
+          </mesh>
+          {/* Small terminal tick at label base */}
+          <mesh position={[0, 1.98, 0]}>
+            <octahedronGeometry args={[0.045]} />
+            <meshBasicMaterial color={domain.color} transparent opacity={isFocused ? 1 : 0.75} />
+          </mesh>
+
+          {/* Floating Holographic Badge outside geometry */}
+          <group position={[0, 2.15, 0]}>
+            <Billboard>
+              <group>
+                {/* Translucent backdrop pill */}
+                <mesh position={[0, 0, -0.01]}>
+                  <planeGeometry args={[2.05, 0.44]} />
+                  <meshBasicMaterial
+                    color="#0d0b09"
+                    transparent
+                    opacity={isFocused ? 0.88 : 0.72}
+                  />
+                </mesh>
+                <Text
+                  position={[-0.92, 0.08, 0]}
+                  fontSize={0.125}
+                  color={isFocused ? '#ffffff' : '#f4e8d8'}
+                  anchorX="left"
+                  anchorY="middle"
+                >
+                  {`${domain.number}. ${domain.title}`}
+                </Text>
+                <Text
+                  position={[-0.92, -0.1, 0]}
+                  fontSize={0.085}
                   color={domain.color}
-                  emissive={domain.color}
-                  emissiveIntensity={isFocused ? 2.5 : 1.5}
-                />
-              </mesh>
-              <Text
-                fontSize={0.16}
-                color="#f4e8d8"
-                anchorX="left"
-                anchorY="middle"
-              >
-                {`${domain.number}. ${domain.title}`}
-              </Text>
-              <Text
-                position={[0, -0.22, 0]}
-                fontSize={0.10}
-                color={domain.color}
-                anchorX="center"
-                anchorY="middle"
-              >
-                {isFocused ? `[FOCUSED - LAYER ${layer}]` : '[CLICK TO EXPLORE]'}
-              </Text>
-            </>
-          ) : (
-            /* Quiet LOD beacon marker for unfocused neighbors */
+                  anchorX="left"
+                  anchorY="middle"
+                >
+                  {isFocused ? `[FOCUSED · LAYER ${layer}]` : `[${domain.badge.toUpperCase()}]`}
+                </Text>
+              </group>
+            </Billboard>
+          </group>
+        </group>
+      ) : (
+        /* Quiet LOD beacon for unfocused stations */
+        <group position={[0, 1.2, 0]}>
+          <Billboard>
             <mesh ref={beaconRef} position={[0, 0, 0]}>
               <octahedronGeometry args={[0.05]} />
-              <meshStandardMaterial
+              <meshBasicMaterial
                 color={domain.color}
-                emissive={domain.color}
-                emissiveIntensity={0.6}
                 transparent
-                opacity={0.5}
+                opacity={0.35}
               />
             </mesh>
-          )}
-        </Billboard>
-      </group>
+          </Billboard>
+        </group>
+      )}
     </group>
   );
 }
@@ -636,7 +672,7 @@ export function CosmosStage({
       <pointLight position={[0, -3, 0]} intensity={1.0} color="#38bdf8" distance={10} />
 
       {/* Space Background Stars */}
-      <Stars radius={50} depth={30} count={3500} factor={3.5} saturation={0} fade speed={paused ? 0 : 0.6} />
+      <Stars radius={100} depth={40} count={900} factor={2.5} saturation={0} fade speed={paused ? 0 : 0.25} />
 
       {/* Central Stationary Motherboard Wafer & Interconnect Grid */}
       <CentralCoprocessorWafer paused={paused} layer={layer} isSignalActive={isSignalActive} />
@@ -659,7 +695,7 @@ export function CosmosStage({
           params={params}
           pulseTrigger={pulseTrigger}
           onSelect={() => onSelectDomain(domain.id)}
-          isSignalActive={isSignalActive && DOMAINS[signalStage % DOMAINS.length]?.id === domain.id}
+          isSignalActive={isSignalActive && PIPELINE_STEPS[signalStage % PIPELINE_STEPS.length]?.id === domain.id}
         />
       ))}
 

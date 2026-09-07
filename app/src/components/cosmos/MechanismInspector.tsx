@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   X,
   Zap,
@@ -12,6 +12,8 @@ import {
   Sparkles,
   Layers,
   Atom,
+  ShieldCheck,
+  TrendingUp,
 } from 'lucide-react';
 import { DOMAINS, type CognitiveLayer, type DomainKnowledge } from '../../data/layeredKnowledge';
 import { soundManager } from '../../services/audioSynthesizer';
@@ -46,6 +48,18 @@ export function MechanismInspector({
 }: MechanismInspectorProps) {
   const [activeTab, setActiveTab] = useState<'overview' | 'simulation' | 'equations' | 'evidence'>('overview');
 
+  // Default to valid subsystem selection on open
+  useEffect(() => {
+    if (isOpen && !activeDomainId) {
+      onSelectDomain('hopfion');
+    }
+  }, [isOpen, activeDomainId, onSelectDomain]);
+
+  // Reset tab to overview when domain or layer changes
+  useEffect(() => {
+    setActiveTab('overview');
+  }, [activeDomainId, layer]);
+
   const activeDomain = DOMAINS.find((d) => d.id === activeDomainId) || DOMAINS[0];
   const currentContent = activeDomain.layers[layer];
 
@@ -73,11 +87,16 @@ export function MechanismInspector({
                 {activeDomain.badge}
               </span>
               <span>•</span>
-              <span className={`text-[10px] rounded px-1.5 py-0.2 ${
-                activeDomain.stage === 'established' ? 'bg-amber/20 text-amber' :
-                activeDomain.stage === 'current' ? 'bg-cyan-2/20 text-cyan-2' : 'bg-rose/20 text-rose'
+              <span className={`text-[10px] font-mono font-bold rounded px-1.5 py-0.5 border ${
+                activeDomain.epistemicStatus === 'demonstrated'
+                  ? 'border-emerald-500/40 text-emerald-400 bg-emerald-500/10'
+                  : activeDomain.epistemicStatus === 'inferred'
+                  ? 'border-sky-500/40 text-sky-400 bg-sky-500/10'
+                  : activeDomain.epistemicStatus === 'proposed'
+                  ? 'border-amber/40 text-amber bg-amber/10'
+                  : 'border-rose-500/40 text-rose-400 bg-rose-500/10'
               }`}>
-                {activeDomain.stage}
+                [{activeDomain.epistemicStatus ? activeDomain.epistemicStatus.toUpperCase() : activeDomain.stage.toUpperCase()}]
               </span>
             </div>
             <h2 className="text-base font-semibold text-parchment leading-tight">
@@ -370,32 +389,105 @@ export function MechanismInspector({
         )}
 
         {activeTab === 'evidence' && (
-          <div className="space-y-4">
-            <div>
-              <h3 className="text-sm font-semibold text-parchment">
-                Validated Research & Citations
-              </h3>
-              <p className="text-xs text-parchment-2 mt-1">
-                Peer-reviewed experimental and theoretical publications supporting this mechanism.
-              </p>
+          <div className="space-y-5">
+            {/* Epistemic Maturity Ladder */}
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="text-sm font-semibold text-parchment flex items-center gap-1.5">
+                    <ShieldCheck className="h-4 w-4 text-amber" />
+                    <span>Epistemic Maturity Ladder</span>
+                  </h3>
+                  <p className="text-xs text-parchment-2 mt-0.5">
+                    Trajectory from laboratory physics to speculative engineering targets.
+                  </p>
+                </div>
+              </div>
+
+              {activeDomain.epistemicLadder && (
+                <div className="space-y-2.5 relative before:absolute before:left-3.5 before:top-3 before:bottom-3 before:w-0.5 before:bg-obsidian-3">
+                  {activeDomain.epistemicLadder.map((step, idx) => {
+                    const tagStyles =
+                      step.tag === '[ESTABLISHED]' || step.tag === '[DEMONSTRATED]'
+                        ? 'border-emerald-500/40 text-emerald-400 bg-emerald-500/10'
+                        : step.tag === '[INFERRED]'
+                        ? 'border-sky-500/40 text-sky-400 bg-sky-500/10'
+                        : step.tag === '[PROPOSED]'
+                        ? 'border-amber/40 text-amber bg-amber/10'
+                        : 'border-rose-500/40 text-rose-400 bg-rose-500/10';
+
+                    return (
+                      <div
+                        key={idx}
+                        className="relative pl-7 rounded-xl border border-obsidian-3 bg-obsidian-2 p-3 space-y-1.5 transition-colors hover:border-obsidian-4"
+                      >
+                        {/* Step Marker Dot */}
+                        <span
+                          className={`absolute left-2.5 top-4 h-2.5 w-2.5 -translate-x-1/2 rounded-full border-2 border-obsidian ${
+                            step.level === 'observed'
+                              ? 'bg-emerald-400'
+                              : step.level === 'inferred'
+                              ? 'bg-sky-400'
+                              : step.level === 'proposed'
+                              ? 'bg-amber'
+                              : 'bg-rose-400'
+                          }`}
+                        />
+                        <div className="flex items-center justify-between gap-2">
+                          <span className="text-xs font-bold text-parchment">
+                            {idx + 1}. {step.label}
+                          </span>
+                          <span
+                            className={`text-[10px] font-mono font-bold px-1.5 py-0.5 rounded border ${tagStyles}`}
+                          >
+                            {step.tag}
+                          </span>
+                        </div>
+                        <p className="text-xs text-parchment-2 leading-relaxed">
+                          {step.summary}
+                        </p>
+                        <p className="text-[11px] text-parchment-2/80 italic leading-relaxed">
+                          {step.detail}
+                        </p>
+                        {step.sourceOrMetric && (
+                          <div className="pt-1 flex items-center gap-1.5 text-[10px] font-mono text-amber">
+                            <span className="text-parchment-2">Source/Metric:</span>
+                            <span className="rounded bg-obsidian px-1.5 py-0.5 border border-obsidian-3 text-parchment">
+                              {step.sourceOrMetric}
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
             </div>
 
-            <div className="space-y-2.5">
-              {currentContent.evidenceLinks?.map((ev, idx) => (
-                <div key={idx} className="rounded-xl border border-obsidian-3 bg-obsidian-2 p-3 space-y-1.5">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-semibold text-parchment">{ev.title}</span>
-                    <span className="text-[10px] font-mono text-amber rounded bg-amber/10 px-1.5 py-0.5">
-                      {ev.year}
-                    </span>
+            {/* Direct Published Literature */}
+            <div className="space-y-3 pt-2">
+              <h3 className="text-sm font-semibold text-parchment flex items-center gap-1.5">
+                <BookOpen className="h-4 w-4 text-amber" />
+                <span>Peer-Reviewed Citations</span>
+              </h3>
+
+              <div className="space-y-2.5">
+                {currentContent.evidenceLinks?.map((ev, idx) => (
+                  <div key={idx} className="rounded-xl border border-obsidian-3 bg-obsidian-2 p-3 space-y-1.5">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-semibold text-parchment">{ev.title}</span>
+                      <span className="text-[10px] font-mono text-amber rounded bg-amber/10 px-1.5 py-0.5">
+                        {ev.year}
+                      </span>
+                    </div>
+                    <div className="text-xs text-parchment-2 italic">{ev.source}</div>
                   </div>
-                  <div className="text-xs text-parchment-2 italic">{ev.source}</div>
-                </div>
-              )) || (
-                <p className="text-xs text-parchment-2">
-                  No direct references registered for this layer. See the global evidence database.
-                </p>
-              )}
+                )) || (
+                  <p className="text-xs text-parchment-2">
+                    No direct references registered for this layer. See the global evidence database.
+                  </p>
+                )}
+              </div>
             </div>
 
             <div className="pt-2">
