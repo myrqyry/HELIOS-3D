@@ -1,5 +1,8 @@
+import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import { Sparkles, FileText, Compass, ChevronDown, BookOpen, Layers, Atom } from 'lucide-react';
+import { InteractiveCosmos } from '../components/cosmos/InteractiveCosmos';
 import HopfionScene from '../components/r3f/HopfionScene';
 import ClaimsTable from '../components/ClaimsTable';
 import LiteratureTimeline from '../components/charts/LiteratureTimeline';
@@ -7,6 +10,7 @@ import { groups } from './EvidencePage';
 import { StageBadge } from '../components/StageBadge';
 
 export function HomePage() {
+  const [viewMode, setViewMode] = useState<'3d' | 'briefing'>('3d');
   const allClaims = groups.flatMap((g) => g.rows);
 
   const thermodynamicCards = [
@@ -68,193 +72,247 @@ export function HomePage() {
   ];
 
   return (
-    <div className="h-[calc(100vh-64px)] overflow-y-scroll snap-y snap-mandatory scroll-smooth bg-obsidian text-parchment scrollbar-thin">
+    <div className="relative w-full bg-obsidian text-parchment">
       <Helmet>
-        <title>HELIOS-3D — Spintronic Coprocessor Architecture</title>
-        <meta name="description" content="A visual presentation of the HELIOS-3D spintronic coprocessor architecture utilizing 3D hopfions." />
+        <title>HELIOS-3D — Interactive 3D Spintronic Cosmos</title>
+        <meta
+          name="description"
+          content="An interactive 3D layered learning universe exploring post-CMOS computing with 3D hopfions, topological orbital Hall readout, and thermodynamic reservoirs."
+        />
       </Helmet>
 
-      {/* SECTION 1: HERO */}
-      <section className="min-h-[calc(100vh-64px)] snap-start snap-always relative flex flex-col justify-center py-16 px-6 md:px-12 border-b border-obsidian-3/40">
-        <div className="mx-auto grid max-w-6xl w-full items-center gap-12 md:grid-cols-12">
-          <div className="md:col-span-7 flex flex-col justify-center">
-            <span className="font-mono text-xl text-ember font-bold mb-4 tracking-[0.2em]">01</span>
-            <h1 className="mb-6 text-4xl font-extrabold leading-[1.1] tracking-tight md:text-6xl text-parchment">
-              A spintronic coprocessor architecture using 3D hopfions.
-            </h1>
-            <p className="mb-8 text-lg md:text-xl leading-relaxed text-parchment-2 max-w-xl">
-              HELIOS-3D is a proposed computing architecture that stores, transforms, and reads information in stable, three-dimensional magnetic spin textures.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link to="/start-here" className="inline-flex rounded-lg bg-gradient-to-r from-amber to-ember px-6 py-3.5 font-extrabold text-obsidian shadow-[0_4px_20px_rgba(255,107,26,0.25)] transition hover:shadow-[0_4px_30px_rgba(255,107,26,0.45)]">
-                Start Here
-              </Link>
-              <Link to="/docs/current/claims-matrix" className="inline-flex rounded-lg border border-obsidian-3 bg-obsidian-2/40 px-6 py-3.5 font-bold text-parchment-2 hover:text-parchment hover:border-amber/40 transition">
-                Claims Matrix
-              </Link>
-              <Link to="/figures" className="inline-flex rounded-lg border border-obsidian-3 bg-obsidian-2/40 px-6 py-3.5 font-bold text-parchment-2 hover:text-parchment hover:border-amber/40 transition">
-                Figures Gallery
-              </Link>
-            </div>
-          </div>
-          <div className="md:col-span-5 flex justify-center">
-            <div className="glass-card w-full max-w-md rounded-2xl border border-amber/10 bg-obsidian-2/40 p-4 shadow-2xl">
-              <HopfionScene height="h-[20rem] md:h-[24rem]" interactive={false} />
-              <p className="mt-4 px-2 text-xs leading-relaxed text-parchment-2 font-mono text-center">
-                3D Hopfion Soliton model (passive auto-rotation)
-              </p>
-            </div>
-          </div>
+      {/* Floating View Mode Switcher (Cosmos 3D vs Executive Briefing) */}
+      <div className="absolute right-4 top-3 z-30 flex items-center gap-1 rounded-full border border-obsidian-3 bg-obsidian/90 p-1 backdrop-blur-md shadow-xl">
+        <button
+          type="button"
+          onClick={() => setViewMode('3d')}
+          className={`flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold transition-all ${
+            viewMode === '3d'
+              ? 'bg-amber text-obsidian shadow-sm'
+              : 'text-parchment-2 hover:text-parchment hover:bg-obsidian-2'
+          }`}
+        >
+          <Sparkles className="h-3.5 w-3.5" />
+          <span>3D Cosmos</span>
+        </button>
+        <button
+          type="button"
+          onClick={() => setViewMode('briefing')}
+          className={`flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold transition-all ${
+            viewMode === 'briefing'
+              ? 'bg-amber text-obsidian shadow-sm'
+              : 'text-parchment-2 hover:text-parchment hover:bg-obsidian-2'
+          }`}
+        >
+          <FileText className="h-3.5 w-3.5" />
+          <span>Executive Briefing</span>
+        </button>
+      </div>
+
+      {/* VIEW MODE 1: FLAGSHIP INTERACTIVE 3D LAYERED LEARNING COSMOS */}
+      {viewMode === '3d' && (
+        <div className="relative w-full h-[calc(100vh-64px)]">
+          <InteractiveCosmos
+            heightClass="h-full"
+            onViewExecutiveReport={() => setViewMode('briefing')}
+          />
         </div>
-      </section>
+      )}
 
-      {/* SECTION 2: WHY NOW */}
-      <section className="min-h-[calc(100vh-64px)] snap-start snap-always relative flex flex-col justify-center py-16 px-6 md:px-12 border-b border-obsidian-3/40 bg-obsidian-2/10">
-        <div className="mx-auto max-w-6xl w-full">
-          <span className="font-mono text-xl text-ember font-bold mb-4 tracking-[0.2em] block">02</span>
-          <h2 className="mb-6 text-3xl font-extrabold md:text-5xl text-parchment leading-tight">
-            Why now? The Thermodynamic Crisis.
-          </h2>
-          <p className="mb-10 text-lg text-parchment-2 max-w-3xl leading-relaxed">
-            AI model workloads and cloud computing services face unsustainable energy budgets. Physical computing architectures must move beyond charge transport and semiconductor scaling.
-          </p>
-
-          <div className="grid gap-6 md:grid-cols-2 mb-10">
-            {thermodynamicCards.map((card, idx) => (
-              <div key={idx} className="glass-card rounded-xl border border-obsidian-3 bg-obsidian-2/40 p-6 flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center gap-3 mb-4">
-                    <StageBadge stage={card.stage} size="sm" />
-                    <span className="font-mono text-xs text-parchment-2">{card.citation}</span>
-                  </div>
-                  <h3 className="text-xl font-bold text-amber mb-3">{card.title}</h3>
-                  <p className="text-sm md:text-base leading-relaxed text-parchment-2">{card.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <Link to="/start-here" className="inline-flex rounded-lg bg-amber px-6 py-3 font-extrabold text-obsidian hover:bg-gold transition shadow-md">
-            Read the evidence trail
-          </Link>
-        </div>
-      </section>
-
-      {/* SECTION 3: EVIDENCE DASHBOARD */}
-      <section className="min-h-[calc(100vh-64px)] snap-start snap-always relative flex flex-col justify-center py-16 px-6 md:px-12 border-b border-obsidian-3/40">
-        <div className="mx-auto max-w-6xl w-full">
-          <span className="font-mono text-xl text-ember font-bold mb-4 tracking-[0.2em] block">03</span>
-          <h2 className="mb-6 text-3xl font-extrabold md:text-5xl text-parchment leading-tight">
-            Evidence Dashboard
-          </h2>
-          <p className="mb-8 text-lg text-parchment-2 max-w-3xl leading-relaxed">
-            HELIOS-3D anchors its claims in peer-reviewed physical evidence. Below is our highlight verification matrix separating demonstrated physical parameters.
-          </p>
-
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-8">
-            {highlightClaims.map((claim, idx) => (
-              <div key={idx} className="glass-card rounded-xl border border-obsidian-3 bg-obsidian-2/30 p-5 flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <StageBadge stage={claim.stage} size="sm" />
-                    <span className="font-mono text-[10px] text-parchment-2">{claim.source}</span>
-                  </div>
-                  <h4 className="font-bold text-parchment mb-2">{claim.title}</h4>
-                  <p className="text-xs text-parchment-2 leading-relaxed">{claim.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mb-6">
-            <ClaimsTable rows={allClaims} />
-          </div>
-
-          <Link to="/docs/current/claims-matrix" className="inline-flex rounded-lg border border-amber/60 px-5 py-2.5 font-bold text-amber hover:bg-amber/5 transition">
-            See the full claims matrix
-          </Link>
-        </div>
-      </section>
-
-      {/* SECTION 4: 2026 EVIDENCE BASE */}
-      <section className="min-h-[calc(100vh-64px)] snap-start snap-always relative flex flex-col justify-center py-16 px-6 md:px-12 border-b border-obsidian-3/40 bg-obsidian-2/10">
-        <div className="mx-auto max-w-6xl w-full">
-          <span className="font-mono text-xl text-ember font-bold mb-4 tracking-[0.2em] block">04</span>
-          <h2 className="mb-6 text-3xl font-extrabold md:text-5xl text-parchment leading-tight">
-            2026 Evidence Base & Timeline
-          </h2>
-          <p className="mb-8 text-lg text-parchment-2 max-w-3xl leading-relaxed">
-            Our timeline traces research progress on interface-stabilized 3D spin textures, oxide twistronics, and magnetic imaging.
-          </p>
-
-          <div className="mb-10">
-            <LiteratureTimeline />
-          </div>
-
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5 mb-8">
-            {keyCitations.map((cite, idx) => (
-              <div key={idx} className="bg-obsidian-2/50 border border-obsidian-3/40 rounded-lg p-4 flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center justify-between font-mono text-xs text-amber mb-2">
-                    <span>{cite.year}</span>
-                    <span className="text-[10px] text-parchment-2">{cite.journal}</span>
-                  </div>
-                  <h5 className="font-bold text-sm text-parchment mb-1.5">{cite.author}</h5>
-                  <p className="text-xs text-parchment-2 leading-snug">{cite.finding}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <Link to="/docs/established/literature-review" className="inline-flex rounded-lg border border-amber/60 px-5 py-2.5 font-bold text-amber hover:bg-amber/5 transition">
-            Read the full literature review
-          </Link>
-        </div>
-      </section>
-
-      {/* SECTION 5: READING PATH & FOOTER */}
-      <section className="min-h-[calc(100vh-64px)] snap-start snap-always relative flex flex-col justify-between py-16 px-6 md:px-12">
-        <div className="mx-auto max-w-6xl w-full flex-1 flex flex-col justify-center">
-          <span className="font-mono text-xl text-ember font-bold mb-4 tracking-[0.2em] block">05</span>
-          <h2 className="mb-6 text-3xl font-extrabold md:text-5xl text-parchment leading-tight">
-            Where to start
-          </h2>
-          <p className="mb-10 text-lg text-parchment-2 max-w-3xl leading-relaxed">
-            Follow the curated reading path below to evaluate the scientific grounding, target metrics, and proposed roadmap of HELIOS-3D.
-          </p>
-
-          <ol className="relative space-y-6 max-w-2xl mb-12">
-            <div className="absolute left-6 top-0 bottom-0 w-px bg-obsidian-3" aria-hidden="true"></div>
-            {readingSteps.map((step) => (
-              <li key={step.step} className="relative grid grid-cols-[auto_1fr_auto] items-center gap-6 pl-2">
-                <div className="z-10 flex items-center justify-center w-10 h-10 rounded-full bg-obsidian border border-ember shadow-md">
-                  <span className="font-mono text-amber text-sm font-bold">{String(step.step).padStart(2, '0')}</span>
-                </div>
-                <div>
-                  <Link to={step.href} className="text-lg font-bold text-amber hover:underline hover:text-ember transition-colors">
-                    {step.title}
+      {/* VIEW MODE 2: FORMAL CURATED EXECUTIVE BRIEFING */}
+      {viewMode === 'briefing' && (
+        <div className="h-[calc(100vh-64px)] overflow-y-scroll snap-y snap-mandatory scroll-smooth bg-obsidian text-parchment scrollbar-thin">
+          {/* SECTION 1: HERO */}
+          <section className="min-h-[calc(100vh-64px)] snap-start snap-always relative flex flex-col justify-center py-16 px-6 md:px-12 border-b border-obsidian-3/40">
+            <div className="mx-auto grid max-w-6xl w-full items-center gap-12 md:grid-cols-12">
+              <div className="md:col-span-7 flex flex-col justify-center">
+                <span className="font-mono text-xl text-ember font-bold mb-4 tracking-[0.2em]">01</span>
+                <h1 className="mb-6 text-4xl font-extrabold leading-[1.1] tracking-tight md:text-6xl text-parchment">
+                  A spintronic coprocessor architecture using 3D hopfions.
+                </h1>
+                <p className="mb-8 text-lg md:text-xl leading-relaxed text-parchment-2 max-w-xl">
+                  HELIOS-3D is a proposed computing architecture that stores, transforms, and reads information in stable, three-dimensional magnetic spin textures.
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  <button
+                    type="button"
+                    onClick={() => setViewMode('3d')}
+                    className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-amber to-ember px-6 py-3.5 font-extrabold text-obsidian shadow-[0_4px_20px_rgba(255,107,26,0.25)] transition hover:shadow-[0_4px_30px_rgba(255,107,26,0.45)]"
+                  >
+                    <Sparkles className="h-4 w-4" />
+                    <span>Launch 3D Cosmos</span>
+                  </button>
+                  <Link to="/start-here" className="inline-flex rounded-lg border border-obsidian-3 bg-obsidian-2/40 px-6 py-3.5 font-bold text-parchment-2 hover:text-parchment hover:border-amber/40 transition">
+                    Start Here
                   </Link>
-                  <p className="text-xs text-parchment-2 mt-0.5">{step.desc}</p>
+                  <Link to="/docs/current/claims-matrix" className="inline-flex rounded-lg border border-obsidian-3 bg-obsidian-2/40 px-6 py-3.5 font-bold text-parchment-2 hover:text-parchment hover:border-amber/40 transition">
+                    Claims Matrix
+                  </Link>
+                  <Link to="/figures" className="inline-flex rounded-lg border border-obsidian-3 bg-obsidian-2/40 px-6 py-3.5 font-bold text-parchment-2 hover:text-parchment hover:border-amber/40 transition">
+                    Figures Gallery
+                  </Link>
                 </div>
-                <div>
-                  <StageBadge stage={step.stage} size="sm" />
+              </div>
+              <div className="md:col-span-5 flex justify-center">
+                <div className="glass-card w-full max-w-md rounded-2xl border border-amber/10 bg-obsidian-2/40 p-4 shadow-2xl">
+                  <HopfionScene height="h-[20rem] md:h-[24rem]" interactive={false} />
+                  <p className="mt-4 px-2 text-xs leading-relaxed text-parchment-2 font-mono text-center">
+                    3D Hopfion Soliton model (passive auto-rotation)
+                  </p>
                 </div>
-              </li>
-            ))}
-          </ol>
-        </div>
+              </div>
+            </div>
+          </section>
 
-        {/* Dynamic Footer for the snap container */}
-        <footer className="w-full border-t border-obsidian-3/60 pt-6 mt-12">
-          <div className="mx-auto max-w-6xl flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between text-xs text-parchment-2 font-mono">
-            <span>HELIOS-3D · Spintronic Coprocessor Project</span>
-            <a href="https://github.com/myrqyry/HELIOS-3D" className="hover:text-ember transition-colors" target="_blank" rel="noreferrer">
-              Source Code on GitHub
-            </a>
-            <span>Last updated: July 2026</span>
-          </div>
-        </footer>
-      </section>
+          {/* SECTION 2: WHY NOW */}
+          <section className="min-h-[calc(100vh-64px)] snap-start snap-always relative flex flex-col justify-center py-16 px-6 md:px-12 border-b border-obsidian-3/40 bg-obsidian-2/10">
+            <div className="mx-auto max-w-6xl w-full">
+              <span className="font-mono text-xl text-ember font-bold mb-4 tracking-[0.2em] block">02</span>
+              <h2 className="mb-6 text-3xl font-extrabold md:text-5xl text-parchment leading-tight">
+                Why now? The Thermodynamic Crisis.
+              </h2>
+              <p className="mb-10 text-lg text-parchment-2 max-w-3xl leading-relaxed">
+                AI model workloads and cloud computing services face unsustainable energy budgets. Physical computing architectures must move beyond charge transport and semiconductor scaling.
+              </p>
+
+              <div className="grid gap-6 md:grid-cols-2 mb-10">
+                {thermodynamicCards.map((card, idx) => (
+                  <div key={idx} className="glass-card rounded-xl border border-obsidian-3 bg-obsidian-2/40 p-6 flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center gap-3 mb-4">
+                        <StageBadge stage={card.stage} size="sm" />
+                        <span className="font-mono text-xs text-parchment-2">{card.citation}</span>
+                      </div>
+                      <h3 className="text-xl font-bold text-amber mb-3">{card.title}</h3>
+                      <p className="text-sm md:text-base leading-relaxed text-parchment-2">{card.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <Link to="/start-here" className="inline-flex rounded-lg bg-amber px-6 py-3 font-extrabold text-obsidian hover:bg-gold transition shadow-md">
+                Read the evidence trail
+              </Link>
+            </div>
+          </section>
+
+          {/* SECTION 3: EVIDENCE DASHBOARD */}
+          <section className="min-h-[calc(100vh-64px)] snap-start snap-always relative flex flex-col justify-center py-16 px-6 md:px-12 border-b border-obsidian-3/40">
+            <div className="mx-auto max-w-6xl w-full">
+              <span className="font-mono text-xl text-ember font-bold mb-4 tracking-[0.2em] block">03</span>
+              <h2 className="mb-6 text-3xl font-extrabold md:text-5xl text-parchment leading-tight">
+                Evidence Dashboard
+              </h2>
+              <p className="mb-8 text-lg text-parchment-2 max-w-3xl leading-relaxed">
+                HELIOS-3D anchors its claims in peer-reviewed physical evidence. Below is our highlight verification matrix separating demonstrated physical parameters.
+              </p>
+
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-8">
+                {highlightClaims.map((claim, idx) => (
+                  <div key={idx} className="glass-card rounded-xl border border-obsidian-3 bg-obsidian-2/30 p-5 flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center justify-between mb-3">
+                        <StageBadge stage={claim.stage} size="sm" />
+                        <span className="font-mono text-[10px] text-parchment-2">{claim.source}</span>
+                      </div>
+                      <h4 className="font-bold text-parchment mb-2">{claim.title}</h4>
+                      <p className="text-xs text-parchment-2 leading-relaxed">{claim.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mb-6">
+                <ClaimsTable rows={allClaims} />
+              </div>
+
+              <Link to="/docs/current/claims-matrix" className="inline-flex rounded-lg border border-amber/60 px-5 py-2.5 font-bold text-amber hover:bg-amber/5 transition">
+                See the full claims matrix
+              </Link>
+            </div>
+          </section>
+
+          {/* SECTION 4: 2026 EVIDENCE BASE */}
+          <section className="min-h-[calc(100vh-64px)] snap-start snap-always relative flex flex-col justify-center py-16 px-6 md:px-12 border-b border-obsidian-3/40 bg-obsidian-2/10">
+            <div className="mx-auto max-w-6xl w-full">
+              <span className="font-mono text-xl text-ember font-bold mb-4 tracking-[0.2em] block">04</span>
+              <h2 className="mb-6 text-3xl font-extrabold md:text-5xl text-parchment leading-tight">
+                2026 Evidence Base & Timeline
+              </h2>
+              <p className="mb-8 text-lg text-parchment-2 max-w-3xl leading-relaxed">
+                Our timeline traces research progress on interface-stabilized 3D spin textures, oxide twistronics, and magnetic imaging.
+              </p>
+
+              <div className="mb-10">
+                <LiteratureTimeline />
+              </div>
+
+              <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5 mb-8">
+                {keyCitations.map((cite, idx) => (
+                  <div key={idx} className="bg-obsidian-2/50 border border-obsidian-3/40 rounded-lg p-4 flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center justify-between font-mono text-xs text-amber mb-2">
+                        <span>{cite.year}</span>
+                        <span className="text-[10px] text-parchment-2">{cite.journal}</span>
+                      </div>
+                      <h5 className="font-bold text-sm text-parchment mb-1.5">{cite.author}</h5>
+                      <p className="text-xs text-parchment-2 leading-snug">{cite.finding}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <Link to="/docs/established/literature-review" className="inline-flex rounded-lg border border-amber/60 px-5 py-2.5 font-bold text-amber hover:bg-amber/5 transition">
+                Read the full literature review
+              </Link>
+            </div>
+          </section>
+
+          {/* SECTION 5: READING PATH & FOOTER */}
+          <section className="min-h-[calc(100vh-64px)] snap-start snap-always relative flex flex-col justify-between py-16 px-6 md:px-12">
+            <div className="mx-auto max-w-6xl w-full flex-1 flex flex-col justify-center">
+              <span className="font-mono text-xl text-ember font-bold mb-4 tracking-[0.2em] block">05</span>
+              <h2 className="mb-6 text-3xl font-extrabold md:text-5xl text-parchment leading-tight">
+                Where to start
+              </h2>
+              <p className="mb-10 text-lg text-parchment-2 max-w-3xl leading-relaxed">
+                Follow the curated reading path below to evaluate the scientific grounding, target metrics, and proposed roadmap of HELIOS-3D.
+              </p>
+
+              <ol className="relative space-y-6 max-w-2xl mb-12">
+                <div className="absolute left-6 top-0 bottom-0 w-px bg-obsidian-3" aria-hidden="true"></div>
+                {readingSteps.map((step) => (
+                  <li key={step.step} className="relative grid grid-cols-[auto_1fr_auto] items-center gap-6 pl-2">
+                    <div className="z-10 flex items-center justify-center w-10 h-10 rounded-full bg-obsidian border border-ember shadow-md">
+                      <span className="font-mono text-amber text-sm font-bold">{String(step.step).padStart(2, '0')}</span>
+                    </div>
+                    <div>
+                      <Link to={step.href} className="text-lg font-bold text-amber hover:underline hover:text-ember transition-colors">
+                        {step.title}
+                      </Link>
+                      <p className="text-xs text-parchment-2 mt-0.5">{step.desc}</p>
+                    </div>
+                    <div>
+                      <StageBadge stage={step.stage} size="sm" />
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </div>
+
+            {/* Dynamic Footer for the snap container */}
+            <footer className="w-full border-t border-obsidian-3/60 pt-6 mt-12">
+              <div className="mx-auto max-w-6xl flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between text-xs text-parchment-2 font-mono">
+                <span>HELIOS-3D · Spintronic Coprocessor Project</span>
+                <a href="https://github.com/myrqyry/HELIOS-3D" className="hover:text-ember transition-colors" target="_blank" rel="noreferrer">
+                  Source Code on GitHub
+                </a>
+                <span>Last updated: July 2026</span>
+              </div>
+            </footer>
+          </section>
+        </div>
+      )}
     </div>
   );
 }

@@ -22,4 +22,4 @@ check-stubs:
 	@grep -rl "NOT RUNNABLE" simulations/ && echo "WARNING: Placeholder sims present" || echo "No placeholder simulations found"
 
 build:
-	pnpm install --frozen-lockfile && pnpm build
+	npm install && npm run build

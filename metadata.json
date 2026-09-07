@@ -1,0 +1,8 @@
+{
+  "name": "HELIOS-3D",
+  "description": "Interactive 3D visualization and research platform for topological solitons, skyrmions, and spintronic architectures",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
