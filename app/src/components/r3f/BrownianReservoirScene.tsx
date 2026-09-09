@@ -126,7 +126,7 @@ export default function BrownianReservoirScene({ height = 'h-96', interactive = 
           <ReservoirField paused={paused} reduceMotion={prefersReducedMotion} />
           <R3FControls interactive={interactive} />
         </R3FCanvas>
-        <div className="absolute left-3 top-3 rounded bg-obsidian/80 px-2 py-1 font-mono text-xs text-parchment-2" aria-label="Reservoir phases">
+        <div className="absolute left-3 top-3 rounded bg-obsidian/80 px-2 py-1 font-sans font-bold text-xs text-parchment-2" aria-label="Reservoir phases">
           INPUT → RESERVOIR → READOUT
         </div>
       </div>

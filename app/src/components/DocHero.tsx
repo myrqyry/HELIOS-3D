@@ -20,7 +20,7 @@ export function DocHero({
     <header className="mb-8 pb-6 border-b border-obsidian-3">
       <div className="flex items-center gap-3 mb-3">
         <StageBadge stage={stage} />
-        <span className="font-mono text-xs text-parchment-2">Updated {updatedStr}</span>
+        <span className="font-sans text-xs text-parchment-2 font-medium">Updated {updatedStr}</span>
       </div>
       <h1 className="text-5xl font-bold text-amber mb-3 leading-tight">{title}</h1>
       <p className="text-lg text-parchment-2 max-w-2xl">{summary}</p>

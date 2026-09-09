@@ -74,7 +74,7 @@ export function ResearchBrowser({
             </p>
           </div>
           <label className="flex w-full max-w-md flex-col gap-2 text-sm text-parchment-2">
-            <span className="font-mono uppercase tracking-wider text-xs text-amber">Filter records</span>
+            <span className="font-sans font-bold uppercase tracking-wider text-xs text-amber">Filter records</span>
             <input
               type="search"
               value={query}
@@ -96,7 +96,7 @@ export function ResearchBrowser({
               <article key={record.id} className="rounded-lg border border-obsidian-3/60 bg-obsidian-1/40 p-5" data-stage-card={record.stage}>
                 <div className="mb-3 flex flex-wrap items-start justify-between gap-3">
                   <StageBadge stage={record.stage} size="sm" />
-                  <time className="font-mono text-xs uppercase tracking-wider text-parchment-2" dateTime={record.publishedAt}>
+                  <time className="font-sans font-semibold text-xs uppercase tracking-wider text-parchment-2" dateTime={record.publishedAt}>
                     {dateFormatter.format(new Date(record.publishedAt))}
                   </time>
                 </div>

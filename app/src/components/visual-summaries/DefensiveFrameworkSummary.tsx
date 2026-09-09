@@ -15,11 +15,11 @@ export default function DefensiveFrameworkSummary() {
       {QA.map((item, idx) => (
         <div key={idx} className="bg-obsidian-2/40 border border-obsidian-3/45 rounded-xl p-5 flex flex-col justify-between hover:border-amber/25 transition">
           <div className="mb-4">
-            <span className="inline-block px-2.5 py-0.5 rounded bg-rose/10 border border-rose/20 text-rose text-[9px] font-mono font-bold uppercase tracking-wider mb-3">CRITIQUE</span>
+            <span className="inline-block px-2.5 py-0.5 rounded bg-rose/10 border border-rose/20 text-rose text-[9px] font-sans font-bold uppercase tracking-wider mb-3">CRITIQUE</span>
             <p className="font-bold text-sm text-parchment leading-snug">{item.q}</p>
           </div>
           <div className="pt-4 border-t border-obsidian-3/30 bg-obsidian-2/10">
-            <span className="inline-block px-2.5 py-0.5 rounded bg-cyan-2/10 border border-cyan-2/20 text-cyan-2 text-[9px] font-mono font-bold uppercase tracking-wider mb-2">RESPONSE</span>
+            <span className="inline-block px-2.5 py-0.5 rounded bg-cyan-2/10 border border-cyan-2/20 text-cyan-2 text-[9px] font-sans font-bold uppercase tracking-wider mb-2">RESPONSE</span>
             <p className="text-xs text-parchment-2 leading-relaxed">{item.a}</p>
           </div>
         </div>

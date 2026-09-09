@@ -101,4 +101,20 @@ describe('Layered Knowledge & 3D Cosmos Architecture', () => {
       expect(step.action.length).toBeGreaterThan(10);
     });
   });
+
+  it('provides high-detail enhanced 3D modules for each subsystem node', async () => {
+    const tohe = await import('../enhanced/EnhancedTohe');
+    const hopfion = await import('../enhanced/EnhancedHopfion');
+    const moire = await import('../enhanced/EnhancedMoire');
+    const reservoir = await import('../enhanced/EnhancedReservoir');
+    const materialStack = await import('../enhanced/EnhancedMaterialStack');
+    const milnor = await import('../enhanced/EnhancedMilnor');
+
+    expect(tohe.default).toBeDefined();
+    expect(hopfion.default).toBeDefined();
+    expect(moire.default).toBeDefined();
+    expect(reservoir.default).toBeDefined();
+    expect(materialStack.default).toBeDefined();
+    expect(milnor.default).toBeDefined();
+  });
 });

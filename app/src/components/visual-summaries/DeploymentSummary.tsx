@@ -15,7 +15,7 @@ export default function DeploymentSummary() {
                 {d.url}
               </a>
             </div>
-            <span className={`font-mono text-[9px] font-bold px-2 py-0.5 rounded border uppercase tracking-wider ${d.color}`}>
+            <span className={`font-sans text-[9px] font-bold px-2 py-0.5 rounded border uppercase tracking-wider ${d.color}`}>
               {d.status}
             </span>
           </div>
@@ -23,7 +23,7 @@ export default function DeploymentSummary() {
       </div>
       <div className="md:w-64 bg-obsidian-2/50 border border-obsidian-3/60 rounded-lg p-4 flex flex-col justify-between">
         <div>
-          <h5 className="font-bold text-sm text-parchment mb-2 font-mono">Source Repository</h5>
+          <h5 className="font-bold text-sm text-parchment mb-2 font-sans">Source Repository</h5>
           <p className="text-xs text-parchment-2 leading-relaxed">
             Main branch tracks current specifications, seeds, and unit test suites.
           </p>

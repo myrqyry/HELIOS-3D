@@ -68,10 +68,10 @@ export function DocVisualSummary({ slug }: DocVisualSummaryProps) {
 
   return (
     <div className="mb-10 p-1 border-b border-obsidian-3/30 pb-10">
-      <div className="font-mono text-[10px] uppercase tracking-wider text-amber mb-4">
+      <div className="font-sans font-bold text-[10px] uppercase tracking-wider text-amber mb-4">
         Visual Summary
       </div>
-      <Suspense fallback={<div className="h-24 flex items-center justify-center text-sm text-parchment-2 font-mono">Loading visual summary...</div>}>
+      <Suspense fallback={<div className="h-24 flex items-center justify-center text-sm text-parchment-2 font-sans">Loading visual summary...</div>}>
         {summaryComponent}
       </Suspense>
     </div>

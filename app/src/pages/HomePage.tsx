@@ -114,7 +114,7 @@ export function HomePage() {
           <section className="min-h-[calc(100vh-64px)] snap-start snap-always relative flex flex-col justify-center py-16 px-6 md:px-12 border-b border-obsidian-3/40">
             <div className="mx-auto grid max-w-6xl w-full items-center gap-12 md:grid-cols-12">
               <div className="md:col-span-7 flex flex-col justify-center">
-                <span className="font-mono text-xl text-ember font-bold mb-4 tracking-[0.2em]">01</span>
+                <span className="font-sans text-2xl text-ember font-extrabold mb-4 tracking-[0.15em]">01</span>
                 <h1 className="mb-6 text-4xl font-extrabold leading-[1.1] tracking-tight md:text-6xl text-parchment">
                   A spintronic coprocessor architecture using 3D hopfions.
                 </h1>
@@ -144,7 +144,7 @@ export function HomePage() {
               <div className="md:col-span-5 flex justify-center">
                 <div className="glass-card w-full max-w-md rounded-2xl border border-amber/10 bg-obsidian-2/40 p-4 shadow-2xl">
                   <HopfionScene height="h-[20rem] md:h-[24rem]" interactive={false} />
-                  <p className="mt-4 px-2 text-xs leading-relaxed text-parchment-2 font-mono text-center">
+                  <p className="mt-4 px-2 text-xs leading-relaxed text-parchment-2 font-sans font-medium text-center">
                     3D Hopfion Soliton model (passive auto-rotation)
                   </p>
                 </div>
@@ -155,7 +155,7 @@ export function HomePage() {
           {/* SECTION 2: WHY NOW */}
           <section className="min-h-[calc(100vh-64px)] snap-start snap-always relative flex flex-col justify-center py-16 px-6 md:px-12 border-b border-obsidian-3/40 bg-obsidian-2/10">
             <div className="mx-auto max-w-6xl w-full">
-              <span className="font-mono text-xl text-ember font-bold mb-4 tracking-[0.2em] block">02</span>
+              <span className="font-sans text-2xl text-ember font-extrabold mb-4 tracking-[0.15em] block">02</span>
               <h2 className="mb-6 text-3xl font-extrabold md:text-5xl text-parchment leading-tight">
                 Why now? The Thermodynamic Crisis.
               </h2>
@@ -169,7 +169,7 @@ export function HomePage() {
                     <div>
                       <div className="flex items-center gap-3 mb-4">
                         <StageBadge stage={card.stage} size="sm" />
-                        <span className="font-mono text-xs text-parchment-2">{card.citation}</span>
+                        <span className="font-sans text-xs text-parchment-2 font-medium">{card.citation}</span>
                       </div>
                       <h3 className="text-xl font-bold text-amber mb-3">{card.title}</h3>
                       <p className="text-sm md:text-base leading-relaxed text-parchment-2">{card.description}</p>
@@ -187,7 +187,7 @@ export function HomePage() {
           {/* SECTION 3: EVIDENCE DASHBOARD */}
           <section className="min-h-[calc(100vh-64px)] snap-start snap-always relative flex flex-col justify-center py-16 px-6 md:px-12 border-b border-obsidian-3/40">
             <div className="mx-auto max-w-6xl w-full">
-              <span className="font-mono text-xl text-ember font-bold mb-4 tracking-[0.2em] block">03</span>
+              <span className="font-sans text-2xl text-ember font-extrabold mb-4 tracking-[0.15em] block">03</span>
               <h2 className="mb-6 text-3xl font-extrabold md:text-5xl text-parchment leading-tight">
                 Evidence Dashboard
               </h2>
@@ -201,7 +201,7 @@ export function HomePage() {
                     <div>
                       <div className="flex items-center justify-between mb-3">
                         <StageBadge stage={claim.stage} size="sm" />
-                        <span className="font-mono text-[10px] text-parchment-2">{claim.source}</span>
+                        <span className="font-sans text-[10px] text-parchment-2 font-medium">{claim.source}</span>
                       </div>
                       <h4 className="font-bold text-parchment mb-2">{claim.title}</h4>
                       <p className="text-xs text-parchment-2 leading-relaxed">{claim.description}</p>
@@ -223,7 +223,7 @@ export function HomePage() {
           {/* SECTION 4: 2026 EVIDENCE BASE */}
           <section className="min-h-[calc(100vh-64px)] snap-start snap-always relative flex flex-col justify-center py-16 px-6 md:px-12 border-b border-obsidian-3/40 bg-obsidian-2/10">
             <div className="mx-auto max-w-6xl w-full">
-              <span className="font-mono text-xl text-ember font-bold mb-4 tracking-[0.2em] block">04</span>
+              <span className="font-sans text-2xl text-ember font-extrabold mb-4 tracking-[0.15em] block">04</span>
               <h2 className="mb-6 text-3xl font-extrabold md:text-5xl text-parchment leading-tight">
                 2026 Evidence Base & Timeline
               </h2>
@@ -239,7 +239,7 @@ export function HomePage() {
                 {keyCitations.map((cite, idx) => (
                   <div key={idx} className="bg-obsidian-2/50 border border-obsidian-3/40 rounded-lg p-4 flex flex-col justify-between">
                     <div>
-                      <div className="flex items-center justify-between font-mono text-xs text-amber mb-2">
+                      <div className="flex items-center justify-between font-sans text-xs text-amber font-semibold mb-2">
                         <span>{cite.year}</span>
                         <span className="text-[10px] text-parchment-2">{cite.journal}</span>
                       </div>
@@ -259,7 +259,7 @@ export function HomePage() {
           {/* SECTION 5: READING PATH & FOOTER */}
           <section className="min-h-[calc(100vh-64px)] snap-start snap-always relative flex flex-col justify-between py-16 px-6 md:px-12">
             <div className="mx-auto max-w-6xl w-full flex-1 flex flex-col justify-center">
-              <span className="font-mono text-xl text-ember font-bold mb-4 tracking-[0.2em] block">05</span>
+              <span className="font-sans text-2xl text-ember font-extrabold mb-4 tracking-[0.15em] block">05</span>
               <h2 className="mb-6 text-3xl font-extrabold md:text-5xl text-parchment leading-tight">
                 Where to start
               </h2>
@@ -272,7 +272,7 @@ export function HomePage() {
                 {readingSteps.map((step) => (
                   <li key={step.step} className="relative grid grid-cols-[auto_1fr_auto] items-center gap-6 pl-2">
                     <div className="z-10 flex items-center justify-center w-10 h-10 rounded-full bg-obsidian border border-ember shadow-md">
-                      <span className="font-mono text-amber text-sm font-bold">{String(step.step).padStart(2, '0')}</span>
+                      <span className="font-sans text-amber text-sm font-extrabold">{String(step.step).padStart(2, '0')}</span>
                     </div>
                     <div>
                       <Link to={step.href} className="text-lg font-bold text-amber hover:underline hover:text-ember transition-colors">
@@ -290,7 +290,7 @@ export function HomePage() {
 
             {/* Dynamic Footer for the snap container */}
             <footer className="w-full border-t border-obsidian-3/60 pt-6 mt-12">
-              <div className="mx-auto max-w-6xl flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between text-xs text-parchment-2 font-mono">
+              <div className="mx-auto max-w-6xl flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between text-xs text-parchment-2 font-sans font-medium">
                 <span>HELIOS-3D · Spintronic Coprocessor Project</span>
                 <a href="https://github.com/myrqyry/HELIOS-3D" className="hover:text-ember transition-colors" target="_blank" rel="noreferrer">
                   Source Code on GitHub

@@ -1,4 +1,4 @@
-import { useRef, useMemo, useEffect } from 'react';
+import { useRef, useMemo, useEffect, lazy, Suspense } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls, Stars, Billboard, Text, Line } from '@react-three/drei';
 import * as THREE from 'three';
@@ -11,6 +11,15 @@ import {
   MoireScaling3D,
   MilnorOptical3D,
 } from './CosmosSubsystems';
+import { CosmosPostProcessing } from './CosmosPostProcessing';
+
+// Lazy-loaded enhanced scenes for high-detail takeover when focused
+const EnhancedHopfion = lazy(() => import('./enhanced/EnhancedHopfion'));
+const EnhancedMaterialStack = lazy(() => import('./enhanced/EnhancedMaterialStack'));
+const EnhancedReservoir = lazy(() => import('./enhanced/EnhancedReservoir'));
+const EnhancedTohe = lazy(() => import('./enhanced/EnhancedTohe'));
+const EnhancedMoire = lazy(() => import('./enhanced/EnhancedMoire'));
+const EnhancedMilnor = lazy(() => import('./enhanced/EnhancedMilnor'));
 
 interface CosmosStageProps {
   layer: CognitiveLayer;
@@ -24,6 +33,7 @@ interface CosmosStageProps {
   isInspectorOpen?: boolean;
   signalStage?: number;
   isSignalActive?: boolean;
+  visualTier?: 'auto' | 'iconic' | 'enhanced';
 }
 
 /**
@@ -433,6 +443,7 @@ function SubsystemIsland({
   pulseTrigger,
   onSelect,
   isSignalActive = false,
+  visualTier = 'auto',
 }: {
   domain: DomainKnowledge;
   layer: CognitiveLayer;
@@ -443,6 +454,7 @@ function SubsystemIsland({
   pulseTrigger: number;
   onSelect: () => void;
   isSignalActive?: boolean;
+  visualTier?: 'auto' | 'iconic' | 'enhanced';
 }) {
   const beaconRef = useRef<THREE.Mesh>(null);
   const islandGroupRef = useRef<THREE.Group>(null);
@@ -463,13 +475,14 @@ function SubsystemIsland({
   // When another node is focused, pass layer 1 as LOD to quiet down vector & equation clutter
   const effectiveLayer = isFocused || !isAnyFocused ? layer : 1;
 
-  const renderSubsystem3D = () => {
+  const renderIconic = () => {
     switch (domain.id) {
       case 'hopfion':
         return (
           <Hopfion3D
             layer={effectiveLayer}
             isFocused={isFocused}
+            isDimmed={isAnyFocused && !isFocused}
             paused={paused}
             params={params}
             pulseTrigger={pulseTrigger}
@@ -481,6 +494,7 @@ function SubsystemIsland({
           <MaterialStack3D
             layer={effectiveLayer}
             isFocused={isFocused}
+            isDimmed={isAnyFocused && !isFocused}
             paused={paused}
             params={params}
             pulseTrigger={pulseTrigger}
@@ -492,6 +506,7 @@ function SubsystemIsland({
           <ReservoirLattice3D
             layer={effectiveLayer}
             isFocused={isFocused}
+            isDimmed={isAnyFocused && !isFocused}
             paused={paused}
             params={params}
             pulseTrigger={pulseTrigger}
@@ -503,6 +518,7 @@ function SubsystemIsland({
           <ToheReadout3D
             layer={effectiveLayer}
             isFocused={isFocused}
+            isDimmed={isAnyFocused && !isFocused}
             paused={paused}
             params={params}
             pulseTrigger={pulseTrigger}
@@ -514,6 +530,7 @@ function SubsystemIsland({
           <MoireScaling3D
             layer={effectiveLayer}
             isFocused={isFocused}
+            isDimmed={isAnyFocused && !isFocused}
             paused={paused}
             params={params}
             pulseTrigger={pulseTrigger}
@@ -525,6 +542,7 @@ function SubsystemIsland({
           <MilnorOptical3D
             layer={effectiveLayer}
             isFocused={isFocused}
+            isDimmed={isAnyFocused && !isFocused}
             paused={paused}
             params={params}
             pulseTrigger={pulseTrigger}
@@ -534,6 +552,93 @@ function SubsystemIsland({
       default:
         return null;
     }
+  };
+
+  const renderEnhanced = () => {
+    switch (domain.id) {
+      case 'hopfion':
+        return (
+          <EnhancedHopfion
+            layer={effectiveLayer}
+            isFocused={isFocused}
+            paused={paused}
+            params={params}
+            pulseTrigger={pulseTrigger}
+            onNodeClick={onSelect}
+          />
+        );
+      case 'material_stack':
+        return (
+          <EnhancedMaterialStack
+            layer={effectiveLayer}
+            isFocused={isFocused}
+            paused={paused}
+            params={params}
+            pulseTrigger={pulseTrigger}
+            onNodeClick={onSelect}
+          />
+        );
+      case 'reservoir':
+        return (
+          <EnhancedReservoir
+            layer={effectiveLayer}
+            isFocused={isFocused}
+            paused={paused}
+            params={params}
+            pulseTrigger={pulseTrigger}
+            onNodeClick={onSelect}
+          />
+        );
+      case 'tohe_readout':
+        return (
+          <EnhancedTohe
+            layer={effectiveLayer}
+            isFocused={isFocused}
+            paused={paused}
+            params={params}
+            pulseTrigger={pulseTrigger}
+            onNodeClick={onSelect}
+          />
+        );
+      case 'moire_scaling':
+        return (
+          <EnhancedMoire
+            layer={effectiveLayer}
+            isFocused={isFocused}
+            paused={paused}
+            params={params}
+            pulseTrigger={pulseTrigger}
+            onNodeClick={onSelect}
+          />
+        );
+      case 'milnor_optical':
+        return (
+          <EnhancedMilnor
+            layer={effectiveLayer}
+            isFocused={isFocused}
+            paused={paused}
+            params={params}
+            pulseTrigger={pulseTrigger}
+            onNodeClick={onSelect}
+          />
+        );
+      default:
+        return null;
+    }
+  };
+
+  // Focused node upgrades into the high-detail visual takeover unless forced to iconic
+  const shouldRenderEnhanced = isFocused && visualTier !== 'iconic';
+
+  const renderSubsystem3D = () => {
+    if (shouldRenderEnhanced) {
+      return (
+        <Suspense fallback={renderIconic()}>
+          {renderEnhanced()}
+        </Suspense>
+      );
+    }
+    return renderIconic();
   };
 
   return (
@@ -658,6 +763,7 @@ export function CosmosStage({
   isInspectorOpen = false,
   signalStage = 0,
   isSignalActive = false,
+  visualTier = 'auto',
 }: CosmosStageProps) {
   const activeDomain = useMemo(() => {
     return DOMAINS.find((d) => d.id === activeDomainId) ?? null;
@@ -696,6 +802,7 @@ export function CosmosStage({
           pulseTrigger={pulseTrigger}
           onSelect={() => onSelectDomain(domain.id)}
           isSignalActive={isSignalActive && PIPELINE_STEPS[signalStage % PIPELINE_STEPS.length]?.id === domain.id}
+          visualTier={visualTier}
         />
       ))}
 
@@ -705,6 +812,13 @@ export function CosmosStage({
         preset={cameraPreset}
         isInspectorOpen={isInspectorOpen}
         autoRotate={autoRotate}
+      />
+
+      {/* Optical Depth-of-Field & Post-Processing */}
+      <CosmosPostProcessing
+        activeDomain={activeDomain}
+        cameraPreset={cameraPreset}
+        isAnyFocused={activeDomainId !== null}
       />
     </>
   );

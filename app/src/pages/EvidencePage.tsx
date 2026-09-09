@@ -105,7 +105,7 @@ export function EvidencePage() {
         <meta name="description" content="Claim status and source grounding for the HELIOS-3D exhibit." />
       </Helmet>
       <header className="mb-10 border-b border-obsidian-3 pb-6">
-        <p className="mb-3 text-xs font-mono uppercase tracking-[0.2em] text-amber">Claim status</p>
+        <p className="mb-3 text-xs font-sans uppercase tracking-[0.2em] font-bold text-amber">Claim status</p>
         <h1 className="mb-4 text-5xl font-bold text-amber">Evidence</h1>
         <p className="max-w-3xl text-lg leading-relaxed text-parchment-2">The exhibit separates what has been demonstrated, inferred, and proposed. Read each group with its linked source before extending the claim.</p>
       </header>

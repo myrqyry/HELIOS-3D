@@ -35,7 +35,7 @@ export function ResearchFeed({
             <article key={record.id} className={`rounded-lg border border-obsidian-3/60 bg-obsidian-1/40 ${compact ? 'p-4' : 'p-5'}`}>
               <div className="mb-3 flex flex-wrap items-start justify-between gap-3">
                 <StageBadge stage={record.stage} size="sm" />
-                <time className="font-mono text-xs uppercase tracking-wider text-parchment-2" dateTime={record.publishedAt}>
+                <time className="font-sans text-xs uppercase tracking-wider font-semibold text-parchment-2" dateTime={record.publishedAt}>
                   {dateFormatter.format(new Date(record.publishedAt))}
                 </time>
               </div>

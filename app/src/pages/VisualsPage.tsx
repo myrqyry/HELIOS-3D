@@ -49,7 +49,7 @@ export function VisualsPage() {
       </div>
 
       <header className="mb-10 border-b border-obsidian-3 pb-6">
-        <p className="mb-3 text-xs font-mono uppercase tracking-[0.2em] text-amber">Curated exhibit</p>
+        <p className="mb-3 text-xs font-sans uppercase tracking-[0.2em] font-bold text-amber">Curated exhibit</p>
         <h1 className="mb-4 text-5xl font-bold text-amber">Visuals Gallery</h1>
         <p className="max-w-3xl text-lg leading-relaxed text-parchment-2">
           Individual focused models demonstrating core spintronic principles. The complete technical gallery remains available in{' '}

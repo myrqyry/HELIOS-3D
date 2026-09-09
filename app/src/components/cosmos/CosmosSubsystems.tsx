@@ -815,41 +815,43 @@ export function ToheReadout3D({
       </mesh>
 
       {/* 8. Deflected Orbital Currents (Layer 2 & 3) */}
-      <group>
-        {/* Left deflected beam (+y) */}
-        <group position={[0.7, 0.25, 0.45]}>
-          <mesh rotation={[0, 0, -Math.PI / 4]}>
-            <coneGeometry args={[0.06, 0.2, 12]} />
-            <meshStandardMaterial
-              color="#7dd3fc"
-              emissive="#38bdf8"
-              emissiveIntensity={isFocused ? 1.6 : isDimmed ? 0.4 : 1.1}
-            />
-          </mesh>
-          <Billboard position={[0, 0.25, 0]}>
-            <Text fontSize={0.12} color="#7dd3fc">
-              {layer === 3 ? 'σ_xz^Ly' : 'Orbital Beam (L+)'}
-            </Text>
-          </Billboard>
-        </group>
+      {layer >= 2 && (
+        <group>
+          {/* Left deflected beam (+y) */}
+          <group position={[0.7, 0.25, 0.45]}>
+            <mesh rotation={[0, 0, -Math.PI / 4]}>
+              <coneGeometry args={[0.06, 0.2, 12]} />
+              <meshStandardMaterial
+                color="#7dd3fc"
+                emissive="#38bdf8"
+                emissiveIntensity={isFocused ? 1.6 : isDimmed ? 0.4 : 1.1}
+              />
+            </mesh>
+            <Billboard position={[0, 0.25, 0]}>
+              <Text fontSize={0.12} color="#7dd3fc">
+                {layer === 3 ? 'σ_xz^Ly' : 'Orbital Beam (L+)'}
+              </Text>
+            </Billboard>
+          </group>
 
-        {/* Right deflected beam (-y) */}
-        <group position={[-0.7, 0.25, -0.45]}>
-          <mesh rotation={[0, 0, (3 * Math.PI) / 4]}>
-            <coneGeometry args={[0.06, 0.2, 12]} />
-            <meshStandardMaterial
-              color="#ffb627"
-              emissive="#ff6b1a"
-              emissiveIntensity={isFocused ? 1.6 : isDimmed ? 0.4 : 1.1}
-            />
-          </mesh>
-          <Billboard position={[0, 0.25, 0]}>
-            <Text fontSize={0.12} color="#ffb627">
-              {layer === 3 ? 'σ_yz^Lx' : 'Orbital Beam (L-)'}
-            </Text>
-          </Billboard>
+          {/* Right deflected beam (-y) */}
+          <group position={[-0.7, 0.25, -0.45]}>
+            <mesh rotation={[0, 0, (3 * Math.PI) / 4]}>
+              <coneGeometry args={[0.06, 0.2, 12]} />
+              <meshStandardMaterial
+                color="#ffb627"
+                emissive="#ff6b1a"
+                emissiveIntensity={isFocused ? 1.6 : isDimmed ? 0.4 : 1.1}
+              />
+            </mesh>
+            <Billboard position={[0, 0.25, 0]}>
+              <Text fontSize={0.12} color="#ffb627">
+                {layer === 3 ? 'σ_yz^Lx' : 'Orbital Beam (L-)'}
+              </Text>
+            </Billboard>
+          </group>
         </group>
-      </group>
+      )}
 
       {/* Layer 3: Hallmark Voltage Sensor Banner */}
       {layer === 3 && (

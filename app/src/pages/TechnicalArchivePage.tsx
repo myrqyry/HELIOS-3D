@@ -20,7 +20,7 @@ export function TechnicalArchivePage() {
         <meta name="description" content="The complete HELIOS-3D document archive and technical gallery." />
       </Helmet>
       <header className="mb-10 border-b border-obsidian-3 pb-6">
-        <p className="mb-3 text-xs font-mono uppercase tracking-[0.2em] text-amber">Research trail</p>
+        <p className="mb-3 text-xs font-sans uppercase tracking-[0.2em] font-bold text-amber">Research trail</p>
         <h1 className="mb-4 text-5xl font-bold text-amber">Technical archive</h1>
         <p className="max-w-3xl text-lg leading-relaxed text-parchment-2">The guided exhibit stays concise; this archive preserves the documents behind it. Existing document URLs remain unchanged.</p>
         <Link className="mt-5 inline-flex text-sm font-semibold text-amber hover:underline" to="/figures">Open the complete technical gallery →</Link>
@@ -37,7 +37,7 @@ export function TechnicalArchivePage() {
                   <Link key={`${doc.stageSlug}/${doc.slug}`} to={`/docs/${doc.stageSlug}/${doc.slug}`} className="rounded-lg border border-obsidian-3/50 bg-obsidian-2/30 p-4 transition-colors hover:border-amber/60">
                     <h3 className="font-bold text-parchment">{doc.title}</h3>
                     <p className="mt-2 text-sm leading-relaxed text-parchment-2">{doc.summary}</p>
-                    <span className="mt-3 inline-block font-mono text-xs text-amber">Read document →</span>
+                    <span className="mt-3 inline-block font-sans font-semibold text-xs text-amber">Read document →</span>
                   </Link>
                 ))}
               </div>

@@ -44,7 +44,7 @@ export default function CandidateMaterialsSummary() {
             <p className="text-xs text-parchment font-medium mb-2">{m.role}</p>
             <p className="text-xs text-parchment-2 leading-relaxed mb-4">{m.benefit}</p>
           </div>
-          <div className="pt-3 border-t border-obsidian-3/30 text-[10px] font-mono text-parchment-2/80">
+          <div className="pt-3 border-t border-obsidian-3/30 text-[10px] font-sans font-medium text-parchment-2/80">
             Grounding: {m.evidence}
           </div>
         </div>

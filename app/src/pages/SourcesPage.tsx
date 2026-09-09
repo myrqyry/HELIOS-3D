@@ -18,7 +18,7 @@ export function SourcesPage() {
         <meta name="description" content="Source registry and verification status for HELIOS-3D research claims." />
       </Helmet>
       <header className="mb-10 border-b border-obsidian-3 pb-6">
-        <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-amber">Verification ledger</p>
+        <p className="mb-3 font-sans text-xs uppercase tracking-[0.2em] font-bold text-amber">Verification ledger</p>
         <h1 className="mb-4 text-5xl font-bold text-amber">Sources</h1>
         <p className="max-w-3xl text-lg leading-relaxed text-parchment-2">
           Every research record must resolve to an accessible source and an archived capture before it can be marked verified.
@@ -40,10 +40,10 @@ export function SourcesPage() {
                   <h2 className="font-bold text-parchment">{source.title}</h2>
                   <p className="mt-1 text-sm text-parchment-2">{source.publisher}</p>
                 </div>
-                <span className={`rounded-full px-3 py-1 font-mono text-xs font-semibold ${status.className}`}>{status.label}</span>
+                <span className={`rounded-full px-3 py-1 font-sans text-xs font-bold ${status.className}`}>{status.label}</span>
               </div>
               <p className="mt-3 text-sm leading-relaxed text-parchment-2">{source.notes}</p>
-              <div className="mt-3 flex flex-wrap gap-4 font-mono text-xs">
+              <div className="mt-3 flex flex-wrap gap-4 font-sans text-xs font-medium">
                 {source.url ? <a className="break-all text-cyan-2 hover:underline" href={source.url} target="_blank" rel="noreferrer">Open source</a> : <span className="text-error">No source URL recorded</span>}
                 {source.archiveUrl ? <a className="break-all text-cyan-2 hover:underline" href={source.archiveUrl} target="_blank" rel="noreferrer">Open archive</a> : <span className="text-amber">No archive recorded</span>}
               </div>
@@ -61,7 +61,7 @@ export function SourcesPage() {
 function Summary({ label, value }: { label: string; value: number }) {
   return (
     <div className="rounded-lg border border-outline-variant bg-surface-container px-4 py-3">
-      <p className="font-mono text-xs uppercase tracking-wider text-on-surface-variant">{label}</p>
+      <p className="font-sans text-xs uppercase tracking-wider font-bold text-on-surface-variant">{label}</p>
       <p className="mt-1 text-2xl font-bold text-primary">{value}</p>
     </div>
   );

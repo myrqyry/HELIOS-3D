@@ -30,14 +30,14 @@ export default function OpenQuestionsSummary() {
           <div>
             <div className="flex items-center justify-between mb-3.5">
               <h4 className="font-bold text-parchment text-sm leading-snug">{b.title}</h4>
-              <span className={`font-mono text-[9px] font-bold px-2 py-0.5 rounded border uppercase tracking-wider ${b.color}`}>
+              <span className={`font-sans text-[9px] font-bold px-2 py-0.5 rounded border uppercase tracking-wider ${b.color}`}>
                 {b.priority}
               </span>
             </div>
             <p className="text-xs text-parchment-2 leading-relaxed mb-4">{b.description}</p>
           </div>
           <div className="pt-3 border-t border-obsidian-3/30">
-            <span className="block text-[10px] font-mono text-amber font-semibold mb-0.5">Path to Unblock:</span>
+            <span className="block text-[10px] font-sans text-amber font-bold mb-0.5">Path to Unblock:</span>
             <p className="text-xs text-parchment-2 leading-relaxed">{b.unblock}</p>
           </div>
         </div>

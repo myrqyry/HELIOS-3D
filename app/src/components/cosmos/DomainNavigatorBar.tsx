@@ -40,7 +40,7 @@ export function DomainNavigatorBar({
             onSelectDomain(null);
             soundManager.playNodeBlip(400);
           }}
-          className={`flex h-8 items-center gap-1.5 whitespace-nowrap rounded-full px-3 text-xs font-mono font-medium transition-all ${
+          className={`flex h-8 items-center gap-1.5 whitespace-nowrap rounded-full px-3 text-xs font-sans font-semibold transition-all ${
             activeDomainId === null
               ? 'bg-amber text-obsidian font-bold shadow-md'
               : 'text-parchment-2 hover:bg-obsidian-2 hover:text-parchment'
@@ -62,7 +62,7 @@ export function DomainNavigatorBar({
               <button
                 type="button"
                 onClick={() => handleSelect(d)}
-                className={`flex h-8 items-center gap-1.5 whitespace-nowrap rounded-full px-2.5 text-xs font-mono transition-all ${
+                className={`flex h-8 items-center gap-1.5 whitespace-nowrap rounded-full px-2.5 text-xs font-sans transition-all ${
                   isActive
                     ? 'bg-obsidian-3 text-parchment border border-amber/60 shadow-md ring-1 ring-amber/40 font-semibold'
                     : 'text-parchment-2 hover:bg-obsidian-2 hover:text-parchment border border-transparent'
@@ -78,7 +78,7 @@ export function DomainNavigatorBar({
 
               {/* Hover Tooltip showing full title, badge, and shortcut */}
               <div className="pointer-events-none absolute -top-9 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-150 z-30 whitespace-nowrap rounded-lg border border-obsidian-3/90 bg-obsidian/95 px-2.5 py-1 text-[11px] font-sans text-parchment shadow-xl backdrop-blur-md">
-                <span className="font-mono text-amber mr-1.5">{d.number}</span>
+                <span className="font-sans font-bold text-amber mr-1.5">{d.number}</span>
                 <span className="font-semibold text-parchment">{d.title}</span>
                 <span className="text-parchment-2 text-[10px] ml-1.5 tracking-wide uppercase">
                   · {d.badge}

@@ -39,6 +39,8 @@ interface LayerControlHUDProps {
   onViewExecutiveReport?: () => void;
   viewMode?: '3d' | 'briefing';
   onSelectViewMode?: (mode: '3d' | 'briefing') => void;
+  visualTier?: 'auto' | 'iconic' | 'enhanced';
+  onToggleVisualTier?: (tier: 'iconic' | 'enhanced') => void;
 }
 
 export function LayerControlHUD({
@@ -62,6 +64,8 @@ export function LayerControlHUD({
   onViewExecutiveReport,
   viewMode = '3d',
   onSelectViewMode,
+  visualTier = 'auto',
+  onToggleVisualTier,
 }: LayerControlHUDProps) {
   const [muted, setMuted] = useState(soundManager.getMuted());
   const activeDomain = DOMAINS.find((d) => d.id === activeDomainId);
@@ -78,7 +82,7 @@ export function LayerControlHUD({
   if (zenMode) {
     return (
       <header className="pointer-events-none absolute inset-x-0 top-2.5 z-20 flex justify-between px-3 md:px-4">
-        <div className="pointer-events-auto flex items-center gap-1.5 rounded-full border border-obsidian-3/80 bg-obsidian/90 px-3 py-1.5 backdrop-blur-md shadow-xl text-xs font-mono text-parchment">
+        <div className="pointer-events-auto flex items-center gap-1.5 rounded-full border border-obsidian-3/80 bg-obsidian/90 px-3 py-1.5 backdrop-blur-md shadow-xl text-xs font-sans font-semibold text-parchment">
           <span className="h-2 w-2 rounded-full bg-amber animate-pulse" />
           <span className="text-parchment-2 text-[11px]">SPATIAL ZEN</span>
           {activeDomain && <span className="text-amber">• {activeDomain.title}</span>}
@@ -118,7 +122,7 @@ export function LayerControlHUD({
             className="h-2 w-2 rounded-full animate-pulse"
             style={{ backgroundColor: activeDomain ? activeDomain.color : '#ffb627' }}
           />
-          <div className="flex items-center gap-1.5 text-xs font-mono">
+          <div className="flex items-center gap-1.5 text-xs font-sans font-semibold">
             <span className="font-bold tracking-tight text-parchment">HELIOS-3D</span>
             <span className="text-obsidian-3">/</span>
             {activeDomain ? (
@@ -231,6 +235,23 @@ export function LayerControlHUD({
             <span className="hidden lg:inline">Tour</span>
           </button>
 
+          {/* 3D Visual Tier Switcher (when node is focused) */}
+          {activeDomain && onToggleVisualTier && (
+            <button
+              type="button"
+              onClick={() => onToggleVisualTier(visualTier === 'iconic' ? 'enhanced' : 'iconic')}
+              className={`flex items-center gap-1 rounded-full px-2.5 py-1 text-xs transition-colors border ${
+                visualTier === 'iconic'
+                  ? 'border-obsidian-3 bg-obsidian-2 text-parchment-2 hover:text-parchment'
+                  : 'border-amber/60 bg-amber/20 text-amber font-semibold shadow-sm'
+              }`}
+              title={visualTier === 'iconic' ? 'Switch to Enhanced 3D scene takeover' : 'Switch to Iconic station model'}
+            >
+              <Sparkles className="h-3 w-3" />
+              <span className="hidden sm:inline">{visualTier === 'iconic' ? 'Iconic' : 'Enhanced'}</span>
+            </button>
+          )}
+
           {/* Causal Signal Flow Injection */}
           {onPropagateSignal && (
             <button
@@ -254,7 +275,7 @@ export function LayerControlHUD({
             <button
               type="button"
               onClick={() => onSelectPreset('overview')}
-              className={`rounded px-1.5 py-0.5 text-[10px] font-mono transition-colors ${
+              className={`rounded px-1.5 py-0.5 text-[10px] font-sans font-semibold transition-colors ${
                 cameraPreset === 'overview' ? 'bg-amber text-obsidian font-bold' : 'text-parchment-2 hover:text-parchment'
               }`}
               title="Full Macro Overview"
@@ -264,7 +285,7 @@ export function LayerControlHUD({
             <button
               type="button"
               onClick={() => onSelectPreset('slice')}
-              className={`rounded px-1.5 py-0.5 text-[10px] font-mono transition-colors ${
+              className={`rounded px-1.5 py-0.5 text-[10px] font-sans font-semibold transition-colors ${
                 cameraPreset === 'slice' ? 'bg-amber text-obsidian font-bold' : 'text-parchment-2 hover:text-parchment'
               }`}
               title="Cross-Section Slice View"
@@ -274,7 +295,7 @@ export function LayerControlHUD({
             <button
               type="button"
               onClick={() => onSelectPreset('topdown')}
-              className={`rounded px-1.5 py-0.5 text-[10px] font-mono transition-colors ${
+              className={`rounded px-1.5 py-0.5 text-[10px] font-sans font-semibold transition-colors ${
                 cameraPreset === 'topdown' ? 'bg-amber text-obsidian font-bold' : 'text-parchment-2 hover:text-parchment'
               }`}
               title="Top-Down Plan View"
@@ -349,7 +370,7 @@ export function LayerControlHUD({
       {/* Layer Context Sub-Banner */}
       <div className="pointer-events-none mt-1.5 flex justify-center">
         <div className="pointer-events-auto flex items-center gap-2 rounded-full border border-obsidian-3/80 bg-obsidian/85 px-3 py-0.5 text-[10px] text-parchment-2 backdrop-blur-sm">
-          <span className="font-mono text-amber">
+          <span className="font-sans font-bold text-amber">
             {layer === 1 && 'LEVEL 1 · INTUITION & MACRO METAPHORS'}
             {layer === 2 && 'LEVEL 2 · MESOSCOPIC HARDWARE & DEVICE PHYSICS'}
             {layer === 3 && 'LEVEL 3 · QUANTUM HAMILTONIANS & MATHEMATICS'}

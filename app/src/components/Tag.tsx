@@ -7,7 +7,7 @@ const styles: Record<string, string> = {
 
 export function Tag({ stage }: { stage: 'DEMONSTRATED' | 'INFERRED' | 'PROPOSED' | 'SPECULATIVE' }) {
   return (
-    <span className={`inline-block rounded-full px-2 py-0.5 font-mono text-xs font-semibold ${styles[stage]}`}>
+    <span className={`inline-block rounded-full px-2 py-0.5 font-sans text-xs font-bold ${styles[stage]}`}>
       {stage}
     </span>
   );

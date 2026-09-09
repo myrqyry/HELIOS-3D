@@ -28,7 +28,7 @@ export default function TargetsComparatorsSummary() {
       <div className="overflow-x-auto rounded-lg border border-obsidian-3/30 bg-obsidian-2/50 mb-6">
         <table className="w-full text-sm border-collapse min-w-[500px]">
           <thead>
-            <tr className="border-b border-obsidian-3/40 bg-obsidian-2/65 text-left text-amber font-mono text-xs uppercase tracking-wider">
+            <tr className="border-b border-obsidian-3/40 bg-obsidian-2/65 text-left text-amber font-sans text-xs font-bold uppercase tracking-wider">
               <th className="py-3 px-4 font-bold">Metric</th>
               <th className="py-3 px-4 font-bold text-parchment-2">SRAM</th>
               <th className="py-3 px-4 font-bold text-parchment-2">MRAM</th>
@@ -49,7 +49,7 @@ export default function TargetsComparatorsSummary() {
           </tbody>
         </table>
       </div>
-      <p className="text-xs text-parchment-2 leading-relaxed font-mono">
+      <p className="text-xs text-parchment-2 leading-relaxed font-sans">
         * Note: SRAM/MRAM figures represent current state-of-the-art industry benchmarks. HELIOS-3D figures are project targets under evaluation.
       </p>
     </div>

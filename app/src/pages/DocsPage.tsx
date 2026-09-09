@@ -32,7 +32,7 @@ function DocContent({ stage, slug }: { stage: string; slug: string }) {
       <DocVisualSummary slug={slug} stage={stage} />
       <TOC headings={[]} />
       <MDXContent />
-      <footer className="mt-12 pt-4 border-t border-obsidian-3 text-xs text-parchment-2 font-mono">
+      <footer className="mt-12 pt-4 border-t border-obsidian-3 text-xs text-parchment-2 font-sans font-medium">
         Last updated: {doc.updated}
       </footer>
     </>

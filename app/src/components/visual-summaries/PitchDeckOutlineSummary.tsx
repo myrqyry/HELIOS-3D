@@ -12,7 +12,7 @@ export default function PitchDeckOutlineSummary() {
       <div className="space-y-4">
         {slides.map((s, idx) => (
           <div key={idx} className="flex items-center gap-4 bg-obsidian-2/50 border border-obsidian-3/60 rounded-lg p-3">
-            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-obsidian border border-ember font-mono text-xs font-bold text-amber">
+            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-obsidian border border-ember font-sans text-xs font-bold text-amber">
               {s.num}
             </div>
             <div>

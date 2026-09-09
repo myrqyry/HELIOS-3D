@@ -33,12 +33,12 @@ export default function ProposedFabricationSummary() {
         {steps.map((s, idx) => (
           <div key={idx} className="flex-1 bg-obsidian-2/50 border border-obsidian-3/60 rounded-lg p-4 flex flex-col justify-between hover:border-amber/25 transition">
             <div>
-              <span className="block font-mono text-xs text-ember font-bold mb-2">{s.num} / STEP</span>
+              <span className="block font-sans text-xs text-ember font-bold mb-2">{s.num} / STEP</span>
               <h4 className="font-bold text-sm text-parchment mb-2">{s.title}</h4>
               <p className="text-xs text-parchment-2 leading-relaxed">{s.desc}</p>
             </div>
             {idx < steps.length - 1 && (
-              <div className="hidden lg:block self-end mt-4 text-xs font-semibold text-amber font-mono">
+              <div className="hidden lg:block self-end mt-4 text-xs font-semibold text-amber font-sans">
                 →
               </div>
             )}

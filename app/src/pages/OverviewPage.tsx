@@ -17,7 +17,7 @@ export function OverviewPage() {
         <meta name="description" content="A plain-language introduction to HELIOS-3D." />
       </Helmet>
       <header className="mb-12 pb-6 border-b border-obsidian-3">
-        <p className="text-xs font-mono uppercase tracking-[0.2em] text-amber mb-3">Public overview</p>
+        <p className="text-xs font-sans uppercase tracking-[0.2em] font-bold text-amber mb-3">Public overview</p>
         <h1 className="text-5xl font-bold text-amber mb-4">What HELIOS-3D is, and is not</h1>
         <p className="text-lg text-parchment-2 max-w-3xl leading-relaxed">
           HELIOS-3D is a research site about a speculative spintronic computing program. It asks whether magnetic

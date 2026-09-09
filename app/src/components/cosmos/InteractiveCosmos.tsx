@@ -40,6 +40,7 @@ export function InteractiveCosmos({
   const [isTourOpen, setIsTourOpen] = useState(false);
   const [tourStep, setTourStep] = useState(0);
   const [zenMode, setZenMode] = useState(false);
+  const [visualTier, setVisualTier] = useState<'auto' | 'iconic' | 'enhanced'>('auto');
 
   // Causal Signal Propagation State
   const [isSignalActive, setIsSignalActive] = useState(false);
@@ -153,13 +154,14 @@ export function InteractiveCosmos({
           isInspectorOpen={isInspectorOpen}
           signalStage={signalStage}
           isSignalActive={isSignalActive}
+          visualTier={visualTier}
         />
       </Canvas>
 
       {/* Real-time Causal Signal Pipeline Floating Status Banner */}
       {isSignalActive && (
         <div className="pointer-events-none absolute top-20 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1.5 animate-fadeIn">
-          <div className="flex items-center gap-2 rounded-full border border-amber/70 bg-obsidian/95 px-4 py-1.5 text-xs font-mono shadow-2xl backdrop-blur-xl">
+          <div className="flex items-center gap-2 rounded-full border border-amber/70 bg-obsidian/95 px-4 py-1.5 text-xs font-sans font-medium shadow-2xl backdrop-blur-xl">
             <span className="inline-block h-2 w-2 rounded-full bg-amber animate-ping" />
             <span className="font-bold text-amber">CAUSAL BUS:</span>
             <span className="text-parchment font-semibold">
@@ -216,6 +218,8 @@ export function InteractiveCosmos({
         onViewExecutiveReport={onViewExecutiveReport}
         viewMode={viewMode}
         onSelectViewMode={onSelectViewMode}
+        visualTier={visualTier}
+        onToggleVisualTier={(tier) => setVisualTier(tier)}
       />
 
       {/* Bottom Subsystem Navigator Dock (Hidden in Zen Mode) */}
@@ -239,6 +243,8 @@ export function InteractiveCosmos({
         onResetParams={handleResetParams}
         onTriggerPulse={handleTriggerPulse}
         onViewExecutiveReport={onViewExecutiveReport}
+        visualTier={visualTier}
+        onToggleVisualTier={(tier) => setVisualTier(tier)}
       />
 
       {/* Guided Tour Floating HUD */}

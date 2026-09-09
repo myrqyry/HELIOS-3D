@@ -61,7 +61,7 @@ export function Sidebar() {
       <nav className="sticky top-0 p-6 space-y-6 text-sm">
         {sections.map((section) => (
           <div key={section.stage} className={`pl-3 border-l-2 ${section.borderColor}`} data-stage-section={section.stage}>
-            <h3 className="font-mono text-xs uppercase tracking-wider text-amber mb-2">{section.title}</h3>
+            <h3 className="font-sans text-xs uppercase tracking-wider text-amber mb-2 font-bold">{section.title}</h3>
             <ul className="space-y-1">
               {section.items.map((item) => {
                 const isActive = pathname === item.href;

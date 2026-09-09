@@ -312,7 +312,7 @@ export default function SkyrmionScene({ height = 'h-96', interactive = true }: S
   return (
     <div className="relative flex flex-col w-full" id="skyrmion-scene-container">
       {/* Top Interactive Controls Toolbar */}
-      <div className="flex flex-wrap items-center justify-between gap-2 p-3 bg-obsidian border-b border-obsidian-3/60 rounded-t-xl text-xs font-mono">
+      <div className="flex flex-wrap items-center justify-between gap-2 p-3 bg-obsidian border-b border-obsidian-3/60 rounded-t-xl text-xs font-sans">
         <div className="flex items-center gap-2">
           <ExhibitControl
             label={paused ? 'Resume rotation' : 'Pause rotation'}

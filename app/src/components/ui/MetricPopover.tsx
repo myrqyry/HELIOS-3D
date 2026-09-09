@@ -21,7 +21,7 @@ export function MetricPopover({
   return (
     <PopoverPrimitive.Root>
       <PopoverPrimitive.Trigger asChild>
-        <button className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-amber/10 border border-amber/20 text-amber hover:bg-amber/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian transition-colors text-xs font-mono font-medium">
+        <button className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-amber/10 border border-amber/20 text-amber hover:bg-amber/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian transition-colors text-xs font-sans font-semibold">
           <span className="opacity-70">{label}:</span>
           <span>{value}</span>
         </button>
@@ -36,7 +36,7 @@ export function MetricPopover({
           <div className="flex flex-col gap-2">
             <div className="flex justify-between items-start gap-4">
               <p className="font-bold text-amber">{label}</p>
-              <span className="text-xs font-mono bg-obsidian-3 px-1.5 py-0.5 rounded text-parchment-3">{value}</span>
+              <span className="text-xs font-sans font-semibold bg-obsidian-3 px-1.5 py-0.5 rounded text-parchment-3">{value}</span>
             </div>
             <div className="text-xs leading-relaxed opacity-90">
               {children}

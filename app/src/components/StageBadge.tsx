@@ -12,7 +12,7 @@ export function StageBadge({ stage, size = 'md' }: { stage: DocStage; size?: 'sm
   const padding = size === 'sm' ? 'px-2 py-0.5 text-[10px]' : 'px-3 py-1 text-xs';
 
   return (
-    <span className={`inline-block rounded-full font-mono uppercase tracking-wider font-semibold ${padding} ${c.bg} ${c.text}`}>
+    <span className={`inline-block rounded-full font-sans uppercase tracking-wider font-bold ${padding} ${c.bg} ${c.text}`}>
       {c.label}
     </span>
   );

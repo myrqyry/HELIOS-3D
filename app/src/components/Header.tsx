@@ -68,12 +68,12 @@ export function Header() {
       <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-6">
         <Link
           to="/"
-          className="rounded font-mono text-primary text-lg font-bold tracking-wider hover:text-secondary focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 transition-colors flex items-center gap-2"
+          className="rounded font-sans text-primary text-xl font-extrabold tracking-wide hover:text-secondary focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 transition-colors flex items-center gap-2"
         >
           <span className="text-xl animate-pulse">☀️</span>HELIOS-3D
         </Link>
         <div className="flex flex-wrap items-center gap-3 sm:gap-6">
-          <nav aria-label="Primary navigation" className="flex flex-wrap gap-x-4 gap-y-2 text-sm font-medium">
+          <nav aria-label="Primary navigation" className="flex flex-wrap gap-x-4 gap-y-2 text-sm font-semibold">
             {PRIMARY_NAV.map((item) => {
               const className = "relative inline-flex min-h-11 items-center rounded text-on-surface-variant hover:text-secondary focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 transition-colors duration-[var(--duration-short)] group";
               const content = (
@@ -99,7 +99,7 @@ export function Header() {
               ref={selRef}
               onChange={handleChange}
               data-stage-filter
-              className="min-h-11 rounded-lg border border-outline-variant bg-surface-container px-3 py-2 font-mono text-xs text-on-surface focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 transition-colors sm:py-1"
+              className="min-h-11 rounded-lg border border-outline-variant bg-surface-container px-3 py-2 font-sans text-xs font-medium text-on-surface focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 transition-colors sm:py-1"
               aria-label="Filter technical content by stage"
             >
               <option value="all">All stages</option>

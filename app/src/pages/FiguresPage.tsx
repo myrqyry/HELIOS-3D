@@ -99,17 +99,17 @@ export function FiguresPage() {
       </header>
       <div className="mb-8 flex flex-wrap gap-4" aria-label="Figure filters">
         <fieldset className="flex flex-wrap items-center gap-2">
-          <legend className="mr-1 font-mono text-xs uppercase text-parchment-2">Source</legend>
-          <button type="button" aria-pressed={sourceFilter === 'all'} onClick={() => setSource('all')} className={`min-h-11 font-mono text-xs px-3 py-1 rounded border border-obsidian-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber ${sourceFilter === 'all' ? 'bg-obsidian-2 text-amber' : 'text-parchment-2 hover:text-amber'}`}>All</button>
+          <legend className="mr-1 font-sans text-xs uppercase font-bold text-parchment-2">Source</legend>
+          <button type="button" aria-pressed={sourceFilter === 'all'} onClick={() => setSource('all')} className={`min-h-11 font-sans text-xs font-semibold px-3 py-1 rounded border border-obsidian-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber ${sourceFilter === 'all' ? 'bg-obsidian-2 text-amber' : 'text-parchment-2 hover:text-amber'}`}>All</button>
           {allSources.map((s) => (
-            <button type="button" key={s} aria-pressed={sourceFilter === s} onClick={() => setSource(s)} className={`min-h-11 font-mono text-xs px-3 py-1 rounded border border-obsidian-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber ${sourceFilter === s ? 'bg-obsidian-2 text-amber' : 'text-parchment-2 hover:text-amber'}`}>{s}</button>
+            <button type="button" key={s} aria-pressed={sourceFilter === s} onClick={() => setSource(s)} className={`min-h-11 font-sans text-xs font-semibold px-3 py-1 rounded border border-obsidian-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber ${sourceFilter === s ? 'bg-obsidian-2 text-amber' : 'text-parchment-2 hover:text-amber'}`}>{s}</button>
           ))}
         </fieldset>
         <fieldset className="flex flex-wrap items-center gap-2">
-          <legend className="mr-1 font-mono text-xs uppercase text-parchment-2">Kind</legend>
-          <button type="button" aria-pressed={kindFilter === 'all'} onClick={() => setKind('all')} className={`min-h-11 font-mono text-xs px-3 py-1 rounded border border-obsidian-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber ${kindFilter === 'all' ? 'bg-obsidian-2 text-amber' : 'text-parchment-2 hover:text-amber'}`}>All</button>
+          <legend className="mr-1 font-sans text-xs uppercase font-bold text-parchment-2">Kind</legend>
+          <button type="button" aria-pressed={kindFilter === 'all'} onClick={() => setKind('all')} className={`min-h-11 font-sans text-xs font-semibold px-3 py-1 rounded border border-obsidian-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber ${kindFilter === 'all' ? 'bg-obsidian-2 text-amber' : 'text-parchment-2 hover:text-amber'}`}>All</button>
           {allKinds.map((k) => (
-            <button type="button" key={k} aria-pressed={kindFilter === k} onClick={() => setKind(k)} className={`min-h-11 font-mono text-xs px-3 py-1 rounded border border-obsidian-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber ${kindFilter === k ? 'bg-obsidian-2 text-amber' : 'text-parchment-2 hover:text-amber'}`}>{k}</button>
+            <button type="button" key={k} aria-pressed={kindFilter === k} onClick={() => setKind(k)} className={`min-h-11 font-sans text-xs font-semibold px-3 py-1 rounded border border-obsidian-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber ${kindFilter === k ? 'bg-obsidian-2 text-amber' : 'text-parchment-2 hover:text-amber'}`}>{k}</button>
           ))}
         </fieldset>
       </div>
@@ -126,7 +126,7 @@ export function FiguresPage() {
                     <button
                       type="button"
                       onClick={() => toggleInteraction(f.component)}
-                      className={`absolute top-3 right-3 z-20 flex h-8 items-center gap-1.5 rounded-md px-2.5 font-mono text-[10px] font-bold uppercase tracking-wider border shadow-md transition-all duration-200 cursor-pointer ${
+                      className={`absolute top-3 right-3 z-20 flex h-8 items-center gap-1.5 rounded-md px-2.5 font-sans text-[10px] font-bold uppercase tracking-wider border shadow-md transition-all duration-200 cursor-pointer ${
                         isInteractive
                           ? 'bg-amber border-amber text-obsidian hover:bg-gold'
                           : 'bg-obsidian-2/80 border-obsidian-3/60 text-parchment-2 hover:text-amber hover:border-amber/40 opacity-0 group-hover/canvas:opacity-100 focus-visible:opacity-100'
@@ -157,7 +157,7 @@ export function FiguresPage() {
                 <h3 className="mt-4 font-bold text-amber text-lg group-hover:text-ember transition-colors">{f.title}</h3>
                 <p className="text-sm text-parchment-2/90 mt-1.5 leading-relaxed">{f.description}</p>
               </div>
-              <p className="text-xs font-mono text-parchment-2/80 mt-4 pt-3 border-t border-obsidian-3/30 flex items-center justify-between">
+              <p className="text-xs font-sans font-medium text-parchment-2/80 mt-4 pt-3 border-t border-obsidian-3/30 flex items-center justify-between">
                 <span>Source: <span className={f.source === 'data-driven' ? 'text-gold font-semibold' : 'text-cyan-2 font-semibold'}>{f.source}</span></span>
                 <span className="px-2 py-0.5 bg-obsidian-2 rounded-full border border-obsidian-3/40 text-[10px] uppercase tracking-wider">{f.kind}</span>
               </p>

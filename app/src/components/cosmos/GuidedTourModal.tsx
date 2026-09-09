@@ -110,7 +110,7 @@ export function GuidedTourModal({
               <Compass className="h-4 w-4" />
             </div>
             <div>
-              <div className="text-[10px] font-mono uppercase tracking-wider text-parchment-2">
+              <div className="text-[10px] font-sans font-bold uppercase tracking-wider text-parchment-2">
                 GUIDED TOUR • STEP {currentStep + 1} OF {TOUR_STEPS.length}
               </div>
               <h3 className="text-sm font-bold text-parchment">{step.title}</h3>

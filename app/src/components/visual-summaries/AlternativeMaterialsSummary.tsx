@@ -22,7 +22,7 @@ export default function AlternativeMaterialsSummary() {
       <div className="space-y-4">
         {tradeOffs.map((t, idx) => (
           <div key={idx} className="bg-obsidian-2/50 border border-obsidian-3/60 rounded-lg p-4">
-            <h4 className="font-mono text-xs text-amber font-bold uppercase tracking-wider mb-2">{t.axis}</h4>
+            <h4 className="font-sans text-xs text-amber font-bold uppercase tracking-wider mb-2">{t.axis}</h4>
             <p className="font-bold text-sm text-parchment mb-1">{t.approach}</p>
             <p className="text-xs text-parchment-2 leading-relaxed">{t.trade}</p>
           </div>

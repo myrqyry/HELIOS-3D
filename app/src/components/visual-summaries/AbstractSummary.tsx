@@ -13,7 +13,7 @@ export default function AbstractSummary() {
       <div className="md:col-span-8 grid gap-4 grid-cols-2">
         {stats.map((s, idx) => (
           <div key={idx} className="bg-obsidian/30 border border-obsidian-3/30 rounded-lg p-4">
-            <span className="block text-xs font-mono text-parchment-2 uppercase tracking-wider mb-1">{s.label}</span>
+            <span className="block text-xs font-sans font-bold text-parchment-2 uppercase tracking-wider mb-1">{s.label}</span>
             <span className="block text-2xl font-extrabold text-amber mb-1">{s.value}</span>
             <span className="block text-xs text-parchment-2">{s.desc}</span>
           </div>
@@ -23,7 +23,7 @@ export default function AbstractSummary() {
         <div className="w-full max-w-[180px] rounded-lg overflow-hidden border border-amber/10 bg-obsidian-2/50 p-2 shadow-lg">
           <HopfionScene height="h-32" interactive={false} />
         </div>
-        <span className="mt-2 text-[10px] font-mono text-parchment-2">3D Topological Knot</span>
+        <span className="mt-2 text-[10px] font-sans font-medium text-parchment-2">3D Topological Knot</span>
       </div>
     </div>
   );

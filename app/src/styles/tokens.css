@@ -43,6 +43,7 @@
   --duration-medium: 300ms;
   --duration-long: 500ms;
 
-  --font-sans: "Bricolage Grotesque Variable", "Geist", "Geist Fallback", system-ui, sans-serif;
+  --font-sans: "Bricolage Grotesque", "Bricolage Grotesque Variable", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --default-font-family: var(--font-sans);
   --font-mono: "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
 }

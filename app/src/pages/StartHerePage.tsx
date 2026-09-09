@@ -27,7 +27,7 @@ export function StartHerePage() {
         {path.map((p) => (
           <li key={p.step} className="relative grid grid-cols-[auto_1fr_auto] items-start gap-6 pl-2">
             <div className="z-10 flex items-center justify-center w-12 h-12 rounded-full bg-obsidian border-2 border-ember">
-              <span className="font-mono text-amber text-lg">{String(p.step).padStart(2, '0')}</span>
+              <span className="font-sans text-amber text-lg font-extrabold">{String(p.step).padStart(2, '0')}</span>
             </div>
             <div>
               <Link to={p.href} className="text-2xl font-bold text-amber hover:underline">{p.title}</Link>
