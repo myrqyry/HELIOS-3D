@@ -12,5 +12,8 @@
     "preview": "npm run preview --workspace=helios-3d-site",
     "test": "npm run test --workspace=helios-3d-site",
     "lint": "npm run lint --workspace=helios-3d-site"
+  },
+  "dependencies": {
+    "remark-gfm": "^4.0.1"
   }
 }

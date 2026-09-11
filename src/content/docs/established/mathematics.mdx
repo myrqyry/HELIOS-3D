@@ -14,7 +14,7 @@ To rigorously understand the behavior of hopfions as stable information carriers
 
 A magnetic hopfion is a three-dimensional topological soliton characterized by a non-zero Hopf index, $H$. While skyrmions are defined by a 2D winding number, hopfions are defined by the linking of pre-images in 3D space.
 
-The Hopf number is defined as the integral of the magnetic helicity over all space:
+The Hopf number is defined as the integral of the magnetic helicity over all space[^whitehead1947]:
 
 $$H = \frac{1}{(4\pi)^2} \int_{\mathbb{R}^3} \mathbf{A} \cdot \mathbf{B} \, d^3r$$
 
@@ -32,7 +32,12 @@ The stability of the hopfion is governed by the energy barrier ($\Delta E$) sepa
 
 $$\Gamma = f_0 e^{-\frac{\Delta E}{k_B T}}$$
 
-In the HELIOS-3D architecture, the material parameters (exchange stiffness, DMI, and particularly the massive perpendicular magnetic anisotropy of the $Fe_3GaTe_2$ / $RuO_2$ heterostructure) are engineered to create a deep energy minimum for the hopfion state.
+In the HELIOS-3D architecture, the material parameters (exchange stiffness, DMI, and particularly the massive perpendicular magnetic anisotropy of the $Fe_3GaTe_2$ / $RuO_2$ heterostructure) are engineered to create a deep energy minimum for the hopfion state.[^ushakov2025]
 
 *   **Energy Barriers:** Simulations indicate energy barriers typically in the range of **$10{-}50 \, k_B T$** at room temperature.
 *   **Non-Volatile Storage:** This robust energy barrier prevents the hopfion from collapsing into a trivial state, providing the physical logic for long-term, non-volatile data storage. The hopfion acts as a discrete, stable bit of information purely by virtue of its knotted geometry.
+
+[^whitehead1947]: J. H. C. Whitehead, *An expression of Hopf's invariant as an integral*, Proceedings of the National Academy of Sciences 33(5), 117–123 (1947). Formulates the integral topological linking representation for 3-sphere maps. [https://doi.org/10.1073/pnas.33.5.117](https://doi.org/10.1073/pnas.33.5.117)
+
+[^ushakov2025]: V. Ushakov et al., *Hybrid Chiral Domain Walls and Soliton Confinement in Van der Waals Ferromagnets*, Physical Review Letters (2025). High-temperature magnetic anisotropy and topological soliton confinement in 2D van der Waals ferromagnet heterostructures. [https://doi.org/10.1103/PhysRevLett.134.026701](https://doi.org/10.1103/PhysRevLett.134.026701)
+

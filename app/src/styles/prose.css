@@ -19,4 +19,32 @@
   .prose-custom th, .prose-custom td { border: 1px solid var(--color-obsidian-3); padding: 0.5rem 0.75rem; text-align: left; }
   .prose-custom th { background: var(--color-obsidian-2); color: var(--color-amber); }
   .prose-custom hr { border: 0; border-top: 1px solid var(--color-obsidian-3); margin: 2rem 0; }
+  .prose-custom mjx-container { color: inherit !important; outline: none !important; }
+  .prose-custom mjx-container[display="true"] { margin: 1.5rem 0 !important; overflow-x: auto; overflow-y: hidden; padding: 0.25rem 0; }
+  .prose-custom .math-display { overflow-x: auto; overflow-y: hidden; }
+
+  /* Footnotes & Citation Previews */
+  .prose-custom .footnotes { margin-top: 3.5rem; padding-top: 1.5rem; border-top: 1px solid var(--color-obsidian-3); }
+  .prose-custom .footnotes h2 { font-size: 1.125rem; color: var(--color-amber); margin-bottom: 1rem; border-top: none; padding-top: 0; }
+  .prose-custom .footnotes ol { padding-left: 1.25rem; list-style-type: decimal; }
+  .prose-custom .footnotes li { font-size: 0.85rem; color: var(--color-parchment-2); margin-bottom: 0.75rem; line-height: 1.6; scroll-margin-top: 5rem; }
+  .prose-custom sup { line-height: 0; vertical-align: super; }
+  .prose-custom sup a[data-footnote-ref] { text-decoration: none; }
+
+  @keyframes footnotePulseAnim {
+    0% {
+      background-color: rgba(245, 158, 11, 0.22);
+      outline: 2px solid rgba(245, 158, 11, 0.75);
+    }
+    100% {
+      background-color: transparent;
+      outline: 2px solid transparent;
+    }
+  }
+
+  .highlight-footnote-pulse {
+    animation: footnotePulseAnim 2.5s ease-out forwards;
+    border-radius: 0.375rem;
+    padding: 0.25rem 0.5rem;
+  }
 }

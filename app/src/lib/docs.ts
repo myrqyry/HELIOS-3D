@@ -11,7 +11,11 @@ export interface DocMeta {
   slug: string;
 }
 
-const mdxModules = import.meta.glob<{ frontmatter: Record<string, unknown>; default: ComponentType }>(
+export interface MDXProps {
+  components?: Record<string, unknown>;
+}
+
+const mdxModules = import.meta.glob<{ frontmatter: Record<string, unknown>; default: ComponentType<MDXProps> }>(
   '../content/docs/**/*.mdx',
   { eager: true }
 );
@@ -22,7 +26,7 @@ function parseDate(value: unknown): string {
   return '2026-01-01';
 }
 
-export const docsManifest: Map<string, DocMeta & { component: ComponentType }> = new Map();
+export const docsManifest: Map<string, DocMeta & { component: ComponentType<MDXProps> }> = new Map();
 
 for (const [path, mod] of Object.entries(mdxModules)) {
   const fm = (mod.frontmatter || {}) as Record<string, unknown>;

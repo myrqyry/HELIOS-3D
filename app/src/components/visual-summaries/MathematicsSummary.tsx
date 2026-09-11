@@ -23,8 +23,8 @@ export default function MathematicsSummary() {
         <div key={idx} className="bg-obsidian-2/40 border border-obsidian-3/45 rounded-xl p-5 flex flex-col justify-between">
           <div>
             <h4 className="font-bold text-sm text-amber mb-3 font-sans">{eq.title}</h4>
-            <div className="bg-obsidian/40 border border-obsidian-3/30 rounded-lg py-5 px-3 mb-4 text-center font-mono text-xs text-parchment overflow-x-auto">
-              <code>{eq.math}</code>
+            <div className="bg-obsidian/40 border border-obsidian-3/30 rounded-lg py-5 px-3 mb-4 text-center text-sm text-parchment overflow-x-auto">
+              <span className="math math-display block">{`$$${eq.math}$$`}</span>
             </div>
           </div>
           <p className="text-xs text-parchment-2 leading-relaxed">{eq.desc}</p>
