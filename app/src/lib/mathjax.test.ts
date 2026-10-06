@@ -10,16 +10,16 @@ describe('mathjax utility in node / SSR environment', () => {
 });
 
 describe('mathjax utility with window mock', () => {
-  const originalWindow = global.window;
+  const originalWindow = globalThis.window;
 
   beforeEach(() => {
-    (global as unknown as { window: unknown }).window = {
+    (globalThis as unknown as { window: unknown }).window = {
       MathJax: undefined,
     };
   });
 
   afterEach(() => {
-    (global as unknown as { window: unknown }).window = originalWindow;
+    (globalThis as unknown as { window: unknown }).window = originalWindow;
   });
 
   it('reports MathJax as not ready when window.MathJax is missing', () => {
